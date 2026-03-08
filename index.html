@@ -1,0 +1,1982 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Friends & Co | FriendsCo</title>
+    <!-- Google Fonts for Open Sans and Roboto Condensed (closest match for Akzidenz-Grotesk) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Roboto+Condensed:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* 
+         * BRAND GUIDELINES IMPLEMENTATION 
+         */
+        @font-face {
+            font-family: 'Albiol';
+            src: url('assets/fonts/Albiol.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            /* Primary Brand Colors */
+            --color-blue: #5e74b1;
+            --color-magenta: #ba3f97;
+            --color-green: #85c340;
+            --color-green-light: #b0d235;
+            --color-teal: #00bbd3;
+            --color-orange: #f9a41e;
+            --color-slate: #7d91a0;
+
+            /* Typography */
+            /* Open Sans: Extra Bold, Bold, Semi Bold, Medium, Regular, Light */
+            --font-primary: 'Open Sans', sans-serif;
+
+            /* Akzidenz-Grotesk Pro Medium Condensed */
+            /* Fallback to Roboto Condensed 700/500 to match 'Medium Condensed' feel */
+            --font-display: 'Akzidenz-Grotesk Pro Medium Condensed', 'Roboto Condensed', sans-serif;
+
+            /* Albiol */
+            --font-script: 'Albiol', 'Brush Script MT', cursive;
+
+            /* UI Variables */
+            --border-radius: 12px;
+            --container-width: 1200px;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--color-slate);
+            line-height: 1.6;
+            background-color: #FAFAFA;
+            /* Warm off-white */
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--color-blue);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--color-magenta);
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* UTILITIES */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-white {
+            color: white;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            background-color: var(--color-orange);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            font-family: var(--font-primary);
+            transition: transform 0.2s, background-color 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            background-color: #e89816;
+            /* darken slightly */
+        }
+
+        /* ANIMATIONS */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Text Scaling */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-main-text h1 {
+                font-size: 3.5rem !important;
+            }
+
+            .script-text {
+                font-size: 3.5rem !important;
+            }
+
+            .hero-collage {
+                padding: 40px 20px;
+                min-height: 400px;
+            }
+
+            .accordion-item {
+                margin-bottom: 2rem !important;
+            }
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 96px;
+            /* Below header */
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 96px);
+            background: white;
+            z-index: 999;
+            padding: 2rem;
+            flex-direction: column;
+            gap: 1.5rem;
+            overflow-y: auto;
+        }
+
+        .mobile-menu-overlay.active {
+            display: flex;
+        }
+
+        .mobile-nav-link {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            color: var(--color-blue);
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+
+        /* HEADER REFACTOR */
+        header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+            height: 96px;
+            /* h-24 */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Logo Area */
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Desktop Menu */
+        .desktop-menu {
+            display: none;
+        }
+
+        @media(min-width: 1024px) {
+            .desktop-menu {
+                display: flex;
+                align-items: center;
+                gap: 1.5rem;
+            }
+        }
+
+        .nav-item {
+            font-size: 13px;
+            font-weight: 700;
+            color: rgba(94, 116, 177, 0.9);
+            /* brand-blue/90 */
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.2s;
+        }
+
+        .nav-item:hover {
+            color: var(--color-magenta);
+        }
+
+        .nav-item i {
+            font-size: 0.75rem;
+            opacity: 0.6;
+        }
+
+        /* Right Actions */
+        .nav-actions {
+            display: none;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        @media(min-width: 768px) {
+            .nav-actions {
+                display: flex;
+            }
+        }
+
+        .btn-give-nav {
+            background-color: var(--color-green);
+            color: white;
+            padding: 8px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.2s;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-give-nav:hover {
+            background-color: #6caa30;
+        }
+
+        .btn-search {
+            width: 36px;
+            height: 36px;
+            background-color: var(--color-blue);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-search:hover {
+            background-color: #4a5d91;
+        }
+
+        /* Mobile Toggle */
+        .mobile-toggle {
+            display: block;
+            background: none;
+            border: none;
+            color: var(--color-blue);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media(min-width: 1024px) {
+            .mobile-toggle {
+                display: none;
+            }
+        }
+
+
+        /* HERO SECTION: Collage Style */
+        /* HERO SECTION: Collage Style */
+        .hero-collage {
+            position: relative;
+            background-color: white;
+            overflow: hidden;
+            min-height: 420px;
+            /* Reduced height as requested (was 550px) */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            /* Reduced padding */
+        }
+
+        /* Top Color Bar */
+        .color-bar {
+            display: flex;
+            height: 12px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 20;
+        }
+
+        .cb-purple {
+            flex: 1;
+            background: var(--color-magenta);
+        }
+
+        .cb-green {
+            flex: 1;
+            background: var(--color-green);
+        }
+
+        .cb-orange {
+            flex: 1;
+            background: var(--color-orange);
+        }
+
+        .cb-blue {
+            flex: 1;
+            background: var(--color-blue);
+        }
+
+        /* WAYS TO GIVE GRID */
+        .ways-to-give {
+            padding: var(--spacing-lg) 0;
+            background-color: #f2f5f7;
+            /* Light gray to contrast with white hero */
+            margin-bottom: 0;
+            /* Removed space to fixing white gap */
+        }
+
+        .intro {
+            max-width: 800px;
+            margin: 0 auto var(--spacing-lg) auto;
+        }
+
+        /* Quick Links */
+        .quick-links {
+            padding-bottom: 3rem;
+            /* Changed to padding to keep background white */
+        }
+
+        /* Background Pattern Layer */
+        .hero-bg-pattern {
+            display: block;
+            /* Show pattern again */
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('assets/img/FriendsCo_Pattern.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.25;
+            /* Increased opacity for more color/less lightness */
+            z-index: 1;
+            pointer-events: none;
+            transform: scale(1.1);
+            /* Zoom in to eliminate edges/containment look */
+        }
+
+        /* Collage Wrapper - Hide Icons */
+        .collage-wrapper {
+            display: none;
+            /* Hide all collage icons/shapes as requested */
+        }
+
+        .collage-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            position: relative;
+            height: 100%;
+            width: 100%;
+            opacity: 0.6;
+            /* Overall collage opacity */
+        }
+
+        /* Decorative Elements styling */
+        .el-abs {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .giant-ampersand {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 20rem;
+            color: rgba(186, 63, 151, 0.1);
+            /* purple/10 */
+            line-height: 1;
+            z-index: 0;
+        }
+
+        .shape-bubble-orange {
+            width: 140px;
+            height: 140px;
+            background: rgba(249, 164, 30, 0.15);
+            color: var(--color-orange);
+            border-radius: 50% 50% 50% 4px;
+            /* rough rough styling */
+            font-size: 3.5rem;
+            transform: rotate(-12deg);
+        }
+
+        .shape-box-purple {
+            width: 120px;
+            height: 120px;
+            background: rgba(186, 63, 151, 0.15);
+            color: var(--color-magenta);
+            border-radius: 20px;
+            border-top-right-radius: 60px;
+            font-size: 3.5rem;
+            transform: rotate(6deg);
+        }
+
+        .shape-flower-green {
+            width: 180px;
+            height: 180px;
+            background: rgba(133, 195, 64, 0.15);
+            color: white;
+            /* Icon inside is white? or green? user code says white text-white */
+            border-radius: 50%;
+            /* Simplified flower */
+            font-size: 4.5rem;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            /* Starish/Flowerish shape */
+        }
+
+        .shape-house-blue {
+            width: 150px;
+            height: 150px;
+            background: rgba(94, 116, 177, 0.15);
+            color: var(--color-blue);
+            border-radius: 30px;
+            border-bottom-left-radius: 80px;
+            font-size: 3.5rem;
+            transform: rotate(3deg);
+        }
+
+        /* Positions */
+        .pos-top-left {
+            top: 40px;
+            left: 5%;
+        }
+
+        .pos-top-right {
+            top: 60px;
+            right: 10%;
+        }
+
+        .pos-bot-left {
+            bottom: 80px;
+            left: 15%;
+        }
+
+        .pos-bot-right {
+            bottom: 40px;
+            right: 5%;
+        }
+
+        /* Script Labels */
+        .label-script {
+            font-family: var(--font-script);
+            color: var(--color-blue);
+            font-size: 2.5rem;
+            z-index: 10;
+        }
+
+        .pos-script-1 {
+            top: 140px;
+            left: 12%;
+            transform: rotate(-6deg);
+        }
+
+        .pos-script-2 {
+            bottom: 80px;
+            left: 45%;
+            transform: rotate(-3deg);
+        }
+
+        .icon-mug {
+            bottom: 20px;
+            left: 5%;
+            font-size: 4rem;
+            color: rgba(186, 63, 151, 0.2);
+        }
+
+        /* Main Hero Text (Z-Index above all) */
+        .hero-main-text {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .hero-main-text h1 {
+            font-family: var(--font-script);
+            font-size: 5.5rem;
+            color: var(--color-orange);
+            /* Matching other script text */
+            margin-bottom: 0.5rem;
+            text-shadow: none;
+            line-height: 1.1;
+            font-weight: normal;
+            text-transform: none;
+            /* Not all caps */
+            -webkit-text-stroke: 1.5px var(--color-orange);
+            /* 1.5 weight stroke sim */
+
+            /* User request: Underline with space */
+            display: inline-block;
+            border-bottom: 2px solid var(--color-blue);
+            /* Contrast color (Blue on Orange) */
+            padding-bottom: 0px;
+            /* Closer to text */
+            line-height: 0.9;
+        }
+
+        .hero-main-text p {
+            color: var(--color-slate);
+            font-weight: 400;
+            font-size: 1.25rem;
+        }
+
+        @media(max-width: 768px) {
+            .giant-ampersand {
+                font-size: 12rem;
+            }
+
+            .shape-bubble-orange,
+            .shape-box-purple,
+            .shape-flower-green,
+            .shape-house-blue {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+
+            .pos-top-left {
+                left: -10px;
+            }
+
+            .pos-top-right {
+                right: -10px;
+            }
+
+            .hero-collage {
+                min-height: 400px;
+            }
+        }
+
+        /* Quick Links */
+        .pill-link {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: white;
+            /* Changed to white for better outline contrast */
+            color: var(--color-slate);
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            border: 1px solid #d1d5db;
+            /* Added thin outline */
+        }
+
+        .pill-link:hover {
+            background-color: var(--color-blue);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* ACCORDION STYLES */
+        .accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            /* Reverted to standard gap */
+        }
+
+        .accordion-item {
+            background: white;
+            border: 1px solid #d1d5db;
+            /* Darkened from #eee for visible outline */
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+            /* Border left accent */
+            border-left: 6px solid var(--accent-color);
+            /* Removed large margin-bottom */
+        }
+
+        .accordion-item:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        summary {
+            list-style: none;
+            /* Hide default triangle */
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            transition: background 0.2s;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+            /* Hide marker in WebKit */
+        }
+
+        summary:hover {
+            background-color: #fafafa;
+        }
+
+        .summary-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-slate);
+            text-transform: uppercase;
+        }
+
+        /* Change title color when open or specific accent? */
+        details[open]>summary {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        details[open] .summary-title {
+            color: white;
+        }
+
+        .summary-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #ccc;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        details[open] .summary-icon {
+            transform: rotate(45deg);
+            color: white;
+        }
+
+        /* Content Animation Wrapper */
+        .accordion-content {
+            border-top: 1px solid #eee;
+            background-color: #fff;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-wrapper {
+            padding: 2rem;
+        }
+
+        /* Typography inside accordion matches previous cards */
+        .card-subtitle {
+            font-family: var(--font-primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--color-magenta);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .card-subtitle-secondary {
+            font-family: var(--font-primary);
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--color-green);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .action-block {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px dashed #eee;
+        }
+
+        .action-header {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--color-teal);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .contact-info {
+            background-color: #f0f7ff;
+            color: var(--color-blue);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+            display: inline-block;
+        }
+
+        /* FEATURE SECTION (Graphic Element) */
+        .pattern-break {
+            /* Background moved to ::after to match scaling logic */
+            position: relative;
+            overflow: hidden;
+            padding: 3rem 0;
+            /* Reduced height request */
+            text-align: center;
+            color: white;
+        }
+
+        /* Overlay */
+        .pattern-break::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(94, 116, 177, 0.85), rgba(0, 187, 211, 0.85));
+            z-index: 2;
+            /* Content is 3, Overlay 2, Image 1 */
+        }
+
+        /* Background Image on ::after to allow scaling */
+        .pattern-break::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('assets/img/FriendsCo_Pattern.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transform: scale(1.1);
+            /* Ensure coverage */
+            z-index: 1;
+        }
+
+        .pattern-content {
+            position: relative;
+            z-index: 3;
+            /* Above overlay */
+        }
+
+        .script-text {
+            /* Albiol match */
+            font-family: var(--font-script);
+            font-size: 5.5rem;
+            /* Increased from 3.5rem */
+            color: white;
+            /* Changed from orange for readability */
+            margin-bottom: 0.5rem;
+            /* transform: rotate(-3deg); REMOVED */
+            display: inline-block;
+            -webkit-text-stroke: 1.5px white;
+            /* stroke white as well */
+            font-weight: normal;
+            line-height: 1.1;
+
+            /* User request: Underline with space */
+            border-bottom: 2px solid var(--color-orange);
+            /* Contrast color (Orange on White/Blue) */
+            padding-bottom: 0px;
+            /* Closer to text */
+            line-height: 0.9;
+        }
+
+        /* FOOTER REFACTOR (Matching User Request) */
+        footer {
+            background-color: white;
+            color: #666;
+            padding: 0;
+            border-top: 4px solid var(--color-magenta);
+            font-family: var(--font-primary);
+        }
+
+        .footer-top {
+            padding: 3rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .footer-grid-top {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media(min-width: 1024px) {
+            .footer-grid-top {
+                grid-template-columns: 3fr 5fr 4fr;
+            }
+        }
+
+        /* Logo Section */
+        .footer-logo-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        @media(min-width: 1024px) {
+            .footer-logo-area {
+                align-items: flex-start;
+                text-align: left;
+            }
+        }
+
+        .logo-text-group {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+            transform: scale(0.9);
+            transform-origin: left;
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-weight: 700;
+            text-transform: none;
+        }
+
+        .text-4xl {
+            font-size: 2.25rem;
+        }
+
+        .text-xs {
+            font-size: 0.75rem;
+        }
+
+        .give-btn {
+            background-color: var(--color-green);
+            color: white;
+            padding: 8px 32px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: background 0.2s;
+            display: inline-flex;
+            gap: 0.5rem;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .give-btn:hover {
+            background-color: #6caa30;
+        }
+
+        /* Newsletter */
+        .newsletter-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            max-width: 400px;
+            margin-top: 1rem;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            font-size: 0.875rem;
+        }
+
+        .footer-input:focus {
+            outline: none;
+            border-color: var(--color-magenta);
+        }
+
+        .footer-submit-btn {
+            width: 100%;
+            padding: 8px;
+            background-color: var(--color-green);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 0.875rem;
+        }
+
+        .footer-submit-btn:hover {
+            background-color: #6caa30;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #f0f4f8;
+            color: var(--color-blue);
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background-color: var(--color-blue);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+
+        /* BADGES */
+        .badge-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .badge-img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Links Grid - Enforce 4 columns on desktop */
+        .footer-links-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding: 3rem 0;
+            font-size: 0.9rem;
+        }
+
+        @media (min-width: 900px) {
+            .footer-links-grid {
+                grid-template-columns: repeat(5, 1fr);
+                /* Enforce 5 columns */
+                gap: 1rem;
+            }
+        }
+
+        /* Mobile Footer Adjustments */
+        @media (max-width: 768px) {
+            .footer-grid-top {
+                grid-template-columns: 1fr !important;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .footer-logo-area {
+                align-items: center !important;
+            }
+
+            .footer-links-grid {
+                grid-template-columns: 1fr;
+                /* Stack links on mobile */
+                text-align: center;
+            }
+
+            /* Center the flex content of links on mobile */
+            .footer-links-grid a {
+                justify-content: center;
+            }
+        }
+
+        /* Tighter Contact Text */
+        .contact-address p {
+            font-size: 0.85rem;
+            line-height: 1.3;
+            margin-bottom: 2px;
+            color: #666;
+        }
+
+        .footer-links-grid h4 {
+            color: var(--color-magenta);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .footer-links-grid h5 {
+            color: #374151;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-links-grid ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links-grid ul li {
+            margin-bottom: 0.25rem;
+        }
+
+        .footer-links-grid a {
+            text-decoration: none;
+            color: #4b5563;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.2s;
+        }
+
+        .footer-links-grid a:hover {
+            color: var(--color-magenta);
+        }
+
+        .footer-links-grid i {
+            font-size: 0.7rem;
+            color: var(--color-green);
+        }
+
+        /* Copyright */
+        .footer-copyright {
+            background-color: var(--color-magenta);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.75rem;
+        }
+
+        .footer-copyright a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* Helpers for User Layout */
+        .u-text-blue {
+            color: var(--color-blue);
+        }
+
+        .u-text-purple {
+            color: var(--color-magenta);
+        }
+
+        .u-text-green {
+            color: var(--color-green);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero {
+                height: auto;
+                padding: 6rem 0;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            /* Simplified for mockup */
+        }
+
+        /* SUPPORT LANDING STYLES */
+        .support-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding: 2rem 0 4rem 0;
+        }
+
+        /* Rainbow Cards */
+        /* Rainbow Cards */
+        .support-grid>a:nth-child(1) {
+            --card-accent: var(--color-magenta);
+            animation-delay: 0.1s;
+        }
+
+        .support-grid>a:nth-child(2) {
+            --card-accent: var(--color-green);
+            animation-delay: 0.2s;
+        }
+
+        .support-grid>a:nth-child(3) {
+            --card-accent: var(--color-orange);
+            animation-delay: 0.3s;
+        }
+
+        .support-grid>a:nth-child(4) {
+            --card-accent: var(--color-teal);
+            animation-delay: 0.4s;
+        }
+
+        /* Staggered Animation */
+        .reveal-on-scroll .support-card {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+            animation-play-state: paused;
+        }
+
+        .reveal-on-scroll.is-visible .support-card {
+            animation-play-state: running;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media(min-width: 768px) {
+            .support-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .support-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            padding: 3rem 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .support-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-color: var(--card-accent);
+        }
+
+        .support-card>i {
+            font-size: 3.5rem;
+            color: var(--card-accent);
+            margin-bottom: 0.5rem;
+            transition: transform 0.2s;
+        }
+
+        .support-card:hover>i {
+            transform: scale(1.1);
+        }
+
+        .support-card span i {
+            font-size: 0.9rem;
+            margin-left: 0.5rem;
+            transition: transform 0.2s;
+        }
+
+        .support-card:hover span i {
+            transform: translateX(4px);
+        }
+
+        .support-card h3 {
+            color: var(--card-accent);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+            font-family: var(--font-display);
+        }
+
+        .support-card p {
+            color: #666;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Impact Section */
+        .impact-section {
+            background-color: white;
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Add pattern overlay if we want, similar to hero but maybe subtle */
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        @media(min-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Rainbow Stats */
+        .stat-item:nth-child(1) {
+            --stat-accent: var(--color-orange);
+        }
+
+        .stat-item:nth-child(2) {
+            --stat-accent: var(--color-magenta);
+        }
+
+        .stat-item:nth-child(3) {
+            --stat-accent: var(--color-green);
+        }
+
+        .stat-number {
+            font-size: 4.5rem;
+            font-weight: 700;
+            font-family: var(--font-display);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            color: var(--stat-accent);
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        /* Testimonial */
+        .testimonial-section {
+            padding: 3rem 0;
+            background-color: var(--color-green);
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .testimonial-section .quote-icon {
+            color: white;
+            opacity: 0.3;
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .testimonial-section .testimonial-quote {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin: 0 auto 1rem auto;
+        }
+
+        .testimonial-section .testimonial-author {
+            color: var(--color-blue);
+            font-weight: 800;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
+
+        /* New Full Width Ways to Give */
+        .section-ways-to-give {
+            background-color: #d4dfe8;
+            padding: 5rem 0;
+        }
+
+        /* Intro Text */
+        .page-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            padding-top: 4rem;
+        }
+
+        .page-intro h2 {
+            color: var(--color-blue);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-display);
+        }
+
+
+
+        .page-intro p {
+            color: #555;
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+
+        .final-cta-section {
+            background-color: var(--color-blue);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .final-cta-section h2 {
+            color: white;
+            /* Override blue */
+        }
+
+        .final-cta-section p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Consistent Section Heading */
+        .section-heading {
+            font-size: 2.5rem;
+            color: var(--color-blue);
+            font-family: var(--font-display);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* HERO SPLIT LAYOUT */
+        .hero-split {
+            background-color: var(--color-teal);
+            position: relative;
+            padding-bottom: 4rem;
+            margin-bottom: 0;
+            overflow: hidden;
+        }
+
+        .hero-split-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('assets/img/FriendsCo_Pattern.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            mix-blend-mode: soft-light;
+            /* Blend with teal */
+            z-index: 0;
+            transform: scale(1.1);
+            /* Ensure nice overflow coverage */
+        }
+
+        .hero-split-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+            padding-top: 2rem;
+            padding-bottom: 3rem;
+        }
+
+        @media (min-width: 992px) {
+            .hero-split-container {
+                grid-template-columns: 1fr 1fr;
+                /* Image left, Card right */
+                gap: 4rem;
+                padding-top: 3rem;
+            }
+        }
+
+        .hero-image-col {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: rotate(-2deg);
+            /* Fun tilt */
+            border: 4px solid white;
+            animation: float-animation 6s ease-in-out infinite;
+        }
+
+        @keyframes float-animation {
+            0% {
+                transform: rotate(-2deg) translateY(0px);
+            }
+
+            50% {
+                transform: rotate(-2deg) translateY(-15px);
+            }
+
+            100% {
+                transform: rotate(-2deg) translateY(0px);
+            }
+        }
+
+        .hero-card {
+            background: white;
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            text-align: left;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-card h1 {
+            color: var(--color-teal);
+            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            font-family: var(--font-display);
+            line-height: 1.1;
+        }
+
+        .hero-card p {
+            font-size: 1.25rem;
+            color: #555;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Wave Divider */
+        .wave-bottom {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .wave-bottom svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 80px;
+        }
+
+        .wave-bottom .shape-fill {
+            fill: #ffffff;
+        }
+
+        /* Stat Icon Circle */
+        .stat-icon-circle {
+            width: 80px;
+            height: 80px;
+            background-color: var(--stat-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 2.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation (Refined) -->
+    <header style="background: white;">
+        <!-- Nav sits on white here or needs to be inside hero? Usually nav is white bar. Keeping nav separate. -->
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="nav-logo"><img src="assets/img/FriendsCo-logo.png" alt="Friends & Co" style="height: 60px; width: auto;">
+            </div>
+            <!-- Desktop Menu -->
+            <nav class="desktop-menu">
+                <a href="#" class="nav-item">Friendship Services <i class="fas fa-caret-down"></i></a>
+                <a href="#" class="nav-item">Get Involved <i class="fas fa-caret-down"></i></a>
+                <a href="#" class="nav-item" style="color: var(--color-blue);">Support Friends & Co <i
+                        class="fas fa-caret-down"></i></a>
+                <a href="#" class="nav-item">About <i class="fas fa-caret-down"></i></a>
+            </nav>
+            <!-- Right Actions: Give & Search -->
+            <div class="nav-actions">
+                <a href="#" class="btn-give-nav">Give <i class="fas fa-asterisk"></i></a>
+                <button class="btn-search"><i class="fas fa-search"></i></button>
+            </div>
+            <button class="mobile-toggle" style="margin-left:auto;"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <a href="#" class="mobile-nav-link">Friendship Services</a>
+        <a href="#" class="mobile-nav-link">Get Involved</a>
+        <a href="#" class="mobile-nav-link">Support Friends & Co</a>
+        <a href="#" class="mobile-nav-link">About</a>
+        <a href="#" class="btn-give-nav" style="justify-content: center; margin-top: 1rem;">Give Now <i
+                class="fas fa-asterisk"></i></a>
+    </div>
+
+    <!-- Hero: Split Layout -->
+    <section class="hero-split">
+        <!-- Pattern Overlay -->
+        <div class="hero-split-pattern"></div>
+
+        <!-- Top Color Bar (Integrated or separate? Keeping consistent with brand) -->
+        <div class="color-bar">
+            <div class="cb-purple"></div>
+            <div class="cb-green"></div>
+            <div class="cb-orange"></div>
+            <div class="cb-blue"></div>
+        </div>
+
+        <div class="container hero-split-container">
+            <!-- Left Column: Image -->
+            <div class="hero-image-col">
+                <img src="assets/img/support-hero-connection.png" alt="Friends & Co meaningful connection" class="hero-img">
+            </div>
+
+            <!-- Right Column: Content Card -->
+            <div class="hero-content-col">
+                <div class="hero-card">
+                    <h1>Support Friends & Co</h1>
+                    <p>Together, we create meaningful connections for older adults. Your support builds a community
+                        where everyone belongs.</p>
+                    <a href="https://friendsco.org/donate/" class="btn"
+                        style="padding: 1rem 2.5rem; font-size: 1.2rem;">DONATE TODAY <i class="fas fa-arrow-right"
+                            style="margin-left: 8px; font-size: 1rem;"></i></a>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <!-- Intro Section -->
+    <section class="container page-intro reveal-on-scroll">
+        <div class="script-text"
+            style="color: var(--color-magenta); display: block; margin-bottom: 0.5rem; -webkit-text-stroke: 1.5px var(--color-magenta);">
+            You Belong with Us</div>
+        <p>When you give the gift of friendship,
+            you strengthen far more than one life. Your generosity brings connection to older adults,
+            comfort to the people who love them,
+            and warmth to the communities they call home. Every giftâ€”of any sizeâ€”helps build the kind of
+            well-connected communities that are healthier,
+            stronger,
+            and better places for all of us to live. At Friends & Co,
+            fostering meaningful connection is at the heart of our mission,
+            and we invite you to help us build a community where everyone belongs.</p>
+    </section>
+
+    <!-- Ways to Support Grid (Moved Up) -->
+    <section class="section-ways-to-give reveal-on-scroll" style="background-color: #d4dfe8;">
+        <div class="container">
+            <h2 class="section-heading">Ways to Support</h2>
+            <div class="support-grid">
+                <!-- Give Today --><a href="https://friendsco.org/donate/" class="support-card"><i
+                        class="fas fa-hand-holding-heart"></i>
+                    <h3>Give Today</h3>
+                    <p>Make a one-time or monthly gift to support meaningful connections.</p>
+                    <span style="color: var(--card-accent); font-weight: 700; margin-top: auto;">Learn More <i
+                            class="fas fa-arrow-right"></i></span>
+                </a>
+                <!-- Planned Giving --><a href="planned-giving.html" class="support-card"><i class="fas fa-scroll"></i>
+                    <h3>Planned Giving</h3>
+                    <p>Leave a legacy of friendship and belonging for years to come.</p>
+                    <span style="color: var(--card-accent); font-weight: 700; margin-top: auto;">Learn More <i
+                            class="fas fa-arrow-right"></i></span>
+                </a>
+                <!-- Corporate Sponsorship --><a href="corporate-sponsors.html" class="support-card"><i
+                        class="fas fa-briefcase"></i>
+                    <h3>Corporate Sponsorship</h3>
+                    <p>Partner with Friends & Co to make a greater community impact.</p>
+                    <span style="color: var(--card-accent); font-weight: 700; margin-top: auto;">Learn More <i
+                            class="fas fa-arrow-right"></i></span>
+                </a>
+                <!-- Other Ways to Give --><a href="other-ways-to-give.html" class="support-card"><i
+                        class="fas fa-lightbulb"></i>
+                    <h3>Other Ways to Give</h3>
+                    <p>Discover many simple ways to make a powerful difference in older
+                        adults' lives.</p>
+                    <span style="color: var(--card-accent); font-weight: 700; margin-top: auto;">Learn More <i
+                            class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section (Moved Down) -->
+    <section class="impact-section reveal-on-scroll" style="background-color: white;">
+        <div class="container">
+            <h2 class="section-heading">Impact at a Glance</h2>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon-circle">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number">1,200+</div>
+                    <div class="stat-label">older adults served each year</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon-circle">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <div class="stat-number">90%</div>
+                    <div class="stat-label">report feeling less lonely</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon-circle">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="stat-number">40,000+</div>
+                    <div class="stat-label">phone calls and visits made</div>
+                </div>
+            </div>
+
+            <!-- Annual Report Link -->
+            <div style="margin-top: 4rem; text-align: center;">
+                <a href="#" class="btn" style="background-color: var(--color-blue); padding: 0.75rem 2rem;">
+                    Read the Annual Report <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section reveal-on-scroll">
+        <div class="container"><i class="fas fa-quote-left quote-icon"></i>
+            <div class="testimonial-quote">"I give because Iâ€™ve seen how much a simple
+                conversation or friendship can mean. Friends & Co turns
+                small acts of care into life-changing connectionâ€”and Iâ€™m proud to be part of
+                that."
+            </div>
+            <div class="testimonial-author">â€” Alan</div>
+        </div>
+    </section>
+    <!-- Final CTA Area -->
+    <section class="pattern-break reveal-on-scroll">
+        <div class="container pattern-content">
+            <div class="script-text">Support Today</div>
+            <h2 class="text-white"
+                style="margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">You can make the
+                difference between loneliness and belonging.</h2><a href="https://friendsco.org/donate/" class="btn"
+                style="padding: 1rem 3rem; font-size: 1.1rem; background-color: white; color: var(--color-blue);">GIVE
+                TODAY</a>
+        </div>
+    </section>
+    <!-- Comprehensive Footer -->
+    <footer>
+        <div class="container">
+            <!-- Top Section -->
+            <div class="footer-top">
+                <div class="footer-grid-top">
+                    <!-- Left: Logo & Give Button -->
+                    <div class="footer-logo-area"><img src="assets/img/FriendsCo-logo.png" alt="Friends & Co"
+                            style="width: 200px; max-width: 100%; margin-bottom: 1rem;"><a href="#"
+                            class="give-btn">Give <i class="fas fa-asterisk" style="font-size: 0.75rem;"></i></a></div>
+                    <!-- Center: Newsletter Form -->
+                    <div class="newsletter-area">
+                        <h3
+                            style="color: var(--color-magenta); font-weight: 700; font-size: 1.125rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem;">
+                            Sign Up for Among Friends Newsletter</h3>
+                        <p style="color: var(--color-blue); font-size: 0.875rem; margin-bottom: 1rem;">
+                            Get important updates from Friends & Co in
+                            your inbox.</p>
+                        <form class="newsletter-form">
+                            <div class="form-row"><input type="text" placeholder="First Name"
+                                    class="footer-input"><input type="text" placeholder="Last Name"
+                                    class="footer-input"></div><input type="email" placeholder="Email Address"
+                                class="footer-input"><button type="submit" class="footer-submit-btn">Sign
+                                Up</button>
+                        </form>
+                    </div>
+                    <!-- Right: Badges & Social -->
+                    <div class="social-area">
+                        <div class="badge-container">
+                            <!-- Points of Light / Service
+                                                                                    Enterprise --><img
+                                src="assets/img/Points-of-Light-150x150.png" alt="Certified Service Enterprise" class="badge-img">
+                            <!-- Charity Navigator --><img src="assets/img/general_square.jpg" alt="Charity Navigator"
+                                class="badge-img">
+                            <!-- Smart Givers / Meets
+                                                                                            Standards --><img
+                                src="assets/img/smart-givers.png" alt="Meets Standards" class="badge-img">
+                        </div>
+                        <div class="social-links" style="margin-top: 1rem;"><a href="#"><i
+                                    class="fab fa-facebook"></i></a><a href="#"><i class="fab fa-youtube"></i></a><a
+                                href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i
+                                    class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Links Grid -->
+            <div class="footer-links-grid">
+                <!-- Contact Column -->
+                <div>
+                    <h4>Contact</h4>
+                    <address class="contact-address" style="font-style: normal;">
+                        <p>2550 University Avenue W</p>
+                        <p>Suite 260-S</p>
+                        <p>Saint Paul,
+                            MN 55114</p>
+                        <p style="margin-top: 0.5rem;">P 612-721-1400
+                        </p>
+                        <p>F 612-721-5848</p>
+                    </address>
+                </div>
+                <!-- Quick Links: Get Involved -->
+                <div>
+                    <h4>Quick Links</h4>
+                    <h5>Get Involved</h5>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-arrow-circle-right"></i>Donate</a>
+                        </li>
+                        <li><a href="#"><i class="fas fa-arrow-circle-right"></i>Sign
+                                Up for Services</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-circle-right"></i>Become
+                                a Volunteer</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-circle-right"></i>Refer
+                                an Older Adult</a></li>
+                    </ul>
+                </div>
+                <!-- Quick Links: Services -->
+                <div>
+                    <h4 style="opacity: 0; pointer-events: none;" aria-hidden="true">Spacer</h4>
+                    <h5>Friendship Services</h5>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-arrow-circle-right"></i>Coffee
+                                Talk</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-circle-right"></i>Visiting
+                                Companions</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-circle-right"></i>Phone
+                                Companions</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-circle-right"></i>Cards
+                                Connect</a></li>
+                    </ul>
+                </div>
+                <!-- Quick Links: About -->
+                <div>
+                    <h4 style="opacity: 0; pointer-events: none;" aria-hidden="true">Spacer</h4>
+                    <h5>About</h5>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-arrow-circle-right"></i>Staff
+                                & Board</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-circle-right"></i>Careers</a>
+                        </li>
+                        <li><a href="#"><i class="fas fa-arrow-circle-right"></i>Annual
+                                Report</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-circle-right"></i>Contact
+                                Us</a></li>
+                    </ul>
+                </div>
+                <!-- Quick Links: Volunteers -->
+                <div>
+                    <h4 style="opacity: 0; pointer-events: none;" aria-hidden="true">Spacer</h4>
+                    <h5>Current Volunteers</h5>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-arrow-circle-right"></i>Portal
+                                Sign-in</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright Bar -->
+        <div class="footer-copyright">
+            <div class="container">
+                <p>&copy;
+
+                    2025 Friends & Co. All Rights Reserved. | <a href="#">Terms
+                        & Conditions</a>| <a href="#">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+    <!-- Scroll & Open Script -->
+    <script>document.addEventListener('DOMContentLoaded', function () {
+            // Mobile Menu Toggle
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            if (mobileToggle && mobileMenu) {
+                mobileToggle.addEventListener('click', function () {
+                    mobileMenu.classList.toggle('active');
+                    const icon = this.querySelector('i');
+
+                    if (mobileMenu.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    }
+
+                    else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            }
+
+
+
+            // Intersection Observer for Reveal on Scroll
+            const observerOptions = {
+                threshold: 0.1
+            }
+
+                ;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }
+
+                , observerOptions);
+
+            document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
+            // Number Counter Animation
+            const statsSection = document.querySelector('.impact-section');
+            let started = false; // Function execution check
+
+            const statsObserver = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting && !started) {
+                    const stats = document.querySelectorAll('.stat-number');
+                    stats.forEach(stat => {
+                        const targetText = stat.innerText;
+                        const target = parseInt(targetText.replace(/,/g, '').replace('+', '').replace('%', ''));
+                        const suffix = targetText.replace(/[0-9,]/g, ''); // Keep + or %
+
+                        let count = 0;
+                        const duration = 2000; // 2s
+                        const increment = target / (duration / 16); // 60fps
+
+                        const updateCount = () => {
+                            count += increment;
+                            if (count < target) {
+                                stat.innerText = Math.ceil(count).toLocaleString() + suffix;
+                                requestAnimationFrame(updateCount);
+                            } else {
+                                stat.innerText = targetText; // Ensure final format
+                            }
+                        };
+                        updateCount();
+                    });
+                    started = true;
+                }
+            });
+
+            if (statsSection) {
+                statsObserver.observe(statsSection);
+            }
+        });
+    </script>
+</body>
+
+</html>

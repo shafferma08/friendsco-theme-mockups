@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Mockup (Clean White) | Friends & Co</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Roboto+Condensed:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            /* Brand Colors from global CSS */
+            --color-blue: #5e74b1;
+            --color-magenta: #ba3f97;
+            --color-green: #85c340;
+            --color-teal: #00bbd3;
+            --color-orange: #f9a41e;
+            --color-slate: #7d91a0;
+            --font-primary: 'Open Sans', sans-serif;
+            --font-display: 'Akzidenz-Grotesk Pro Medium Condensed', 'Roboto Condensed', sans-serif;
+            --container-width: 1250px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: #333;
+            background-color: #FAFAFA;
+            background-image: url('assets/img/FriendsCo_Pattern.jpg');
+            background-size: 400px;
+            min-height: 100vh;
+        }
+
+        /* HEADER & NAVIGATION CONTAINER */
+        header {
+            background: white;
+            /* Changed to white */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            /* Softer shadow */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+            position: relative;
+        }
+
+        .nav-logo img {
+            height: 60px;
+            display: block;
+            /* Removed the white filter so the logo is colored again */
+        }
+
+        /* DESKTOP MENU - THE COMPACT APPROACH */
+        .desktop-menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .desktop-menu>li {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Top level links */
+        .desktop-menu>li>a {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--color-blue);
+            /* Blue text */
+            text-transform: uppercase;
+            /* Uppercase top links as in screenshot */
+            text-decoration: none;
+            padding: 0 12px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+            letter-spacing: 0.5px;
+        }
+
+        .desktop-menu>li>a i {
+            font-size: 0.75rem;
+            transition: transform 0.2s;
+        }
+
+        .desktop-menu>li:hover>a,
+        .desktop-menu>li>a:focus-visible {
+            color: var(--color-magenta);
+            /* Subtle hover to magenta or darker blue */
+            outline: none;
+        }
+
+        .desktop-menu>li:hover>a i {
+            transform: rotate(180deg);
+        }
+
+        /* 
+         * SIMPLE DROPDOWN SYSTEM
+         */
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #ffffff;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            min-width: 280px;
+            /* Slightly wider to accommodate longer names */
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.2s ease-out;
+            pointer-events: none;
+            z-index: 100;
+            border-top: 3px solid var(--color-blue);
+            /* Distinct top border */
+        }
+
+        .desktop-menu>li:hover .dropdown,
+        .desktop-menu>li:focus-within .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* Dropdown Typography & Links */
+        .dropdown a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--color-blue);
+            /* Distinct blue text */
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 14px 20px;
+            line-height: 1.4;
+            transition: background-color 0.1s, color 0.1s;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            /* Subtle border */
+        }
+
+        .dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown a:hover,
+        .dropdown a:focus-visible {
+            color: white;
+            background-color: var(--color-blue);
+            /* Solid blue background on hover */
+            outline: none;
+        }
+
+        /* Sub-menus approach (The nested flyouts) */
+        .has-submenu {
+            position: relative;
+        }
+
+        .has-submenu>a i {
+            transform: rotate(-90deg);
+            /* Arrow points right initially */
+            font-size: 0.75rem;
+            transition: color 0.2s;
+        }
+
+        .submenu-flyout {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            /* Pop out right */
+            background: #ffffff;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            min-width: 280px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(10px);
+            transition: all 0.2s ease-out;
+            pointer-events: none;
+            border-top: 3px solid var(--color-blue);
+        }
+
+        .has-submenu:hover .submenu-flyout,
+        .has-submenu:focus-within .submenu-flyout {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+            pointer-events: auto;
+        }
+
+        /* Header Buttons */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-give {
+            background-color: var(--color-green);
+            color: #1a2a42;
+            /* Deep Navy instead of white/black */
+            font-size: 0.9rem;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-give:hover,
+        .btn-give:focus-visible {
+            background-color: #7ab33a;
+            outline: none;
+        }
+
+        .btn-search {
+            background-color: var(--color-blue);
+            color: white;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-search:hover {
+            background-color: #4c6096;
+        }
+
+        /* 
+         * PROPOSED MOBILE MENU SOLUTION
+         */
+        .mobile-menu-toggle {
+            display: none;
+            /* Hidden on desktop */
+            background: transparent;
+            border: none;
+            font-size: 1.75rem;
+            color: var(--color-blue);
+            cursor: pointer;
+            z-index: 2000;
+            /* above overlay */
+            position: relative;
+        }
+
+        /* Mobile Menu Overlay System */
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: white;
+            z-index: 1001;
+            /* Above header, below toggle if needed */
+            display: flex;
+            flex-direction: column;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-in-out;
+            visibility: hidden;
+            overflow-y: auto;
+            padding-bottom: 80px;
+            /* space for sticky bottom actions */
+        }
+
+        .mobile-overlay.is-active {
+            transform: translateY(0);
+            visibility: visible;
+        }
+
+        /* Mobile Menu Header inside overlay */
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 1.5rem;
+            border-bottom: 1px solid #eee;
+            min-height: 90px;
+        }
+
+        .mobile-close-btn {
+            background: transparent;
+            border: none;
+            font-size: 2rem;
+            color: var(--color-blue);
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        /* Mobile Accordion Navigation */
+        .mobile-nav {
+            padding: 1rem 1.5rem;
+            list-style: none;
+        }
+
+        .mobile-nav-item {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .mobile-nav-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 20px 0;
+            background: transparent;
+            border: none;
+            font-size: 1.35rem;
+            /* Large accessible text */
+            font-weight: 700;
+            color: var(--color-blue);
+            text-align: left;
+            text-decoration: none;
+            cursor: pointer;
+            font-family: var(--font-primary);
+        }
+
+        .mobile-nav-link i {
+            font-size: 1rem;
+            color: var(--color-magenta);
+            transition: transform 0.2s;
+        }
+
+        .mobile-nav-link[aria-expanded="true"] i {
+            transform: rotate(180deg);
+        }
+
+        /* Submenus (Accordions) */
+        .mobile-submenu {
+            display: none;
+            padding-left: 1rem;
+            padding-bottom: 1rem;
+            list-style: none;
+        }
+
+        .mobile-submenu.is-open {
+            display: block;
+        }
+
+        .mobile-sub-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 15px 0;
+            background: transparent;
+            border: none;
+            font-size: 1.15rem;
+            /* Still large */
+            color: #444;
+            text-decoration: none;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .mobile-sub-link i {
+            font-size: 0.85rem;
+            color: var(--color-teal);
+            transition: transform 0.2s;
+        }
+
+        .mobile-sub-link[aria-expanded="true"] i {
+            transform: rotate(180deg);
+        }
+
+        .mobile-nested-submenu {
+            display: none;
+            padding-left: 1rem;
+            padding-bottom: 0.5rem;
+            border-left: 2px solid #eee;
+            margin-left: 10px;
+            list-style: none;
+        }
+
+        .mobile-nested-submenu.is-open {
+            display: block;
+        }
+
+        .mobile-nested-link {
+            display: block;
+            padding: 12px 0;
+            font-size: 1.05rem;
+            color: #555;
+            text-decoration: none;
+        }
+
+        /* Mobile Actions inside Menu */
+        .mobile-actions-container {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .mobile-give-btn {
+            background-color: var(--color-green);
+            color: #1a2a42;
+            /* Deep Navy instead of white/black */
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mobile-search-btn {
+            background-color: var(--color-blue);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* --- RESPONSIVE BREAKPOINTS --- */
+
+        /* Tablet Landscape & Below */
+        @media (max-width: 1024px) {
+            .desktop-menu {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .header-actions {
+                display: none;
+            }
+        }
+
+        /* Smaller Tablets / Large Phones */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+                height: 80px;
+            }
+
+            .nav-logo img {
+                height: 50px;
+            }
+
+            .mobile-menu-header {
+                min-height: 80px;
+            }
+        }
+
+        /* Mockup Background Content */
+        .page-content-mockup {
+            padding: 80px 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-content-mockup h1 {
+            font-size: 3rem;
+            color: var(--color-blue);
+            margin-bottom: 20px;
+            text-transform: none;
+        }
+
+        .page-content-mockup p {
+            font-size: 1.25rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="#" class="nav-logo" aria-label="Friends and Co Homepage">
+                <img src="assets/img/FriendsCo-logo.png" alt="Friends & Co">
+            </a>
+
+            <!-- Navigation Structure -->
+            <ul class="desktop-menu" role="menubar">
+
+                <!-- FREE FRIENDSHIP PROGRAMS (SIMPLE DROPDOWN WITH FLYOUTS) -->
+                <li role="none">
+                    <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                        Free Friendship Programs <i class="fas fa-caret-down"></i>
+                    </a>
+                    <div class="dropdown" role="menu">
+                        <a href="#" role="menuitem">Start Here</a>
+
+                        <!-- Level 2 Submenu -->
+                        <div class="has-submenu" role="none">
+                            <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                                Meet in Person <i class="fas fa-caret-down"></i>
+                            </a>
+                            <div class="submenu-flyout" role="menu">
+                                <a href="#" role="menuitem">One-on-One Visiting Companions</a>
+                                <a href="#" role="menuitem">Let's Do Coffee / Let's Do Lunch Café 🏳️‍🌈</a>
+                                <a href="#" role="menuitem">Conexiones Comunitarias (Español)</a>
+                            </div>
+                        </div>
+
+                        <!-- Level 2 Submenu -->
+                        <div class="has-submenu" role="none">
+                            <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                                Talk on the Phone <i class="fas fa-caret-down"></i>
+                            </a>
+                            <div class="submenu-flyout" role="menu">
+                                <a href="#" role="menuitem">Tue & Thurs Coffee Talk Calls</a>
+                                <a href="#" role="menuitem">Weekly One-on-One Phone Friends</a>
+                            </div>
+                        </div>
+
+                        <a href="#" role="menuitem">Receive Friendly Mail</a>
+                        <a href="#" role="menuitem">Events & Gatherings</a>
+
+                        <!-- Level 2 Submenu -->
+                        <div class="has-submenu" role="none">
+                            <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                                See All Programs <i class="fas fa-caret-down"></i>
+                            </a>
+                            <div class="submenu-flyout" role="menu">
+                                <a href="#" role="menuitem">Cards Connect</a>
+                                <a href="#" role="menuitem">Coffee Talk</a>
+                                <a href="#" role="menuitem">Conexiones Comunitarias</a>
+                                <a href="#" role="menuitem">Let's Do Coffee / Let's Do Lunch Café 🏳️‍🌈</a>
+                                <a href="#" role="menuitem">Phone Companions</a>
+                                <a href="#" role="menuitem">Visiting Companions</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- VOLUNTEER -->
+                <li role="none">
+                    <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                        Volunteer
+                    </a>
+                </li>
+
+                <!-- ABOUT -->
+                <li role="none">
+                    <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                        About
+                    </a>
+                </li>
+
+                <!-- SUPPORT -->
+                <li role="none">
+                    <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                        Support
+                    </a>
+                </li>
+
+                <!-- HOME -->
+                <li role="none">
+                    <a href="#" role="menuitem">
+                        Home
+                    </a>
+                </li>
+
+            </ul>
+
+            <!-- Actions -->
+            <div class="header-actions">
+                <a href="#" class="btn-give">GIVE <i class="fas fa-hand-holding-heart"></i></a>
+                <button class="btn-search" aria-label="Search"><i class="fas fa-search"></i></button>
+            </div>
+
+            <button class="mobile-menu-toggle" aria-label="Open mobile menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+        </div>
+    </header>
+
+    <div class="page-content-mockup">
+        <h1>Clean White Header</h1>
+        <p>This matches the screenshot perfectly.</p>
+        <p>1. <strong>White Header:</strong> White background with blue top-level text.<br>
+            2. <strong>Solid Dropdowns:</strong> White dropdowns with blue text that invert (blue background, white
+            text) on hover, exactly like standard WordPress setups.<br>
+            3. <strong>Buttons:</strong> The green GIVE button and blue square search button are implemented
+            side-by-side.</p>
+
+        <h3 style="margin-top: 40px; color: var(--color-magenta); font-size:1.5rem;">Mobile Menu Implemented!</h3>
+        <p>Resize your browser window so it shrinks down to Tablet or Phone size.</p>
+        <ul style="text-align:left; max-width: 600px; margin: 0 auto; line-height: 1.8;">
+            <li><strong>Full-Screen Overlay:</strong> Clicking the hamburger menu opens a solid white screen taking up
+                100% of the display.</li>
+            <li><strong>Large Accordions:</strong> Try clicking "Free Friendship Programs" then "Meet In Person". The
+                nested list expands right down the page in large text with massive tap areas to prevent missed clicks.
+            </li>
+            <li><strong>Menu Actions:</strong> Give and Search buttons are cleanly organized at the bottom of the open
+                menu list.</li>
+        </ul>
+    </div>
+
+    <!-- FULL SCREEN MOBILE OVERLAY -->
+    <div class="mobile-overlay" id="mobileMenuOverlay" aria-hidden="true">
+        <div class="mobile-menu-header">
+            <a href="#" class="nav-logo" aria-label="Friends and Co Homepage">
+                <img src="assets/img/FriendsCo-logo.png" alt="Friends & Co" style="height:50px;">
+            </a>
+            <button class="mobile-close-btn" id="closeMobileMenu" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <ul class="mobile-nav">
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link">Home</a>
+            </li>
+
+            <li class="mobile-nav-item">
+                <!-- Accordion Toggle -->
+                <button class="mobile-nav-link" aria-expanded="false" aria-controls="mobileProgramsMenu">
+                    Free Friendship Programs <i class="fas fa-chevron-down"></i>
+                </button>
+                <!-- Accordion Content -->
+                <ul class="mobile-submenu" id="mobileProgramsMenu">
+                    <li><a href="#" class="mobile-nested-link">Start Here</a></li>
+
+                    <!-- Level 2 Nested Accordion -->
+                    <li>
+                        <button class="mobile-sub-link" aria-expanded="false" aria-controls="mobileMeetInPerson">
+                            Meet in Person <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <ul class="mobile-nested-submenu" id="mobileMeetInPerson">
+                            <li><a href="#" class="mobile-nested-link">One-on-One Visiting Companions</a></li>
+                            <li><a href="#" class="mobile-nested-link">Let's Do Coffee / Let's Do Lunch Café 🏳️‍🌈</a>
+                            </li>
+                            <li><a href="#" class="mobile-nested-link">Conexiones Comunitarias (Español)</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Level 2 Nested Accordion -->
+                    <li>
+                        <button class="mobile-sub-link" aria-expanded="false" aria-controls="mobileTalkPhone">
+                            Talk on the Phone <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <ul class="mobile-nested-submenu" id="mobileTalkPhone">
+                            <li><a href="#" class="mobile-nested-link">Tue & Thurs Coffee Talk Calls</a></li>
+                            <li><a href="#" class="mobile-nested-link">Weekly One-on-One Phone Friends</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#" class="mobile-nested-link">Receive Friendly Mail</a></li>
+                    <li><a href="#" class="mobile-nested-link">Events & Gatherings</a></li>
+
+                    <!-- Level 2 Nested Accordion -->
+                    <li>
+                        <button class="mobile-sub-link" aria-expanded="false" aria-controls="mobileSeeAll">
+                            See All Programs <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <ul class="mobile-nested-submenu" id="mobileSeeAll">
+                            <li><a href="#" class="mobile-nested-link">Cards Connect</a></li>
+                            <li><a href="#" class="mobile-nested-link">Coffee Talk</a></li>
+                            <li><a href="#" class="mobile-nested-link">Visiting Companions</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link">Volunteer</a>
+            </li>
+
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link">About</a>
+            </li>
+
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link">Support</a>
+            </li>
+        </ul>
+
+        <!-- MOVED ACTIONS INTO MENU -->
+        <div class="mobile-actions-container">
+            <a href="#" class="mobile-give-btn">GIVE <i class="fas fa-hand-holding-heart"></i></a>
+            <a href="#" class="mobile-search-btn">Search <i class="fas fa-search"></i></a>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FOR ACCORDIONS AND OVERLAY -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const mobileOverlay = document.getElementById('mobileMenuOverlay');
+            const closeBtn = document.getElementById('closeMobileMenu');
+
+            // Toggle Overlay
+            function openMenu() {
+                mobileOverlay.classList.add('is-active');
+                mobileOverlay.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+
+            function closeMenu() {
+                mobileOverlay.classList.remove('is-active');
+                mobileOverlay.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+
+            mobileToggle.addEventListener('click', openMenu);
+            closeBtn.addEventListener('click', closeMenu);
+
+            // Toggle Accordions (Buttons that control hidden ULs)
+            const accordionBtns = document.querySelectorAll('.mobile-nav-link[aria-controls], .mobile-sub-link[aria-controls]');
+
+            accordionBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const expanded = btn.getAttribute('aria-expanded') === 'true';
+                    const targetId = btn.getAttribute('aria-controls');
+                    const targetMenu = document.getElementById(targetId);
+
+                    if (expanded) {
+                        btn.setAttribute('aria-expanded', 'false');
+                        targetMenu.classList.remove('is-open');
+                    } else {
+                        btn.setAttribute('aria-expanded', 'true');
+                        targetMenu.classList.add('is-open');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

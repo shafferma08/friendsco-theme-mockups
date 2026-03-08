@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Mockup | Friends & Co</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Roboto+Condensed:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --color-blue: #5e74b1;
+            --color-magenta: #ba3f97;
+            --color-green: #85c340;
+            --color-teal: #00bbd3;
+            --color-orange: #f9a41e;
+            --color-slate: #7d91a0;
+            --font-primary: 'Open Sans', sans-serif;
+            --font-display: 'Akzidenz-Grotesk Pro Medium Condensed', 'Roboto Condensed', sans-serif;
+            --container-width: 1250px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: #333;
+            background-color: #FAFAFA;
+            background-image: url('assets/img/FriendsCo_Pattern.jpg');
+            background-size: 400px;
+            min-height: 100vh;
+        }
+
+        /* HEADER & NAVIGATION CONTAINER */
+        header {
+            background: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 4px solid var(--color-blue);
+        }
+
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 110px;
+            /* Slightly taller to accommodate older adults clicking */
+            position: relative;
+        }
+
+        .nav-logo img {
+            height: 70px;
+            display: block;
+        }
+
+        /* DESKTOP MENU - THE MEGA MENU APPROACH */
+        .desktop-menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .desktop-menu>li {
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Top level links */
+        .desktop-menu>li>a {
+            font-size: 1.05rem;
+            /* Larger than default */
+            font-weight: 700;
+            color: var(--color-blue);
+            text-decoration: none;
+            padding: 0 16px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s, background-color 0.2s;
+            position: relative;
+            /* Keep sentence case / camel case for readability rather than forced CAPS */
+        }
+
+        .desktop-menu>li>a i {
+            font-size: 0.8rem;
+            transition: transform 0.2s;
+        }
+
+        .desktop-menu>li:hover>a,
+        .desktop-menu>li>a:focus-visible {
+            color: var(--color-magenta);
+            outline: none;
+        }
+
+        .desktop-menu>li:hover>a i {
+            transform: rotate(180deg);
+        }
+
+        /* Active highlight bar on top level */
+        .desktop-menu>li>a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            /* Align with header border */
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--color-magenta);
+            transform: scaleX(0);
+            transition: transform 0.2s ease-in-out;
+            transform-origin: center;
+        }
+
+        .desktop-menu>li:hover>a::after {
+            transform: scaleX(1);
+        }
+
+        .desktop-menu>li>a:focus-visible::after {
+            transform: scaleX(1);
+            background-color: var(--color-blue);
+        }
+
+        /* 
+         * ACCESSIBLE DROPDOWN / MEGA MENU 
+         * Mega menus avoid the "diagonal tracking problem" where nested hover menus
+         * disappear when older adults try to move the mouse diagonally.
+         */
+
+        /* General Dropdown Container */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            background: #ffffff;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-top: 1px solid #eee;
+            border-radius: 0 0 12px 12px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.2s ease-out;
+            pointer-events: none;
+            /* Prevent accidental triggers while animating */
+            z-index: 100;
+        }
+
+        .desktop-menu>li:hover .dropdown,
+        .desktop-menu>li:focus-within .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* Mega Menu Specifics */
+        .mega-menu {
+            left: 0;
+            right: 0;
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+        }
+
+        /* Standard Dropdown Specifics */
+        .standard-dropdown {
+            width: 320px;
+            padding: 1.5rem 0;
+        }
+
+        /* Dropdown Typography & Links */
+        .dropdown-col-title {
+            font-family: var(--font-display);
+            color: var(--color-orange);
+            font-size: 1.35rem;
+            /* Large accessible subheaders */
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(249, 164, 30, 0.2);
+            letter-spacing: 0.5px;
+        }
+
+        .dropdown a {
+            display: block;
+            color: #444;
+            text-decoration: none;
+            font-size: 1.15rem;
+            /* Large text for older adults */
+            padding: 10px 0;
+            line-height: 1.4;
+            transition: all 0.2s;
+            border-left: 3px solid transparent;
+            padding-left: 10px;
+            margin-bottom: 4px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .standard-dropdown a {
+            padding: 12px 25px 12px 20px;
+            margin-bottom: 0;
+            border-left: none;
+            border-radius: 0;
+        }
+
+        .standard-dropdown a:hover {
+            border-left: none;
+        }
+
+        .dropdown a:hover,
+        .dropdown a:focus-visible {
+            color: var(--color-blue);
+            background-color: rgba(94, 116, 177, 0.05);
+            /* Slight blue highlight */
+            border-left-color: var(--color-blue);
+            /* Clear visual indicator */
+            outline: none;
+        }
+
+        .standard-dropdown a:hover,
+        .standard-dropdown a:focus-visible {
+            background-color: rgba(94, 116, 177, 0.05);
+            padding-left: 25px;
+            /* Subtle slide effect instead of border */
+            color: var(--color-blue);
+        }
+
+        /* Sub-items in standard dropdowns */
+        .sub-nav-group-title {
+            font-family: var(--font-display);
+            color: var(--color-magenta);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            margin: 1.5rem 25px 0.5rem 20px;
+            pointer-events: none;
+        }
+
+        .sub-nav-group a {
+            font-size: 1.05rem;
+            padding-left: 35px;
+            /* Indent sub items */
+        }
+
+        .sub-nav-group a:hover,
+        .sub-nav-group a:focus-visible {
+            padding-left: 40px;
+        }
+
+        /* Header Buttons */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-donate {
+            background-color: var(--color-green);
+            color: white;
+            font-size: 1.1rem;
+            /* Bumping up button size */
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 6px rgba(133, 195, 64, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+        }
+
+        .btn-donate:hover,
+        .btn-donate:focus-visible {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(133, 195, 64, 0.4);
+            background-color: #7ab33a;
+            outline: none;
+        }
+
+        .icon-btn {
+            background: transparent;
+            border: none;
+            color: var(--color-blue);
+            font-size: 1.6rem;
+            cursor: pointer;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .icon-btn:hover,
+        .icon-btn:focus-visible {
+            background-color: rgba(94, 116, 177, 0.1);
+            color: var(--color-magenta);
+            outline: none;
+        }
+
+        .icon-btn:focus-visible {
+            box-shadow: 0 0 0 3px var(--color-blue);
+        }
+
+        /* Mockup Background Content */
+        .page-content-mockup {
+            padding: 80px 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-content-mockup h1 {
+            font-size: 3rem;
+            color: var(--color-blue);
+            margin-bottom: 20px;
+        }
+
+        .page-content-mockup p {
+            font-size: 1.25rem;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="#" class="nav-logo" aria-label="Friends and Co Homepage">
+                <img src="assets/img/FriendsCo-logo.png" alt="Friends & Co">
+            </a>
+
+            <!-- Navigation Structure -->
+            <ul class="desktop-menu" role="menubar">
+
+                <!-- HOME -->
+                <li role="none">
+                    <a href="#" role="menuitem">Home</a>
+                </li>
+
+                <!-- FREE FRIENDSHIP PROGRAMS (MEGA MENU) -->
+                <li role="none">
+                    <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                        Free Friendship Programs <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <!-- Mega Menu Dropdown -->
+                    <div class="dropdown mega-menu" role="menu">
+                        <!-- Column 1 -->
+                        <div class="mega-col">
+                            <a href="#" role="menuitem"><strong>Start Here</strong> <i class="fas fa-arrow-right"
+                                    style="font-size:0.85em; margin-left:5px; color:var(--color-orange);"></i></a>
+                            <a href="#" role="menuitem">Receive Friendly Mail</a>
+                            <a href="#" role="menuitem">Events & Gatherings</a>
+                        </div>
+
+                        <!-- Column 2 -->
+                        <div class="mega-col">
+                            <h3 class="dropdown-col-title"><i class="fas fa-people-arrows"
+                                    style="margin-right:8px;"></i>Meet in Person</h3>
+                            <a href="#" role="menuitem">One-on-One Visiting Companions</a>
+                            <a href="#" role="menuitem">Let's Do Coffee / Let's Do Lunch Café 🏳️‍🌈</a>
+                            <a href="#" role="menuitem">Conexiones Comunitarias (Español)</a>
+                        </div>
+
+                        <!-- Column 3 -->
+                        <div class="mega-col">
+                            <h3 class="dropdown-col-title"><i class="fas fa-phone-alt"
+                                    style="margin-right:8px;"></i>Talk on the Phone</h3>
+                            <a href="#" role="menuitem">Tue & Thurs Coffee Talk Calls</a>
+                            <a href="#" role="menuitem">Weekly One-on-One Phone Friends</a>
+                        </div>
+
+                        <!-- Column 4 -->
+                        <div class="mega-col">
+                            <h3 class="dropdown-col-title"><i class="fas fa-list" style="margin-right:8px;"></i>See All
+                                Programs</h3>
+                            <a href="#" role="menuitem">Cards Connect</a>
+                            <a href="#" role="menuitem">Coffee Talk</a>
+                            <a href="#" role="menuitem">Conexiones Comunitarias</a>
+                            <a href="#" role="menuitem">Let's Do Coffee / Let's Do Lunch Café 🏳️‍🌈</a>
+                            <a href="#" role="menuitem">Phone Companions</a>
+                            <a href="#" role="menuitem">Visiting Companions</a>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- VOLUNTEER (STANDARD WITH GROUPS) -->
+                <li role="none" style="position: relative;">
+                    <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                        Volunteer <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown standard-dropdown" role="menu">
+                        <a href="#" role="menuitem" style="font-weight:700; color:var(--color-blue);">Start
+                            Volunteering</a>
+                        <a href="#" role="menuitem">Apply to Volunteer</a>
+                        <a href="#" role="menuitem">Matching Hub: Choose Who You'll Connect With</a>
+                        <a href="#" role="menuitem">Current Volunteers</a>
+
+                        <div class="sub-nav-group">
+                            <div class="sub-nav-group-title">Opportunities</div>
+                            <a href="#" role="menuitem">Admin Volunteer</a>
+                            <a href="#" role="menuitem">Cards Connect (Make Cards)</a>
+                            <a href="#" role="menuitem">Coffee Talk (Phone Line)</a>
+                            <a href="#" role="menuitem">Phone Companion</a>
+                            <a href="#" role="menuitem">Visiting Companion (1-on-1 Visits)</a>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- ABOUT -->
+                <li role="none" style="position: relative;">
+                    <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                        About <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown standard-dropdown" role="menu">
+                        <a href="#" role="menuitem">Who We Are</a>
+                        <a href="#" role="menuitem">Annual Reports</a>
+                        <a href="#" role="menuitem">Staff and Board</a>
+                        <a href="#" role="menuitem">Latest News</a>
+                        <a href="#" role="menuitem">Most Recent 990</a>
+                        <a href="#" role="menuitem">Contact</a>
+                    </div>
+                </li>
+
+                <!-- SUPPORT -->
+                <li role="none" style="position: relative;">
+                    <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                        Support <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown standard-dropdown" role="menu">
+                        <a href="#" role="menuitem">Give Today</a>
+                        <a href="#" role="menuitem">Planned Giving</a>
+                        <a href="#" role="menuitem">Corporate Sponsorship</a>
+                        <a href="#" role="menuitem">Other Ways to Give</a>
+                    </div>
+                </li>
+
+            </ul>
+
+            <!-- Actions -->
+            <div class="header-actions">
+                <button class="icon-btn" aria-label="Open Site Search" title="Search">
+                    <i class="fas fa-search"></i>
+                </button>
+                <a href="#" class="btn-donate">Give <i class="fas fa-heart"></i></a>
+            </div>
+
+        </div>
+    </header>
+
+    <div class="page-content-mockup">
+        <h1>Header Design System Demo</h1>
+        <p>Hover over <strong>Free Friendship Programs</strong> to see the accessible, older-adult friendly "Mega Menu"
+            approach. Sub-menus flyouts are difficult to navigate for individuals with motor-impairments, so a Mega Menu
+            groups complex categories logically without requiring precise diagonal mouse movement.</p>
+        <p style="margin-top:20px;">I have kept <em>Volunteer</em>, <em>About</em>, and <em>Support</em> as simple,
+            large-hit-area dropdowns.</p>
+    </div>
+
+    <script>
+        // Simple accessibility enhancements for keyboard users
+        document.querySelectorAll('.desktop-menu > li').forEach(item => {
+            item.addEventListener('focusin', () => {
+                const link = item.querySelector('a[aria-haspopup="true"]');
+                if (link) link.setAttribute('aria-expanded', 'true');
+            });
+            item.addEventListener('focusout', () => {
+                const link = item.querySelector('a[aria-haspopup="true"]');
+                if (link) link.setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
+</body>
+
+</html>

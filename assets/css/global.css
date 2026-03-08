@@ -1,0 +1,176 @@
+/* 
+ * BRAND GUIDELINES & UTILITIES 
+ */
+@font-face {
+    font-family: 'Albiol';
+    src: url('../fonts/Albiol.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --color-blue: #5e74b1;
+    --color-magenta: #ba3f97;
+    --color-green: #85c340;
+    --color-teal: #00bbd3;
+    --color-orange: #f9a41e;
+    --color-slate: #7d91a0;
+    --font-primary: 'Open Sans', sans-serif;
+    --font-display: 'Akzidenz-Grotesk Pro Medium Condensed', 'Roboto Condensed', sans-serif;
+    --font-script: 'Albiol', 'Brush Script MT', cursive;
+    --container-width: 1200px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-primary);
+    color: #333; /* High contrast for older adults */
+    line-height: 1.6;
+    background-color: #FAFAFA;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover,
+.btn:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    outline: none;
+}
+
+.btn:focus-visible {
+    outline: 3px solid var(--color-blue);
+    outline-offset: 2px;
+}
+
+/* HEADER & NAVIGATION */
+header {
+    background: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 1rem;
+    height: 96px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.desktop-menu {
+    display: none;
+    gap: 2rem;
+}
+
+.desktop-menu a {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-blue);
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+}
+
+.desktop-menu a:hover,
+.desktop-menu a:focus-visible {
+    color: var(--color-magenta);
+    outline: none;
+}
+
+.desktop-menu a:focus-visible {
+    border-bottom: 2px solid var(--color-magenta);
+}
+
+@media(min-width: 1024px) {
+    .desktop-menu {
+        display: flex;
+    }
+}
+
+/* FOOTER */
+footer {
+    background: white;
+    padding-top: 4rem;
+    border-top: 1px solid #eee;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-bottom: 3rem;
+}
+
+@media(min-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr 2fr;
+    }
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.footer-links h5 {
+    color: var(--color-magenta);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.footer-links a {
+    color: #555;
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 4px 0;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--color-magenta);
+    text-decoration: underline;
+}

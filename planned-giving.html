@@ -1,0 +1,1052 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planned Giving - Friends & Co</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Roboto+Condensed:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* BRAND GUIDELINES IMPLEMENTATION */
+        @font-face {
+            font-family: 'Albiol';
+            src: url('assets/fonts/Albiol.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            /* Primary Brand Colors */
+            --color-blue: #5e74b1;
+            --color-magenta: #ba3f97;
+            --color-green: #85c340;
+            --color-green-light: #b0d235;
+            --color-teal: #00bbd3;
+            --color-orange: #f9a41e;
+            --color-slate: #7d91a0;
+
+            /* Typography */
+            --font-primary: 'Open Sans', sans-serif;
+            --font-display: 'Akzidenz-Grotesk Pro Medium Condensed', 'Roboto Condensed', sans-serif;
+            --font-script: 'Albiol', 'Brush Script MT', cursive;
+
+            /* UI Variables */
+            --border-radius: 12px;
+            --container-width: 1200px;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--color-slate);
+            line-height: 1.6;
+            background-color: #FAFAFA;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--color-blue);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--color-magenta);
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* UTILITIES */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-white {
+            color: white;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            background-color: var(--color-orange);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            font-family: var(--font-primary);
+            transition: transform 0.2s, background-color 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            background-color: #e89816;
+        }
+
+        /* ANIMATIONS */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-main-text h1,
+            .script-text {
+                font-size: 3.5rem !important;
+            }
+        }
+
+        /* HEADER REFACTOR */
+        header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+            height: 96px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .desktop-menu {
+            display: none;
+        }
+
+        @media(min-width: 1024px) {
+            .desktop-menu {
+                display: flex;
+                align-items: center;
+                gap: 1.5rem;
+            }
+        }
+
+        .nav-item {
+            font-size: 13px;
+            font-weight: 700;
+            color: rgba(94, 116, 177, 0.9);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.2s;
+        }
+
+        .nav-item:hover {
+            color: var(--color-magenta);
+        }
+
+        .nav-item i {
+            font-size: 0.75rem;
+            opacity: 0.6;
+        }
+
+        .nav-actions {
+            display: none;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        @media(min-width: 768px) {
+            .nav-actions {
+                display: flex;
+            }
+        }
+
+        .btn-give-nav {
+            background-color: var(--color-green);
+            color: white;
+            padding: 8px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.2s;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-give-nav:hover {
+            background-color: #6caa30;
+        }
+
+        .btn-search {
+            width: 36px;
+            height: 36px;
+            background-color: var(--color-blue);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-search:hover {
+            background-color: #4a5d91;
+        }
+
+        .mobile-toggle {
+            display: block;
+            background: none;
+            border: none;
+            color: var(--color-blue);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media(min-width: 1024px) {
+            .mobile-toggle {
+                display: none;
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 96px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 96px);
+            background: white;
+            z-index: 999;
+            padding: 2rem;
+            flex-direction: column;
+            gap: 1.5rem;
+            overflow-y: auto;
+        }
+
+        .mobile-menu-overlay.active {
+            display: flex;
+        }
+
+        .mobile-nav-link {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            color: var(--color-blue);
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Top Color Bar */
+        .color-bar {
+            display: flex;
+            height: 12px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 20;
+        }
+
+        .cb-purple {
+            flex: 1;
+            background: var(--color-magenta);
+        }
+
+        .cb-green {
+            flex: 1;
+            background: var(--color-green);
+        }
+
+        .cb-orange {
+            flex: 1;
+            background: var(--color-orange);
+        }
+
+        .cb-blue {
+            flex: 1;
+            background: var(--color-blue);
+        }
+
+        /* PAGE SPECIFIC: PLANNED GIVING */
+        .page-header {
+            background-color: var(--color-teal);
+            position: relative;
+            padding: 6rem 0 5rem 0;
+            text-align: center;
+            overflow: hidden;
+            color: white;
+        }
+
+        .page-header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('assets/img/FriendsCo_Pattern.jpg');
+            background-size: cover;
+            background-position: center;
+            mix-blend-mode: soft-light;
+            opacity: 0.6;
+            z-index: 0;
+            transform: scale(1.1);
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .script-decoration {
+            font-family: var(--font-script);
+            font-size: 4rem;
+            color: white;
+            display: block;
+            margin-bottom: 0.5rem;
+            -webkit-text-stroke: 1.5px white;
+            line-height: 1;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* Content Layout */
+        .content-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        @media (min-width: 992px) {
+            .split-layout {
+                grid-template-columns: 3fr 2fr;
+            }
+        }
+
+        .text-content h2 {
+            font-size: 2.25rem;
+            color: var(--color-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .text-content p {
+            margin-bottom: 1.5rem;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        /* Advisor Card */
+        .advisor-card {
+            background-color: #dff0d8;
+            border-left: 5px solid var(--color-green);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .advisor-card h3 {
+            color: var(--color-green);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .info-row {
+            margin-bottom: 1.5rem;
+        }
+
+        .info-row strong {
+            display: block;
+            color: var(--color-slate);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+        }
+
+        .info-row span {
+            font-family: monospace;
+            font-size: 1.25rem;
+            color: var(--color-blue);
+            font-weight: 600;
+        }
+
+        /* CTA Strip */
+        .cta-strip {
+            background-color: var(--color-blue);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .btn-white {
+            background-color: white;
+            color: var(--color-blue);
+        }
+
+        .btn-white:hover {
+            background: #f0f0f0;
+        }
+
+        /* FEATURE SECTION (Graphic Element) */
+        .pattern-break {
+            position: relative;
+            overflow: hidden;
+            padding: 3rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .pattern-break::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(94, 116, 177, 0.85), rgba(0, 187, 211, 0.85));
+            z-index: 2;
+        }
+
+        .pattern-break::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('assets/img/FriendsCo_Pattern.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transform: scale(1.1);
+            z-index: 1;
+        }
+
+        .pattern-content {
+            position: relative;
+            z-index: 3;
+        }
+
+        .script-text {
+            font-family: var(--font-script);
+            font-size: 5.5rem;
+            color: white;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            -webkit-text-stroke: 1px white;
+            font-weight: normal;
+            line-height: 1.1;
+            border-bottom: 2px solid var(--color-orange);
+            padding-bottom: 0px;
+            line-height: 0.9;
+        }
+
+        /* FOOTER STYLES (Copied) */
+        footer {
+            background-color: white;
+            color: #666;
+            padding: 0;
+            border-top: 4px solid var(--color-magenta);
+            font-family: var(--font-primary);
+        }
+
+        .footer-top {
+            padding: 3rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .footer-grid-top {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media(min-width: 1024px) {
+            .footer-grid-top {
+                grid-template-columns: 3fr 5fr 4fr;
+            }
+        }
+
+        .footer-logo-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        @media(min-width: 1024px) {
+            .footer-logo-area {
+                align-items: flex-start;
+                text-align: left;
+            }
+        }
+
+        .give-btn {
+            background-color: var(--color-green);
+            color: white;
+            padding: 8px 32px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-flex;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            align-items: center;
+        }
+
+        .give-btn:hover {
+            background-color: #6caa30;
+        }
+
+        .newsletter-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            max-width: 400px;
+            margin-top: 1rem;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            font-size: 0.875rem;
+        }
+
+        .footer-submit-btn {
+            width: 100%;
+            padding: 8px;
+            background-color: var(--color-green);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 0.875rem;
+        }
+
+        .footer-submit-btn:hover {
+            background-color: #6caa30;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #f0f4f8;
+            color: var(--color-blue);
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background-color: var(--color-blue);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .badge-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .badge-img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .footer-links-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding: 3rem 0;
+            font-size: 0.9rem;
+        }
+
+        @media (min-width: 900px) {
+            .footer-links-grid {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        .contact-address p {
+            font-size: 0.85rem;
+            line-height: 1.3;
+            margin-bottom: 2px;
+            color: #666;
+        }
+
+        .footer-links-grid h4 {
+            color: var(--color-magenta);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .footer-links-grid h5 {
+            color: #374151;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-links-grid ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links-grid ul li {
+            margin-bottom: 0.25rem;
+        }
+
+        .footer-links-grid a {
+            color: #4b5563;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.2s;
+        }
+
+        .footer-links-grid a:hover {
+            color: var(--color-magenta);
+        }
+
+        .footer-links-grid i {
+            font-size: 0.7rem;
+            color: var(--color-green);
+        }
+
+        .footer-copyright {
+            background-color: var(--color-magenta);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.75rem;
+        }
+
+        .footer-copyright a {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header>
+        <div class="nav-container">
+            <div class="nav-logo"><img src="assets/img/FriendsCo-logo.png" alt="Friends & Co" style="height: 60px; width: auto;">
+            </div>
+            <nav class="desktop-menu">
+                <a href="#" class="nav-item">Friendship Services <i class="fas fa-caret-down"></i></a>
+                <a href="#" class="nav-item">Get Involved <i class="fas fa-caret-down"></i></a>
+                <a href="index.html" class="nav-item" style="color: var(--color-blue);">Support Friends & Co <i
+                        class="fas fa-caret-down"></i></a>
+                <a href="#" class="nav-item">About <i class="fas fa-caret-down"></i></a>
+            </nav>
+            <div class="nav-actions">
+                <a href="#" class="btn-give-nav">Give <i class="fas fa-asterisk"></i></a>
+                <button class="btn-search"><i class="fas fa-search"></i></button>
+            </div>
+            <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <a href="#" class="mobile-nav-link">Friendship Services</a>
+        <a href="#" class="mobile-nav-link">Get Involved</a>
+        <a href="#" class="mobile-nav-link">Support Friends & Co</a>
+        <a href="#" class="mobile-nav-link">About</a>
+        <a href="#" class="btn-give-nav" style="justify-content: center; margin-top: 1rem;">Give Now <i
+                class="fas fa-asterisk"></i></a>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <!-- Top Color Bar -->
+        <div class="color-bar">
+            <div class="cb-purple"></div>
+            <div class="cb-green"></div>
+            <div class="cb-orange"></div>
+            <div class="cb-blue"></div>
+        </div>
+        <div class="page-header-bg"></div>
+        <div class="container page-header-content">
+            <div class="script-decoration">Enduring Impact</div>
+            <h1>Planned Giving</h1>
+            <p>Leave a legacy of friendship and ensure meaningful connection for generations to come.</p>
+            <a href="index.html" class="btn"
+                style="background: white; color: var(--color-blue); display: inline-flex; align-items: center; gap: 8px; margin-top: 2rem; padding: 0.75rem 1.5rem; border-radius: 8px; text-transform: none; font-size: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <i class="fas fa-arrow-left"></i> Back to Support
+            </a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="content-section">
+        <div class="container">
+            <div class="split-layout">
+                <!-- Left: Legacy Text -->
+                <div class="text-content">
+                    <h2>Legacy Giving</h2>
+                    <p>Friends &amp; Co accepts gifts of any size made in a will, a revocable trust agreement, an
+                        irrevocable trust agreement, or any other manner of non-probate disposition if they meet our
+                        contribution guidelines.</p>
+
+                    <p>Because Friends &amp; Co is deeply embedded in the community, providing vital services to older
+                        adults, we are positioned to absorb and distribute gifts of any size efficiently. We ensure
+                        every contribution directly supports our mission of alleviating loneliness.</p>
+
+                    <p>For planned gifts, we do not have specific requirements or language for bequest documents. A
+                        simple designation is often all that is needed to make a lasting difference.</p>
+
+                    <p>By including Friends &amp; Co in your estate plans, you are making a powerful statement about the
+                        value of connection. You are ensuring that no older adult has to face life alone.</p>
+                </div>
+
+                <!-- Right: Advisor Info Box -->
+                <div class="advisor-card">
+                    <h3><i class="fas fa-file-contract"></i> Advisor Information</h3>
+                    <p style="margin-bottom: 2rem; font-size: 0.95rem; color: #666;">Your financial advisor may request
+                        our official street address and tax identification number when drafting your documents.</p>
+
+                    <div class="info-row">
+                        <strong>Legal Name</strong>
+                        <span
+                            style="font-size: 1.1rem; color: var(--color-slate); font-family: var(--font-primary);">Friends
+                            &amp; Co</span>
+                    </div>
+
+                    <div class="info-row">
+                        <strong>Street Address</strong>
+                        <div style="color: #444;">
+                            2550 University Avenue W<br>
+                            Suite 260-S<br>
+                            Saint Paul, MN 55114
+                        </div>
+                    </div>
+
+                    <div class="info-row">
+                        <strong>Tax Identification Number (TIN)</strong>
+                        <span>41-0986200</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Break / Image -->
+    <section style="background-color: #d4dfe8; padding: 4rem 0;">
+        <div class="container"
+            style="display: flex; align-items: center; justify-content: center; gap: 4rem; flex-wrap: wrap;">
+            <img src="assets/img/support-hero-group.png" alt="Community Group"
+                style="max-width: 450px; width: 100%; border-radius: var(--border-radius); box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+            <div style="max-width: 500px;">
+                <h2 style="color: var(--color-blue); margin-bottom: 1rem;">A Future of Belonging</h2>
+                <p style="color: #555; font-size: 1.1rem; margin-bottom: 1.5rem;">Your legacy doesn't just fund
+                    programs; it funds laughter, shared stories, and the comfort of knowing someone cares. Join the
+                    Legacy Circle today.</p>
+                <a href="#" class="btn" style="background-color: var(--color-green);">Join the Legacy Circle <i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / CTA -->
+    <!-- Contact / CTA -->
+    <section class="pattern-break">
+        <div class="container pattern-content">
+            <div class="script-text">Get in Touch</div>
+            <h2 style="color: white; margin-bottom: 1.5rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Have questions about Planned Giving?</h2>
+            <p style="max-width: 600px; margin: 0 auto 2rem auto; opacity: 0.95; font-size: 1.2rem;">Our team is here to
+                help you or your advisor navigate the process of leaving a legacy gift.</p>
+            <a href="mailto:acarlson@friendsco.org" class="btn"
+                style="background-color: white; color: var(--color-blue); font-size: 1.1rem; padding: 1rem 3rem;">Contact
+                Us</a>
+        </div>
+    </section>
+
+    <!-- Comprehensive Footer -->
+    <footer>
+        <div class="container">
+            <!-- Top Section -->
+            <div class="footer-top">
+                <div class="footer-grid-top">
+                    <!-- Left: Logo & Give Button -->
+                    <div class="footer-logo-area">
+                        <img src="assets/img/FriendsCo-logo.png" alt="Friends & Co"
+                            style="width: 200px; max-width: 100%; margin-bottom: 1rem;">
+                        <a href="#" class="give-btn">Give <i class="fas fa-asterisk"
+                                style="font-size: 0.75rem;"></i></a>
+                    </div>
+                    <!-- Center: Newsletter Form -->
+                    <div class="newsletter-area">
+                        <h3
+                            style="color: var(--color-magenta); font-weight: 700; font-size: 1.125rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem;">
+                            Sign Up for Among Friends Newsletter
+                        </h3>
+                        <p style="color: var(--color-blue); font-size: 0.875rem; margin-bottom: 1rem;">
+                            Get important updates from Friends & Co in your inbox.
+                        </p>
+                        <form class="newsletter-form">
+                            <div class="form-row">
+                                <input type="text" placeholder="First Name" class="footer-input">
+                                <input type="text" placeholder="Last Name" class="footer-input">
+                            </div>
+                            <input type="email" placeholder="Email Address" class="footer-input">
+                            <button type="submit" class="footer-submit-btn">Sign Up</button>
+                        </form>
+                    </div>
+                    <!-- Right: Badges & Social -->
+                    <div class="social-area">
+                        <div class="badge-container">
+                            <img src="assets/img/Points-of-Light-150x150.png" alt="Certified Service Enterprise" class="badge-img">
+                            <img src="assets/img/general_square.jpg" alt="Charity Navigator" class="badge-img">
+                            <img src="assets/img/smart-givers.png" alt="Meets Standards" class="badge-img">
+                        </div>
+                        <div class="social-links" style="margin-top: 1rem;">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Links Grid -->
+            <div class="footer-links-grid">
+                <!-- Contact Column -->
+                <div>
+                    <h4>Contact</h4>
+                    <address class="contact-address" style="font-style: normal;">
+                        <p>2550 University Avenue W</p>
+                        <p>Suite 260-S</p>
+                        <p>Saint Paul, MN 55114</p>
+                        <p style="margin-top: 0.5rem;">P 612-721-1400</p>
+                        <p>F 612-721-5848</p>
+                    </address>
+                </div>
+                <!-- Quick Links: Get Involved -->
+                <div>
+                    <h4>Quick Links</h4>
+                    <h5>Get Involved</h5>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-arrow-circle-right"></i>Donate</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-circle-right"></i>Sign Up for Services</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-circle-right"></i>Become a Volunteer</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-circle-right"></i>Refer an Older Adult</a></li>
+                    </ul>
+                </div>
+                <!-- Quick Links: Services -->
+                <div>
+                    <h4 style="opacity: 0; pointer-events: none;" aria-hidden="true">Spacer</h4>
+                    <h5>Friendship Services</h5>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-arrow-circle-right"></i>Coffee Talk</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-circle-right"></i>Visiting Companions</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-circle-right"></i>Phone Companions</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-circle-right"></i>Cards Connect</a></li>
+                    </ul>
+                </div>
+                <!-- Quick Links: About -->
+                <div>
+                    <h4 style="opacity: 0; pointer-events: none;" aria-hidden="true">Spacer</h4>
+                    <h5>About</h5>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-arrow-circle-right"></i>Staff & Board</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-circle-right"></i>Careers</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-circle-right"></i>Annual Report</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-circle-right"></i>Contact Us</a></li>
+                    </ul>
+                </div>
+                <!-- Quick Links: Volunteers -->
+                <div>
+                    <h4 style="opacity: 0; pointer-events: none;" aria-hidden="true">Spacer</h4>
+                    <h5>Current Volunteers</h5>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-arrow-circle-right"></i>Portal Sign-in</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright Bar -->
+        <div class="footer-copyright">
+            <div class="container">
+                <p>&copy; 2025 Friends & Co. All Rights Reserved. | <a href="#">Terms & Conditions</a> | <a
+                        href="#">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile Menu Toggle
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            if (mobileToggle && mobileMenu) {
+                mobileToggle.addEventListener('click', function () {
+                    mobileMenu.classList.toggle('active');
+                    const icon = this.querySelector('i');
+                    if (mobileMenu.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            }
+
+            // Intersection Observer for Reveal on Scroll
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>

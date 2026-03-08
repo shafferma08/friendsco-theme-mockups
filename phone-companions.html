@@ -1,0 +1,774 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Companions | FriendsCo</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Roboto+Condensed:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* 
+         * BRAND GUIDELINES & UTILITIES 
+         */
+        @font-face {
+            font-family: 'Albiol';
+            src: url('assets/fonts/Albiol.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --color-blue: #5e74b1;
+            --color-magenta: #ba3f97;
+            --color-green: #85c340;
+            --color-teal: #00bbd3;
+            --color-orange: #f9a41e;
+            --color-slate: #7d91a0;
+            --font-primary: 'Open Sans', sans-serif;
+            --font-display: 'Akzidenz-Grotesk Pro Medium Condensed', 'Roboto Condensed', sans-serif;
+            --font-script: 'Albiol', 'Brush Script MT', cursive;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: #555;
+            line-height: 1.6;
+            background-color: #FAFAFA;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .script-text {
+            font-family: var(--font-script);
+            font-size: 6.5rem;
+            /* Increased size */
+            color: var(--color-magenta);
+            line-height: 1.1;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+            text-shadow: 0 0 1px currentColor;
+            /* Semi-bold effect */
+        }
+
+        /* ... (skipping unchanged lines if any, but replacing the blocks) ... */
+
+        .hiw-title-script {
+            font-family: 'Albiol';
+            font-size: 7rem;
+            /* Bigger script */
+            color: var(--color-magenta);
+            margin-bottom: 0.5rem;
+            /* Using border instead of text-decoration for thinner line */
+            display: inline-block;
+            border-bottom: 2px solid #fcece4;
+            /* Thinner line */
+            line-height: 0.9;
+            padding-bottom: 10px;
+            font-weight: normal;
+            text-shadow: 0 0 1px currentColor;
+        }
+
+        /* ... */
+
+        .vol-script {
+            font-family: 'Albiol';
+            font-size: 6rem;
+            /* Big script */
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+            text-shadow: 0 0 1px currentColor;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-blue {
+            background-color: var(--color-blue);
+            color: white;
+        }
+
+        .btn-magenta {
+            background-color: var(--color-magenta);
+            color: white;
+        }
+
+        .btn-orange {
+            background-color: var(--color-orange);
+            color: white;
+        }
+
+        .btn-white {
+            background-color: white;
+            color: var(--color-blue);
+        }
+
+        /* PATTERN UTILITY */
+        .has-pattern {
+            position: relative;
+            z-index: 1;
+        }
+
+        .has-pattern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('assets/img/FriendsCo_Pattern.jpg');
+            background-size: 400px;
+            opacity: 0.08;
+            /* Subtle texture */
+            mix-blend-mode: multiply;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 1rem;
+            height: 96px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .desktop-menu {
+            display: none;
+            gap: 2rem;
+        }
+
+        .desktop-menu a {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--color-blue);
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        @media(min-width: 1024px) {
+            .desktop-menu {
+                display: flex;
+            }
+        }
+
+        /* HERO SECTION - Refined */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr;
+            background-color: var(--color-orange);
+            /* Fallback */
+            overflow: hidden;
+        }
+
+        @media(min-width: 900px) {
+            .hero {
+                grid-template-columns: 45% 55%;
+                height: 500px;
+                /* Reduced height */
+            }
+        }
+
+        .hero-image {
+            background-image: url('assets/img/support-hero-connection.png');
+            background-size: cover;
+            background-position: center top;
+            min-height: 300px;
+        }
+
+        .hero-content {
+            padding: 3rem 2rem;
+            /* Reduced padding */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: var(--color-orange);
+            color: #333;
+            position: relative;
+        }
+
+        .hero-content::before {
+            /* Pattern Overlay specifically for Hero */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('assets/img/FriendsCo_Pattern.jpg');
+            opacity: 0.1;
+            mix-blend-mode: multiply;
+            pointer-events: none;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-sub {
+            font-size: 1.35rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            color: #fff;
+            opacity: 0.95;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* INTRO TEXT */
+        .intro-section {
+            padding: 4rem 0 3rem 0;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .intro-title {
+            color: var(--color-magenta);
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        /* HOW IT WORKS */
+        .how-it-works {
+            padding: 2rem 0 5rem 0;
+            text-align: center;
+        }
+
+        .hiw-title-script {
+            font-family: 'Albiol';
+            font-size: 5rem;
+            /* Bigger script */
+            color: var(--color-magenta);
+            margin-bottom: 0.5rem;
+            /* Using border instead of text-decoration for thinner line */
+            display: inline-block;
+            border-bottom: 2px solid #fcece4;
+            /* Thinner line */
+            line-height: 0.9;
+            padding-bottom: 10px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        @media(min-width: 768px) {
+            .steps-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .step-item {
+            padding: 0 1rem;
+        }
+
+        .icon-circle {
+            width: 100px;
+            height: 100px;
+            background: rgba(249, 164, 30, 0.1);
+            /* Light Orange */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            color: var(--color-orange);
+            font-size: 2.5rem;
+            transition: transform 0.3s;
+        }
+
+        .step-item:hover .icon-circle {
+            transform: scale(1.1);
+            background: var(--color-orange);
+            color: white;
+        }
+
+        .step-title {
+            color: var(--color-blue);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* FAQ - Pattern Background */
+        .faq-section {
+            background-color: var(--color-blue);
+            color: white;
+            padding: 5rem 0;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media(min-width: 768px) {
+            .faq-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .faq-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 2rem;
+            color: #444;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-q {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--color-blue);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* NEW GET STARTED IDEA: Integrated Cards */
+        .get-started-split {
+            background: white;
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .gs-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media(min-width: 900px) {
+            .gs-container {
+                grid-template-columns: 1fr 1.2fr;
+            }
+        }
+
+        .gs-visual {
+            position: relative;
+        }
+
+        .gs-image-main {
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: rotate(-2deg);
+            border: 4px solid white;
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .gs-content-area {
+            text-align: left;
+        }
+
+        .gs-card {
+            background: white;
+            border: 1px solid #eee;
+            border-left: 6px solid var(--card-color);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+
+        .gs-card:hover {
+            transform: translateX(10px);
+        }
+
+        .gs-card h4 {
+            color: var(--card-color);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* NEW NAVIGATION FOR SIBLING PAGES */
+        .other-programs-nav {
+            background: #f4f6f8;
+            padding: 3rem 0;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media(min-width: 600px) {
+            .nav-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .nav-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .nav-card:hover {
+            border-color: var(--nav-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-info h3 {
+            font-size: 1.25rem;
+            color: #333;
+            margin: 0;
+        }
+
+        .nav-info span {
+            font-size: 0.9rem;
+            color: #777;
+            font-family: var(--font-primary);
+        }
+
+        .nav-icon {
+            font-size: 1.5rem;
+            color: var(--nav-color);
+        }
+
+        /* VOLUNTEER BANNER - SMALLER */
+        .volunteer-banner {
+            background-color: var(--color-orange);
+            color: white;
+            padding: 3rem 0;
+            /* Reduced padding */
+            text-align: center;
+        }
+
+        .vol-script {
+            font-family: 'Albiol';
+            font-size: 4rem;
+            /* Big script */
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/img/FriendsCo-logo.png" alt="Friends & Co" style="height: 60px;">
+            </div>
+            <nav class="desktop-menu">
+                <a href="#">Friendship Services</a>
+                <a href="#">Volunteer</a>
+                <a href="#">About</a>
+                <a href="index.html">Support</a>
+            </nav>
+            <div style="display: flex; gap: 10px;">
+                <a href="#" class="btn btn-green" style="background: var(--color-green); color: white;">Give <i
+                        class="fas fa-heart"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section (Reduced Height, Pattern) -->
+    <section class="hero">
+        <div class="hero-image"></div>
+        <div class="hero-content has-pattern">
+            <h1 class="hero-title">Phone Companions</h1>
+            <p class="hero-sub">A meaningful connection is just a phone call away.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn" style="background: white; color: var(--color-orange);">Refer an Older Adult</a>
+                <a href="#" class="btn" style="border: 2px solid white; color: white;">Join the Program</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro Text -->
+    <section class="intro-section container">
+        <h2 class="intro-title">Build a friendship from the comfort of your home</h2>
+        <p style="font-size: 1.15rem; color: #666; max-width: 800px; margin: 0 auto;">
+            Phone Companions pair older adults with background-checked, trained volunteers for meaningful one-on-one
+            phone conversations. Together, you and your companion can decide on a schedule that works best for you, with
+            most choosing to connect weekly.
+        </p>
+    </section>
+
+    <!-- How It Works (Thinner line, bigger script) -->
+    <section class="how-it-works container">
+        <div class="text-center">
+            <div class="hiw-title-script">How It Works</div>
+            <p style="font-size: 1.1rem; color: #888; margin-top: 1rem;">Here's what to expect when you sign up:</p>
+        </div>
+
+        <div class="steps-grid">
+            <!-- Step 1 -->
+            <div class="step-item text-center">
+                <div class="icon-circle"><i class="fas fa-mobile-alt"></i></div>
+                <h3 class="step-title">Phone Assessment</h3>
+                <p>We'll give you a friendly call to learn more about your interests and preferences.</p>
+            </div>
+            <!-- Step 2 -->
+            <div class="step-item text-center">
+                <div class="icon-circle"><i class="fas fa-user-friends"></i></div>
+                <h3 class="step-title">Matching Process</h3>
+                <p>We'll pair you with a volunteer based on availability, interests, and shared life details.</p>
+            </div>
+            <!-- Step 3 -->
+            <div class="step-item text-center">
+                <div class="icon-circle"><i class="fas fa-comments"></i></div>
+                <h3 class="step-title">Weekly Calls</h3>
+                <p>You and your companion choose a schedule that works â€” most people chat once a week.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ (Patterned) -->
+    <section class="faq-section has-pattern">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 3rem;">
+                <h2 style="color: white; font-size: 2.5rem;">Frequently Asked Questions</h2>
+                <p style="color: rgba(255,255,255,0.8);">All the answers you need to get started.</p>
+            </div>
+
+            <div class="faq-grid">
+                <!-- Q1 -->
+                <div class="faq-card">
+                    <div class="faq-q"><i class="fas fa-check-circle" style="color: var(--color-green);"></i> Who
+                        qualifies?</div>
+                    <div class="faq-a">
+                        You must be 62 or older and live in Minnesota or Western Wisconsin. This program is for older
+                        adults seeking meaningful phone-based companionship. (Not suited for dementia care).
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="faq-card">
+                    <div class="faq-q"><i class="fas fa-clock" style="color: var(--color-green);"></i> What happens
+                        next?</div>
+                    <div class="faq-a">
+                        A member of our team will reach out to schedule a friendly assessment call. This helps us
+                        understand your needs and match you with the best possible companion.
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="faq-card">
+                    <div class="faq-q"><i class="fas fa-headset" style="color: var(--color-green);"></i> Is support
+                        available?</div>
+                    <div class="faq-a">
+                        Yes! If you miss a call or haven't heard from your companion, please contact our office. We are
+                        here to ensure your connection remains consistent and enjoyable.
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="faq-card">
+                    <div class="faq-q"><i class="fas fa-map-marker-alt" style="color: var(--color-green);"></i>
+                        In-person options?</div>
+                    <div class="faq-a">
+                        Phone Companions is remote-only. If you prefer face-to-face visits, please check out our
+                        Visiting Companions program below!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW GET STARTED SECTION (Better Idea: Cards) -->
+    <section class="get-started-split">
+        <div class="container gs-container">
+            <div class="gs-visual">
+                <img src="assets/img/support-hero-group.png" alt="Happy Seniors" class="gs-image-main">
+                <!-- Decorative element -->
+
+            </div>
+
+            <div class="gs-content-area">
+                <div class="script-text">Get Connected</div>
+                <h2 style="color: #333; margin-bottom: 2rem;">Ready to make a new friend?</h2>
+
+                <!-- Card 1: Join -->
+                <div class="gs-card" style="--card-color: var(--color-orange);">
+                    <h4>I want a companion</h4>
+                    <p>I am an older adult (62+) and would like to be paired with a volunteer for weekly calls.</p>
+                    <a href="#" class="btn btn-orange">Join the Program <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 2: Refer -->
+                <div class="gs-card" style="--card-color: var(--color-blue);">
+                    <h4>I want to refer someone</h4>
+                    <p>I know an older adult who would enjoy receiving friendly calls from a volunteer.</p>
+                    <a href="#" class="btn btn-blue">Refer a Senior <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW NAVIGATION (Sibling Pages) -->
+    <section class="other-programs-nav">
+        <div class="container">
+            <p
+                style="text-align: center; text-transform: uppercase; letter-spacing: 1px; color: #999; font-weight: 700; margin-bottom: 1.5rem; font-size: 0.85rem;">
+                Explore Other Ways to Connect</p>
+            <div class="nav-grid">
+                <!-- Coffee Talk -->
+                <a href="#" class="nav-card" style="--nav-color: var(--color-teal);">
+                    <div class="nav-info">
+                        <h3>Coffee Talk</h3>
+                        <span>Drop-in group conversations</span>
+                    </div>
+                    <i class="fas fa-coffee nav-icon"></i>
+                </a>
+
+                <!-- Visiting Companions -->
+                <a href="#" class="nav-card" style="--nav-color: var(--color-green);">
+                    <div class="nav-info">
+                        <h3>Visiting Companions</h3>
+                        <span>In-home visits & friendship</span>
+                    </div>
+                    <i class="fas fa-home nav-icon"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Banner (Smaller, Patterned) -->
+    <section class="volunteer-banner has-pattern">
+        <div class="container">
+            <span class="vol-script">Be a Phone Companion</span>
+            <p style="margin-bottom: 1.5rem; color: white;">Enjoy chatting? Apply to join us as a volunteer!</p>
+            <a href="#" class="btn" style="background: white; color: var(--color-orange);">Sign Up to Volunteer <i
+                    class="fas fa-heart"></i></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <!-- Logo Area -->
+            <div>
+                <img src="assets/img/FriendsCo-logo.png" style="width: 180px; margin-bottom: 1rem;">
+                <p style="font-size: 0.9rem;">2550 University Avenue W<br>Suite 260-S<br>Saint Paul, MN 55114</p>
+            </div>
+
+            <!-- Links Area -->
+            <div></div> <!-- Spacer -->
+
+            <div class="footer-links">
+                <div>
+                    <h5>Get Involved</h5>
+                    <div style="display: flex; flex-direction: column; gap: 5px;">
+                        <a href="#">Donate</a>
+                        <a href="#">Sign Up for Services</a>
+                        <a href="#">Become a Volunteer</a>
+                    </div>
+                </div>
+                <div>
+                    <h5>Services</h5>
+                    <div style="display: flex; flex-direction: column; gap: 5px;">
+                        <a href="#">Coffee Talk</a>
+                        <a href="#">Phone Companions</a>
+                        <a href="#">Visiting Companions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div
+            style="background: var(--color-magenta); color: white; text-align: center; padding: 1rem; font-size: 0.8rem;">
+            &copy; 2026 Friends & Co. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+
+</html>

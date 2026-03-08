@@ -1,0 +1,634 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search results | Friends & Co</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Roboto+Condensed:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* 
+         * BRAND GUIDELINES & UTILITIES 
+         */
+        @font-face {
+            font-family: 'Albiol';
+            src: url('assets/fonts/Albiol.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --color-blue: #5e74b1;
+            --color-magenta: #ba3f97;
+            --color-green: #85c340;
+            --color-teal: #00bbd3;
+            --color-orange: #f9a41e;
+            --color-slate: #7d91a0;
+            --font-primary: 'Open Sans', sans-serif;
+            --font-display: 'Akzidenz-Grotesk Pro Medium Condensed', 'Roboto Condensed', sans-serif;
+            --font-script: 'Albiol', 'Brush Script MT', cursive;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: #333;
+            /* High contrast for older adults */
+            line-height: 1.6;
+            background-color: #FAFAFA;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover,
+        .btn:focus-visible {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            outline: none;
+        }
+
+        .btn:focus-visible {
+            outline: 3px solid var(--color-blue);
+            outline-offset: 2px;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 1rem;
+            height: 96px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .desktop-menu {
+            display: none;
+            gap: 2rem;
+        }
+
+        .desktop-menu a {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--color-blue);
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+        }
+
+        .desktop-menu a:hover,
+        .desktop-menu a:focus-visible {
+            color: var(--color-magenta);
+            outline: none;
+        }
+
+        .desktop-menu a:focus-visible {
+            border-bottom: 2px solid var(--color-magenta);
+        }
+
+        @media(min-width: 1024px) {
+            .desktop-menu {
+                display: flex;
+            }
+        }
+
+        /* SEARCH RESULTS LAYOUT */
+        .search-results-header {
+            background-color: var(--color-blue);
+            color: white;
+            padding: 5rem 0 6rem 0;
+            /* Extra padding on bottom for overlapping search bar */
+            text-align: center;
+            position: relative;
+        }
+
+        .search-results-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('assets/img/FriendsCo_Pattern.jpg');
+            background-size: 400px;
+            opacity: 0.08;
+            mix-blend-mode: multiply;
+            z-index: 0;
+        }
+
+        .search-results-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-transform: none;
+            /* AP Style: Sentence case for large headers */
+            position: relative;
+            z-index: 1;
+        }
+
+        .search-results-meta {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            font-family: var(--font-primary);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* INLINE SEARCH BAR */
+        .search-page-form {
+            max-width: 800px;
+            margin: -3rem auto 3rem auto;
+            /* Overlaps header */
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            position: relative;
+            z-index: 10;
+        }
+
+        @media(min-width: 768px) {
+            .search-page-form {
+                flex-direction: row;
+                align-items: stretch;
+            }
+        }
+
+        .search-page-input-wrapper {
+            flex-grow: 1;
+            position: relative;
+        }
+
+        .search-page-input {
+            width: 100%;
+            padding: 18px 55px 18px 20px;
+            font-size: 1.25rem;
+            font-family: var(--font-primary);
+            color: #222;
+            border: 2px solid var(--color-slate);
+            border-radius: 6px;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .search-page-input:focus {
+            border-color: var(--color-blue);
+            box-shadow: 0 0 0 4px rgba(94, 116, 177, 0.2);
+        }
+
+        .clear-input-btn {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            color: #666;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+        }
+
+        .clear-input-btn:hover,
+        .clear-input-btn:focus-visible {
+            color: var(--color-magenta);
+            background-color: rgba(0, 0, 0, 0.05);
+            outline: none;
+        }
+
+        .search-page-btn {
+            background-color: var(--color-magenta);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 15px 30px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background-color 0.2s, transform 0.1s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-page-btn:hover,
+        .search-page-btn:focus-visible {
+            background-color: #9c327d;
+            outline: none;
+        }
+
+        .search-page-btn:focus-visible {
+            box-shadow: 0 0 0 4px rgba(186, 63, 151, 0.4);
+        }
+
+        .search-page-btn:active {
+            transform: scale(0.97);
+        }
+
+        /* RESULTS LIST */
+        .results-container {
+            padding: 1rem 0 5rem 0;
+            max-width: 800px;
+            /* Matching the search bar width */
+            margin: 0 auto;
+        }
+
+        .result-item {
+            padding: 2.5rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-title {
+            font-size: 1.6rem;
+            color: var(--color-blue);
+            margin-bottom: 0.5rem;
+            text-transform: none;
+            /* AP Style: Sentence case or title case depending on brand */
+            letter-spacing: 0;
+        }
+
+        .result-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.1s;
+        }
+
+        .result-title a:hover,
+        .result-title a:focus-visible {
+            color: var(--color-magenta);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            outline: none;
+        }
+
+        .result-url {
+            color: #555;
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .result-url span {
+            color: var(--color-green);
+        }
+
+        .result-snippet {
+            font-size: 1.15rem;
+            /* Large accessible text */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .search-term-highlight {
+            background-color: rgba(249, 164, 30, 0.2);
+            /* Soft orange highlight */
+            font-weight: 600;
+            color: #222;
+            padding: 0 2px;
+            border-radius: 2px;
+        }
+
+        /* PAGINATION */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 4rem;
+        }
+
+        .page-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 48px;
+            height: 48px;
+            border-radius: 6px;
+            background: white;
+            border: 2px solid var(--color-slate);
+            color: var(--color-slate);
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            padding: 0 10px;
+        }
+
+        .page-btn:hover,
+        .page-btn:focus-visible {
+            background: rgba(125, 145, 160, 0.1);
+            color: var(--color-blue);
+            border-color: var(--color-blue);
+            outline: none;
+        }
+
+        .page-btn.active {
+            background: var(--color-blue);
+            color: white;
+            border-color: var(--color-blue);
+        }
+
+        /* NO RESULTS / HELP SECTION */
+        .search-help-card {
+            background: rgba(0, 187, 211, 0.05);
+            /* Very light teal */
+            border-radius: 12px;
+            border-left: 6px solid var(--color-teal);
+            padding: 2.5rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .search-help-card h3 {
+            color: var(--color-teal);
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background: white;
+            padding-top: 4rem;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding-bottom: 3rem;
+        }
+
+        @media(min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr 2fr;
+            }
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .footer-links h5 {
+            color: var(--color-magenta);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-links a {
+            color: #555;
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 4px 0;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-magenta);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="assets/img/FriendsCo-logo.png" alt="Friends & Co" style="height: 60px;">
+                </a>
+            </div>
+            <nav class="desktop-menu">
+                <a href="#">Friendship Services</a>
+                <a href="#">Volunteer</a>
+                <a href="#">About</a>
+                <a href="index.html">Support</a>
+            </nav>
+            <div style="display: flex; gap: 10px;">
+                <a href="#" class="btn" style="background: var(--color-green); color: white;">Give <i
+                        class="fas fa-heart"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Header -->
+    <div class="search-results-header">
+        <div class="container">
+            <h1 class="search-results-title">Search results</h1>
+            <p class="search-results-meta">12 results found for <strong>"volunteer"</strong></p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Persistent Search Form -->
+        <form class="search-page-form" action="#" method="GET" role="search" aria-label="Refine your search">
+            <div class="search-page-input-wrapper">
+                <label for="pageSearchInput"
+                    style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;">Refine
+                    search</label>
+                <input type="text" class="search-page-input" id="pageSearchInput" placeholder="Search..."
+                    value="volunteer">
+                <button type="button" class="clear-input-btn" id="clearPageSearchBtn"
+                    aria-label="Clear search input">&times;</button>
+            </div>
+            <button type="submit" class="search-page-btn" aria-label="Submit new search">
+                Search
+            </button>
+        </form>
+
+        <!-- Results List -->
+        <div class="results-container">
+
+            <!-- Result 1 -->
+            <article class="result-item">
+                <h2 class="result-title"><a href="#">Become a <span class="search-term-highlight">volunteer</span></a>
+                </h2>
+                <div class="result-url">Home > <span>Volunteer</span></div>
+                <p class="result-snippet">
+                    Join our community of caring individuals. As a <span class="search-term-highlight">volunteer</span>,
+                    you will provide meaningful companionship to older adults. Apply today to become a Phone Companion
+                    or Visiting Companion.
+                </p>
+            </article>
+
+            <!-- Result 2 -->
+            <article class="result-item">
+                <h2 class="result-title"><a href="#">Phone Companions</a></h2>
+                <div class="result-url">Home > Services > <span>Phone Companions</span></div>
+                <p class="result-snippet">
+                    We'll pair you with a <span class="search-term-highlight">volunteer</span> based on availability,
+                    interests, and shared life details. Our <span class="search-term-highlight">volunteer</span>s are
+                    trained and background-checked for your safety.
+                </p>
+            </article>
+
+            <!-- Result 3 -->
+            <article class="result-item">
+                <h2 class="result-title"><a href="#"><span class="search-term-highlight">Volunteer</span> FAQs</a></h2>
+                <div class="result-url">Home > Volunteer > <span>FAQs</span></div>
+                <p class="result-snippet">
+                    Frequently asked questions about the <span class="search-term-highlight">volunteer</span> onboarding
+                    process, background checks, training requirements and time commitments for our various programs.
+                </p>
+            </article>
+
+            <!-- Result 4 -->
+            <article class="result-item">
+                <h2 class="result-title"><a href="#">About Friends & Co</a></h2>
+                <div class="result-url">Home > <span>About</span></div>
+                <p class="result-snippet">
+                    Discover how our <span class="search-term-highlight">volunteer</span>-driven programs have been
+                    fighting social isolation and loneliness among older adults in Minnesota since our founding.
+                </p>
+            </article>
+
+            <!-- Pagination -->
+            <nav class="pagination" aria-label="Search results generic pagination">
+                <a href="#" class="page-btn" aria-label="Previous page"><i class="fas fa-chevron-left"></i></a>
+                <a href="#" class="page-btn active" aria-label="Page 1" aria-current="page">1</a>
+                <a href="#" class="page-btn" aria-label="Page 2">2</a>
+                <a href="#" class="page-btn" aria-label="Page 3">3</a>
+                <span style="display:flex; align-items:end; padding:5px; color:#999;">...</span>
+                <a href="#" class="page-btn" aria-label="Next page"><i class="fas fa-chevron-right"></i></a>
+            </nav>
+
+            <!-- Help / Can't find it -->
+            <div class="search-help-card">
+                <h3>Didn't find what you were looking for?</h3>
+                <p style="font-size: 1.15rem; margin-bottom: 1.5rem;">Try using fewer or different keywords, or explore
+                    our site index.</p>
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <a href="#" class="btn btn-blue" style="background: var(--color-blue); color: white;">View all
+                        services</a>
+                    <a href="#" class="btn"
+                        style="border: 2px solid var(--color-teal); color: var(--color-teal); background: white;">Contact
+                        us <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <!-- Logo Area -->
+            <div>
+                <img src="assets/img/FriendsCo-logo.png" style="width: 180px; margin-bottom: 1rem;" alt="Friends and Co Logo">
+                <p style="font-size: 0.9rem;">2550 University Avenue W<br>Suite 260-S<br>Saint Paul, MN 55114</p>
+            </div>
+
+            <!-- Links Area -->
+            <div></div> <!-- Spacer -->
+
+            <div class="footer-links">
+                <div>
+                    <h5>Get Involved</h5>
+                    <div style="display: flex; flex-direction: column; gap: 5px;">
+                        <a href="#">Donate</a>
+                        <a href="#">Sign Up for Services</a>
+                        <a href="#">Become a Volunteer</a>
+                    </div>
+                </div>
+                <div>
+                    <h5>Services</h5>
+                    <div style="display: flex; flex-direction: column; gap: 5px;">
+                        <a href="#">Coffee Talk</a>
+                        <a href="#">Phone Companions</a>
+                        <a href="#">Visiting Companions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div
+            style="background: var(--color-magenta); color: white; text-align: center; padding: 1rem; font-size: 0.8rem;">
+            &copy; 2026 Friends & Co. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Simple script to handle 'X' clear button
+        document.addEventListener('DOMContentLoaded', () => {
+            const clearBtn = document.getElementById('clearPageSearchBtn');
+            const searchInput = document.getElementById('pageSearchInput');
+
+            if (clearBtn && searchInput) {
+                clearBtn.addEventListener('click', () => {
+                    searchInput.value = '';
+                    searchInput.focus();
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

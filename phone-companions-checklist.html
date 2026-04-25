@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phone Companions — Pre-Publish Checklist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto+Condensed:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+    --color-blue: #5e74b1;
+    --color-magenta: #ba3f97;
+    --color-green: #85c340;
+    --color-orange: #f9a41e;
+    --font-primary: 'Open Sans', sans-serif;
+    --font-display: 'Roboto Condensed', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: var(--font-primary);
+    color: #333;
+    line-height: 1.55;
+    background: #f4f4f6;
+    padding: 40px 20px 80px;
+}
+.page-wrap { max-width: 880px; margin: 0 auto; }
+
+/* Top bar */
+.top-bar {
+    background: white;
+    border-radius: 12px;
+    padding: 28px 40px;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.top-bar h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.75rem;
+    color: var(--color-blue);
+    /* Title Case — no text-transform */
+}
+.top-bar .subtitle {
+    color: #666;
+    font-size: 0.95rem;
+    margin-top: 4px;
+}
+.top-bar .nav-link {
+    background: var(--color-blue);
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+.top-bar .nav-link:hover { background: #4c6096; }
+
+/* Checklist */
+.checklist {
+    background: white;
+    border-radius: 12px;
+    padding: 36px 40px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+}
+.checklist h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--color-blue);
+    margin-bottom: 6px;
+    /* Title Case */
+}
+.checklist .section-sub {
+    font-size: 0.95rem;
+    color: #777;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.checklist h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--color-magenta);
+    margin: 22px 0 10px;
+    /* Title Case */
+}
+.checklist h3:first-of-type { margin-top: 0; }
+.checklist ul { list-style: none; padding: 0; }
+.checklist li {
+    padding: 10px 0 10px 32px;
+    position: relative;
+    border-bottom: 1px solid #f4f4f4;
+    font-size: 0.95rem;
+}
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--color-blue);
+    border-radius: 4px;
+    background: white;
+}
+.checklist li strong { color: var(--color-blue); }
+.checklist code {
+    background: #f4f0fa;
+    color: var(--color-magenta);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.85rem;
+    font-family: 'Menlo', 'Consolas', monospace;
+}
+.before-after {
+    display: inline;
+}
+.before-after .before {
+    background: #fce5e5;
+    color: #a83232;
+    padding: 1px 6px;
+    border-radius: 3px;
+    text-decoration: line-through;
+    font-size: 0.9em;
+}
+.before-after .after {
+    background: #e6f5d9;
+    color: #3d6b15;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+.arrow { color: #999; margin: 0 4px; }
+
+@media(max-width: 640px) {
+    .top-bar, .checklist { padding-left: 24px; padding-right: 24px; }
+}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+<!-- Top bar with link to mockups -->
+<div class="top-bar">
+    <div>
+        <h1>Phone Companions — Pre-Publish Checklist</h1>
+        <div class="subtitle">Every change Paul requested, ready to work through before pushing live.</div>
+    </div>
+    <a href="phone-companions-bg-mockups.html" class="nav-link"><i class="fas fa-arrow-left"></i> View Background Mockups</a>
+</div>
+
+<!-- Section 1: Title Case -->
+<div class="checklist">
+    <h2>1. Headlines — ALL CAPS to Title Case</h2>
+    <div class="section-sub">Convert each headline below. In Elementor, also remove <code>text-transform: uppercase</code> from the heading's Style panel and retype the text in Title Case so screen readers announce it correctly.</div>
+    <h3>Specific Headlines to Change</h3>
+    <ul>
+        <li><strong>Hero title:</strong> <span class="before-after"><span class="before">PHONE COMPANIONS</span><span class="arrow">→</span><span class="after">Phone Companions</span></span></li>
+        <li><strong>Intro H2:</strong> <span class="before-after"><span class="before">BUILD A FRIENDSHIP FROM THE COMFORT OF YOUR HOME</span><span class="arrow">→</span><span class="after">Build a Friendship from the Comfort of Your Home</span></span></li>
+        <li><strong>How It Works step 1:</strong> <span class="before-after"><span class="before">PHONE ASSESSMENT</span><span class="arrow">→</span><span class="after">Phone Assessment</span></span></li>
+        <li><strong>How It Works step 2:</strong> <span class="before-after"><span class="before">MATCHING PROCESS</span><span class="arrow">→</span><span class="after">Matching Process</span></span></li>
+        <li><strong>How It Works step 3:</strong> <span class="before-after"><span class="before">WEEKLY CALLS</span><span class="arrow">→</span><span class="after">Weekly Calls</span></span></li>
+        <li><strong>FAQ section H2:</strong> <span class="before-after"><span class="before">FREQUENTLY ASKED QUESTIONS</span><span class="arrow">→</span><span class="after">Frequently Asked Questions</span></span></li>
+        <li><strong>Get Connected H2:</strong> <span class="before-after"><span class="before">READY TO MAKE A NEW FRIEND?</span><span class="arrow">→</span><span class="after">Ready to Make a New Friend?</span></span></li>
+        <li><strong>Card 1:</strong> <span class="before-after"><span class="before">I WANT A COMPANION</span><span class="arrow">→</span><span class="after">I Want a Companion</span></span></li>
+        <li><strong>Card 2:</strong> <span class="before-after"><span class="before">I WANT TO REFER SOMEONE</span><span class="arrow">→</span><span class="after">I Want to Refer Someone</span></span></li>
+    </ul>
+
+    <h3>Headlines to Leave Uppercase (For Now)</h3>
+    <ul>
+        <li>Buttons (GIVE, SUBSCRIBE, REFER AN OLDER ADULT, JOIN THE PROGRAM) — short labels, fine as-is</li>
+        <li>Footer column headings (Programs &amp; Services, Get Involved, Support Our Mission)</li>
+        <li>Top nav items — these are existing site-wide style, not part of Paul's request</li>
+    </ul>
+</div>
+
+<!-- Section 2: Albiol script -->
+<div class="checklist">
+    <h2>2. Remove Albiol Script Font from Typed Text</h2>
+    <div class="section-sub">Albiol stays alive only inside images and graphic assets. Anywhere it appears as live text, swap it for the display font.</div>
+
+    <h3>Spots to Change</h3>
+    <ul>
+        <li><strong>"Get Connected" eyebrow</strong> above "Ready to Make a New Friend?" → swap to Roboto Condensed, magenta, smaller size with letter-spacing as an eyebrow label</li>
+        <li><strong>"How It Works" script title</strong> → use the display heading font (Roboto Condensed, magenta) — keep the thin underline accent if you want a graphic touch</li>
+        <li><strong>"Volunteer With Us" script</strong> in the volunteer banner (if present on beta) → same treatment</li>
+        <li><strong>Footer logo script text</strong> (if any) → replace with <code>friends-co-logo-white.png</code> image instead of typed Albiol</li>
+        <li><strong>Anywhere else with <code>font-family: 'Albiol'</code></strong> → grep the page in dev tools, find each widget, change to <code>Roboto Condensed</code> or <code>Open Sans</code> as appropriate</li>
+    </ul>
+
+    <h3>Where Albiol Can Stay</h3>
+    <ul>
+        <li>Inside <code>FriendsCo_Pattern.jpg</code> and other graphic assets — the script is baked into the image, that's fine</li>
+        <li>Image overlays and headers/banners that are designed in Photoshop/Illustrator and exported as PNGs</li>
+    </ul>
+</div>
+
+<!-- Section 3: Background -->
+<div class="checklist">
+    <h2>3. Background Behind the Woman Image</h2>
+    <div class="section-sub">Pick a direction from the three mockup options, get Paul's sign-off, then update Elementor.</div>
+
+    <h3>Steps</h3>
+    <ul>
+        <li>Review the three mockup options (Solid Orange, Oversized Ampersand, Flower on Cream) and share with Paul</li>
+        <li>Once approved, in Elementor open the section column → Background → remove the <code>FriendsCo_Pattern.jpg</code> overlay (or drop opacity to under 5% if you want a hint of texture)</li>
+        <li>Apply the chosen background: solid orange, oversized icon, or cream + icon combo</li>
+        <li>Test at desktop, tablet, mobile — confirm the oversized icon (if used) doesn't crowd the headline or buttons on narrow widths</li>
+    </ul>
+</div>
+
+<!-- Section 4: QA -->
+<div class="checklist">
+    <h2>4. Pre-Publish QA</h2>
+    <div class="section-sub">Final pass before pushing the beta to live.</div>
+
+    <h3>Checks</h3>
+    <ul>
+        <li>Spell-check all headings after Title Case conversion (auto-converters miss small words like "a", "the", "of")</li>
+        <li>Confirm heading hierarchy is still correct (H1 → H2 → H3) after font changes</li>
+        <li>Run Lighthouse / accessibility check — uppercase-by-CSS reads differently than uppercase-by-content in some screen readers</li>
+        <li>Test on iPhone (Safari) and Android (Chrome) — Paul flagged mobile works well, confirm changes don't break that</li>
+        <li>Confirm the new woman-on-phone image is loaded into the WordPress media library at the right size (web-optimized, ~1600px wide max)</li>
+        <li>Send beta link to Paul for final approval before pushing to live</li>
+    </ul>
+</div>
+
+</div>
+</body>
+</html>

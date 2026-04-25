@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phone Companions — Background Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto+Condensed:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+    --color-blue: #5e74b1;
+    --color-magenta: #ba3f97;
+    --color-green: #85c340;
+    --color-teal: #00bbd3;
+    --color-orange: #f9a41e;
+    --color-orange-soft: #fdf0d9;
+    --color-slate: #7d91a0;
+    --font-primary: 'Open Sans', sans-serif;
+    --font-display: 'Roboto Condensed', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: var(--font-primary);
+    color: #333;
+    line-height: 1.55;
+    background: #f4f4f6;
+    padding: 40px 20px 80px;
+}
+.page-wrap { max-width: 1180px; margin: 0 auto; }
+
+/* Top bar */
+.top-bar {
+    background: white;
+    border-radius: 12px;
+    padding: 28px 40px;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.top-bar h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.75rem;
+    color: var(--color-blue);
+}
+.top-bar .subtitle {
+    color: #666;
+    font-size: 0.95rem;
+    margin-top: 4px;
+}
+.top-bar .nav-link {
+    background: var(--color-blue);
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+.top-bar .nav-link:hover { background: #4c6096; }
+
+/* Mockup card */
+.mockup-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 36px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+}
+.mockup-label {
+    padding: 22px 40px 18px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.mockup-label .tag {
+    display: inline-block;
+    background: var(--color-blue);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+.mockup-label h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #333;
+}
+.mockup-label p {
+    color: #666;
+    font-size: 0.95rem;
+    margin-top: 6px;
+}
+
+/* Hero-style section for mockups */
+.mock-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 460px;
+    overflow: hidden;
+    position: relative;
+}
+@media(min-width: 900px) {
+    .mock-section { grid-template-columns: 50% 50%; }
+}
+
+/* Image side */
+.mock-image {
+    background-color: #d9b88a;
+    background-image: url('assets/img/phone-companion-woman.jpeg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 320px;
+    position: relative;
+}
+/* Content side */
+.mock-content {
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+.mock-content h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 3.5rem;
+    line-height: 1;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 2;
+}
+.mock-content p.subtitle-large {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 1.75rem;
+}
+.mock-content .eyebrow {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.35rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    opacity: 0.95;
+    position: relative;
+    z-index: 2;
+}
+.mock-content h3.headline-alt {
+    font-size: 2.6rem;
+    line-height: 1.1;
+}
+.mock-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    max-width: 460px;
+    position: relative;
+    z-index: 2;
+}
+.mock-btns { display: flex; gap: 12px; flex-wrap: wrap; position: relative; z-index: 2; }
+.mock-btn {
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.btn-white { background: white; color: var(--color-orange); }
+.btn-outline-white { background: transparent; color: white; border: 2px solid white; }
+.btn-orange { background: var(--color-orange); color: white; }
+.btn-outline-orange { background: transparent; color: var(--color-orange); border: 2px solid var(--color-orange); }
+
+/* OPTION A: Solid Orange */
+.opt-a .mock-content {
+    background: var(--color-orange);
+    color: white;
+}
+.opt-a .mock-content h3,
+.opt-a .mock-content .eyebrow { color: white; }
+.opt-a .mock-content p { color: rgba(255,255,255,0.95); }
+
+/* OPTION B: Oversized ampersand on orange */
+.opt-b .mock-content {
+    background: var(--color-orange);
+    color: white;
+}
+.opt-b .mock-content h3,
+.opt-b .mock-content .eyebrow { color: white; }
+.opt-b .mock-content p { color: rgba(255,255,255,0.95); }
+.opt-b .mock-content::before {
+    content: '';
+    position: absolute;
+    right: -130px;
+    top: -80px;
+    width: 600px;
+    height: 600px;
+    background-image: url('assets/img/ampersand-icon.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    opacity: 0.18;
+    filter: brightness(0) invert(1);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* OPTION C: Flower mark on warm cream */
+.opt-c .mock-content {
+    background: var(--color-orange-soft);
+    color: #2e2a26;
+}
+.opt-c .mock-content h3 { color: var(--color-magenta); }
+.opt-c .mock-content .eyebrow { color: var(--color-orange); }
+.opt-c .mock-content p { color: #5a4a3d; }
+.opt-c .mock-content::before {
+    content: '';
+    position: absolute;
+    right: -80px;
+    bottom: -100px;
+    width: 480px;
+    height: 480px;
+    background-image: url('assets/img/flower-icon.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 1;
+}
+.opt-c .mock-content::after {
+    content: '';
+    position: absolute;
+    left: -50px;
+    top: -50px;
+    width: 180px;
+    height: 180px;
+    background-image: url('assets/img/ampersand-icon-orange.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@media(max-width: 640px) {
+    .top-bar, .mockup-label { padding-left: 24px; padding-right: 24px; }
+    .mock-content { padding: 2rem 1.5rem; }
+    .mock-content h3 { font-size: 1.9rem; }
+}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+<!-- Top bar -->
+<div class="top-bar">
+    <div>
+        <h1>Phone Companions — Background Options</h1>
+        <div class="subtitle">Four directions for the section behind the photo. Headlines updated to Title Case throughout.</div>
+    </div>
+</div>
+
+<!-- OPTION A: Solid Orange -->
+<div class="mockup-card">
+    <div class="mockup-label">
+        <span class="tag">Option A</span>
+        <h2>Solid Orange</h2>
+        <p>Plain Friends &amp; Co orange. No pattern, no icon. Clean and bold, letting the photo do the work.</p>
+    </div>
+    <div class="mock-section opt-a">
+        <div class="mock-image"></div>
+        <div class="mock-content">
+            <h3>Phone Companions</h3>
+            <p class="subtitle-large">A meaningful connection is just a phone call away.</p>
+            <div class="mock-btns">
+                <a href="#" class="mock-btn btn-white">Refer an Older Adult</a>
+                <a href="#" class="mock-btn btn-outline-white">Join the Program</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- OPTION B: Oversized ampersand on orange -->
+<div class="mockup-card">
+    <div class="mockup-label">
+        <span class="tag">Option B</span>
+        <h2>Oversized Ampersand on Orange</h2>
+        <p>One large ampersand bleeding off the right edge as a soft watermark on solid orange — taking the oversized icon treatment from page 13 of the brand guide.</p>
+    </div>
+    <div class="mock-section opt-b">
+        <div class="mock-image"></div>
+        <div class="mock-content">
+            <h3>Phone Companions</h3>
+            <p class="subtitle-large">A meaningful connection is just a phone call away.</p>
+            <div class="mock-btns">
+                <a href="#" class="mock-btn btn-white">Refer an Older Adult</a>
+                <a href="#" class="mock-btn btn-outline-white">Join the Program</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- OPTION C: Flower mark on warm cream -->
+<div class="mockup-card">
+    <div class="mockup-label">
+        <span class="tag">Option C</span>
+        <h2>Flower Mark on Warm Cream</h2>
+        <p>A quieter take. Cream background with the flower icon bleeding off one corner and a smaller ampersand in the opposite corner. Magenta heading replaces the white.</p>
+    </div>
+    <div class="mock-section opt-c">
+        <div class="mock-image"></div>
+        <div class="mock-content">
+            <h3>Phone Companions</h3>
+            <p class="subtitle-large">A meaningful connection is just a phone call away.</p>
+            <div class="mock-btns">
+                <a href="#" class="mock-btn btn-orange">Refer an Older Adult</a>
+                <a href="#" class="mock-btn btn-outline-orange">Join the Program</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mockup-card">
+    <div class="mockup-label">
+        <span class="tag">Option D</span>
+        <h2>Eyebrow Headline on Solid Orange</h2>
+        <p>"Phone Companions" sits above a larger descriptive headline that speaks to the program's promise. Solid orange background.</p>
+    </div>
+    <div class="mock-section opt-a">
+        <div class="mock-image"></div>
+        <div class="mock-content">
+            <div class="eyebrow">Phone Companions</div>
+            <h3 class="headline-alt">A Friendly Voice Every Week</h3>
+            <p>Pair with a trained volunteer for a meaningful weekly phone call from the comfort of home.</p>
+            <div class="mock-btns">
+                <a href="#" class="mock-btn btn-white">Refer an Older Adult</a>
+                <a href="#" class="mock-btn btn-outline-white">Join the Program</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</body>
+</html>

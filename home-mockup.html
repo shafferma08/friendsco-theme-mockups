@@ -1,0 +1,1981 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends & Co | Nurturing Friendships for Older Adults</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Roboto+Condensed:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /*
+         * BRAND GUIDELINES & UTILITIES
+         */
+        @font-face {
+            font-family: 'Albiol';
+            src: url('assets/fonts/Albiol.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --color-blue: #5e74b1;
+            --color-blue-dark: #4c6096;
+            --color-magenta: #ba3f97;
+            --color-green: #85c340;
+            --color-teal: #00bbd3;
+            --color-orange: #f9a41e;
+            --color-slate: #7d91a0;
+            --color-dark-navy: #1a2a42;
+            --color-cream: #fcece4;
+            --color-bg: #FAFAFA;
+            --font-primary: 'Open Sans', sans-serif;
+            --font-display: 'Akzidenz-Grotesk Pro Medium Condensed', 'Roboto Condensed', sans-serif;
+            --font-script: 'Albiol', 'Brush Script MT', cursive;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: #555;
+            line-height: 1.6;
+            background-color: var(--color-bg);
+            font-size: 16px;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--color-dark-navy);
+        }
+
+        a {
+            color: var(--color-blue);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid var(--color-orange);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .script-text {
+            font-family: var(--font-script);
+            color: var(--color-magenta);
+            line-height: 1;
+            display: block;
+            font-weight: normal;
+            text-shadow: 0 0 1px currentColor;
+        }
+
+        /* Accessibility helper */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Skip link for keyboard users */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 10px;
+            background: var(--color-dark-navy);
+            color: white;
+            padding: 12px 20px;
+            z-index: 3000;
+            text-decoration: none;
+            border-radius: 0 0 6px 6px;
+            font-weight: 700;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 30px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            min-height: 44px;
+            font-family: var(--font-primary);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-blue { background-color: var(--color-blue); color: white; }
+        .btn-magenta { background-color: var(--color-magenta); color: white; }
+        .btn-green { background-color: var(--color-green); color: var(--color-dark-navy); }
+        .btn-orange { background-color: var(--color-orange); color: white; }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            box-shadow: none;
+        }
+        .btn-outline:hover { background: rgba(255, 255, 255, 0.15); }
+        .btn-outline-blue {
+            background: transparent;
+            border: 2px solid var(--color-blue);
+            color: var(--color-blue);
+            box-shadow: none;
+        }
+        .btn-outline-blue:hover { background: var(--color-blue); color: white; }
+
+        /* Pattern Utility */
+        .has-pattern {
+            position: relative;
+            z-index: 1;
+        }
+        .has-pattern::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: url('assets/img/FriendsCo_Pattern.jpg');
+            background-size: 400px;
+            opacity: 0.08;
+            mix-blend-mode: multiply;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /*
+         * HEADER & NAVIGATION
+         */
+        header {
+            background: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+            position: relative;
+        }
+        .nav-logo img { height: 60px; display: block; }
+        .desktop-menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            height: 100%;
+        }
+        .desktop-menu > li {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .desktop-menu > li > a {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--color-blue);
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 0 14px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+            letter-spacing: 0.5px;
+        }
+        .desktop-menu > li > a i {
+            font-size: 0.75rem;
+            transition: transform 0.2s;
+        }
+        .desktop-menu > li:hover > a,
+        .desktop-menu > li > a:focus-visible {
+            color: var(--color-magenta);
+        }
+        .desktop-menu > li:hover > a i { transform: rotate(180deg); }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            min-width: 280px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.2s ease-out;
+            pointer-events: none;
+            z-index: 100;
+            border-top: 3px solid var(--color-blue);
+        }
+        .desktop-menu > li:hover .dropdown,
+        .desktop-menu > li:focus-within .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        .dropdown a {
+            display: block;
+            color: var(--color-blue);
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 14px 20px;
+            line-height: 1.4;
+            transition: all 0.1s;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .dropdown a:last-child { border-bottom: none; }
+        .dropdown a:hover,
+        .dropdown a:focus-visible {
+            color: white;
+            background-color: var(--color-blue);
+            outline: none;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .btn-give {
+            background-color: var(--color-green);
+            color: var(--color-dark-navy);
+            font-size: 0.9rem;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 44px;
+            transition: background-color 0.2s;
+        }
+        .btn-give:hover { background-color: #7ab33a; }
+        .btn-search {
+            background-color: var(--color-blue);
+            color: white;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .btn-search:hover { background-color: var(--color-blue-dark); }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            font-size: 1.75rem;
+            color: var(--color-blue);
+            cursor: pointer;
+            z-index: 2000;
+            width: 44px;
+            height: 44px;
+        }
+
+        .mobile-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100vh;
+            background: white;
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-in-out;
+            visibility: hidden;
+            overflow-y: auto;
+            padding-bottom: 80px;
+        }
+        .mobile-overlay.is-active {
+            transform: translateY(0);
+            visibility: visible;
+        }
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 1.5rem;
+            border-bottom: 1px solid #eee;
+            min-height: 90px;
+        }
+        .mobile-close-btn {
+            background: transparent;
+            border: none;
+            font-size: 2rem;
+            color: var(--color-blue);
+            cursor: pointer;
+            padding: 10px;
+            min-width: 44px;
+            min-height: 44px;
+        }
+        .mobile-nav {
+            padding: 1rem 1.5rem;
+            list-style: none;
+        }
+        .mobile-nav-item { border-bottom: 1px solid #f0f0f0; }
+        .mobile-nav-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 20px 0;
+            background: transparent;
+            border: none;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--color-blue);
+            text-align: left;
+            text-decoration: none;
+            cursor: pointer;
+            font-family: var(--font-primary);
+            min-height: 44px;
+        }
+        .mobile-nav-link i {
+            font-size: 1rem;
+            color: var(--color-magenta);
+            transition: transform 0.2s;
+        }
+        .mobile-nav-link[aria-expanded="true"] i { transform: rotate(180deg); }
+        .mobile-submenu {
+            display: none;
+            padding-left: 1rem;
+            padding-bottom: 1rem;
+            list-style: none;
+        }
+        .mobile-submenu.is-open { display: block; }
+        .mobile-sub-link {
+            display: block;
+            padding: 14px 0;
+            color: #444;
+            text-decoration: none;
+            font-size: 1.1rem;
+            min-height: 44px;
+        }
+        .mobile-actions-container {
+            padding: 1rem 1.5rem;
+            display: flex;
+            gap: 12px;
+            flex-direction: column;
+        }
+        .mobile-give-btn,
+        .mobile-search-btn {
+            padding: 16px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            min-height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .mobile-give-btn { background: var(--color-green); color: var(--color-dark-navy); }
+        .mobile-search-btn { background: var(--color-blue); color: white; }
+
+        /*
+         * HERO SECTION
+         */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-blue-dark) 100%);
+            color: white;
+            overflow: hidden;
+            min-height: 620px;
+            display: flex;
+            align-items: center;
+        }
+        .hero-image-wrap {
+            position: absolute;
+            inset: 0;
+            opacity: 0.28;
+        }
+        .hero-image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(26, 42, 66, 0.75) 0%, rgba(94, 116, 177, 0.4) 60%, rgba(186, 63, 151, 0.3) 100%);
+        }
+        .hero-content {
+            position: relative;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 80px 1.5rem;
+            width: 100%;
+            z-index: 2;
+        }
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(6px);
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+        .hero-eyebrow .script {
+            font-family: var(--font-script);
+            font-size: 1.6rem;
+            text-transform: none;
+            letter-spacing: 0;
+            color: var(--color-cream);
+            line-height: 1;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 5.5vw, 4.8rem);
+            color: white;
+            line-height: 1.05;
+            margin-bottom: 28px;
+            max-width: 880px;
+            letter-spacing: -0.5px;
+        }
+        .hero h1 .script-accent {
+            font-family: var(--font-script);
+            font-size: 1.1em;
+            color: var(--color-cream);
+            text-transform: none;
+            font-weight: normal;
+            display: inline-block;
+            line-height: 0.9;
+            margin-right: 10px;
+        }
+        .hero-sub {
+            font-size: 1.25rem;
+            max-width: 650px;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.55;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .hero-buttons .btn {
+            padding: 16px 36px;
+            font-size: 1rem;
+        }
+
+        /*
+         * IMPACT BAR
+         */
+        .impact-bar {
+            background: white;
+            padding: 50px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            margin-top: -60px;
+            z-index: 5;
+        }
+        .impact-bar .container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 12px 40px rgba(26, 42, 66, 0.12);
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+        .impact-stat {
+            padding: 0 20px;
+            position: relative;
+        }
+        .impact-stat:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 10%;
+            height: 80%;
+            width: 1px;
+            background: #eee;
+        }
+        .impact-number {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--color-magenta);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+        .impact-label {
+            font-size: 0.95rem;
+            color: #666;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+        }
+
+        /*
+         * MISSION / INTRO SECTION
+         */
+        .mission-section {
+            padding: 100px 0 80px;
+        }
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .mission-visual {
+            position: relative;
+        }
+        .mission-visual img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            display: block;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        .mission-visual .floating-badge {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            background: var(--color-orange);
+            color: white;
+            padding: 24px 28px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(249, 164, 30, 0.3);
+            max-width: 220px;
+        }
+        .floating-badge .script-text {
+            font-size: 2.2rem;
+            color: white;
+            margin-bottom: 2px;
+        }
+        .floating-badge p {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            margin: 0;
+        }
+        .mission-eyebrow {
+            display: inline-block;
+            color: var(--color-magenta);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+        .mission-content h2 {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            line-height: 1.15;
+            margin-bottom: 28px;
+            color: var(--color-dark-navy);
+        }
+        .mission-content h2 .script-accent {
+            font-family: var(--font-script);
+            color: var(--color-magenta);
+            text-transform: none;
+            font-size: 1.3em;
+            display: inline-block;
+            line-height: 0.85;
+        }
+        .mission-content p {
+            font-size: 1.1rem;
+            line-height: 1.75;
+            margin-bottom: 20px;
+            color: #444;
+            text-align: right;
+        }
+        .mission-content .mission-lede {
+            font-size: 1.25rem;
+            color: var(--color-dark-navy);
+            font-weight: 500;
+            text-align: right;
+        }
+        .mission-content .mission-cta {
+            margin-top: 30px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /*
+         * PROGRAMS SECTION
+         */
+        .programs-section {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #f7f9fc 0%, #eef2f7 100%);
+            position: relative;
+        }
+        .section-header {
+            text-align: center;
+            max-width: 780px;
+            margin: 0 auto 60px;
+        }
+        .section-header .eyebrow {
+            display: inline-block;
+            color: var(--color-magenta);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+        .section-header h2 {
+            font-size: clamp(2.2rem, 4vw, 3rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        .section-header h2 .script-accent {
+            font-family: var(--font-script);
+            color: var(--color-magenta);
+            text-transform: none;
+            font-size: 1.3em;
+            display: inline-block;
+            line-height: 0.85;
+        }
+        .section-header p {
+            font-size: 1.15rem;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .program-card {
+            background: white;
+            border-radius: 16px;
+            padding: 36px 32px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            border-top: 5px solid var(--color-blue);
+        }
+        .program-card:nth-child(2) { border-top-color: var(--color-magenta); }
+        .program-card:nth-child(3) { border-top-color: var(--color-orange); }
+        .program-card:nth-child(4) { border-top-color: var(--color-green); }
+        .program-card:nth-child(5) { border-top-color: var(--color-teal); }
+        .program-card:nth-child(6) { border-top-color: var(--color-slate); }
+
+        .program-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+        }
+        .program-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
+            background: rgba(94, 116, 177, 0.1);
+            color: var(--color-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 24px;
+        }
+        .program-card:nth-child(2) .program-icon { background: rgba(186, 63, 151, 0.1); color: var(--color-magenta); }
+        .program-card:nth-child(3) .program-icon { background: rgba(249, 164, 30, 0.1); color: var(--color-orange); }
+        .program-card:nth-child(4) .program-icon { background: rgba(133, 195, 64, 0.15); color: var(--color-green); }
+        .program-card:nth-child(5) .program-icon { background: rgba(0, 187, 211, 0.1); color: var(--color-teal); }
+        .program-card:nth-child(6) .program-icon { background: rgba(125, 145, 160, 0.15); color: var(--color-slate); }
+
+        .program-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+            color: var(--color-dark-navy);
+        }
+        .program-card p {
+            color: #666;
+            line-height: 1.65;
+            margin-bottom: 24px;
+            flex: 1;
+        }
+        .program-card a.program-link {
+            color: var(--color-blue);
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: gap 0.2s;
+        }
+        .program-card a.program-link:hover { gap: 14px; }
+
+        .programs-footer {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /*
+         * STORY / TESTIMONIAL SECTION
+         */
+        .story-section {
+            padding: 0;
+            background: var(--color-dark-navy);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 540px;
+        }
+        .story-image {
+            background-image: url('assets/img/support-hero-connection.png');
+            background-size: cover;
+            background-position: center;
+            min-height: 400px;
+        }
+        .story-content {
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+        .story-quote-mark {
+            font-family: var(--font-script);
+            font-size: 8rem;
+            line-height: 0.6;
+            color: var(--color-orange);
+            opacity: 0.9;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .story-quote {
+            font-size: 1.5rem;
+            line-height: 1.55;
+            margin-bottom: 30px;
+            font-weight: 300;
+            font-style: italic;
+            color: white;
+            text-align: right;
+        }
+        .story-attribution {
+            border-top: 2px solid rgba(255, 255, 255, 0.15);
+            padding-top: 20px;
+            text-align: right;
+        }
+        .story-attribution strong {
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            color: var(--color-cream);
+            letter-spacing: 1px;
+        }
+        .story-attribution span {
+            display: block;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 4px;
+        }
+
+        /*
+         * HOW IT WORKS / WAYS TO CONNECT
+         */
+        .ways-section {
+            padding: 100px 0;
+            background: white;
+        }
+        .ways-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        .way-card {
+            text-align: center;
+            padding: 40px 24px;
+            border-radius: 16px;
+            background: var(--color-bg);
+            transition: background 0.3s, transform 0.3s;
+        }
+        .way-card:hover {
+            transform: translateY(-4px);
+            background: white;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+        }
+        .way-icon-circle {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            box-shadow: 0 8px 24px rgba(94, 116, 177, 0.15);
+            font-size: 2.5rem;
+        }
+        .way-card:nth-child(1) .way-icon-circle { color: var(--color-blue); }
+        .way-card:nth-child(2) .way-icon-circle { color: var(--color-magenta); }
+        .way-card:nth-child(3) .way-icon-circle { color: var(--color-green); }
+        .way-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 14px;
+            color: var(--color-dark-navy);
+        }
+        .way-card p {
+            color: #666;
+            line-height: 1.65;
+            margin-bottom: 20px;
+        }
+        .way-card a {
+            text-decoration: none;
+            color: var(--color-blue);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+        .way-card a:hover { color: var(--color-magenta); }
+
+        /*
+         * GIVE / SUPPORT STRIP
+         */
+        .give-strip {
+            padding: 90px 0;
+            background: linear-gradient(135deg, var(--color-magenta) 0%, #9c2f7e 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .give-strip::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('assets/img/FriendsCo_Pattern.jpg');
+            background-size: 400px;
+            opacity: 0.06;
+            mix-blend-mode: overlay;
+        }
+        .give-strip .container {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .give-content h2 {
+            color: white;
+            font-size: clamp(2rem, 3.8vw, 2.8rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        .give-content h2 .script-accent {
+            font-family: var(--font-script);
+            font-size: 1.3em;
+            color: var(--color-cream);
+            text-transform: none;
+            display: inline-block;
+            line-height: 0.85;
+        }
+        .give-content p {
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+            line-height: 1.65;
+            max-width: 540px;
+            text-align: right;
+        }
+        .give-options {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+        .give-amounts {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .give-amounts h4 {
+            grid-column: 1 / -1;
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+        }
+        .give-amount-btn {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: white;
+            padding: 18px 10px;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: var(--font-primary);
+        }
+        .give-amount-btn:hover {
+            background: white;
+            color: var(--color-magenta);
+        }
+        .give-amount-btn.custom {
+            grid-column: 1 / -1;
+            background: var(--color-orange);
+            border-color: var(--color-orange);
+        }
+        .give-amount-btn.custom:hover {
+            background: white;
+            color: var(--color-orange);
+        }
+
+        /*
+         * NEWS / RESOURCES
+         */
+        .news-section {
+            padding: 100px 0;
+            background: var(--color-bg);
+        }
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .news-card {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .news-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+        }
+        .news-image {
+            aspect-ratio: 16 / 9;
+            background-size: cover;
+            background-position: center;
+            background-color: #ddd;
+        }
+        .news-body {
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .news-meta {
+            font-size: 0.85rem;
+            color: var(--color-magenta);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        .news-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+            line-height: 1.3;
+            color: var(--color-dark-navy);
+        }
+        .news-card p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            flex: 1;
+            line-height: 1.65;
+        }
+        .news-card a {
+            color: var(--color-blue);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .news-card a:hover { color: var(--color-magenta); }
+
+        /*
+         * FAQ ACCORDION SECTION
+         */
+        .faq-section {
+            padding: 100px 0;
+            background: white;
+        }
+        .faq-wrap {
+            max-width: 820px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border-bottom: 2px solid #eef0f5;
+        }
+        .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            background: transparent;
+            border: none;
+            text-align: left;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--color-dark-navy);
+            cursor: pointer;
+            font-family: var(--font-primary);
+            gap: 20px;
+            min-height: 44px;
+        }
+        .faq-question .plus-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--color-blue);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        .faq-question[aria-expanded="true"] .plus-icon {
+            background: var(--color-magenta);
+            transform: rotate(45deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .faq-answer.is-open {
+            max-height: 400px;
+        }
+        .faq-answer p {
+            padding: 0 0 24px 0;
+            color: #555;
+            line-height: 1.7;
+            font-size: 1rem;
+            max-width: 720px;
+        }
+
+        /*
+         * TRUST / PARTNERS STRIP
+         */
+        .trust-strip {
+            padding: 60px 0;
+            background: white;
+            border-top: 1px solid #eee;
+        }
+        .trust-strip h4 {
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 32px;
+            font-family: var(--font-primary);
+            font-weight: 700;
+        }
+        .trust-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+        .trust-grid img {
+            max-height: 80px;
+            width: auto;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+        .trust-grid img:hover { opacity: 1; }
+
+        /*
+         * FOOTER
+         */
+        .footer-opt1 {
+            background-color: var(--color-blue);
+            color: white;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .footer-opt1 a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .footer-opt1 a:hover { opacity: 0.9; }
+        .opt1-newsletter {
+            background-color: var(--color-dark-navy);
+            padding: 40px 20px;
+        }
+        .opt1-newsletter-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .opt1-newsletter-text h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            margin: 0 0 5px 0;
+            letter-spacing: 1px;
+            color: white;
+        }
+        .opt1-newsletter-text p {
+            margin: 0;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        .opt1-newsletter-form {
+            display: flex;
+            gap: 10px;
+            flex-grow: 1;
+            max-width: 600px;
+        }
+        .opt1-newsletter-form input {
+            flex-grow: 1;
+            padding: 14px 15px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: var(--font-primary);
+            min-height: 44px;
+        }
+        .opt1-main {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        .footer-heading {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: white;
+        }
+        .footer-logo {
+            max-width: 250px;
+            height: auto;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .contact-info p {
+            margin: 0 0 10px 0;
+            display: flex;
+            gap: 10px;
+        }
+        .contact-info i {
+            margin-top: 5px;
+            opacity: 0.8;
+            width: 16px;
+        }
+        .footer-links-list {
+            list-style: none;
+        }
+        .footer-links-list li { margin-bottom: 15px; }
+        .footer-links-list a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+        .footer-links-list a i {
+            display: inline-block;
+            font-size: 0.8rem;
+            color: var(--color-green);
+            transition: transform 0.2s;
+        }
+        .footer-opt1 .footer-links-list a:hover i { transform: translateX(4px); }
+        .trust-badges {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .trust-badges img {
+            width: 100px;
+            height: auto;
+            object-fit: contain;
+            background: white;
+            border-radius: 8px;
+            padding: 5px;
+        }
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.2s;
+        }
+        .social-icons a:hover {
+            background: var(--color-magenta);
+            transform: scale(1.1);
+        }
+        .footer-bottom {
+            background-color: #4b5d91;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .footer-bottom p { margin: 0; opacity: 0.8; }
+        .footer-bottom a { text-decoration: underline; }
+
+        /*
+         * RESPONSIVE
+         */
+        @media (max-width: 1024px) {
+            .mission-grid,
+            .story-grid,
+            .give-strip .container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .story-content { padding: 60px 40px; }
+            .story-image { min-height: 360px; }
+            .programs-grid,
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .mission-visual .floating-badge {
+                bottom: -20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .desktop-menu,
+            .header-actions { display: none; }
+            .mobile-menu-toggle { display: flex; align-items: center; justify-content: center; }
+            .impact-bar .container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+                padding: 30px;
+            }
+            .impact-stat:nth-child(2)::after { display: none; }
+            .ways-grid { grid-template-columns: 1fr; gap: 24px; }
+            .give-amounts { max-width: 100%; }
+            .opt1-main {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero { min-height: 520px; }
+            .hero-content { padding: 50px 1.5rem; }
+            .hero-buttons { flex-direction: column; align-items: stretch; }
+            .hero-buttons .btn { width: 100%; }
+            .impact-bar { margin-top: -40px; }
+            .impact-bar .container {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .impact-stat::after { display: none; }
+            .mission-section,
+            .programs-section,
+            .ways-section,
+            .give-strip,
+            .news-section,
+            .faq-section {
+                padding: 60px 0;
+            }
+            .programs-grid,
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            .story-content { padding: 40px 24px; }
+            .story-quote { font-size: 1.2rem; }
+            .mission-content p,
+            .mission-content .mission-lede,
+            .story-quote,
+            .story-attribution,
+            .give-content p {
+                text-align: left;
+            }
+            .mission-content .mission-cta,
+            .give-options {
+                justify-content: flex-start;
+            }
+            .mission-visual .floating-badge {
+                position: static;
+                margin-top: 20px;
+                max-width: 100%;
+            }
+            .opt1-newsletter-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .opt1-newsletter-form {
+                width: 100%;
+                flex-direction: column;
+            }
+            .opt1-main {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            .opt1-main .contact-info p,
+            .opt1-main .footer-links-list a,
+            .opt1-main .trust-badges,
+            .opt1-main .social-icons {
+                justify-content: center;
+            }
+            .opt1-main .footer-logo { margin: 0 auto 20px auto; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- HEADER -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="nav-logo" aria-label="Friends & Co Homepage">
+                <img src="assets/img/FriendsCo-logo.png" alt="Friends & Co">
+            </a>
+
+            <ul class="desktop-menu" role="menubar">
+                <li role="none">
+                    <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                        Free Friendship Programs <i class="fas fa-caret-down"></i>
+                    </a>
+                    <div class="dropdown" role="menu">
+                        <a href="#" role="menuitem">Start Here</a>
+                        <a href="#" role="menuitem">One-on-One Visiting Companions</a>
+                        <a href="#" role="menuitem">Phone Companions</a>
+                        <a href="#" role="menuitem">Coffee Talk Calls</a>
+                        <a href="#" role="menuitem">Let's Do Coffee / Let's Do Lunch Cafe</a>
+                        <a href="#" role="menuitem">Cards Connect</a>
+                        <a href="#" role="menuitem">Conexiones Comunitarias</a>
+                    </div>
+                </li>
+                <li role="none"><a href="#" role="menuitem">Volunteer</a></li>
+                <li role="none"><a href="#" role="menuitem">About</a></li>
+                <li role="none"><a href="#" role="menuitem">Support</a></li>
+                <li role="none"><a href="#" role="menuitem">News & Resources</a></li>
+            </ul>
+
+            <div class="header-actions">
+                <a href="#" class="btn-give">Give <i class="fas fa-hand-holding-heart"></i></a>
+                <button class="btn-search" aria-label="Search"><i class="fas fa-search"></i></button>
+            </div>
+
+            <button class="mobile-menu-toggle" aria-label="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-overlay" id="mobileMenuOverlay" aria-hidden="true">
+        <div class="mobile-menu-header">
+            <a href="#" class="nav-logo" aria-label="Friends & Co Homepage">
+                <img src="assets/img/FriendsCo-logo.png" alt="Friends & Co" style="height:50px;">
+            </a>
+            <button class="mobile-close-btn" id="closeMobileMenu" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <ul class="mobile-nav">
+            <li class="mobile-nav-item"><a href="#" class="mobile-nav-link">Home</a></li>
+            <li class="mobile-nav-item">
+                <button class="mobile-nav-link" aria-expanded="false" aria-controls="mobilePrograms">
+                    Free Friendship Programs <i class="fas fa-chevron-down"></i>
+                </button>
+                <ul class="mobile-submenu" id="mobilePrograms">
+                    <li><a href="#" class="mobile-sub-link">Visiting Companions</a></li>
+                    <li><a href="#" class="mobile-sub-link">Phone Companions</a></li>
+                    <li><a href="#" class="mobile-sub-link">Coffee Talk Calls</a></li>
+                    <li><a href="#" class="mobile-sub-link">Let's Do Coffee / Lunch Cafe</a></li>
+                    <li><a href="#" class="mobile-sub-link">Cards Connect</a></li>
+                    <li><a href="#" class="mobile-sub-link">Conexiones Comunitarias</a></li>
+                </ul>
+            </li>
+            <li class="mobile-nav-item"><a href="#" class="mobile-nav-link">Volunteer</a></li>
+            <li class="mobile-nav-item"><a href="#" class="mobile-nav-link">About</a></li>
+            <li class="mobile-nav-item"><a href="#" class="mobile-nav-link">Support</a></li>
+            <li class="mobile-nav-item"><a href="#" class="mobile-nav-link">News & Resources</a></li>
+        </ul>
+        <div class="mobile-actions-container">
+            <a href="#" class="mobile-give-btn">Give <i class="fas fa-hand-holding-heart"></i></a>
+            <a href="#" class="mobile-search-btn">Search <i class="fas fa-search"></i></a>
+        </div>
+    </div>
+
+    <main id="main-content">
+
+        <!-- HERO -->
+        <section class="hero" aria-labelledby="hero-heading">
+            <div class="hero-image-wrap" aria-hidden="true">
+                <img src="assets/img/support-hero-group.png" alt="">
+            </div>
+            <div class="hero-overlay" aria-hidden="true"></div>
+            <div class="hero-content">
+                <div class="hero-eyebrow">
+                    <span class="script">Friends</span>
+                    <span>nurturing connection since 1973</span>
+                </div>
+                <h1 id="hero-heading">
+                    <span class="script-accent">Meaningful</span><br>
+                    friendships, one<br>
+                    conversation at a time.
+                </h1>
+                <p class="hero-sub">
+                    For more than 50 years, Friends & Co has paired older adults with caring
+                    volunteers across the Twin Cities. No cost. No obligation. Just real
+                    friendship, on your terms.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#programs" class="btn btn-orange">Find a Program <i class="fas fa-arrow-right"></i></a>
+                    <a href="#volunteer" class="btn btn-outline">Become a Volunteer</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- IMPACT BAR -->
+        <section class="impact-bar" aria-label="Our Impact">
+            <div class="container">
+                <div class="impact-stat">
+                    <div class="impact-number">5,200+</div>
+                    <div class="impact-label">Older Adults Served</div>
+                </div>
+                <div class="impact-stat">
+                    <div class="impact-number">600</div>
+                    <div class="impact-label">Active Volunteers</div>
+                </div>
+                <div class="impact-stat">
+                    <div class="impact-number">52</div>
+                    <div class="impact-label">Years of Service</div>
+                </div>
+                <div class="impact-stat">
+                    <div class="impact-number">6</div>
+                    <div class="impact-label">Free Programs</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MISSION / ABOUT -->
+        <section class="mission-section" aria-labelledby="mission-heading">
+            <div class="container">
+                <div class="mission-grid">
+                    <div class="mission-visual">
+                        <img src="assets/img/general_square.jpg" alt="A Friends & Co volunteer sharing a coffee with an older adult">
+                        <div class="floating-badge">
+                            <span class="script-text">hello.</span>
+                            <p>Every match begins with a simple conversation.</p>
+                        </div>
+                    </div>
+                    <div class="mission-content">
+                        <span class="mission-eyebrow">Our Mission</span>
+                        <h2 id="mission-heading">
+                            Because <span class="script-accent">growing older</span> shouldn't mean growing apart.
+                        </h2>
+                        <p class="mission-lede">
+                            Social isolation affects nearly a quarter of older adults in Minnesota.
+                            Friends & Co exists to change that.
+                        </p>
+                        <p>
+                            We carefully match older adults with background-checked, trained
+                            volunteers for weekly visits, phone calls, group gatherings, and
+                            handwritten letters. Participants choose what works best for them,
+                            and the match grows from there.
+                        </p>
+                        <p>
+                            Every program we offer is free, community-supported, and designed
+                            to make meaningful connection easy, accessible, and genuinely fun.
+                        </p>
+                        <div class="mission-cta">
+                            <a href="#" class="btn btn-outline-blue">Learn Our Story <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROGRAMS -->
+        <section class="programs-section" id="programs" aria-labelledby="programs-heading">
+            <div class="container">
+                <div class="section-header">
+                    <span class="eyebrow">Find Your Fit</span>
+                    <h2 id="programs-heading">
+                        Six <span class="script-accent">ways</span> to connect.
+                    </h2>
+                    <p>
+                        Whether you prefer a quiet phone call, a coffee shop chat, or a letter
+                        in the mailbox, there's a Friends & Co program that fits your life.
+                    </p>
+                </div>
+
+                <div class="programs-grid">
+                    <article class="program-card">
+                        <div class="program-icon"><i class="fas fa-user-friends"></i></div>
+                        <h3>Visiting Companions</h3>
+                        <p>Weekly in-person visits in your home, neighborhood, or favorite gathering spot. Matches are one-on-one and ongoing.</p>
+                        <a href="#" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <article class="program-card">
+                        <div class="program-icon"><i class="fas fa-phone-alt"></i></div>
+                        <h3>Phone Companions</h3>
+                        <p>A meaningful connection is just a phone call away. Paired weekly calls on a schedule that works for you.</p>
+                        <a href="#" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <article class="program-card">
+                        <div class="program-icon"><i class="fas fa-coffee"></i></div>
+                        <h3>Coffee Talk Calls</h3>
+                        <p>Drop into lively group phone conversations every Tuesday and Thursday. No match needed. Just dial in.</p>
+                        <a href="#" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <article class="program-card">
+                        <div class="program-icon"><i class="fas fa-mug-hot"></i></div>
+                        <h3>Let's Do Coffee / Lunch Cafe</h3>
+                        <p>A welcoming gathering for LGBTQ+ older adults at local cafes. Meet new friends over coffee or a shared meal.</p>
+                        <a href="#" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <article class="program-card">
+                        <div class="program-icon"><i class="fas fa-envelope-open-text"></i></div>
+                        <h3>Cards Connect</h3>
+                        <p>Handwritten cards delivered throughout the year. Simple, warm, and perfect if you prefer connection by mail.</p>
+                        <a href="#" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <article class="program-card">
+                        <div class="program-icon"><i class="fas fa-comments"></i></div>
+                        <h3>Conexiones Comunitarias</h3>
+                        <p>Emparejamientos y conversaciones en español para adultos mayores de habla hispana en las Ciudades Gemelas.</p>
+                        <a href="#" class="program-link">Aprende Más <i class="fas fa-arrow-right"></i></a>
+                    </article>
+                </div>
+
+                <div class="programs-footer">
+                    <a href="#" class="btn btn-blue">See All Programs <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIAL / STORY -->
+        <section class="story-section" aria-labelledby="story-heading">
+            <div class="story-grid">
+                <div class="story-image" role="img" aria-label="A Friends & Co participant smiling during a weekly visit"></div>
+                <div class="story-content">
+                    <span class="story-quote-mark" aria-hidden="true">"</span>
+                    <blockquote class="story-quote" id="story-heading">
+                        I'd gone a long time without having someone to really talk to.
+                        My match and I have been meeting every Thursday for almost three years.
+                        She's family to me now.
+                    </blockquote>
+                    <div class="story-attribution">
+                        <strong>Ruth, Age 81</strong>
+                        <span>Phone Companions participant since 2023</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WAYS TO GET INVOLVED -->
+        <section class="ways-section" id="volunteer" aria-labelledby="ways-heading">
+            <div class="container">
+                <div class="section-header">
+                    <span class="eyebrow">Get Involved</span>
+                    <h2 id="ways-heading">
+                        Three <span class="script-accent">ways</span> to make a difference.
+                    </h2>
+                </div>
+                <div class="ways-grid">
+                    <div class="way-card">
+                        <div class="way-icon-circle"><i class="fas fa-hands-helping"></i></div>
+                        <h3>Volunteer</h3>
+                        <p>Give a few hours a week and build a friendship that changes two lives. We provide training and ongoing support.</p>
+                        <a href="#">Apply to Volunteer <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="way-card">
+                        <div class="way-icon-circle"><i class="fas fa-user-plus"></i></div>
+                        <h3>Refer an Older Adult</h3>
+                        <p>Know someone who could use a little more connection in their week? Refer them to a program in a few quick steps.</p>
+                        <a href="#">Make a Referral <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="way-card">
+                        <div class="way-icon-circle"><i class="fas fa-bullhorn"></i></div>
+                        <h3>Spread the Word</h3>
+                        <p>Share our programs with neighbors, clinics, and community groups. Printable flyers and resources are ready to go.</p>
+                        <a href="#">Get Resources <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GIVE STRIP -->
+        <section class="give-strip" aria-labelledby="give-heading">
+            <div class="container">
+                <div class="give-content">
+                    <h2 id="give-heading">
+                        Your gift keeps <span class="script-accent">connection</span> free.
+                    </h2>
+                    <p>
+                        Friends & Co programs are offered at no cost to older adults and their
+                        families. Every dollar you give goes directly to training volunteers,
+                        matching companions, and keeping community gatherings running.
+                    </p>
+                    <div class="give-options">
+                        <a href="#" class="btn btn-orange">Donate Now <i class="fas fa-heart"></i></a>
+                        <a href="#" class="btn btn-outline">Other Ways to Give</a>
+                    </div>
+                </div>
+                <div class="give-amounts">
+                    <h4>Quick Give</h4>
+                    <button class="give-amount-btn">$25</button>
+                    <button class="give-amount-btn">$50</button>
+                    <button class="give-amount-btn">$100</button>
+                    <button class="give-amount-btn">$250</button>
+                    <button class="give-amount-btn custom">Choose Your Amount <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEWS / RESOURCES -->
+        <section class="news-section" aria-labelledby="news-heading">
+            <div class="container">
+                <div class="section-header">
+                    <span class="eyebrow">News & Resources</span>
+                    <h2 id="news-heading">The latest from <span class="script-accent">our community</span>.</h2>
+                </div>
+
+                <div class="news-grid">
+                    <article class="news-card">
+                        <div class="news-image" style="background-image: url('assets/img/1.png');" role="img" aria-label="Group of older adults at a community event"></div>
+                        <div class="news-body">
+                            <div class="news-meta">Event &middot; April 2026</div>
+                            <h3>Spring Gathering Brings Friends & Co Participants Together</h3>
+                            <p>More than 200 participants and volunteers joined us for an afternoon of music, conversation, and coffee.</p>
+                            <a href="#">Read Story <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="news-image" style="background-image: url('assets/img/2.png');" role="img" aria-label="Volunteer training session"></div>
+                        <div class="news-body">
+                            <div class="news-meta">News &middot; March 2026</div>
+                            <h3>New Volunteer Training Cohort Now Open</h3>
+                            <p>Our next training begins in May. Join us to learn what it takes to be a Friends & Co volunteer.</p>
+                            <a href="#">Register <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="news-image" style="background-image: url('assets/img/support-hero-connection.png');" role="img" aria-label="Older adult reading a handwritten card"></div>
+                        <div class="news-body">
+                            <div class="news-meta">Resource &middot; February 2026</div>
+                            <h3>A Family's Guide to Signing Up a Loved One</h3>
+                            <p>Thinking about connecting a parent or family member with a program? Here's what to expect, step by step.</p>
+                            <a href="#">Read Guide <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="programs-footer">
+                    <a href="#" class="btn btn-outline-blue">Browse All News & Resources <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ / COMMON QUESTIONS -->
+        <section class="faq-section" aria-labelledby="faq-heading">
+            <div class="container">
+                <div class="section-header">
+                    <span class="eyebrow">Common Questions</span>
+                    <h2 id="faq-heading">Curious? <span class="script-accent">Start here.</span></h2>
+                </div>
+
+                <div class="faq-wrap">
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq1">
+                            <span>Who is eligible to participate?</span>
+                            <span class="plus-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+                        </button>
+                        <div class="faq-answer" id="faq1">
+                            <p>Friends & Co programs are open to older adults age 60 and older living in the Twin Cities metro area. There are no income, health, or background requirements to join as a participant. All programs are free.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq2">
+                            <span>How long does it take to get matched?</span>
+                            <span class="plus-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+                        </button>
+                        <div class="faq-answer" id="faq2">
+                            <p>Once you complete your intake call, most participants are matched with a volunteer within four to six weeks. Timing depends on shared interests, schedules, and the program you choose.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq3">
+                            <span>Are volunteers screened and trained?</span>
+                            <span class="plus-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+                        </button>
+                        <div class="faq-answer" id="faq3">
+                            <p>Yes. Every volunteer completes a background check, references, and training before being matched. Our program staff stay in touch throughout the match to make sure it's a good fit.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq4">
+                            <span>What if I want to sign up a family member?</span>
+                            <span class="plus-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+                        </button>
+                        <div class="faq-answer" id="faq4">
+                            <p>Family members, friends, and care partners can make a referral on someone's behalf. We'll reach out to the older adult directly to confirm they'd like to participate.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq5">
+                            <span>Is there a cost to participate?</span>
+                            <span class="plus-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+                        </button>
+                        <div class="faq-answer" id="faq5">
+                            <p>No. All of our programs are completely free, made possible by individual donors, foundations, and community partners. Gifts of any size help keep them that way.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRUST STRIP -->
+        <section class="trust-strip" aria-label="Awards and Recognition">
+            <div class="container">
+                <h4>Recognized For Nonprofit Excellence</h4>
+                <div class="trust-grid">
+                    <img src="assets/img/charity-navigator-logo.png" alt="Charity Navigator Four-Star Rated">
+                    <img src="assets/img/charities-review-council-logo.png" alt="Charities Review Council Meets Standards">
+                    <img src="assets/img/smart-givers.png" alt="Smart Givers Network Member">
+                    <img src="assets/img/Points-of-Light-150x150.png" alt="Points of Light Recognized Organization">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer-opt1">
+        <div class="opt1-newsletter">
+            <div class="opt1-newsletter-container">
+                <div class="opt1-newsletter-text">
+                    <h3>Stay in the Loop</h3>
+                    <p>Get monthly updates and news from Friends & Co.</p>
+                </div>
+                <form class="opt1-newsletter-form">
+                    <label for="footer-email" class="sr-only">Email address</label>
+                    <input id="footer-email" type="email" placeholder="Email address" required>
+                    <button type="submit" class="btn btn-green">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="opt1-main">
+            <div class="opt1-col contact-info">
+                <img src="assets/img/friends-co-logo-white.png" alt="Friends & Co" class="footer-logo">
+                <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                    <span>2550 University Avenue W.<br>Suite 260-S<br>St. Paul, MN 55114</span>
+                </p>
+                <p><i class="fas fa-phone" aria-hidden="true"></i> <span>Phone: 612-721-1400</span></p>
+                <p><i class="fas fa-fax" aria-hidden="true"></i> <span>Fax: 612-721-5848</span></p>
+            </div>
+
+            <div class="opt1-col">
+                <h4 class="footer-heading">Programs & Services</h4>
+                <ul class="footer-links-list">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Coffee Talk</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Visiting Companions</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Phone Companions</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Cards Connect</a></li>
+                </ul>
+            </div>
+
+            <div class="opt1-col">
+                <h4 class="footer-heading">Get Involved</h4>
+                <ul class="footer-links-list">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Become a Volunteer</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Refer an Older Adult</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Current Volunteers Portal</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Board & Staff</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="opt1-col">
+                <h4 class="footer-heading">Support Our Mission</h4>
+                <a href="#" class="btn btn-green" style="width: 100%; margin-bottom: 20px;">Give <i class="fas fa-hand-holding-heart"></i></a>
+                <div class="trust-badges">
+                    <img src="assets/img/charity-navigator-logo.png" alt="Charity Navigator 4-Star">
+                    <img src="assets/img/charities-review-council-logo.png" alt="Charities Review Council">
+                </div>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Friends & Co. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // MOBILE MENU
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const mobileOverlay = document.getElementById('mobileMenuOverlay');
+            const closeBtn = document.getElementById('closeMobileMenu');
+
+            function openMenu() {
+                mobileOverlay.classList.add('is-active');
+                mobileOverlay.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeMenu() {
+                mobileOverlay.classList.remove('is-active');
+                mobileOverlay.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+
+            if (mobileToggle) mobileToggle.addEventListener('click', openMenu);
+            if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
+            // MOBILE ACCORDIONS
+            const mobileAccordionBtns = document.querySelectorAll('.mobile-nav-link[aria-controls]');
+            mobileAccordionBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const expanded = btn.getAttribute('aria-expanded') === 'true';
+                    const targetId = btn.getAttribute('aria-controls');
+                    const targetMenu = document.getElementById(targetId);
+                    btn.setAttribute('aria-expanded', !expanded);
+                    if (targetMenu) targetMenu.classList.toggle('is-open');
+                });
+            });
+
+            // FAQ ACCORDION
+            const faqButtons = document.querySelectorAll('.faq-question');
+            faqButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const expanded = btn.getAttribute('aria-expanded') === 'true';
+                    const targetId = btn.getAttribute('aria-controls');
+                    const targetAnswer = document.getElementById(targetId);
+                    btn.setAttribute('aria-expanded', !expanded);
+                    if (targetAnswer) targetAnswer.classList.toggle('is-open');
+                });
+            });
+
+            // ESC closes mobile menu
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && mobileOverlay.classList.contains('is-active')) {
+                    closeMenu();
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

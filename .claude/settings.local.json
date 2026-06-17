@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:content.iatspayments.com)",
+      "WebFetch(domain:docs.deluxe.com)",
+      "Bash(curl -sL \"https://friendsco.org/\" -o /tmp/friendsco-home.html)",
+      "Read(//tmp/**)",
+      "Bash(curl -sL \"https://friendsco.org/test/\" -o /tmp/friendsco-test.html)",
+      "Bash(grep -o '<header[^>]*>' /tmp/friendsco-home.html | head -5; echo ---; grep -o '<footer[^>]*>' /tmp/friendsco-home.html | head -5; echo ---; grep -o 'data-elementor-type=\"[^\"]*\"' /tmp/friendsco-home.html | sort -u)",
+      "Bash(python3 -)",
+      "Read(//c/Users/mshaf/AppData/Local/Temp/**)",
+      "Bash(git -C . log --oneline -3 -- donate-page-restyle-mockup.html)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://shafferma08.github.io/friendsco-theme-mockups/donate-page-restyle-mockup.html?v=2\")",
+      "Bash(curl -s \"https://shafferma08.github.io/friendsco-theme-mockups/donate-page-restyle-mockup.html\")"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\mshaf\\AppData\\Local\\Temp"
+    ]
+  }
+}

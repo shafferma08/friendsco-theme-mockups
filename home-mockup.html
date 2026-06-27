@@ -1,1981 +1,1151 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Friends & Co | Nurturing Friendships for Older Adults</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Roboto+Condensed:wght@500;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Friends &amp; Co | Home — video hero mockup (full page)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{
+  --blue:#5E74B1; --blue-dark:#3F5591;
+  --magenta:#BA3F97; --magenta-dark:#9c2f7e;
+  --lime:#B0D235; --lime-dark:#A8CC26;
+  --green:#85c340; --green-dark:#6faa2c;
+  --teal:#00bbd3; --orange:#f9a41e;
+  --slate:#7d91a0;
+  --navy:#1A2A42; --footer-bottom:#4B5D91;
+  --ink:#333; --cream:#fbf6ef; --bg:#fbf6ef; --line:#e9e3d8;
+  --font:'Open Sans', sans-serif;
+  --font-display:'Roboto Condensed', sans-serif;
+  --container:1180px;
+  --radius-lg:16px; --radius-md:10px; --radius-sm:6px;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font); color:var(--ink); line-height:1.7; background:var(--cream); font-size:18px;}
+h1,h2,h3,h4,h5{font-family:var(--font-display); font-weight:700; text-transform:none; line-height:1.1;}
+img{max-width:100%; display:block;}
+a{color:inherit;}
 
-    <style>
-        /*
-         * BRAND GUIDELINES & UTILITIES
-         */
-        @font-face {
-            font-family: 'Albiol';
-            src: url('assets/fonts/Albiol.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
+.container{max-width:var(--container); margin:0 auto; padding:0 32px;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
 
-        :root {
-            --color-blue: #5e74b1;
-            --color-blue-dark: #4c6096;
-            --color-magenta: #ba3f97;
-            --color-green: #85c340;
-            --color-teal: #00bbd3;
-            --color-orange: #f9a41e;
-            --color-slate: #7d91a0;
-            --color-dark-navy: #1a2a42;
-            --color-cream: #fcece4;
-            --color-bg: #FAFAFA;
-            --font-primary: 'Open Sans', sans-serif;
-            --font-display: 'Akzidenz-Grotesk Pro Medium Condensed', 'Roboto Condensed', sans-serif;
-            --font-script: 'Albiol', 'Brush Script MT', cursive;
-            --container-width: 1200px;
-        }
+/* ===== btn helpers ===== */
+.btn{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:14px 28px; border-radius:var(--radius-md);
+  font-family:var(--font); font-size:.95rem; font-weight:700;
+  letter-spacing:0; text-decoration:none;
+  transition:transform .2s, box-shadow .2s; border:none; cursor:pointer;
+  min-height:44px;
+}
+.btn:hover{transform:translateY(-2px); box-shadow:0 6px 14px rgba(0,0,0,.14);}
+.btn-blue{background:var(--blue); color:#fff;}
+.btn-magenta{background:var(--magenta); color:#fff;}
+.btn-green{background:var(--green); color:var(--navy);}
+.btn-orange{background:var(--orange); color:#fff;}
+.btn-lime{background:var(--lime); color:var(--navy);}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+/* ===== mockup annotation ===== */
+.mock-note{background:#fff8e1; border-left:4px solid #f9a41e; padding:20px 28px; font-family:var(--font); font-size:15px; line-height:1.6; color:#5a4a1a;}
+.mock-note .tag{display:inline-block; background:#f9a41e; color:#fff; font-size:12px; font-weight:700; padding:3px 10px; border-radius:4px; margin-bottom:10px;}
+.mock-note h2{font-family:var(--font); font-size:17px; font-weight:700; text-transform:none; color:#5a4a1a; margin-bottom:6px;}
+.mock-note ul{margin:8px 0 0 18px; list-style:disc;}
+.mock-note li{margin-bottom:4px;}
 
-        html {
-            scroll-behavior: smooth;
-        }
+/* ===== SITE HEADER — matches live friendsco.org ===== */
+.site-header{background:#fff; min-height:90px; padding:18px 32px; display:flex; align-items:center; justify-content:space-between; gap:16px; position:relative; z-index:50;}
+.site-header .logo img{width:150px; height:auto;}
+.main-nav{display:flex; align-items:center; justify-content:center; flex:1;}
+.main-nav > ul{list-style:none; display:flex; align-items:center;}
+.main-nav > ul > li{position:relative;}
+.main-nav a{text-decoration:none;}
+.main-nav > ul > li > a{display:block; padding:10px 14px; font-size:18px; font-weight:700; color:var(--blue); position:relative; white-space:nowrap;}
+.main-nav > ul > li > a::after{content:''; position:absolute; left:14px; right:14px; bottom:2px; height:4px; background:var(--lime); transform:scaleX(0); transform-origin:left; transition:transform .2s;}
+.main-nav > ul > li:hover > a,.main-nav > ul > li.active > a{color:var(--blue-dark);}
+.main-nav > ul > li:hover > a::after,.main-nav > ul > li.active > a::after{transform:scaleX(1);}
+.main-nav .sub{list-style:none; position:absolute; top:100%; left:0; min-width:250px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.2); opacity:0; visibility:hidden; transition:opacity .2s; z-index:60;}
+.main-nav li:hover > .sub,.main-nav li:focus-within > .sub{opacity:1; visibility:visible;}
+.main-nav .sub li{position:relative;}
+.main-nav .sub a{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:16px 24px; font-size:16px; font-weight:600; color:var(--blue);}
+.main-nav .sub a:hover,.main-nav .sub a:focus{background:var(--blue); color:#fff;}
+.main-nav .sub .sub{top:0; left:100%;}
+.main-nav .caret{width:.6em; height:.6em; fill:currentColor; flex:0 0 auto;}
+.header-actions{display:flex; align-items:center; gap:8px;}
+.btn-give{display:inline-flex; flex-direction:row-reverse; align-items:center; gap:12px; background:var(--lime); color:var(--navy); font-size:18px; font-weight:700; text-decoration:none; border-radius:8px; padding:12px 22px; transition:background .2s,transform .2s;}
+.btn-give:hover{background:var(--lime-dark); transform:scale(1.05);}
+.btn-give svg{width:20px; height:20px; fill:var(--navy);}
+.btn-search{display:inline-flex; align-items:center; justify-content:center; background:var(--blue); border:none; border-radius:8px; padding:12px 22px; cursor:pointer; transition:background .2s;}
+.btn-search:hover{background:#4C6096;}
+.btn-search svg{width:18px; height:18px; fill:#fff;}
+.btn-hamburger{display:none; background:none; border:none; cursor:pointer; padding:8px;}
+.btn-hamburger svg{width:28px; height:28px; fill:var(--blue);}
+.mobile-menu{display:none; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.2);}
+.mobile-menu.open{display:block;}
+.mobile-menu ul{list-style:none;}
+.mobile-menu a{display:block; padding:16px 24px; font-size:17px; font-weight:700; color:var(--blue); text-decoration:none; border-top:1px solid #eef0f5;}
+.mobile-menu a:hover{background:var(--blue); color:#fff;}
+.mobile-menu .menu-give{background:var(--lime); color:var(--navy);}
+@media(max-width:1024px){
+  .main-nav,.header-actions .btn-give,.header-actions .btn-search{display:none;}
+  .btn-hamburger{display:inline-flex;}
+}
 
-        body {
-            font-family: var(--font-primary);
-            color: #555;
-            line-height: 1.6;
-            background-color: var(--color-bg);
-            font-size: 16px;
-        }
+/* ===== HERO — full-bleed YouTube video background ===== */
+.hero{
+  position:relative;
+  min-height:720px;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  background:var(--navy);
+}
 
-        h1, h2, h3, h4, h5 {
-            font-family: var(--font-display);
-            text-transform: uppercase;
-            font-weight: 700;
-            color: var(--color-dark-navy);
-        }
+/* YouTube iframe fills the full hero */
+.hero-yt-wrap{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+.hero-yt-wrap iframe{
+  position:absolute;
+  top:50%;
+  left:50%;
+  /* 16:9 ratio scaling to always fill the container */
+  width:177.78vh;
+  height:56.25vw;
+  min-width:100%;
+  min-height:100%;
+  transform:translate(-50%,-50%);
+  border:0;
+}
 
-        a {
-            color: var(--color-blue);
-        }
+/* gradient overlay: dark navy left, fading right */
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    95deg,
+    rgba(26,42,66,0.92) 0%,
+    rgba(26,42,66,0.72) 45%,
+    rgba(26,42,66,0.30) 75%,
+    rgba(26,42,66,0.12) 100%
+  );
+  pointer-events:none;
+}
 
-        a:focus-visible,
-        button:focus-visible {
-            outline: 3px solid var(--color-orange);
-            outline-offset: 3px;
-            border-radius: 4px;
-        }
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:var(--container);
+  margin:0 auto;
+  padding:100px 32px;
+  width:100%;
+}
+.hero-inner{ max-width:580px; }
 
-        .container {
-            max-width: var(--container-width);
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
+.hero-eyebrow{
+  display:inline-block;
+  color:var(--lime);
+  font-size:15px;
+  font-weight:700;
+  margin-bottom:18px;
+}
+.hero-content h1{
+  font-family:var(--font-display);
+  font-size:clamp(2.4rem, 5vw, 3.8rem);
+  font-weight:700;
+  text-transform:none;
+  letter-spacing:.5px;
+  color:#fff;
+  line-height:1.05;
+  margin-bottom:22px;
+}
+.hero-content h1 em{
+  font-style:normal;
+  color:var(--lime);
+}
+.hero-sub{
+  font-size:1.15rem;
+  font-weight:400;
+  color:rgba(255,255,255,0.88);
+  line-height:1.65;
+  max-width:46ch;
+  margin-bottom:36px;
+}
+.hero-ctas{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  align-items:center;
+  margin-bottom:20px;
+}
+.hero-btn{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:15px 30px; border-radius:8px;
+  font-family:var(--font); font-size:16px; font-weight:700;
+  text-decoration:none;
+  transition:transform .2s, box-shadow .2s, background .2s;
+  min-height:52px;
+}
+.hero-btn:hover{transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,.25);}
+.hero-btn.filled{background:var(--lime); color:var(--navy);}
+.hero-btn.filled:hover{background:var(--lime-dark);}
+.hero-btn.outline{background:transparent; color:#fff; border:2px solid rgba(255,255,255,.75);}
+.hero-btn.outline:hover{background:rgba(255,255,255,.1); border-color:#fff;}
+.hero-foot{font-size:.9rem; color:rgba(255,255,255,.65); font-style:italic;}
 
-        .script-text {
-            font-family: var(--font-script);
-            color: var(--color-magenta);
-            line-height: 1;
-            display: block;
-            font-weight: normal;
-            text-shadow: 0 0 1px currentColor;
-        }
+/* mute/unmute control */
+.hero-audio-ctrl{
+  position:absolute; bottom:24px; right:28px; z-index:3;
+  background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.35);
+  color:#fff; border-radius:50%; width:46px; height:46px;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; transition:background .2s; backdrop-filter:blur(4px);
+  font-size:16px;
+}
+.hero-audio-ctrl:hover{background:rgba(255,255,255,.28);}
 
-        /* Accessibility helper */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
+/* ===== TRUST STRIP ===== */
+.trust-strip{
+  background:var(--cream);
+  border-bottom:1px solid var(--line);
+  padding:14px 32px;
+  display:flex; align-items:center; justify-content:center;
+  gap:32px; flex-wrap:wrap;
+}
+.trust-strip img{height:52px; width:auto; opacity:.85;}
+.trust-strip-label{font-size:15px; font-weight:600; color:#7a6f63;}
 
-        /* Skip link for keyboard users */
-        .skip-link {
-            position: absolute;
-            top: -100px;
-            left: 10px;
-            background: var(--color-dark-navy);
-            color: white;
-            padding: 12px 20px;
-            z-index: 3000;
-            text-decoration: none;
-            border-radius: 0 0 6px 6px;
-            font-weight: 700;
-        }
-        .skip-link:focus {
-            top: 0;
-        }
+/* ===== SHARED SECTION HEADING ===== */
+.section-head{text-align:center; margin-bottom:50px;}
+.section-eyebrow{
+  display:inline-block;
+  font-family:var(--font-display);
+  font-size:0.95rem;
+  font-weight:700;
+  color:var(--magenta);
+  margin-bottom:14px;
+}
+.section-head h2{
+  font-size:2.4rem;
+  color:var(--navy);
+  margin-bottom:16px;
+  letter-spacing:.5px;
+}
+.section-head p{
+  font-size:1.05rem;
+  color:#666;
+  max-width:640px;
+  margin:0 auto;
+  line-height:1.65;
+}
+.section-footer-link{text-align:center; margin-top:40px;}
+.section-footer-link a{
+  color:var(--blue); text-decoration:none;
+  font-weight:700;
+  font-size:.9rem;
+}
+.section-footer-link a:hover{color:var(--magenta);}
 
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px 30px;
-            border-radius: 8px;
-            text-transform: uppercase;
-            font-weight: 700;
-            text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
-            border: none;
-            cursor: pointer;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            min-height: 44px;
-            font-family: var(--font-primary);
-        }
+/* ===== UPCOMING EVENTS ===== */
+.events-section{padding:80px 0; background:var(--bg);}
+.events-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+.event-card{
+  background:#fff; border-radius:var(--radius-lg); overflow:hidden;
+  box-shadow:0 4px 14px rgba(0,0,0,.06); display:flex; flex-direction:column;
+  transition:transform .3s, box-shadow .3s;
+}
+.event-card:hover{transform:translateY(-4px); box-shadow:0 12px 30px rgba(0,0,0,.1);}
+.event-image{
+  aspect-ratio:3/2; background-size:cover; background-position:center;
+  background-color:var(--slate);
+}
+.event-image.a{background-image:linear-gradient(135deg,#ba3f97,#f9a41e),url('assets/img/FriendsCo_Pattern.jpg'); background-blend-mode:multiply;}
+.event-image.b{background-image:linear-gradient(135deg,#00bbd3,#5e74b1),url('assets/img/FriendsCo_Pattern.jpg'); background-blend-mode:multiply;}
+.event-image.c{background-image:linear-gradient(135deg,#f9a41e,#ba3f97),url('assets/img/FriendsCo_Pattern.jpg'); background-blend-mode:multiply;}
+.event-image-label{
+  width:100%; height:100%;
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; font-family:var(--font-display);
+  text-transform:uppercase; font-size:1.4rem; letter-spacing:2px;
+  text-shadow:0 2px 10px rgba(0,0,0,.25); text-align:center; padding:20px;
+}
+.event-body{padding:24px 26px 28px; display:flex; flex-direction:column; flex:1;}
+.event-meta{
+  font-size:.85rem; color:var(--magenta); font-weight:700;
+  text-transform:uppercase; letter-spacing:1.5px; margin-bottom:10px;
+}
+.event-card h3{font-size:1.15rem; line-height:1.25; color:var(--navy); margin-bottom:10px;}
+.event-card p{color:#666; font-size:.95rem; line-height:1.6; flex:1; margin-bottom:18px;}
+.event-link{
+  color:var(--blue); text-decoration:none; font-weight:700;
+  text-transform:uppercase; font-size:.85rem; letter-spacing:.8px;
+  display:inline-flex; align-items:center; gap:8px; transition:gap .2s;
+}
+.event-link:hover{gap:14px; color:var(--magenta);}
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
+/* ===== LATEST NEWS ===== */
+.news-section{padding:90px 0; background:var(--cream);}
+.news-editorial{display:grid; grid-template-columns:1.2fr 1fr; gap:40px;}
+.news-featured{
+  background:#fff; border-radius:var(--radius-lg); overflow:hidden;
+  box-shadow:0 6px 20px rgba(0,0,0,.06); display:flex; flex-direction:column;
+}
+.news-featured-image{aspect-ratio:16/10; background-size:cover; background-position:center;}
+.news-featured-body{padding:36px 36px 40px;}
+.news-meta{
+  font-size:.85rem; color:var(--magenta); font-weight:700;
+  text-transform:uppercase; letter-spacing:1.5px; margin-bottom:10px;
+}
+.news-featured h3{font-size:1.7rem; color:var(--navy); line-height:1.2; margin-bottom:16px; text-transform:none; font-family:var(--font); font-weight:700;}
+.news-featured p{color:#555; font-size:1rem; line-height:1.7; margin-bottom:20px;}
+.read-more{
+  color:var(--blue); text-decoration:none; font-weight:700;
+  text-transform:uppercase; font-size:.9rem; letter-spacing:.8px;
+  display:inline-flex; align-items:center; gap:8px;
+}
+.read-more:hover{color:var(--magenta);}
+.news-list{display:flex; flex-direction:column; gap:20px;}
+.news-item{
+  display:grid; grid-template-columns:130px 1fr; gap:20px;
+  padding:20px; background:#fff; border-radius:var(--radius-md);
+  box-shadow:0 2px 10px rgba(0,0,0,.04); border:1px solid #eef0f5;
+  transition:box-shadow .2s, transform .2s; text-decoration:none; color:inherit;
+}
+.news-item:hover{transform:translateY(-2px); box-shadow:0 6px 18px rgba(0,0,0,.08);}
+.news-item-image{
+  width:130px; height:100px; border-radius:var(--radius-sm);
+  background-size:cover; background-position:center; background-color:#ccc;
+}
+.news-item-body .news-meta{font-size:.9rem; margin-bottom:6px;}
+.news-item-body h4{
+  font-family:var(--font); text-transform:none;
+  font-size:1rem; line-height:1.35; color:var(--navy);
+  margin-bottom:4px; font-weight:700;
+}
+.news-item-body p{font-size:.95rem; color:#777; line-height:1.5;}
 
-        .btn-blue { background-color: var(--color-blue); color: white; }
-        .btn-magenta { background-color: var(--color-magenta); color: white; }
-        .btn-green { background-color: var(--color-green); color: var(--color-dark-navy); }
-        .btn-orange { background-color: var(--color-orange); color: white; }
-        .btn-outline {
-            background: transparent;
-            border: 2px solid white;
-            color: white;
-            box-shadow: none;
-        }
-        .btn-outline:hover { background: rgba(255, 255, 255, 0.15); }
-        .btn-outline-blue {
-            background: transparent;
-            border: 2px solid var(--color-blue);
-            color: var(--color-blue);
-            box-shadow: none;
-        }
-        .btn-outline-blue:hover { background: var(--color-blue); color: white; }
+/* ===== WHY FRIENDSHIP — accessible tab panel ===== */
+.why-section{padding:90px 0; background:var(--bg);}
+.tabs-bar{
+  display:flex; justify-content:center; gap:0;
+  margin-bottom:40px; flex-wrap:wrap;
+  border-bottom:2px solid #e3e6ed;
+}
+.tab-btn{
+  background:transparent; border:none; color:#666;
+  padding:18px 28px; font-size:1rem; font-weight:700;
+  text-transform:uppercase; letter-spacing:1px;
+  cursor:pointer; font-family:var(--font);
+  border-bottom:4px solid transparent; margin-bottom:-2px;
+  min-height:44px; transition:color .2s, border-color .2s;
+}
+.tab-btn:hover{color:var(--magenta);}
+.tab-btn[aria-selected="true"]{color:var(--navy); border-bottom-color:var(--magenta);}
+.tab-panel{display:none; animation:fadeIn .3s ease;}
+.tab-panel.is-active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+.why-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;}
+.why-image{border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:4/3; box-shadow:0 12px 30px rgba(0,0,0,.1);}
+.why-image img{width:100%; height:100%; object-fit:cover;}
+.why-content h3{font-size:1.8rem; color:var(--navy); margin-bottom:18px; text-transform:none; font-family:var(--font); font-weight:700;}
+.why-content p{font-size:1.05rem; line-height:1.75; margin-bottom:16px; color:#444;}
+.why-stat{
+  background:var(--orange); color:#fff;
+  padding:24px 28px; border-radius:var(--radius-lg);
+  margin-top:24px; display:flex; align-items:center; gap:20px;
+}
+.stat-number{font-family:var(--font-display); font-size:2.8rem; font-weight:700; line-height:1; flex-shrink:0;}
+.stat-text{font-size:.95rem; line-height:1.45;}
+.why-cta{text-align:center; margin-top:60px;}
 
-        /* Pattern Utility */
-        .has-pattern {
-            position: relative;
-            z-index: 1;
-        }
-        .has-pattern::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-image: url('assets/img/FriendsCo_Pattern.jpg');
-            background-size: 400px;
-            opacity: 0.08;
-            mix-blend-mode: multiply;
-            z-index: -1;
-            pointer-events: none;
-        }
+/* ===== FRIENDSHIP SERVICES — colorful tiles ===== */
+.services-section{
+  padding:100px 0; background:var(--blue); color:#fff;
+  position:relative; overflow:hidden;
+}
+/* flower watermark — same treatment as live donate page hero */
+.services-section::before{
+  content:''; position:absolute;
+  right:-60px; bottom:-40px;
+  width:420px; height:420px;
+  background-image:url('assets/img/flower-icon-white.png');
+  background-size:contain; background-repeat:no-repeat; background-position:center;
+  opacity:.1; pointer-events:none;
+}
+/* ampersand watermark left side */
+.services-section::after{
+  content:''; position:absolute;
+  left:-40px; top:50%; transform:translateY(-50%);
+  width:260px; height:260px;
+  background-image:url('assets/img/ampersand-icon.png');
+  background-size:contain; background-repeat:no-repeat; background-position:center;
+  opacity:.07; pointer-events:none;
+}
+.services-section .container{position:relative;}
+.services-head{text-align:center; margin-bottom:50px; color:#fff;}
+.services-head .section-eyebrow{color:rgba(255,255,255,.75);}
+.services-head h2{color:#fff; font-size:2.4rem; margin-bottom:8px;}
+.services-head p{font-size:1.1rem; opacity:.9; max-width:600px; margin:0 auto; font-family:var(--font); font-weight:400; text-transform:none;}
+.services-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+.service-tile{
+  border-radius:var(--radius-lg); padding:36px 28px 32px;
+  text-align:center; text-decoration:none; color:#fff;
+  display:flex; flex-direction:column; align-items:center;
+  transition:transform .3s, box-shadow .3s;
+  min-height:240px; position:relative; overflow:hidden;
+}
+.service-tile:hover{transform:translateY(-6px); box-shadow:0 16px 40px rgba(0,0,0,.25);}
+.tile-icon{
+  width:80px; height:80px; border-radius:50%; background:#fff;
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:20px; font-size:2.2rem;
+}
+.service-tile h3{color:#fff; font-size:1.3rem; margin-bottom:10px; line-height:1.2; letter-spacing:0;}
+.service-tile p{font-size:.95rem; line-height:1.5; opacity:.95;}
+.service-tile.t-teal{background:var(--teal);}        .service-tile.t-teal .tile-icon{color:var(--teal);}
+.service-tile.t-magenta{background:var(--magenta);}  .service-tile.t-magenta .tile-icon{color:var(--magenta);}
+.service-tile.t-orange{background:var(--orange);}    .service-tile.t-orange .tile-icon{color:var(--orange);}
+.service-tile.t-green{background:var(--green);}      .service-tile.t-green .tile-icon{color:var(--green);}
+.service-tile.t-blue-dark{background:var(--blue-dark);}  .service-tile.t-blue-dark .tile-icon{color:var(--blue-dark);}
+.service-tile.t-slate{background:var(--slate);}      .service-tile.t-slate .tile-icon{color:var(--slate);}
+.services-footer{text-align:center; margin-top:50px;}
 
-        /*
-         * HEADER & NAVIGATION
-         */
-        header {
-            background: white;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .nav-container {
-            max-width: var(--container-width);
-            margin: 0 auto;
-            padding: 0 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 90px;
-            position: relative;
-        }
-        .nav-logo img { height: 60px; display: block; }
-        .desktop-menu {
-            display: flex;
-            align-items: center;
-            list-style: none;
-            height: 100%;
-        }
-        .desktop-menu > li {
-            height: 100%;
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-        .desktop-menu > li > a {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--color-blue);
-            text-transform: uppercase;
-            text-decoration: none;
-            padding: 0 14px;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: color 0.2s;
-            letter-spacing: 0.5px;
-        }
-        .desktop-menu > li > a i {
-            font-size: 0.75rem;
-            transition: transform 0.2s;
-        }
-        .desktop-menu > li:hover > a,
-        .desktop-menu > li > a:focus-visible {
-            color: var(--color-magenta);
-        }
-        .desktop-menu > li:hover > a i { transform: rotate(180deg); }
+/* ===== TESTIMONIAL ===== */
+.testimonial-section{padding:90px 0; background:#fff8f2;}
+.testimonial-card{
+  background:var(--green); color:var(--navy);
+  border-radius:var(--radius-lg); padding:60px 80px;
+  display:grid; grid-template-columns:auto 1fr; gap:36px;
+  align-items:center; max-width:960px; margin:0 auto;
+}
+.testimonial-quote-mark{
+  font-family:Georgia, serif;
+  font-size:9rem; line-height:.6; color:#fff; opacity:.7;
+  flex-shrink:0; user-select:none;
+}
+.testimonial-card blockquote{
+  font-size:1.35rem; line-height:1.55; font-weight:500;
+  font-style:italic; margin-bottom:14px; color:var(--navy);
+}
+.testimonial-card cite{
+  display:block; font-style:normal; font-weight:700;
+  text-transform:uppercase; font-size:.9rem; letter-spacing:1.5px;
+  font-family:var(--font); color:var(--navy);
+}
+.testimonial-controls{display:flex; justify-content:center; gap:10px; margin-top:24px;}
+.testimonial-dot{
+  width:10px; height:10px; border-radius:50%; background:#d0d5dd;
+  border:none; cursor:pointer; transition:background .2s;
+}
+.testimonial-dot.is-active{background:var(--magenta);}
 
-        .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: white;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            min-width: 280px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.2s ease-out;
-            pointer-events: none;
-            z-index: 100;
-            border-top: 3px solid var(--color-blue);
-        }
-        .desktop-menu > li:hover .dropdown,
-        .desktop-menu > li:focus-within .dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-        .dropdown a {
-            display: block;
-            color: var(--color-blue);
-            text-decoration: none;
-            font-size: 0.95rem;
-            padding: 14px 20px;
-            line-height: 1.4;
-            transition: all 0.1s;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        .dropdown a:last-child { border-bottom: none; }
-        .dropdown a:hover,
-        .dropdown a:focus-visible {
-            color: white;
-            background-color: var(--color-blue);
-            outline: none;
-        }
+/* ===== BE A FRIEND — CTA cards ===== */
+.cta-section{padding:90px 0; background:var(--bg);}
+.cta-intro{text-align:center; max-width:820px; margin:0 auto 48px; color:#555; font-size:1.1rem;}
+.cta-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:30px;}
+.cta-card{
+  background:#fff; padding:40px 30px 36px; text-align:center;
+  border-radius:var(--radius-lg); box-shadow:0 4px 14px rgba(0,0,0,.05);
+  transition:transform .3s, box-shadow .3s;
+  border-top:5px solid var(--teal);
+}
+.cta-card:nth-child(2){border-top-color:var(--magenta);}
+.cta-card:nth-child(3){border-top-color:var(--orange);}
+.cta-card:hover{transform:translateY(-4px); box-shadow:0 14px 34px rgba(0,0,0,.08);}
+.cta-icon{
+  width:84px; height:84px; border-radius:50%;
+  background:rgba(0,187,211,.12); color:var(--teal);
+  display:flex; align-items:center; justify-content:center;
+  font-size:2rem; margin:0 auto 22px;
+}
+.cta-card:nth-child(2) .cta-icon{background:rgba(186,63,151,.12); color:var(--magenta);}
+.cta-card:nth-child(3) .cta-icon{background:rgba(249,164,30,.15); color:var(--orange);}
+.cta-card h3{font-size:1.4rem; margin-bottom:12px;}
+.cta-card p{color:#666; margin-bottom:22px; line-height:1.6; font-size:.98rem;}
 
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .btn-give {
-            background-color: var(--color-green);
-            color: var(--color-dark-navy);
-            font-size: 0.9rem;
-            padding: 10px 20px;
-            border-radius: 6px;
-            text-transform: uppercase;
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            min-height: 44px;
-            transition: background-color 0.2s;
-        }
-        .btn-give:hover { background-color: #7ab33a; }
-        .btn-search {
-            background-color: var(--color-blue);
-            color: white;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            border-radius: 6px;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        .btn-search:hover { background-color: var(--color-blue-dark); }
+/* ===== NEWSLETTER BAR ===== */
+.nl-section{background:var(--navy); color:#fff; padding:50px 0;}
+.nl-grid{display:grid; grid-template-columns:1fr 1.5fr; gap:40px; align-items:center;}
+.nl-grid h3{font-size:1.5rem; letter-spacing:1px; margin-bottom:6px; color:#fff;}
+.nl-grid p{font-size:.95rem; opacity:.85; color:rgba(255,255,255,.9);}
+.nl-form{display:grid; grid-template-columns:1fr 1fr 1fr auto; gap:10px;}
+.nl-form input{
+  padding:14px; border:none; border-radius:var(--radius-sm);
+  font-size:1rem; font-family:var(--font); min-height:48px;
+}
+.nl-form button{
+  background:var(--green); color:var(--navy); border:none;
+  padding:0 28px; font-weight:700; text-transform:uppercase;
+  border-radius:var(--radius-sm); font-family:var(--font);
+  cursor:pointer; min-height:48px; font-size:.95rem; letter-spacing:.5px;
+}
+.nl-form button:hover{background:var(--green-dark);}
 
-        .mobile-menu-toggle {
-            display: none;
-            background: transparent;
-            border: none;
-            font-size: 1.75rem;
-            color: var(--color-blue);
-            cursor: pointer;
-            z-index: 2000;
-            width: 44px;
-            height: 44px;
-        }
+/* ===== SITE FOOTER — matches live friendsco.org ===== */
+.footer-newsletter{background:var(--navy); color:#fff; padding:44px 32px;}
+.footer-newsletter .inner{max-width:var(--container); margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap;}
+.footer-newsletter h3{font-family:'Roboto Condensed',sans-serif; font-size:1.8em; text-transform:capitalize; letter-spacing:1px; margin-bottom:6px;}
+.footer-newsletter p{color:rgba(255,255,255,.9); font-size:16px;}
+.newsletter-form{display:flex; gap:10px; flex-wrap:wrap;}
+.newsletter-form input{height:48px; min-width:260px; border:none; border-radius:8px; padding:0 14px; font-size:1rem; font-family:var(--font);}
+.newsletter-form button{height:48px; border:none; border-radius:8px; padding:0 26px; background:var(--lime); color:var(--navy); font-family:var(--font); font-size:16px; font-weight:700; text-transform:uppercase; letter-spacing:1px; cursor:pointer;}
+.newsletter-form button:hover{background:var(--lime-dark);}
+.footer-main{background:var(--blue); color:#fff; padding:54px 32px 44px;}
+.footer-main .inner{max-width:var(--container); margin:0 auto; display:grid; grid-template-columns:1.25fr 1fr 1fr 1.05fr; gap:36px;}
+.footer-main h4{font-family:'Roboto Condensed',sans-serif; font-size:22px; text-transform:capitalize; letter-spacing:1px; color:#fff; padding-bottom:10px; border-bottom:2px solid rgba(255,255,255,.2); margin-bottom:14px;}
+.footer-logo{max-width:190px; margin-bottom:14px;}
+.contact-list,.footer-links{list-style:none;}
+.contact-list li{display:flex; gap:8px; margin-bottom:10px; font-size:15px; color:rgba(255,255,255,.92);}
+.contact-list svg{width:14px; height:14px; fill:rgba(255,255,255,.8); flex:0 0 auto; margin-top:6px;}
+.contact-list a{text-decoration:none;}
+.contact-list a:hover{text-decoration:underline;}
+.footer-links li{margin-bottom:9px;}
+.footer-links a{display:flex; align-items:baseline; gap:7px; font-size:16px; font-weight:600; color:#fff; text-decoration:none;}
+.footer-links a:hover{text-decoration:underline;}
+.footer-links svg{width:11px; height:11px; fill:var(--lime); flex:0 0 auto; position:relative; top:1px;}
+.footer-give .btn-give{width:100%; justify-content:center; padding:12px 28px; margin-bottom:20px;}
+.footer-give .btn-give:hover{transform:none; box-shadow:0 6px 12px rgba(0,0,0,.15);}
+.footer-badges{display:flex; gap:14px; margin-bottom:22px;}
+.footer-badges a{background:#fff; border-radius:8px; padding:5px; display:block;}
+.footer-badges img{width:100px; height:auto;}
+.footer-social{display:flex; gap:21px;}
+.footer-social a{display:flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,.1); transition:background .3s;}
+.footer-social a:hover{background:var(--magenta);}
+.footer-social svg{width:18px; height:18px; fill:#fff;}
+.footer-bottom{background:var(--footer-bottom); color:rgba(255,255,255,.92); padding:18px 32px; text-align:center; font-size:14px;}
+.footer-bottom p{max-width:980px; margin:0 auto;}
 
-        .mobile-overlay {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100vh;
-            background: white;
-            z-index: 1001;
-            display: flex;
-            flex-direction: column;
-            transform: translateY(-100%);
-            transition: transform 0.3s ease-in-out;
-            visibility: hidden;
-            overflow-y: auto;
-            padding-bottom: 80px;
-        }
-        .mobile-overlay.is-active {
-            transform: translateY(0);
-            visibility: visible;
-        }
-        .mobile-menu-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 1.5rem;
-            border-bottom: 1px solid #eee;
-            min-height: 90px;
-        }
-        .mobile-close-btn {
-            background: transparent;
-            border: none;
-            font-size: 2rem;
-            color: var(--color-blue);
-            cursor: pointer;
-            padding: 10px;
-            min-width: 44px;
-            min-height: 44px;
-        }
-        .mobile-nav {
-            padding: 1rem 1.5rem;
-            list-style: none;
-        }
-        .mobile-nav-item { border-bottom: 1px solid #f0f0f0; }
-        .mobile-nav-link {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            padding: 20px 0;
-            background: transparent;
-            border: none;
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: var(--color-blue);
-            text-align: left;
-            text-decoration: none;
-            cursor: pointer;
-            font-family: var(--font-primary);
-            min-height: 44px;
-        }
-        .mobile-nav-link i {
-            font-size: 1rem;
-            color: var(--color-magenta);
-            transition: transform 0.2s;
-        }
-        .mobile-nav-link[aria-expanded="true"] i { transform: rotate(180deg); }
-        .mobile-submenu {
-            display: none;
-            padding-left: 1rem;
-            padding-bottom: 1rem;
-            list-style: none;
-        }
-        .mobile-submenu.is-open { display: block; }
-        .mobile-sub-link {
-            display: block;
-            padding: 14px 0;
-            color: #444;
-            text-decoration: none;
-            font-size: 1.1rem;
-            min-height: 44px;
-        }
-        .mobile-actions-container {
-            padding: 1rem 1.5rem;
-            display: flex;
-            gap: 12px;
-            flex-direction: column;
-        }
-        .mobile-give-btn,
-        .mobile-search-btn {
-            padding: 16px;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 700;
-            text-transform: uppercase;
-            min-height: 56px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        .mobile-give-btn { background: var(--color-green); color: var(--color-dark-navy); }
-        .mobile-search-btn { background: var(--color-blue); color: white; }
-
-        /*
-         * HERO SECTION
-         */
-        .hero {
-            position: relative;
-            background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-blue-dark) 100%);
-            color: white;
-            overflow: hidden;
-            min-height: 620px;
-            display: flex;
-            align-items: center;
-        }
-        .hero-image-wrap {
-            position: absolute;
-            inset: 0;
-            opacity: 0.28;
-        }
-        .hero-image-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg, rgba(26, 42, 66, 0.75) 0%, rgba(94, 116, 177, 0.4) 60%, rgba(186, 63, 151, 0.3) 100%);
-        }
-        .hero-content {
-            position: relative;
-            max-width: var(--container-width);
-            margin: 0 auto;
-            padding: 80px 1.5rem;
-            width: 100%;
-            z-index: 2;
-        }
-        .hero-eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(6px);
-            padding: 8px 18px;
-            border-radius: 40px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            margin-bottom: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-        }
-        .hero-eyebrow .script {
-            font-family: var(--font-script);
-            font-size: 1.6rem;
-            text-transform: none;
-            letter-spacing: 0;
-            color: var(--color-cream);
-            line-height: 1;
-        }
-        .hero h1 {
-            font-size: clamp(2.5rem, 5.5vw, 4.8rem);
-            color: white;
-            line-height: 1.05;
-            margin-bottom: 28px;
-            max-width: 880px;
-            letter-spacing: -0.5px;
-        }
-        .hero h1 .script-accent {
-            font-family: var(--font-script);
-            font-size: 1.1em;
-            color: var(--color-cream);
-            text-transform: none;
-            font-weight: normal;
-            display: inline-block;
-            line-height: 0.9;
-            margin-right: 10px;
-        }
-        .hero-sub {
-            font-size: 1.25rem;
-            max-width: 650px;
-            margin-bottom: 40px;
-            color: rgba(255, 255, 255, 0.95);
-            line-height: 1.55;
-        }
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        .hero-buttons .btn {
-            padding: 16px 36px;
-            font-size: 1rem;
-        }
-
-        /*
-         * IMPACT BAR
-         */
-        .impact-bar {
-            background: white;
-            padding: 50px 0;
-            border-bottom: 1px solid #eee;
-            position: relative;
-            margin-top: -60px;
-            z-index: 5;
-        }
-        .impact-bar .container {
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 12px 40px rgba(26, 42, 66, 0.12);
-            padding: 40px;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            text-align: center;
-        }
-        .impact-stat {
-            padding: 0 20px;
-            position: relative;
-        }
-        .impact-stat:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 10%;
-            height: 80%;
-            width: 1px;
-            background: #eee;
-        }
-        .impact-number {
-            font-family: var(--font-display);
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--color-magenta);
-            line-height: 1;
-            margin-bottom: 6px;
-        }
-        .impact-label {
-            font-size: 0.95rem;
-            color: #666;
-            text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 0.8px;
-        }
-
-        /*
-         * MISSION / INTRO SECTION
-         */
-        .mission-section {
-            padding: 100px 0 80px;
-        }
-        .mission-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 80px;
-            align-items: center;
-        }
-        .mission-visual {
-            position: relative;
-        }
-        .mission-visual img {
-            width: 100%;
-            height: auto;
-            border-radius: 16px;
-            display: block;
-            aspect-ratio: 4/5;
-            object-fit: cover;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-        }
-        .mission-visual .floating-badge {
-            position: absolute;
-            bottom: -30px;
-            right: -30px;
-            background: var(--color-orange);
-            color: white;
-            padding: 24px 28px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(249, 164, 30, 0.3);
-            max-width: 220px;
-        }
-        .floating-badge .script-text {
-            font-size: 2.2rem;
-            color: white;
-            margin-bottom: 2px;
-        }
-        .floating-badge p {
-            font-size: 0.95rem;
-            line-height: 1.4;
-            margin: 0;
-        }
-        .mission-eyebrow {
-            display: inline-block;
-            color: var(--color-magenta);
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            font-size: 0.9rem;
-            margin-bottom: 16px;
-        }
-        .mission-content h2 {
-            font-size: clamp(2rem, 3.5vw, 2.8rem);
-            line-height: 1.15;
-            margin-bottom: 28px;
-            color: var(--color-dark-navy);
-        }
-        .mission-content h2 .script-accent {
-            font-family: var(--font-script);
-            color: var(--color-magenta);
-            text-transform: none;
-            font-size: 1.3em;
-            display: inline-block;
-            line-height: 0.85;
-        }
-        .mission-content p {
-            font-size: 1.1rem;
-            line-height: 1.75;
-            margin-bottom: 20px;
-            color: #444;
-            text-align: right;
-        }
-        .mission-content .mission-lede {
-            font-size: 1.25rem;
-            color: var(--color-dark-navy);
-            font-weight: 500;
-            text-align: right;
-        }
-        .mission-content .mission-cta {
-            margin-top: 30px;
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        /*
-         * PROGRAMS SECTION
-         */
-        .programs-section {
-            padding: 100px 0;
-            background: linear-gradient(180deg, #f7f9fc 0%, #eef2f7 100%);
-            position: relative;
-        }
-        .section-header {
-            text-align: center;
-            max-width: 780px;
-            margin: 0 auto 60px;
-        }
-        .section-header .eyebrow {
-            display: inline-block;
-            color: var(--color-magenta);
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            font-size: 0.9rem;
-            margin-bottom: 16px;
-        }
-        .section-header h2 {
-            font-size: clamp(2.2rem, 4vw, 3rem);
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-        .section-header h2 .script-accent {
-            font-family: var(--font-script);
-            color: var(--color-magenta);
-            text-transform: none;
-            font-size: 1.3em;
-            display: inline-block;
-            line-height: 0.85;
-        }
-        .section-header p {
-            font-size: 1.15rem;
-            color: #666;
-            line-height: 1.7;
-        }
-
-        .programs-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-        }
-        .program-card {
-            background: white;
-            border-radius: 16px;
-            padding: 36px 32px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-            border-top: 5px solid var(--color-blue);
-        }
-        .program-card:nth-child(2) { border-top-color: var(--color-magenta); }
-        .program-card:nth-child(3) { border-top-color: var(--color-orange); }
-        .program-card:nth-child(4) { border-top-color: var(--color-green); }
-        .program-card:nth-child(5) { border-top-color: var(--color-teal); }
-        .program-card:nth-child(6) { border-top-color: var(--color-slate); }
-
-        .program-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
-        }
-        .program-icon {
-            width: 64px;
-            height: 64px;
-            border-radius: 14px;
-            background: rgba(94, 116, 177, 0.1);
-            color: var(--color-blue);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.6rem;
-            margin-bottom: 24px;
-        }
-        .program-card:nth-child(2) .program-icon { background: rgba(186, 63, 151, 0.1); color: var(--color-magenta); }
-        .program-card:nth-child(3) .program-icon { background: rgba(249, 164, 30, 0.1); color: var(--color-orange); }
-        .program-card:nth-child(4) .program-icon { background: rgba(133, 195, 64, 0.15); color: var(--color-green); }
-        .program-card:nth-child(5) .program-icon { background: rgba(0, 187, 211, 0.1); color: var(--color-teal); }
-        .program-card:nth-child(6) .program-icon { background: rgba(125, 145, 160, 0.15); color: var(--color-slate); }
-
-        .program-card h3 {
-            font-size: 1.35rem;
-            margin-bottom: 12px;
-            color: var(--color-dark-navy);
-        }
-        .program-card p {
-            color: #666;
-            line-height: 1.65;
-            margin-bottom: 24px;
-            flex: 1;
-        }
-        .program-card a.program-link {
-            color: var(--color-blue);
-            text-decoration: none;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-            transition: gap 0.2s;
-        }
-        .program-card a.program-link:hover { gap: 14px; }
-
-        .programs-footer {
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        /*
-         * STORY / TESTIMONIAL SECTION
-         */
-        .story-section {
-            padding: 0;
-            background: var(--color-dark-navy);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        .story-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: 540px;
-        }
-        .story-image {
-            background-image: url('assets/img/support-hero-connection.png');
-            background-size: cover;
-            background-position: center;
-            min-height: 400px;
-        }
-        .story-content {
-            padding: 80px 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-        }
-        .story-quote-mark {
-            font-family: var(--font-script);
-            font-size: 8rem;
-            line-height: 0.6;
-            color: var(--color-orange);
-            opacity: 0.9;
-            margin-bottom: 20px;
-            display: block;
-        }
-        .story-quote {
-            font-size: 1.5rem;
-            line-height: 1.55;
-            margin-bottom: 30px;
-            font-weight: 300;
-            font-style: italic;
-            color: white;
-            text-align: right;
-        }
-        .story-attribution {
-            border-top: 2px solid rgba(255, 255, 255, 0.15);
-            padding-top: 20px;
-            text-align: right;
-        }
-        .story-attribution strong {
-            font-family: var(--font-display);
-            text-transform: uppercase;
-            font-size: 1.1rem;
-            color: var(--color-cream);
-            letter-spacing: 1px;
-        }
-        .story-attribution span {
-            display: block;
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin-top: 4px;
-        }
-
-        /*
-         * HOW IT WORKS / WAYS TO CONNECT
-         */
-        .ways-section {
-            padding: 100px 0;
-            background: white;
-        }
-        .ways-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-        }
-        .way-card {
-            text-align: center;
-            padding: 40px 24px;
-            border-radius: 16px;
-            background: var(--color-bg);
-            transition: background 0.3s, transform 0.3s;
-        }
-        .way-card:hover {
-            transform: translateY(-4px);
-            background: white;
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
-        }
-        .way-icon-circle {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            box-shadow: 0 8px 24px rgba(94, 116, 177, 0.15);
-            font-size: 2.5rem;
-        }
-        .way-card:nth-child(1) .way-icon-circle { color: var(--color-blue); }
-        .way-card:nth-child(2) .way-icon-circle { color: var(--color-magenta); }
-        .way-card:nth-child(3) .way-icon-circle { color: var(--color-green); }
-        .way-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 14px;
-            color: var(--color-dark-navy);
-        }
-        .way-card p {
-            color: #666;
-            line-height: 1.65;
-            margin-bottom: 20px;
-        }
-        .way-card a {
-            text-decoration: none;
-            color: var(--color-blue);
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-        }
-        .way-card a:hover { color: var(--color-magenta); }
-
-        /*
-         * GIVE / SUPPORT STRIP
-         */
-        .give-strip {
-            padding: 90px 0;
-            background: linear-gradient(135deg, var(--color-magenta) 0%, #9c2f7e 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        .give-strip::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: url('assets/img/FriendsCo_Pattern.jpg');
-            background-size: 400px;
-            opacity: 0.06;
-            mix-blend-mode: overlay;
-        }
-        .give-strip .container {
-            position: relative;
-            z-index: 2;
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        .give-content h2 {
-            color: white;
-            font-size: clamp(2rem, 3.8vw, 2.8rem);
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-        .give-content h2 .script-accent {
-            font-family: var(--font-script);
-            font-size: 1.3em;
-            color: var(--color-cream);
-            text-transform: none;
-            display: inline-block;
-            line-height: 0.85;
-        }
-        .give-content p {
-            font-size: 1.15rem;
-            margin-bottom: 30px;
-            line-height: 1.65;
-            max-width: 540px;
-            text-align: right;
-        }
-        .give-options {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-        }
-        .give-amounts {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 16px;
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-        .give-amounts h4 {
-            grid-column: 1 / -1;
-            color: white;
-            font-size: 1rem;
-            margin-bottom: 6px;
-            letter-spacing: 1px;
-        }
-        .give-amount-btn {
-            background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            color: white;
-            padding: 18px 10px;
-            border-radius: 10px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-family: var(--font-primary);
-        }
-        .give-amount-btn:hover {
-            background: white;
-            color: var(--color-magenta);
-        }
-        .give-amount-btn.custom {
-            grid-column: 1 / -1;
-            background: var(--color-orange);
-            border-color: var(--color-orange);
-        }
-        .give-amount-btn.custom:hover {
-            background: white;
-            color: var(--color-orange);
-        }
-
-        /*
-         * NEWS / RESOURCES
-         */
-        .news-section {
-            padding: 100px 0;
-            background: var(--color-bg);
-        }
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-        }
-        .news-card {
-            background: white;
-            border-radius: 14px;
-            overflow: hidden;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            flex-direction: column;
-        }
-        .news-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
-        }
-        .news-image {
-            aspect-ratio: 16 / 9;
-            background-size: cover;
-            background-position: center;
-            background-color: #ddd;
-        }
-        .news-body {
-            padding: 28px;
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-        }
-        .news-meta {
-            font-size: 0.85rem;
-            color: var(--color-magenta);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-        }
-        .news-card h3 {
-            font-size: 1.15rem;
-            margin-bottom: 12px;
-            line-height: 1.3;
-            color: var(--color-dark-navy);
-        }
-        .news-card p {
-            color: #666;
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-            flex: 1;
-            line-height: 1.65;
-        }
-        .news-card a {
-            color: var(--color-blue);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .news-card a:hover { color: var(--color-magenta); }
-
-        /*
-         * FAQ ACCORDION SECTION
-         */
-        .faq-section {
-            padding: 100px 0;
-            background: white;
-        }
-        .faq-wrap {
-            max-width: 820px;
-            margin: 0 auto;
-        }
-        .faq-item {
-            border-bottom: 2px solid #eef0f5;
-        }
-        .faq-question {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 24px 0;
-            background: transparent;
-            border: none;
-            text-align: left;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--color-dark-navy);
-            cursor: pointer;
-            font-family: var(--font-primary);
-            gap: 20px;
-            min-height: 44px;
-        }
-        .faq-question .plus-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: var(--color-blue);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-        .faq-question[aria-expanded="true"] .plus-icon {
-            background: var(--color-magenta);
-            transform: rotate(45deg);
-        }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-        .faq-answer.is-open {
-            max-height: 400px;
-        }
-        .faq-answer p {
-            padding: 0 0 24px 0;
-            color: #555;
-            line-height: 1.7;
-            font-size: 1rem;
-            max-width: 720px;
-        }
-
-        /*
-         * TRUST / PARTNERS STRIP
-         */
-        .trust-strip {
-            padding: 60px 0;
-            background: white;
-            border-top: 1px solid #eee;
-        }
-        .trust-strip h4 {
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-            color: #888;
-            margin-bottom: 32px;
-            font-family: var(--font-primary);
-            font-weight: 700;
-        }
-        .trust-grid {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 60px;
-            flex-wrap: wrap;
-        }
-        .trust-grid img {
-            max-height: 80px;
-            width: auto;
-            opacity: 0.85;
-            transition: opacity 0.2s;
-        }
-        .trust-grid img:hover { opacity: 1; }
-
-        /*
-         * FOOTER
-         */
-        .footer-opt1 {
-            background-color: var(--color-blue);
-            color: white;
-            font-size: 16px;
-            line-height: 1.6;
-        }
-        .footer-opt1 a {
-            color: white;
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-        .footer-opt1 a:hover { opacity: 0.9; }
-        .opt1-newsletter {
-            background-color: var(--color-dark-navy);
-            padding: 40px 20px;
-        }
-        .opt1-newsletter-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-        .opt1-newsletter-text h3 {
-            font-family: var(--font-display);
-            font-size: 1.8rem;
-            margin: 0 0 5px 0;
-            letter-spacing: 1px;
-            color: white;
-        }
-        .opt1-newsletter-text p {
-            margin: 0;
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-        .opt1-newsletter-form {
-            display: flex;
-            gap: 10px;
-            flex-grow: 1;
-            max-width: 600px;
-        }
-        .opt1-newsletter-form input {
-            flex-grow: 1;
-            padding: 14px 15px;
-            border: none;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-family: var(--font-primary);
-            min-height: 44px;
-        }
-        .opt1-main {
-            padding: 60px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
-        .footer-heading {
-            font-family: var(--font-display);
-            font-size: 1.4rem;
-            margin-top: 0;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: white;
-        }
-        .footer-logo {
-            max-width: 250px;
-            height: auto;
-            margin-bottom: 20px;
-            display: block;
-        }
-        .contact-info p {
-            margin: 0 0 10px 0;
-            display: flex;
-            gap: 10px;
-        }
-        .contact-info i {
-            margin-top: 5px;
-            opacity: 0.8;
-            width: 16px;
-        }
-        .footer-links-list {
-            list-style: none;
-        }
-        .footer-links-list li { margin-bottom: 15px; }
-        .footer-links-list a {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 600;
-        }
-        .footer-links-list a i {
-            display: inline-block;
-            font-size: 0.8rem;
-            color: var(--color-green);
-            transition: transform 0.2s;
-        }
-        .footer-opt1 .footer-links-list a:hover i { transform: translateX(4px); }
-        .trust-badges {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .trust-badges img {
-            width: 100px;
-            height: auto;
-            object-fit: contain;
-            background: white;
-            border-radius: 8px;
-            padding: 5px;
-        }
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 25px;
-        }
-        .social-icons a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            font-size: 1.2rem;
-            transition: all 0.2s;
-        }
-        .social-icons a:hover {
-            background: var(--color-magenta);
-            transform: scale(1.1);
-        }
-        .footer-bottom {
-            background-color: #4b5d91;
-            padding: 20px;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        .footer-bottom p { margin: 0; opacity: 0.8; }
-        .footer-bottom a { text-decoration: underline; }
-
-        /*
-         * RESPONSIVE
-         */
-        @media (max-width: 1024px) {
-            .mission-grid,
-            .story-grid,
-            .give-strip .container {
-                grid-template-columns: 1fr;
-                gap: 50px;
-            }
-            .story-content { padding: 60px 40px; }
-            .story-image { min-height: 360px; }
-            .programs-grid,
-            .news-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .mission-visual .floating-badge {
-                bottom: -20px;
-                right: 20px;
-            }
-        }
-
-        @media (max-width: 900px) {
-            .desktop-menu,
-            .header-actions { display: none; }
-            .mobile-menu-toggle { display: flex; align-items: center; justify-content: center; }
-            .impact-bar .container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 30px;
-                padding: 30px;
-            }
-            .impact-stat:nth-child(2)::after { display: none; }
-            .ways-grid { grid-template-columns: 1fr; gap: 24px; }
-            .give-amounts { max-width: 100%; }
-            .opt1-main {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .hero { min-height: 520px; }
-            .hero-content { padding: 50px 1.5rem; }
-            .hero-buttons { flex-direction: column; align-items: stretch; }
-            .hero-buttons .btn { width: 100%; }
-            .impact-bar { margin-top: -40px; }
-            .impact-bar .container {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-            .impact-stat::after { display: none; }
-            .mission-section,
-            .programs-section,
-            .ways-section,
-            .give-strip,
-            .news-section,
-            .faq-section {
-                padding: 60px 0;
-            }
-            .programs-grid,
-            .news-grid {
-                grid-template-columns: 1fr;
-            }
-            .story-content { padding: 40px 24px; }
-            .story-quote { font-size: 1.2rem; }
-            .mission-content p,
-            .mission-content .mission-lede,
-            .story-quote,
-            .story-attribution,
-            .give-content p {
-                text-align: left;
-            }
-            .mission-content .mission-cta,
-            .give-options {
-                justify-content: flex-start;
-            }
-            .mission-visual .floating-badge {
-                position: static;
-                margin-top: 20px;
-                max-width: 100%;
-            }
-            .opt1-newsletter-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            .opt1-newsletter-form {
-                width: 100%;
-                flex-direction: column;
-            }
-            .opt1-main {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                text-align: center;
-            }
-            .opt1-main .contact-info p,
-            .opt1-main .footer-links-list a,
-            .opt1-main .trust-badges,
-            .opt1-main .social-icons {
-                justify-content: center;
-            }
-            .opt1-main .footer-logo { margin: 0 auto 20px auto; }
-        }
-    </style>
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .footer-main .inner{grid-template-columns:1fr 1fr;}
+  .nl-form{grid-template-columns:1fr 1fr; grid-template-rows:auto auto;}
+  .nl-form button{grid-column:1/-1;}
+}
+@media(max-width:900px){
+  .events-grid,.services-grid,.cta-grid,.news-editorial{grid-template-columns:1fr 1fr;}
+  .why-grid{grid-template-columns:1fr; gap:32px;}
+  .testimonial-card{padding:48px 40px; grid-template-columns:auto 1fr; gap:24px;}
+  .testimonial-quote-mark{font-size:6rem;}
+}
+@media(max-width:640px){
+  .hero-content{padding:72px 24px;}
+  .events-grid,.services-grid,.cta-grid{grid-template-columns:1fr;}
+  .news-editorial{grid-template-columns:1fr;}
+  .nl-grid{grid-template-columns:1fr;}
+  .nl-form{grid-template-columns:1fr;}
+  .testimonial-card{padding:40px 28px; grid-template-columns:1fr;}
+  .testimonial-quote-mark{display:none;}
+  .footer-main .inner{grid-template-columns:1fr;}
+  .footer-newsletter .inner{flex-direction:column; align-items:flex-start;}
+  .trust-strip{gap:20px; padding:14px 20px;}
+}
+</style>
 </head>
-
 <body>
 
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+<div class="mock-note">
+  <span class="tag">Mockup &middot; Home page — full page, video hero</span>
+  <h2>All sections included; donation widget removed from hero</h2>
+  <ul>
+    <li>YouTube video (<code>ZWFaz0-zCls</code>) plays as a full-bleed muted background in the hero. Autoplay requires mute — the speaker button bottom-right lets visitors unmute.</li>
+    <li>Hero leads with mission + program sign-up CTAs. Donation is handled by the "Give" button in the nav.</li>
+    <li>No Albiol font anywhere — section headings use Roboto Condensed bold with a magenta eyebrow label instead of the script style.</li>
+    <li>Header and footer are the exact same code as the approved live donate page mockup.</li>
+    <li>All sections from the v2 home mockup are included: Events, News, Why Friendship (tabs), Services tiles, Testimonial, Be a Friend CTAs, and Newsletter.</li>
+  </ul>
+</div>
 
-    <!-- HEADER -->
-    <header>
-        <div class="nav-container">
-            <a href="#" class="nav-logo" aria-label="Friends & Co Homepage">
-                <img src="assets/img/FriendsCo-logo.png" alt="Friends & Co">
-            </a>
-
-            <ul class="desktop-menu" role="menubar">
-                <li role="none">
-                    <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
-                        Free Friendship Programs <i class="fas fa-caret-down"></i>
-                    </a>
-                    <div class="dropdown" role="menu">
-                        <a href="#" role="menuitem">Start Here</a>
-                        <a href="#" role="menuitem">One-on-One Visiting Companions</a>
-                        <a href="#" role="menuitem">Phone Companions</a>
-                        <a href="#" role="menuitem">Coffee Talk Calls</a>
-                        <a href="#" role="menuitem">Let's Do Coffee / Let's Do Lunch Cafe</a>
-                        <a href="#" role="menuitem">Cards Connect</a>
-                        <a href="#" role="menuitem">Conexiones Comunitarias</a>
-                    </div>
-                </li>
-                <li role="none"><a href="#" role="menuitem">Volunteer</a></li>
-                <li role="none"><a href="#" role="menuitem">About</a></li>
-                <li role="none"><a href="#" role="menuitem">Support</a></li>
-                <li role="none"><a href="#" role="menuitem">News & Resources</a></li>
+<!-- HEADER — exact match to live friendsco.org -->
+<header class="site-header">
+  <a class="logo" href="https://friendsco.org/">
+    <img src="https://friendsco.org/wp-content/uploads/2025/09/cropped-site-logo-350x100-1.png" alt="Friends &amp; Co">
+  </a>
+  <nav class="main-nav" aria-label="Menu">
+    <ul>
+      <li class="active"><a href="https://friendsco.org/">Home</a></li>
+      <li>
+        <a href="https://friendsco.org/friendship-services/">Free Programs <svg class="caret" viewBox="0 0 320 512"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/></svg></a>
+        <ul class="sub">
+          <li><a href="https://friendsco.org/friendship-services/">Start Here</a></li>
+          <li>
+            <a href="https://friendsco.org/friendship-services/">Meet in Person <svg class="caret" viewBox="0 0 320 512"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/></svg></a>
+            <ul class="sub">
+              <li><a href="https://friendsco.org/visiting-companions/">One-on-One Visiting Companions</a></li>
+              <li><a href="https://friendsco.org/lets-do-events/">Let&rsquo;s Do Coffee / Let&rsquo;s Do Lunch Caf&eacute; 🏳️‍🌈</a></li>
+              <li><a href="https://friendsco.org/spanish-language-programs/">Conexiones Comunitarias (Espa&ntilde;ol)</a></li>
             </ul>
-
-            <div class="header-actions">
-                <a href="#" class="btn-give">Give <i class="fas fa-hand-holding-heart"></i></a>
-                <button class="btn-search" aria-label="Search"><i class="fas fa-search"></i></button>
-            </div>
-
-            <button class="mobile-menu-toggle" aria-label="Open menu">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </header>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-overlay" id="mobileMenuOverlay" aria-hidden="true">
-        <div class="mobile-menu-header">
-            <a href="#" class="nav-logo" aria-label="Friends & Co Homepage">
-                <img src="assets/img/FriendsCo-logo.png" alt="Friends & Co" style="height:50px;">
-            </a>
-            <button class="mobile-close-btn" id="closeMobileMenu" aria-label="Close menu">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-
-        <ul class="mobile-nav">
-            <li class="mobile-nav-item"><a href="#" class="mobile-nav-link">Home</a></li>
-            <li class="mobile-nav-item">
-                <button class="mobile-nav-link" aria-expanded="false" aria-controls="mobilePrograms">
-                    Free Friendship Programs <i class="fas fa-chevron-down"></i>
-                </button>
-                <ul class="mobile-submenu" id="mobilePrograms">
-                    <li><a href="#" class="mobile-sub-link">Visiting Companions</a></li>
-                    <li><a href="#" class="mobile-sub-link">Phone Companions</a></li>
-                    <li><a href="#" class="mobile-sub-link">Coffee Talk Calls</a></li>
-                    <li><a href="#" class="mobile-sub-link">Let's Do Coffee / Lunch Cafe</a></li>
-                    <li><a href="#" class="mobile-sub-link">Cards Connect</a></li>
-                    <li><a href="#" class="mobile-sub-link">Conexiones Comunitarias</a></li>
-                </ul>
-            </li>
-            <li class="mobile-nav-item"><a href="#" class="mobile-nav-link">Volunteer</a></li>
-            <li class="mobile-nav-item"><a href="#" class="mobile-nav-link">About</a></li>
-            <li class="mobile-nav-item"><a href="#" class="mobile-nav-link">Support</a></li>
-            <li class="mobile-nav-item"><a href="#" class="mobile-nav-link">News & Resources</a></li>
+          </li>
+          <li>
+            <a href="https://friendsco.org/coffee-talk/">Talk on the Phone <svg class="caret" viewBox="0 0 320 512"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/></svg></a>
+            <ul class="sub">
+              <li><a href="https://friendsco.org/coffee-talk/">Tue &amp; Thurs Coffee Talk Calls</a></li>
+              <li><a href="https://friendsco.org/phone-companions/">Weekly One-on-One Phone Friends</a></li>
+            </ul>
+          </li>
+          <li><a href="https://friendsco.org/cards-connect/">Receive Friendly Mail</a></li>
+          <li><a href="https://friendsco.org/events/">Events &amp; Gatherings</a></li>
         </ul>
-        <div class="mobile-actions-container">
-            <a href="#" class="mobile-give-btn">Give <i class="fas fa-hand-holding-heart"></i></a>
-            <a href="#" class="mobile-search-btn">Search <i class="fas fa-search"></i></a>
-        </div>
+      </li>
+      <li>
+        <a href="https://friendsco.org/get-involved/">Volunteer <svg class="caret" viewBox="0 0 320 512"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/></svg></a>
+        <ul class="sub">
+          <li><a href="https://friendsco.org/get-involved/">Start Volunteering</a></li>
+          <li><a href="https://friendsco.org/volunteer/">Apply to Volunteer</a></li>
+          <li><a href="https://friendsco.org/visiting-companions-match/">Matching Hub: Choose Who You&rsquo;ll Connect With</a></li>
+          <li><a href="https://friendsco.org/volunteer-portal/">Current Volunteers</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://friendsco.org/about/">About <svg class="caret" viewBox="0 0 320 512"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/></svg></a>
+        <ul class="sub">
+          <li><a href="https://friendsco.org/about/">About Us</a></li>
+          <li><a href="https://friendsco.org/annual-reports/">Annual Reports</a></li>
+          <li><a href="https://friendsco.org/staff-and-board/">Our Team</a></li>
+          <li><a href="https://friendsco.org/news/">Latest News</a></li>
+          <li><a href="https://friendsco.org/contact/">Contact</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://friendsco.org/support-friends-co/">Support <svg class="caret" viewBox="0 0 320 512"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/></svg></a>
+        <ul class="sub">
+          <li><a href="https://friendsco.org/donate/">Give Today</a></li>
+          <li><a href="https://friendsco.org/planned-giving/">Planned Giving</a></li>
+          <li><a href="https://friendsco.org/corporate-sponsorship/">Corporate Sponsorship</a></li>
+          <li><a href="https://friendsco.org/other-ways-to-give/">Other Ways to Give</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <div class="header-actions">
+    <a class="btn-give" href="https://friendsco.org/donate/">
+      <svg viewBox="0 0 576 512"><path d="M275.3 250.5c7 7.4 18.4 7.4 25.5 0l108.9-114.2c31.6-33.2 29.8-88.2-5.6-118.8-30.8-26.7-76.7-21.9-104.9 7.7L288 36.9l-11.1-11.6C248.7-4.4 202.8-9.2 172 17.5c-35.3 30.6-37.2 85.6-5.6 118.8l108.9 114.2zm290 77.6c-11.8-10.7-30.2-10-42.6 0L430.3 402c-11.3 9.1-25.4 14-40 14H272c-8.8 0-16-7.2-16-16s7.2-16 16-16h78.3c15.9 0 30.7-10.9 33.3-26.6 3.3-20-12.1-37.4-31.6-37.4H192c-27 0-53.1 9.3-74.1 26.3L71.4 384H16c-8.8 0-16 7.2-16 16v96c0 8.8 7.2 16 16 16h356.8c14.5 0 28.6-4.9 40-14L564 377c15.2-12.1 16.4-35.3 1.3-48.9z"/></svg>
+      <span>Give</span>
+    </a>
+    <button class="btn-search" type="button" aria-label="Search">
+      <svg viewBox="0 0 512 512"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+    </button>
+    <button class="btn-hamburger" type="button" aria-label="Menu" aria-expanded="false" onclick="var m=document.getElementById('mobileMenu');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'));">
+      <svg viewBox="0 0 448 512"><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg>
+    </button>
+  </div>
+</header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile menu">
+  <ul>
+    <li><a href="https://friendsco.org/">Home</a></li>
+    <li><a href="https://friendsco.org/friendship-services/">Free Programs</a></li>
+    <li><a href="https://friendsco.org/get-involved/">Volunteer</a></li>
+    <li><a href="https://friendsco.org/about/">About</a></li>
+    <li><a href="https://friendsco.org/support-friends-co/">Support</a></li>
+    <li><a class="menu-give" href="https://friendsco.org/donate/">Give</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- HERO — YouTube video background -->
+  <section class="hero" aria-label="Welcome to Friends &amp; Co">
+
+    <div class="hero-yt-wrap" aria-hidden="true">
+      <!--
+        YouTube embed: autoplay, muted, loop, no controls, no related videos.
+        The video fills the hero behind the gradient overlay.
+        Video ID: ZWFaz0-zCls
+      -->
+      <iframe
+        id="heroYT"
+        src="https://www.youtube-nocookie.com/embed/ZWFaz0-zCls?autoplay=1&mute=1&loop=1&playlist=ZWFaz0-zCls&controls=0&rel=0&playsinline=1&disablekb=1&modestbranding=1&iv_load_policy=3&enablejsapi=1&start=54&end=149"
+        allow="autoplay; fullscreen"
+        tabindex="-1"
+        title="Background video">
+      </iframe>
     </div>
 
-    <main id="main-content">
+    <div class="hero-overlay" aria-hidden="true"></div>
 
-        <!-- HERO -->
-        <section class="hero" aria-labelledby="hero-heading">
-            <div class="hero-image-wrap" aria-hidden="true">
-                <img src="assets/img/support-hero-group.png" alt="">
-            </div>
-            <div class="hero-overlay" aria-hidden="true"></div>
-            <div class="hero-content">
-                <div class="hero-eyebrow">
-                    <span class="script">Friends</span>
-                    <span>nurturing connection since 1973</span>
-                </div>
-                <h1 id="hero-heading">
-                    <span class="script-accent">Meaningful</span><br>
-                    friendships, one<br>
-                    conversation at a time.
-                </h1>
-                <p class="hero-sub">
-                    For more than 50 years, Friends & Co has paired older adults with caring
-                    volunteers across the Twin Cities. No cost. No obligation. Just real
-                    friendship, on your terms.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#programs" class="btn btn-orange">Find a Program <i class="fas fa-arrow-right"></i></a>
-                    <a href="#volunteer" class="btn btn-outline">Become a Volunteer</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- IMPACT BAR -->
-        <section class="impact-bar" aria-label="Our Impact">
-            <div class="container">
-                <div class="impact-stat">
-                    <div class="impact-number">5,200+</div>
-                    <div class="impact-label">Older Adults Served</div>
-                </div>
-                <div class="impact-stat">
-                    <div class="impact-number">600</div>
-                    <div class="impact-label">Active Volunteers</div>
-                </div>
-                <div class="impact-stat">
-                    <div class="impact-number">52</div>
-                    <div class="impact-label">Years of Service</div>
-                </div>
-                <div class="impact-stat">
-                    <div class="impact-number">6</div>
-                    <div class="impact-label">Free Programs</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- MISSION / ABOUT -->
-        <section class="mission-section" aria-labelledby="mission-heading">
-            <div class="container">
-                <div class="mission-grid">
-                    <div class="mission-visual">
-                        <img src="assets/img/general_square.jpg" alt="A Friends & Co volunteer sharing a coffee with an older adult">
-                        <div class="floating-badge">
-                            <span class="script-text">hello.</span>
-                            <p>Every match begins with a simple conversation.</p>
-                        </div>
-                    </div>
-                    <div class="mission-content">
-                        <span class="mission-eyebrow">Our Mission</span>
-                        <h2 id="mission-heading">
-                            Because <span class="script-accent">growing older</span> shouldn't mean growing apart.
-                        </h2>
-                        <p class="mission-lede">
-                            Social isolation affects nearly a quarter of older adults in Minnesota.
-                            Friends & Co exists to change that.
-                        </p>
-                        <p>
-                            We carefully match older adults with background-checked, trained
-                            volunteers for weekly visits, phone calls, group gatherings, and
-                            handwritten letters. Participants choose what works best for them,
-                            and the match grows from there.
-                        </p>
-                        <p>
-                            Every program we offer is free, community-supported, and designed
-                            to make meaningful connection easy, accessible, and genuinely fun.
-                        </p>
-                        <div class="mission-cta">
-                            <a href="#" class="btn btn-outline-blue">Learn Our Story <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROGRAMS -->
-        <section class="programs-section" id="programs" aria-labelledby="programs-heading">
-            <div class="container">
-                <div class="section-header">
-                    <span class="eyebrow">Find Your Fit</span>
-                    <h2 id="programs-heading">
-                        Six <span class="script-accent">ways</span> to connect.
-                    </h2>
-                    <p>
-                        Whether you prefer a quiet phone call, a coffee shop chat, or a letter
-                        in the mailbox, there's a Friends & Co program that fits your life.
-                    </p>
-                </div>
-
-                <div class="programs-grid">
-                    <article class="program-card">
-                        <div class="program-icon"><i class="fas fa-user-friends"></i></div>
-                        <h3>Visiting Companions</h3>
-                        <p>Weekly in-person visits in your home, neighborhood, or favorite gathering spot. Matches are one-on-one and ongoing.</p>
-                        <a href="#" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </article>
-
-                    <article class="program-card">
-                        <div class="program-icon"><i class="fas fa-phone-alt"></i></div>
-                        <h3>Phone Companions</h3>
-                        <p>A meaningful connection is just a phone call away. Paired weekly calls on a schedule that works for you.</p>
-                        <a href="#" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </article>
-
-                    <article class="program-card">
-                        <div class="program-icon"><i class="fas fa-coffee"></i></div>
-                        <h3>Coffee Talk Calls</h3>
-                        <p>Drop into lively group phone conversations every Tuesday and Thursday. No match needed. Just dial in.</p>
-                        <a href="#" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </article>
-
-                    <article class="program-card">
-                        <div class="program-icon"><i class="fas fa-mug-hot"></i></div>
-                        <h3>Let's Do Coffee / Lunch Cafe</h3>
-                        <p>A welcoming gathering for LGBTQ+ older adults at local cafes. Meet new friends over coffee or a shared meal.</p>
-                        <a href="#" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </article>
-
-                    <article class="program-card">
-                        <div class="program-icon"><i class="fas fa-envelope-open-text"></i></div>
-                        <h3>Cards Connect</h3>
-                        <p>Handwritten cards delivered throughout the year. Simple, warm, and perfect if you prefer connection by mail.</p>
-                        <a href="#" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </article>
-
-                    <article class="program-card">
-                        <div class="program-icon"><i class="fas fa-comments"></i></div>
-                        <h3>Conexiones Comunitarias</h3>
-                        <p>Emparejamientos y conversaciones en español para adultos mayores de habla hispana en las Ciudades Gemelas.</p>
-                        <a href="#" class="program-link">Aprende Más <i class="fas fa-arrow-right"></i></a>
-                    </article>
-                </div>
-
-                <div class="programs-footer">
-                    <a href="#" class="btn btn-blue">See All Programs <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </section>
-
-        <!-- TESTIMONIAL / STORY -->
-        <section class="story-section" aria-labelledby="story-heading">
-            <div class="story-grid">
-                <div class="story-image" role="img" aria-label="A Friends & Co participant smiling during a weekly visit"></div>
-                <div class="story-content">
-                    <span class="story-quote-mark" aria-hidden="true">"</span>
-                    <blockquote class="story-quote" id="story-heading">
-                        I'd gone a long time without having someone to really talk to.
-                        My match and I have been meeting every Thursday for almost three years.
-                        She's family to me now.
-                    </blockquote>
-                    <div class="story-attribution">
-                        <strong>Ruth, Age 81</strong>
-                        <span>Phone Companions participant since 2023</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- WAYS TO GET INVOLVED -->
-        <section class="ways-section" id="volunteer" aria-labelledby="ways-heading">
-            <div class="container">
-                <div class="section-header">
-                    <span class="eyebrow">Get Involved</span>
-                    <h2 id="ways-heading">
-                        Three <span class="script-accent">ways</span> to make a difference.
-                    </h2>
-                </div>
-                <div class="ways-grid">
-                    <div class="way-card">
-                        <div class="way-icon-circle"><i class="fas fa-hands-helping"></i></div>
-                        <h3>Volunteer</h3>
-                        <p>Give a few hours a week and build a friendship that changes two lives. We provide training and ongoing support.</p>
-                        <a href="#">Apply to Volunteer <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="way-card">
-                        <div class="way-icon-circle"><i class="fas fa-user-plus"></i></div>
-                        <h3>Refer an Older Adult</h3>
-                        <p>Know someone who could use a little more connection in their week? Refer them to a program in a few quick steps.</p>
-                        <a href="#">Make a Referral <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="way-card">
-                        <div class="way-icon-circle"><i class="fas fa-bullhorn"></i></div>
-                        <h3>Spread the Word</h3>
-                        <p>Share our programs with neighbors, clinics, and community groups. Printable flyers and resources are ready to go.</p>
-                        <a href="#">Get Resources <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- GIVE STRIP -->
-        <section class="give-strip" aria-labelledby="give-heading">
-            <div class="container">
-                <div class="give-content">
-                    <h2 id="give-heading">
-                        Your gift keeps <span class="script-accent">connection</span> free.
-                    </h2>
-                    <p>
-                        Friends & Co programs are offered at no cost to older adults and their
-                        families. Every dollar you give goes directly to training volunteers,
-                        matching companions, and keeping community gatherings running.
-                    </p>
-                    <div class="give-options">
-                        <a href="#" class="btn btn-orange">Donate Now <i class="fas fa-heart"></i></a>
-                        <a href="#" class="btn btn-outline">Other Ways to Give</a>
-                    </div>
-                </div>
-                <div class="give-amounts">
-                    <h4>Quick Give</h4>
-                    <button class="give-amount-btn">$25</button>
-                    <button class="give-amount-btn">$50</button>
-                    <button class="give-amount-btn">$100</button>
-                    <button class="give-amount-btn">$250</button>
-                    <button class="give-amount-btn custom">Choose Your Amount <i class="fas fa-arrow-right"></i></button>
-                </div>
-            </div>
-        </section>
-
-        <!-- NEWS / RESOURCES -->
-        <section class="news-section" aria-labelledby="news-heading">
-            <div class="container">
-                <div class="section-header">
-                    <span class="eyebrow">News & Resources</span>
-                    <h2 id="news-heading">The latest from <span class="script-accent">our community</span>.</h2>
-                </div>
-
-                <div class="news-grid">
-                    <article class="news-card">
-                        <div class="news-image" style="background-image: url('assets/img/1.png');" role="img" aria-label="Group of older adults at a community event"></div>
-                        <div class="news-body">
-                            <div class="news-meta">Event &middot; April 2026</div>
-                            <h3>Spring Gathering Brings Friends & Co Participants Together</h3>
-                            <p>More than 200 participants and volunteers joined us for an afternoon of music, conversation, and coffee.</p>
-                            <a href="#">Read Story <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </article>
-
-                    <article class="news-card">
-                        <div class="news-image" style="background-image: url('assets/img/2.png');" role="img" aria-label="Volunteer training session"></div>
-                        <div class="news-body">
-                            <div class="news-meta">News &middot; March 2026</div>
-                            <h3>New Volunteer Training Cohort Now Open</h3>
-                            <p>Our next training begins in May. Join us to learn what it takes to be a Friends & Co volunteer.</p>
-                            <a href="#">Register <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </article>
-
-                    <article class="news-card">
-                        <div class="news-image" style="background-image: url('assets/img/support-hero-connection.png');" role="img" aria-label="Older adult reading a handwritten card"></div>
-                        <div class="news-body">
-                            <div class="news-meta">Resource &middot; February 2026</div>
-                            <h3>A Family's Guide to Signing Up a Loved One</h3>
-                            <p>Thinking about connecting a parent or family member with a program? Here's what to expect, step by step.</p>
-                            <a href="#">Read Guide <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="programs-footer">
-                    <a href="#" class="btn btn-outline-blue">Browse All News & Resources <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ / COMMON QUESTIONS -->
-        <section class="faq-section" aria-labelledby="faq-heading">
-            <div class="container">
-                <div class="section-header">
-                    <span class="eyebrow">Common Questions</span>
-                    <h2 id="faq-heading">Curious? <span class="script-accent">Start here.</span></h2>
-                </div>
-
-                <div class="faq-wrap">
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" aria-controls="faq1">
-                            <span>Who is eligible to participate?</span>
-                            <span class="plus-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
-                        </button>
-                        <div class="faq-answer" id="faq1">
-                            <p>Friends & Co programs are open to older adults age 60 and older living in the Twin Cities metro area. There are no income, health, or background requirements to join as a participant. All programs are free.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" aria-controls="faq2">
-                            <span>How long does it take to get matched?</span>
-                            <span class="plus-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
-                        </button>
-                        <div class="faq-answer" id="faq2">
-                            <p>Once you complete your intake call, most participants are matched with a volunteer within four to six weeks. Timing depends on shared interests, schedules, and the program you choose.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" aria-controls="faq3">
-                            <span>Are volunteers screened and trained?</span>
-                            <span class="plus-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
-                        </button>
-                        <div class="faq-answer" id="faq3">
-                            <p>Yes. Every volunteer completes a background check, references, and training before being matched. Our program staff stay in touch throughout the match to make sure it's a good fit.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" aria-controls="faq4">
-                            <span>What if I want to sign up a family member?</span>
-                            <span class="plus-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
-                        </button>
-                        <div class="faq-answer" id="faq4">
-                            <p>Family members, friends, and care partners can make a referral on someone's behalf. We'll reach out to the older adult directly to confirm they'd like to participate.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" aria-controls="faq5">
-                            <span>Is there a cost to participate?</span>
-                            <span class="plus-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
-                        </button>
-                        <div class="faq-answer" id="faq5">
-                            <p>No. All of our programs are completely free, made possible by individual donors, foundations, and community partners. Gifts of any size help keep them that way.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- TRUST STRIP -->
-        <section class="trust-strip" aria-label="Awards and Recognition">
-            <div class="container">
-                <h4>Recognized For Nonprofit Excellence</h4>
-                <div class="trust-grid">
-                    <img src="assets/img/charity-navigator-logo.png" alt="Charity Navigator Four-Star Rated">
-                    <img src="assets/img/charities-review-council-logo.png" alt="Charities Review Council Meets Standards">
-                    <img src="assets/img/smart-givers.png" alt="Smart Givers Network Member">
-                    <img src="assets/img/Points-of-Light-150x150.png" alt="Points of Light Recognized Organization">
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="footer-opt1">
-        <div class="opt1-newsletter">
-            <div class="opt1-newsletter-container">
-                <div class="opt1-newsletter-text">
-                    <h3>Stay in the Loop</h3>
-                    <p>Get monthly updates and news from Friends & Co.</p>
-                </div>
-                <form class="opt1-newsletter-form">
-                    <label for="footer-email" class="sr-only">Email address</label>
-                    <input id="footer-email" type="email" placeholder="Email address" required>
-                    <button type="submit" class="btn btn-green">Subscribe</button>
-                </form>
-            </div>
+    <div class="hero-content">
+      <div class="hero-inner">
+        <p class="hero-eyebrow">Free programs across the Twin Cities</p>
+        <h1>You don't have to do this <em>season of life</em> alone</h1>
+        <p class="hero-sub">Meaningful connections, real friendships, and a friendly voice for your week — at no cost to you or your family.</p>
+        <div class="hero-ctas">
+          <a href="https://friendsco.org/friendship-services/" class="hero-btn filled">Sign up for a program</a>
+          <a href="https://friendsco.org/refer/" class="hero-btn outline">Refer an older adult</a>
         </div>
+        <p class="hero-foot">Family or caregiver? We'll help you find the right fit.</p>
+      </div>
+    </div>
 
-        <div class="opt1-main">
-            <div class="opt1-col contact-info">
-                <img src="assets/img/friends-co-logo-white.png" alt="Friends & Co" class="footer-logo">
-                <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                    <span>2550 University Avenue W.<br>Suite 260-S<br>St. Paul, MN 55114</span>
-                </p>
-                <p><i class="fas fa-phone" aria-hidden="true"></i> <span>Phone: 612-721-1400</span></p>
-                <p><i class="fas fa-fax" aria-hidden="true"></i> <span>Fax: 612-721-5848</span></p>
-            </div>
+    <!-- mute/unmute toggle -->
+    <button class="hero-audio-ctrl" id="audioCtrl" type="button" aria-label="Unmute background video">
+      <i class="fas fa-volume-mute" id="iconMute"></i>
+      <i class="fas fa-volume-up" id="iconUnmute" style="display:none"></i>
+    </button>
 
-            <div class="opt1-col">
-                <h4 class="footer-heading">Programs & Services</h4>
-                <ul class="footer-links-list">
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Coffee Talk</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Visiting Companions</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Phone Companions</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Cards Connect</a></li>
-                </ul>
-            </div>
+  </section>
 
-            <div class="opt1-col">
-                <h4 class="footer-heading">Get Involved</h4>
-                <ul class="footer-links-list">
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Become a Volunteer</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Refer an Older Adult</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Current Volunteers Portal</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Board & Staff</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
-                </ul>
-            </div>
+  <!-- ACCREDITATION STRIP -->
+  <div class="trust-strip">
+    <span class="trust-strip-label">Trusted &amp; accredited</span>
+    <img src="assets/img/charity-navigator-logo.png" alt="Charity Navigator Four-Star Charity">
+    <img src="assets/img/charities-review-council-logo.png" alt="Charities Review Council — Meets Standards">
+  </div>
 
-            <div class="opt1-col">
-                <h4 class="footer-heading">Support Our Mission</h4>
-                <a href="#" class="btn btn-green" style="width: 100%; margin-bottom: 20px;">Give <i class="fas fa-hand-holding-heart"></i></a>
-                <div class="trust-badges">
-                    <img src="assets/img/charity-navigator-logo.png" alt="Charity Navigator 4-Star">
-                    <img src="assets/img/charities-review-council-logo.png" alt="Charities Review Council">
-                </div>
-                <div class="social-icons">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                </div>
+  <!-- UPCOMING EVENTS -->
+  <section class="events-section" aria-labelledby="events-heading">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">Community</p>
+        <h2 id="events-heading">Upcoming events</h2>
+        <p>Gather with us in person or online. All are welcome.</p>
+      </div>
+
+      <div class="events-grid">
+        <article class="event-card">
+          <div class="event-image a" role="img" aria-label="Let's Do Coffee event">
+            <div class="event-image-label">Let's Do<br>Coffee</div>
+          </div>
+          <div class="event-body">
+            <div class="event-meta">Friday, May 8 &middot; 8 to 11 a.m.</div>
+            <h3>Let's do coffee: Special bonus edition</h3>
+            <p>Dual Citizen Brewing, St. Paul. A monthly gathering for LGBTQ+ older adults and friends.</p>
+            <a href="https://friendsco.org/events/" class="event-link">Event Details <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="event-card">
+          <div class="event-image b" role="img" aria-label="Volunteer card making event">
+            <div class="event-image-label">Volunteer<br>Card Making</div>
+          </div>
+          <div class="event-body">
+            <div class="event-meta">Thursday, May 16 &middot; 4 to 7 p.m.</div>
+            <h3>Card making event: Special bonus edition</h3>
+            <p>Dual Citizen Brewing, St. Paul. Help us send handwritten cards to older adults in our programs.</p>
+            <a href="https://friendsco.org/events/" class="event-link">Event Details <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="event-card">
+          <div class="event-image c" role="img" aria-label="Friends by Your Side annual fundraiser">
+            <div class="event-image-label">Friends By<br>Your Side</div>
+          </div>
+          <div class="event-body">
+            <div class="event-meta">Thursday, May 30 &middot; 5:30 to 7 p.m.</div>
+            <h3>Friends by Your Side fundraiser</h3>
+            <p>Dual Citizen Brewing, St. Paul. Celebrate our community at our annual spring gathering.</p>
+            <a href="https://friendsco.org/events/" class="event-link">Event Details <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="section-footer-link">
+        <a href="https://friendsco.org/events/">See the full events calendar <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LATEST NEWS -->
+  <section class="news-section" aria-labelledby="news-heading">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">Stories</p>
+        <h2 id="news-heading">Latest news</h2>
+        <p>Stories from our staff, volunteers, and community partners.</p>
+      </div>
+
+      <div class="news-editorial">
+        <article class="news-featured">
+          <div class="news-featured-image"
+               style="background-image:url('assets/img/1.png');"
+               role="img"
+               aria-label="Group of volunteers holding handmade cards"></div>
+          <div class="news-featured-body">
+            <div class="news-meta">Community &middot; April 2026</div>
+            <h3>Local volunteers make 350 cards for older adults as Dual Citizen Brewing matches donations</h3>
+            <p>Volunteers gathered this month to craft hundreds of handwritten cards destined for Friends &amp; Co participants. Thanks to a matching donation from Dual Citizen Brewing, every card sent meant a double gift for our mission.</p>
+            <a href="https://friendsco.org/news/" class="read-more">Read the Story <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <div class="news-list">
+          <a href="https://friendsco.org/news/" class="news-item">
+            <div class="news-item-image" style="background-image:url('assets/img/2.png');" role="img" aria-label=""></div>
+            <div class="news-item-body">
+              <div class="news-meta">News &middot; March 2026</div>
+              <h4>Our volunteers and older adults are building a vibrant community</h4>
+              <p>What we heard from participants at this year's spring gathering.</p>
             </div>
+          </a>
+
+          <a href="https://friendsco.org/news/" class="news-item">
+            <div class="news-item-image" style="background-image:url('assets/img/support-hero-connection.png');" role="img" aria-label=""></div>
+            <div class="news-item-body">
+              <div class="news-meta">Impact &middot; February 2026</div>
+              <h4>12 Women. One Meaningful Gift.</h4>
+              <p>How a dozen donors came together to fund a year of phone companion matches.</p>
+            </div>
+          </a>
+
+          <a href="https://friendsco.org/news/" class="news-item">
+            <div class="news-item-image" style="background-image:url('assets/img/general_square.jpg');" role="img" aria-label=""></div>
+            <div class="news-item-body">
+              <div class="news-meta">Resource &middot; January 2026</div>
+              <h4>A family's guide to signing up a loved one</h4>
+              <p>Thinking about connecting a parent with a program? Here's how it works.</p>
+            </div>
+          </a>
         </div>
+      </div>
 
-        <div class="footer-bottom">
-            <p>&copy; 2026 Friends & Co. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
+      <div class="section-footer-link">
+        <a href="https://friendsco.org/news/">Browse the news archive <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY FRIENDSHIP — accessible tab panel -->
+  <section class="why-section" aria-labelledby="why-heading">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">Mission</p>
+        <h2 id="why-heading">Why friendship</h2>
+        <p>Friends &amp; Co celebrates aging through community-led service that fosters meaningful connections for everyone. Social connection creates long-lasting benefits for:</p>
+      </div>
+
+      <div class="tabs-bar" role="tablist" aria-label="Who benefits">
+        <button type="button" class="tab-btn" role="tab" aria-selected="true" aria-controls="tab-older" id="tab-older-btn">Older Adults</button>
+        <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-loved" id="tab-loved-btn" tabindex="-1">Loved Ones</button>
+        <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-comm" id="tab-comm-btn" tabindex="-1">Communities</button>
+      </div>
+
+      <div class="tab-panel is-active" role="tabpanel" id="tab-older" aria-labelledby="tab-older-btn">
+        <div class="why-grid">
+          <div class="why-image">
+            <img src="assets/img/support-hero-connection.png" alt="An older adult on the phone, smiling during a weekly call" loading="lazy">
+          </div>
+          <div class="why-content">
+            <h3>Connection supports health and longevity</h3>
+            <p>Regular social connection can boost longevity and protect against chronic illness, reducing the risk of heart disease, stroke, cognitive decline, and premature death.</p>
+            <p>For older adults navigating life transitions, a trusted companion can be the difference between a lonely week and one filled with laughter.</p>
+            <div class="why-stat">
+              <div class="stat-number">23%</div>
+              <div class="stat-text">of older adults in Minnesota report feeling socially isolated. Our programs are designed to change that.</div>
+            </div>
+          </div>
         </div>
-    </footer>
+      </div>
 
-    <!-- JAVASCRIPT -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
+      <div class="tab-panel" role="tabpanel" id="tab-loved" aria-labelledby="tab-loved-btn" hidden>
+        <div class="why-grid">
+          <div class="why-image">
+            <img src="assets/img/general_square.jpg" alt="A family member looking at photos with their older loved one" loading="lazy">
+          </div>
+          <div class="why-content">
+            <h3>Peace of mind for families and care partners</h3>
+            <p>When a parent, sibling, or neighbor is matched with a Friends &amp; Co companion, the whole family feels the relief. A trusted check-in each week means someone's paying attention.</p>
+            <p>Our staff and volunteers are trained to recognize signs that something has changed, so you hear about it early.</p>
+            <div class="why-stat">
+              <div class="stat-number">85%</div>
+              <div class="stat-text">of family members report lower caregiver stress after their loved one joins a Friends &amp; Co program.</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-            // MOBILE MENU
-            const mobileToggle = document.querySelector('.mobile-menu-toggle');
-            const mobileOverlay = document.getElementById('mobileMenuOverlay');
-            const closeBtn = document.getElementById('closeMobileMenu');
+      <div class="tab-panel" role="tabpanel" id="tab-comm" aria-labelledby="tab-comm-btn" hidden>
+        <div class="why-grid">
+          <div class="why-image">
+            <img src="assets/img/1.png" alt="Volunteers and older adults gathered at a Friends &amp; Co community event" loading="lazy">
+          </div>
+          <div class="why-content">
+            <h3>Stronger, more connected neighborhoods</h3>
+            <p>Each matched friendship is a thread in a wider community fabric. Our programs bring generations together, reduce isolation at scale, and strengthen the neighborhoods we all live in.</p>
+            <p>Free, community-supported programs mean nobody's priced out of connection.</p>
+            <div class="why-stat">
+              <div class="stat-number">5,200+</div>
+              <div class="stat-text">older adults served across the Twin Cities in the past year, thanks to 600 active volunteers.</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-            function openMenu() {
-                mobileOverlay.classList.add('is-active');
-                mobileOverlay.setAttribute('aria-hidden', 'false');
-                document.body.style.overflow = 'hidden';
-            }
-            function closeMenu() {
-                mobileOverlay.classList.remove('is-active');
-                mobileOverlay.setAttribute('aria-hidden', 'true');
-                document.body.style.overflow = '';
-            }
+      <div class="why-cta">
+        <a href="https://friendsco.org/about/" class="btn btn-green">Learn about our mission to end social isolation <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
 
-            if (mobileToggle) mobileToggle.addEventListener('click', openMenu);
-            if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  <!-- FRIENDSHIP SERVICES — colorful tiles -->
+  <section class="services-section" aria-labelledby="services-heading">
+    <div class="container">
+      <div class="services-head">
+        <p class="section-eyebrow">What we offer</p>
+        <h2 id="services-heading">Friendship services</h2>
+        <p>Explore our programs, free for older adults across the Twin Cities.</p>
+      </div>
 
-            // MOBILE ACCORDIONS
-            const mobileAccordionBtns = document.querySelectorAll('.mobile-nav-link[aria-controls]');
-            mobileAccordionBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const expanded = btn.getAttribute('aria-expanded') === 'true';
-                    const targetId = btn.getAttribute('aria-controls');
-                    const targetMenu = document.getElementById(targetId);
-                    btn.setAttribute('aria-expanded', !expanded);
-                    if (targetMenu) targetMenu.classList.toggle('is-open');
-                });
-            });
+      <div class="services-grid">
+        <a href="https://friendsco.org/visiting-companions/" class="service-tile t-teal">
+          <div class="tile-icon"><i class="fas fa-user-friends"></i></div>
+          <h3>Visiting Companions</h3>
+          <p>Weekly in-person visits with a trained volunteer.</p>
+        </a>
+        <a href="https://friendsco.org/phone-companions/" class="service-tile t-magenta">
+          <div class="tile-icon"><i class="fas fa-phone-alt"></i></div>
+          <h3>Phone Companions</h3>
+          <p>Meaningful weekly calls from home.</p>
+        </a>
+        <a href="https://friendsco.org/coffee-talk/" class="service-tile t-orange">
+          <div class="tile-icon"><i class="fas fa-coffee"></i></div>
+          <h3>Coffee Talk Calls</h3>
+          <p>Group phone gatherings every Tuesday and Thursday.</p>
+        </a>
+        <a href="https://friendsco.org/lets-do-events/" class="service-tile t-green">
+          <div class="tile-icon"><i class="fas fa-mug-hot"></i></div>
+          <h3>Let's Do Coffee &amp; Lunch</h3>
+          <p>Cafe meetups for LGBTQ+ older adults.</p>
+        </a>
+        <a href="https://friendsco.org/cards-connect/" class="service-tile t-blue-dark">
+          <div class="tile-icon"><i class="fas fa-envelope-open-text"></i></div>
+          <h3>Cards Connect</h3>
+          <p>Handwritten cards delivered throughout the year.</p>
+        </a>
+        <a href="https://friendsco.org/spanish-language-programs/" class="service-tile t-slate">
+          <div class="tile-icon"><i class="fas fa-comments"></i></div>
+          <h3>Conexiones Comunitarias</h3>
+          <p>Emparejamientos y conversaciones en espa&ntilde;ol.</p>
+        </a>
+      </div>
 
-            // FAQ ACCORDION
-            const faqButtons = document.querySelectorAll('.faq-question');
-            faqButtons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const expanded = btn.getAttribute('aria-expanded') === 'true';
-                    const targetId = btn.getAttribute('aria-controls');
-                    const targetAnswer = document.getElementById(targetId);
-                    btn.setAttribute('aria-expanded', !expanded);
-                    if (targetAnswer) targetAnswer.classList.toggle('is-open');
-                });
-            });
+      <div class="services-footer">
+        <a href="https://friendsco.org/friendship-services/" class="btn btn-lime">View all programs <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
 
-            // ESC closes mobile menu
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && mobileOverlay.classList.contains('is-active')) {
-                    closeMenu();
-                }
-            });
-        });
-    </script>
+  <!-- TESTIMONIAL -->
+  <section class="testimonial-section" aria-label="Participant testimonial">
+    <div class="container">
+      <div class="testimonial-card">
+        <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+        <div>
+          <blockquote>
+            Friends &amp; Co helped me dedicate my time to fellow veterans through the Visiting Companions program. I'm so thankful they matched me with a vet nearby.
+          </blockquote>
+          <cite>Adam, Volunteer</cite>
+        </div>
+      </div>
+      <div class="testimonial-controls" aria-hidden="true">
+        <button class="testimonial-dot is-active" aria-label="Testimonial 1"></button>
+        <button class="testimonial-dot" aria-label="Testimonial 2"></button>
+        <button class="testimonial-dot" aria-label="Testimonial 3"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- BE A FRIEND -->
+  <section class="cta-section" aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">Get involved</p>
+        <h2 id="cta-heading">Be a friend</h2>
+        <p class="cta-intro">When you support Friends &amp; Co — whether as a donor, a volunteer, or a participant in our programs — you contribute to the strength and resilience of entire communities.</p>
+      </div>
+
+      <div class="cta-grid">
+        <div class="cta-card">
+          <div class="cta-icon"><i class="fas fa-hands-helping"></i></div>
+          <h3>Volunteer</h3>
+          <p>Bring joy, conversation, and friendship directly to those who need it most.</p>
+          <a href="https://friendsco.org/get-involved/" class="btn btn-blue">Volunteer <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="cta-card">
+          <div class="cta-icon"><i class="fas fa-gift"></i></div>
+          <h3>Donate</h3>
+          <p>Your gift helps sustain life-enhancing programs for older adults across Minnesota.</p>
+          <a href="https://friendsco.org/donate/" class="btn btn-magenta">Donate <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="cta-card">
+          <div class="cta-icon"><i class="fas fa-user-plus"></i></div>
+          <h3>Refer an Older Adult</h3>
+          <p>Spread the word about our programs and help end loneliness and social isolation.</p>
+          <a href="https://friendsco.org/refer/" class="btn btn-orange">Refer <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER — exact match to live friendsco.org -->
+<footer>
+  <div class="footer-newsletter">
+    <div class="inner">
+      <div>
+        <h3>Stay in the loop</h3>
+        <p>Get monthly updates and news from Friends &amp; Co.</p>
+      </div>
+      <form class="newsletter-form" onsubmit="return false;">
+        <input type="email" placeholder="Email address" aria-label="Email address">
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer-main">
+    <div class="inner">
+      <div>
+        <img class="footer-logo" src="https://friendsco.org/wp-content/uploads/2026/04/friends-co-logo-white.png" alt="Friends &amp; Co">
+        <ul class="contact-list">
+          <li>
+            <svg viewBox="0 0 384 512"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"/></svg>
+            <span>2550 University Avenue W.<br>Suite 260-S<br>St. Paul, MN 55114<br>*Please note that Hwy 280 is closed for construction.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 512 512"><path d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"/></svg>
+            <a href="tel:+16127211400">Phone: 612-721-1400</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 512 512"><path d="M480 160V77.25a32 32 0 0 0-9.38-22.63L425.37 9.37A32 32 0 0 0 402.75 0H160a32 32 0 0 0-32 32v448a32 32 0 0 0 32 32h320a32 32 0 0 0 32-32V192a32 32 0 0 0-32-32zM288 432a16 16 0 0 1-16 16h-32a16 16 0 0 1-16-16v-32a16 16 0 0 1 16-16h32a16 16 0 0 1 16 16zm0-128a16 16 0 0 1-16 16h-32a16 16 0 0 1-16-16v-32a16 16 0 0 1 16-16h32a16 16 0 0 1 16 16zm128 128a16 16 0 0 1-16 16h-32a16 16 0 0 1-16-16v-32a16 16 0 0 1 16-16h32a16 16 0 0 1 16 16zm0-128a16 16 0 0 1-16 16h-32a16 16 0 0 1-16-16v-32a16 16 0 0 1 16-16h32a16 16 0 0 1 16 16zm0-112H192V64h160v48a16 16 0 0 0 16 16h48zM64 128H32a32 32 0 0 0-32 32v320a32 32 0 0 0 32 32h32a32 32 0 0 0 32-32V160a32 32 0 0 0-32-32z"/></svg>
+            <span>Fax: 612-721-5848</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 512 512"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"/></svg>
+            <a href="mailto:info@friendsco.org">Email: info@friendsco.org</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h4>Free Programs</h4>
+        <ul class="footer-links">
+          <li><a href="https://friendsco.org/volunteer-cards-connect/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Cards Connect</span></a></li>
+          <li><a href="https://friendsco.org/coffee-talk/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Coffee Talk</span></a></li>
+          <li><a href="https://friendsco.org/spanish-language-programs/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Conexiones Comunitarias</span></a></li>
+          <li><a href="https://friendsco.org/lets-do-events/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Let's Do Lunch Cafe &amp; Let's Do Coffee</span></a></li>
+          <li><a href="https://friendsco.org/phone-companions/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Phone Companions</span></a></li>
+          <li><a href="https://friendsco.org/visiting-companions/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Visiting Companions</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get Involved</h4>
+        <ul class="footer-links">
+          <li><a href="https://friendsco.org/get-involved/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Become a Volunteer</span></a></li>
+          <li><a href="https://friendsco.org/refer/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Refer an Older Adult</span></a></li>
+          <li><a href="https://friendsco.org/volunteer-portal/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Current Volunteers Portal</span></a></li>
+          <li><a href="https://friendsco.org/staff-and-board/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Board &amp; Staff</span></a></li>
+          <li><a href="https://friendsco.org/contact/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Contact Us</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support Our Mission</h4>
+        <div class="footer-give">
+          <a class="btn-give" href="https://friendsco.org/donate/">
+            <svg viewBox="0 0 576 512"><path d="M275.3 250.5c7 7.4 18.4 7.4 25.5 0l108.9-114.2c31.6-33.2 29.8-88.2-5.6-118.8-30.8-26.7-76.7-21.9-104.9 7.7L288 36.9l-11.1-11.6C248.7-4.4 202.8-9.2 172 17.5c-35.3 30.6-37.2 85.6-5.6 118.8l108.9 114.2zm290 77.6c-11.8-10.7-30.2-10-42.6 0L430.3 402c-11.3 9.1-25.4 14-40 14H272c-8.8 0-16-7.2-16-16s7.2-16 16-16h78.3c15.9 0 30.7-10.9 33.3-26.6 3.3-20-12.1-37.4-31.6-37.4H192c-27 0-53.1 9.3-74.1 26.3L71.4 384H16c-8.8 0-16 7.2-16 16v96c0 8.8 7.2 16 16 16h356.8c14.5 0 28.6-4.9 40-14L564 377c15.2-12.1 16.4-35.3 1.3-48.9z"/></svg>
+            <span>Give</span>
+          </a>
+        </div>
+        <div class="footer-badges">
+          <a href="https://www.charitynavigator.org/ein/410986200" target="_blank" rel="noopener"><img src="assets/img/charity-navigator-logo.png" alt="Charity Navigator Four-Star Charity"></a>
+          <a href="https://smartgivers.org/organizations/friends-co/" target="_blank" rel="noopener"><img src="assets/img/charities-review-council-logo.png" alt="Charities Review Council — Meets Standards"></a>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/FriendsCoMN/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg></a>
+          <a href="https://www.youtube.com/channel/UCR9Hg7v8qScNMrSpesiZx0Q" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg></a>
+          <a href="https://www.linkedin.com/company/friendscomn/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+          <a href="https://www.instagram.com/friendscomn" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>Friends &amp; Co formerly Little Brothers &ndash; Friends of the Elderly Twin Cities, EIN 41-0986200, previous address 1845 E. Lake St, Minneapolis, MN</p>
+    <p>&copy; 2026 Friends &amp; Co. All Rights Reserved. | Privacy Policy</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Mute/unmute button using YouTube IFrame API
+  var player;
+  var muted = true;
+  var iconMute = document.getElementById('iconMute');
+  var iconUnmute = document.getElementById('iconUnmute');
+  var btn = document.getElementById('audioCtrl');
+
+  window.onYouTubeIframeAPIReady = function(){
+    player = new YT.Player('heroYT', {
+      events:{
+        onReady: function(e){
+          e.target.mute();
+          e.target.playVideo();
+        }
+      }
+    });
+  };
+
+  if(btn){
+    btn.addEventListener('click', function(){
+      if(!player) return;
+      if(muted){
+        player.unMute();
+        player.setVolume(60);
+        muted = false;
+        iconMute.style.display = 'none';
+        iconUnmute.style.display = '';
+        btn.setAttribute('aria-label','Mute background video');
+      } else {
+        player.mute();
+        muted = true;
+        iconMute.style.display = '';
+        iconUnmute.style.display = 'none';
+        btn.setAttribute('aria-label','Unmute background video');
+      }
+    });
+  }
+
+  // Tab panel — Why Friendship
+  var tabs = Array.from(document.querySelectorAll('.tab-btn'));
+  var panels = Array.from(document.querySelectorAll('.tab-panel'));
+
+  function activateTab(idx){
+    tabs.forEach(function(t,i){
+      var selected = i === idx;
+      t.setAttribute('aria-selected', selected);
+      t.tabIndex = selected ? 0 : -1;
+      panels[i].classList.toggle('is-active', selected);
+      if(selected) panels[i].removeAttribute('hidden');
+      else panels[i].setAttribute('hidden','');
+    });
+  }
+
+  tabs.forEach(function(tab, i){
+    tab.addEventListener('click', function(){ activateTab(i); });
+    tab.addEventListener('keydown', function(e){
+      if(e.key === 'ArrowRight'){
+        e.preventDefault();
+        var next = (i+1) % tabs.length;
+        tabs[next].focus(); activateTab(next);
+      } else if(e.key === 'ArrowLeft'){
+        e.preventDefault();
+        var prev = (i-1+tabs.length) % tabs.length;
+        tabs[prev].focus(); activateTab(prev);
+      } else if(e.key === 'Home'){
+        e.preventDefault(); tabs[0].focus(); activateTab(0);
+      } else if(e.key === 'End'){
+        e.preventDefault(); tabs[tabs.length-1].focus(); activateTab(tabs.length-1);
+      }
+    });
+  });
+})();
+</script>
+<!-- YouTube IFrame API (must load after the script block above) -->
+<script src="https://www.youtube.com/iframe_api"></script>
 
 </body>
-
 </html>

@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Friends &amp; Co | Home hero — video mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#5E74B1; --blue-dark:#3F5591;
+  --magenta:#BA3F97; --magenta-dark:#9c2f7e;
+  --lime:#B0D235; --lime-dark:#A8CC26;
+  --navy:#1A2A42; --footer-bottom:#4B5D91;
+  --ink:#333; --cream:#fbf6ef; --line:#e9e3d8;
+  --font:'Open Sans', sans-serif;
+  --font-display:'Roboto Condensed', sans-serif;
+  --container:1180px; --radius:14px;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font); color:var(--ink); line-height:1.6; background:#fff; font-size:16px;}
+h1,h2,h3,h4,h5{font-family:var(--font-display); font-weight:700; text-transform:uppercase; line-height:1.1;}
+img{max-width:100%; display:block;}
+a{color:inherit;}
+
+/* ===== mockup annotation ===== */
+.mock-note{background:#fff8e1; border-left:4px solid #f9a41e; padding:20px 28px; font-family:var(--font); font-size:15px; line-height:1.6; color:#5a4a1a;}
+.mock-note .tag{display:inline-block; background:#f9a41e; color:#fff; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1px; padding:3px 10px; border-radius:4px; margin-bottom:10px;}
+.mock-note h2{font-family:var(--font); font-size:17px; font-weight:700; text-transform:none; color:#5a4a1a; margin-bottom:6px;}
+.mock-note ul{margin:8px 0 0 18px; list-style:disc;}
+.mock-note li{margin-bottom:4px;}
+
+/* ===== site header (matches live friendsco.org header) ===== */
+.site-header{background:#fff; min-height:90px; padding:18px 32px; display:flex; align-items:center; justify-content:space-between; gap:16px; position:relative; z-index:50;}
+.site-header .logo img{width:150px; height:auto;}
+.main-nav{display:flex; align-items:center; justify-content:center; flex:1;}
+.main-nav > ul{list-style:none; display:flex; align-items:center;}
+.main-nav > ul > li{position:relative;}
+.main-nav a{text-decoration:none;}
+.main-nav > ul > li > a{display:block; padding:10px 14px; font-size:18px; font-weight:700; letter-spacing:.5px; text-transform:capitalize; color:var(--blue); position:relative; white-space:nowrap;}
+.main-nav > ul > li > a::after{content:''; position:absolute; left:14px; right:14px; bottom:2px; height:4px; background:var(--lime); transform:scaleX(0); transform-origin:left; transition:transform .2s;}
+.main-nav > ul > li:hover > a,.main-nav > ul > li > a:focus{color:var(--blue-dark);}
+.main-nav > ul > li:hover > a::after,.main-nav > ul > li.active > a::after{transform:scaleX(1);}
+.main-nav .sub{list-style:none; position:absolute; top:100%; left:0; min-width:250px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.2); opacity:0; visibility:hidden; transition:opacity .2s; z-index:60;}
+.main-nav li:hover > .sub,.main-nav li:focus-within > .sub{opacity:1; visibility:visible;}
+.main-nav .sub li{position:relative;}
+.main-nav .sub a{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:16px 24px; font-size:16px; font-weight:600; color:var(--blue);}
+.main-nav .sub a:hover,.main-nav .sub a:focus{background:var(--blue); color:#fff;}
+.main-nav .sub .sub{top:0; left:100%;}
+.main-nav .caret{width:.6em; height:.6em; fill:currentColor; flex:0 0 auto;}
+.header-actions{display:flex; align-items:center; gap:8px;}
+.btn-give{display:inline-flex; flex-direction:row-reverse; align-items:center; gap:12px; background:var(--lime); color:var(--navy); font-size:18px; font-weight:700; text-transform:uppercase; letter-spacing:1.4px; text-decoration:none; border-radius:8px; padding:12px 22px; transition:background .2s,transform .2s;}
+.btn-give:hover{background:var(--lime-dark); transform:scale(1.05);}
+.btn-give svg{width:20px; height:20px; fill:var(--navy);}
+.btn-search{display:inline-flex; align-items:center; justify-content:center; background:var(--blue); border:none; border-radius:8px; padding:12px 22px; cursor:pointer; transition:background .2s;}
+.btn-search:hover{background:#4C6096;}
+.btn-search svg{width:18px; height:18px; fill:#fff;}
+.btn-hamburger{display:none; background:none; border:none; cursor:pointer; padding:8px;}
+.btn-hamburger svg{width:28px; height:28px; fill:var(--blue);}
+.mobile-menu{display:none; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.2);}
+.mobile-menu.open{display:block;}
+.mobile-menu ul{list-style:none;}
+.mobile-menu a{display:block; padding:16px 24px; font-size:17px; font-weight:700; color:var(--blue); text-decoration:none; border-top:1px solid #eef0f5;}
+.mobile-menu a:hover{background:var(--blue); color:#fff;}
+.mobile-menu .menu-give{background:var(--lime); color:var(--navy); text-transform:uppercase; letter-spacing:1.4px;}
+@media(max-width:1024px){
+  .main-nav,.header-actions .btn-give,.header-actions .btn-search{display:none;}
+  .btn-hamburger{display:inline-flex;}
+}
+
+/* ===== HERO — full-bleed video ===== */
+.hero{
+  position:relative;
+  min-height:600px;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  background:var(--navy);
+}
+
+/* video fills the hero behind everything */
+.hero-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+
+/* gradient overlay: dark left panel that fades into the video on the right */
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    95deg,
+    rgba(26,42,66,0.92) 0%,
+    rgba(26,42,66,0.75) 45%,
+    rgba(26,42,66,0.25) 75%,
+    rgba(26,42,66,0.10) 100%
+  );
+  pointer-events:none;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:var(--container);
+  margin:0 auto;
+  padding:80px 32px;
+  width:100%;
+}
+
+.hero-inner{
+  max-width:560px;
+}
+
+.hero-eyebrow{
+  display:inline-block;
+  color:var(--lime);
+  font-size:13px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:2.5px;
+  margin-bottom:18px;
+}
+
+.hero-content h1{
+  font-family:var(--font-display);
+  font-size:clamp(2.4rem, 5vw, 3.6rem);
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  color:#fff;
+  line-height:1.05;
+  margin-bottom:22px;
+}
+
+.hero-content h1 em{
+  font-style:normal;
+  color:var(--lime);
+}
+
+.hero-sub{
+  font-size:1.15rem;
+  font-weight:400;
+  color:rgba(255,255,255,0.88);
+  line-height:1.6;
+  max-width:46ch;
+  margin-bottom:36px;
+}
+
+.hero-ctas{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  align-items:center;
+  margin-bottom:22px;
+}
+
+.hero-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:15px 30px;
+  border-radius:8px;
+  font-family:var(--font);
+  font-size:16px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  text-decoration:none;
+  transition:transform .2s, box-shadow .2s, background .2s;
+  min-height:52px;
+  cursor:pointer;
+}
+.hero-btn:hover{transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,0.25);}
+.hero-btn.filled{background:var(--lime); color:var(--navy);}
+.hero-btn.filled:hover{background:var(--lime-dark);}
+.hero-btn.outline{background:transparent; color:#fff; border:2px solid rgba(255,255,255,0.75);}
+.hero-btn.outline:hover{background:rgba(255,255,255,0.1); border-color:#fff;}
+
+.hero-foot{
+  font-size:0.92rem;
+  color:rgba(255,255,255,0.7);
+  font-style:italic;
+}
+
+/* play/pause button — bottom right of hero */
+.hero-video-ctrl{
+  position:absolute;
+  bottom:24px;
+  right:28px;
+  z-index:3;
+  background:rgba(255,255,255,0.15);
+  border:1px solid rgba(255,255,255,0.35);
+  color:#fff;
+  border-radius:50%;
+  width:46px;
+  height:46px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:background .2s;
+  backdrop-filter:blur(4px);
+}
+.hero-video-ctrl:hover{background:rgba(255,255,255,0.28);}
+.hero-video-ctrl svg{width:16px; height:16px; fill:#fff;}
+
+/* trust strip under hero */
+.trust-strip{
+  background:var(--cream);
+  border-bottom:1px solid var(--line);
+  padding:14px 32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:32px;
+  flex-wrap:wrap;
+}
+.trust-strip img{height:52px; width:auto; opacity:0.85;}
+.trust-strip-label{font-size:13px; font-weight:600; color:#7a6f63; text-transform:uppercase; letter-spacing:1px;}
+
+/* ===== placeholder body content (to show in context) ===== */
+.section{padding:72px 32px;}
+.section .inner{max-width:var(--container); margin:0 auto;}
+.section-eyebrow{font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--magenta); margin-bottom:12px;}
+.section h2{font-family:var(--font-display); font-size:2.2rem; font-weight:700; text-transform:uppercase; color:var(--navy); margin-bottom:16px;}
+.section p{font-size:1.05rem; color:#555; max-width:62ch; line-height:1.7;}
+.programs-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:40px;}
+.program-card{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:28px 24px; display:flex; flex-direction:column; gap:10px;}
+.program-card-icon{width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:4px;}
+.program-card-icon.blue{background:rgba(94,116,177,.12);}
+.program-card-icon.magenta{background:rgba(186,63,151,.12);}
+.program-card-icon.teal{background:rgba(0,187,211,.12);}
+.program-card-icon svg{width:22px; height:22px;}
+.program-card-icon.blue svg{fill:var(--blue);}
+.program-card-icon.magenta svg{fill:var(--magenta);}
+.program-card-icon.teal svg{fill:#00bbd3;}
+.program-card h3{font-family:var(--font-display); font-size:1.15rem; font-weight:700; text-transform:uppercase; color:var(--navy); line-height:1.2;}
+.program-card p{font-size:.95rem; color:#666; flex:1;}
+.program-card a{font-size:.9rem; font-weight:700; text-decoration:none; color:var(--blue); text-transform:uppercase; letter-spacing:.5px;}
+.program-card a:hover{text-decoration:underline;}
+.section-alt{background:var(--cream);}
+
+@media(max-width:900px){
+  .programs-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:640px){
+  .hero-content{padding:60px 24px;}
+  .programs-grid{grid-template-columns:1fr;}
+  .trust-strip{gap:20px; padding:14px 20px;}
+}
+@media(max-width:480px){
+  .hero-btn{padding:13px 22px; font-size:15px;}
+}
+
+/* ===== site footer (matches live friendsco.org footer) ===== */
+.footer-newsletter{background:var(--navy); color:#fff; padding:44px 32px;}
+.footer-newsletter .inner{max-width:var(--container); margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap;}
+.footer-newsletter h3{font-family:'Roboto Condensed',sans-serif; font-size:1.8em; text-transform:capitalize; letter-spacing:1px; margin-bottom:6px;}
+.footer-newsletter p{color:rgba(255,255,255,.9); font-size:16px;}
+.newsletter-form{display:flex; gap:10px; flex-wrap:wrap;}
+.newsletter-form input{height:48px; min-width:260px; border:none; border-radius:8px; padding:0 14px; font-size:1rem; font-family:var(--font);}
+.newsletter-form button{height:48px; border:none; border-radius:8px; padding:0 26px; background:var(--lime); color:var(--navy); font-family:var(--font); font-size:16px; font-weight:700; text-transform:uppercase; letter-spacing:1px; cursor:pointer;}
+.newsletter-form button:hover{background:var(--lime-dark);}
+.footer-main{background:var(--blue); color:#fff; padding:54px 32px 44px;}
+.footer-main .inner{max-width:var(--container); margin:0 auto; display:grid; grid-template-columns:1.25fr 1fr 1fr 1.05fr; gap:36px;}
+.footer-main h4{font-family:'Roboto Condensed',sans-serif; font-size:22px; text-transform:capitalize; letter-spacing:1px; color:#fff; padding-bottom:10px; border-bottom:2px solid rgba(255,255,255,.2); margin-bottom:14px;}
+.footer-logo{max-width:190px; margin-bottom:14px;}
+.contact-list,.footer-links{list-style:none;}
+.contact-list li{display:flex; gap:8px; margin-bottom:10px; font-size:15px; color:rgba(255,255,255,.92);}
+.contact-list svg{width:14px; height:14px; fill:rgba(255,255,255,.8); flex:0 0 auto; margin-top:6px;}
+.contact-list a{text-decoration:none;}
+.contact-list a:hover{text-decoration:underline;}
+.footer-links li{margin-bottom:9px;}
+.footer-links a{display:flex; align-items:baseline; gap:7px; font-size:16px; font-weight:600; color:#fff; text-decoration:none;}
+.footer-links a:hover{text-decoration:underline;}
+.footer-links svg{width:11px; height:11px; fill:var(--lime); flex:0 0 auto; position:relative; top:1px;}
+.footer-give .btn-give{width:100%; justify-content:center; padding:12px 28px; margin-bottom:20px;}
+.footer-give .btn-give:hover{transform:none; box-shadow:0 6px 12px rgba(0,0,0,.15);}
+.footer-badges{display:flex; gap:14px; margin-bottom:22px;}
+.footer-badges a{background:#fff; border-radius:8px; padding:5px; display:block;}
+.footer-badges img{width:100px; height:auto;}
+.footer-social{display:flex; gap:21px;}
+.footer-social a{display:flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,.1); transition:background .3s;}
+.footer-social a:hover{background:var(--magenta);}
+.footer-social svg{width:18px; height:18px; fill:#fff;}
+.footer-bottom{background:var(--footer-bottom); color:rgba(255,255,255,.92); padding:18px 32px; text-align:center; font-size:14px;}
+.footer-bottom p{max-width:980px; margin:0 auto;}
+@media(max-width:1024px){
+  .footer-main .inner{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:640px){
+  .footer-main .inner{grid-template-columns:1fr;}
+  .footer-newsletter .inner{flex-direction:column; align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<div class="mock-note">
+  <span class="tag">Mockup &middot; Home page — video hero</span>
+  <h2>Donation widget removed; full-bleed video hero</h2>
+  <ul>
+    <li>Donation box is gone from the hero — the persistent "Give" button in the nav handles donors.</li>
+    <li>Hero leads with the mission and program sign-up, not a money ask.</li>
+    <li>The video plays behind a navy gradient overlay — swap <code>assets/video/hero.mp4</code> for the real footage when ready. The poster image shows as a fallback.</li>
+    <li>No Albiol font — all type is Roboto Condensed (display) + Open Sans (body).</li>
+    <li>Play/pause button sits bottom-right of the hero for accessibility.</li>
+    <li>Header and footer match the live site exactly (same code as the approved donate page mockup).</li>
+  </ul>
+</div>
+
+<!-- site header: exact replica of live friendsco.org header -->
+<header class="site-header">
+  <a class="logo" href="https://friendsco.org/">
+    <img src="https://friendsco.org/wp-content/uploads/2025/09/cropped-site-logo-350x100-1.png" alt="Friends &amp; Co">
+  </a>
+  <nav class="main-nav" aria-label="Menu">
+    <ul>
+      <li class="active">
+        <a href="https://friendsco.org/">Home</a>
+      </li>
+      <li>
+        <a href="https://friendsco.org/friendship-services/">Free Programs <svg class="caret" viewBox="0 0 320 512"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/></svg></a>
+        <ul class="sub">
+          <li><a href="https://friendsco.org/friendship-services/">Start Here</a></li>
+          <li>
+            <a href="https://friendsco.org/friendship-services/">Meet in Person <svg class="caret" viewBox="0 0 320 512"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/></svg></a>
+            <ul class="sub">
+              <li><a href="https://friendsco.org/visiting-companions/">One-on-One Visiting Companions</a></li>
+              <li><a href="https://friendsco.org/lets-do-events/">Let&rsquo;s Do Coffee / Let&rsquo;s Do Lunch Caf&eacute; 🏳️‍🌈</a></li>
+              <li><a href="https://friendsco.org/spanish-language-programs/">Conexiones Comunitarias (Espa&ntilde;ol)</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="https://friendsco.org/coffee-talk/">Talk on the Phone <svg class="caret" viewBox="0 0 320 512"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/></svg></a>
+            <ul class="sub">
+              <li><a href="https://friendsco.org/coffee-talk/">Tue &amp; Thurs Coffee Talk Calls</a></li>
+              <li><a href="https://friendsco.org/phone-companions/">Weekly One-on-One Phone Friends</a></li>
+            </ul>
+          </li>
+          <li><a href="https://friendsco.org/cards-connect/">Receive Friendly Mail</a></li>
+          <li><a href="https://friendsco.org/events/">Events &amp; Gatherings</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://friendsco.org/get-involved/">Volunteer <svg class="caret" viewBox="0 0 320 512"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/></svg></a>
+        <ul class="sub">
+          <li><a href="https://friendsco.org/get-involved/">Start Volunteering</a></li>
+          <li><a href="https://friendsco.org/volunteer/">Apply to Volunteer</a></li>
+          <li><a href="https://friendsco.org/visiting-companions-match/">Matching Hub: Choose Who You&rsquo;ll Connect With</a></li>
+          <li><a href="https://friendsco.org/volunteer-portal/">Current Volunteers</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://friendsco.org/about/">About <svg class="caret" viewBox="0 0 320 512"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/></svg></a>
+        <ul class="sub">
+          <li><a href="https://friendsco.org/about/">About Us</a></li>
+          <li><a href="https://friendsco.org/annual-reports/">Annual Reports</a></li>
+          <li><a href="https://friendsco.org/staff-and-board/">Our Team</a></li>
+          <li><a href="https://friendsco.org/news/">Latest News</a></li>
+          <li><a href="https://friendsco.org/contact/">Contact</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://friendsco.org/support-friends-co/">Support <svg class="caret" viewBox="0 0 320 512"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/></svg></a>
+        <ul class="sub">
+          <li><a href="https://friendsco.org/donate/">Give Today</a></li>
+          <li><a href="https://friendsco.org/planned-giving/">Planned Giving</a></li>
+          <li><a href="https://friendsco.org/corporate-sponsorship/">Corporate Sponsorship</a></li>
+          <li><a href="https://friendsco.org/other-ways-to-give/">Other Ways to Give</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <div class="header-actions">
+    <a class="btn-give" href="https://friendsco.org/donate/">
+      <svg viewBox="0 0 576 512"><path d="M275.3 250.5c7 7.4 18.4 7.4 25.5 0l108.9-114.2c31.6-33.2 29.8-88.2-5.6-118.8-30.8-26.7-76.7-21.9-104.9 7.7L288 36.9l-11.1-11.6C248.7-4.4 202.8-9.2 172 17.5c-35.3 30.6-37.2 85.6-5.6 118.8l108.9 114.2zm290 77.6c-11.8-10.7-30.2-10-42.6 0L430.3 402c-11.3 9.1-25.4 14-40 14H272c-8.8 0-16-7.2-16-16s7.2-16 16-16h78.3c15.9 0 30.7-10.9 33.3-26.6 3.3-20-12.1-37.4-31.6-37.4H192c-27 0-53.1 9.3-74.1 26.3L71.4 384H16c-8.8 0-16 7.2-16 16v96c0 8.8 7.2 16 16 16h356.8c14.5 0 28.6-4.9 40-14L564 377c15.2-12.1 16.4-35.3 1.3-48.9z"/></svg>
+      <span>Give</span>
+    </a>
+    <button class="btn-search" type="button" aria-label="Search">
+      <svg viewBox="0 0 512 512"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+    </button>
+    <button class="btn-hamburger" type="button" aria-label="Menu" aria-expanded="false" onclick="var m=document.getElementById('mobileMenu');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'));">
+      <svg viewBox="0 0 448 512"><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg>
+    </button>
+  </div>
+</header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile menu">
+  <ul>
+    <li><a href="https://friendsco.org/">Home</a></li>
+    <li><a href="https://friendsco.org/friendship-services/">Free Programs</a></li>
+    <li><a href="https://friendsco.org/get-involved/">Volunteer</a></li>
+    <li><a href="https://friendsco.org/about/">About</a></li>
+    <li><a href="https://friendsco.org/support-friends-co/">Support</a></li>
+    <li><a class="menu-give" href="https://friendsco.org/donate/">Give</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- HERO: full-bleed video with overlay + mission CTAs -->
+  <section class="hero" aria-label="Welcome to Friends &amp; Co">
+
+    <!--
+      VIDEO: Replace src with the real video file when ready.
+      poster= shows as a still image while the video loads (or if autoplay is blocked).
+      autoplay + muted + loop + playsinline are standard for background hero video.
+    -->
+    <video
+      class="hero-video"
+      autoplay muted loop playsinline
+      poster="assets/img/support-hero-group.png"
+      aria-hidden="true">
+      <source src="assets/video/hero.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <div class="hero-inner">
+        <p class="hero-eyebrow">Free programs across the Twin Cities</p>
+        <h1>You don't have to do this <em>season of life</em> alone</h1>
+        <p class="hero-sub">Meaningful connections, real friendships, and a friendly voice for your week — at no cost to you or your family.</p>
+        <div class="hero-ctas">
+          <a href="https://friendsco.org/friendship-services/" class="hero-btn filled">Sign up for a program</a>
+          <a href="https://friendsco.org/refer/" class="hero-btn outline">Refer an older adult</a>
+        </div>
+        <p class="hero-foot">Family or caregiver? We'll help you find the right fit.</p>
+      </div>
+    </div>
+
+    <!-- accessible play/pause for the background video -->
+    <button class="hero-video-ctrl" id="videoCtrl" aria-label="Pause background video" type="button">
+      <svg id="iconPause" viewBox="0 0 448 512"><path d="M144 479H48c-26.5 0-48-21.5-48-48V79c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zm304-48V79c0-26.5-21.5-48-48-48h-96c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48z"/></svg>
+      <svg id="iconPlay" viewBox="0 0 448 512" style="display:none"><path d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"/></svg>
+    </button>
+
+  </section>
+
+  <!-- accreditation strip -->
+  <div class="trust-strip">
+    <span class="trust-strip-label">Trusted &amp; accredited</span>
+    <img src="assets/img/charity-navigator-logo.png" alt="Charity Navigator Four-Star Charity">
+    <img src="assets/img/charities-review-council-logo.png" alt="Charities Review Council — Meets Standards">
+  </div>
+
+  <!-- sample programs section (context only) -->
+  <section class="section">
+    <div class="inner">
+      <p class="section-eyebrow">Our programs</p>
+      <h2>Free programs for older adults</h2>
+      <p>All of our programs are free to participants and open to older adults across the Twin Cities. No referral required to get started.</p>
+
+      <div class="programs-grid">
+        <div class="program-card">
+          <div class="program-card-icon blue">
+            <svg viewBox="0 0 512 512"><path d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"/></svg>
+          </div>
+          <h3>Phone Companions</h3>
+          <p>A weekly one-on-one phone friendship — paired with a dedicated volunteer for regular conversation and connection.</p>
+          <a href="https://friendsco.org/phone-companions/">Learn more &rsaquo;</a>
+        </div>
+        <div class="program-card">
+          <div class="program-card-icon magenta">
+            <svg viewBox="0 0 640 512"><path d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z"/></svg>
+          </div>
+          <h3>Visiting Companions</h3>
+          <p>In-person friendship visits with a volunteer — in your home or out in the community, whatever fits your life.</p>
+          <a href="https://friendsco.org/visiting-companions/">Learn more &rsaquo;</a>
+        </div>
+        <div class="program-card">
+          <div class="program-card-icon teal">
+            <svg viewBox="0 0 576 512"><path d="M528 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm0 400H48V80h480v352zM208 256c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm-89.6 128h179.2c12.4 0 22.4-8.6 22.4-19.2v-19.2c0-31.8-30.1-57.6-67.2-57.6-10.8 0-18.7 8-44.8 8-26.9 0-33.4-8-44.8-8-37.1 0-67.2 25.8-67.2 57.6v19.2c0 10.6 10 19.2 22.4 19.2zM369 224h96c8.8 0 16 7.2 16 16v16c0 8.8-7.2 16-16 16h-96c-8.8 0-16-7.2-16-16v-16c0-8.8 7.2-16 16-16zm0 64h96c8.8 0 16 7.2 16 16v16c0 8.8-7.2 16-16 16h-96c-8.8 0-16-7.2-16-16v-16c0-8.8 7.2-16 16-16z"/></svg>
+          </div>
+          <h3>Let's Do Coffee &amp; Lunch</h3>
+          <p>Monthly in-person gatherings at local spots around the Twin Cities — LGBTQ+ welcoming and open to all older adults.</p>
+          <a href="https://friendsco.org/lets-do-events/">Learn more &rsaquo;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- site footer: exact replica of live friendsco.org footer -->
+<footer>
+  <div class="footer-newsletter">
+    <div class="inner">
+      <div>
+        <h3>Stay in the loop</h3>
+        <p>Get monthly updates and news from Friends &amp; Co.</p>
+      </div>
+      <form class="newsletter-form" onsubmit="return false;">
+        <input type="email" placeholder="Email address" aria-label="Email address">
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer-main">
+    <div class="inner">
+      <div>
+        <img class="footer-logo" src="https://friendsco.org/wp-content/uploads/2026/04/friends-co-logo-white.png" alt="Friends &amp; Co">
+        <ul class="contact-list">
+          <li>
+            <svg viewBox="0 0 384 512"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"/></svg>
+            <span>2550 University Avenue W.<br>Suite 260-S<br>St. Paul, MN 55114<br>*Please note that Hwy 280 is closed for construction.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 512 512"><path d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"/></svg>
+            <a href="tel:+16127211400">Phone: 612-721-1400</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 512 512"><path d="M480 160V77.25a32 32 0 0 0-9.38-22.63L425.37 9.37A32 32 0 0 0 402.75 0H160a32 32 0 0 0-32 32v448a32 32 0 0 0 32 32h320a32 32 0 0 0 32-32V192a32 32 0 0 0-32-32zM288 432a16 16 0 0 1-16 16h-32a16 16 0 0 1-16-16v-32a16 16 0 0 1 16-16h32a16 16 0 0 1 16 16zm0-128a16 16 0 0 1-16 16h-32a16 16 0 0 1-16-16v-32a16 16 0 0 1 16-16h32a16 16 0 0 1 16 16zm128 128a16 16 0 0 1-16 16h-32a16 16 0 0 1-16-16v-32a16 16 0 0 1 16-16h32a16 16 0 0 1 16 16zm0-128a16 16 0 0 1-16 16h-32a16 16 0 0 1-16-16v-32a16 16 0 0 1 16-16h32a16 16 0 0 1 16 16zm0-112H192V64h160v48a16 16 0 0 0 16 16h48zM64 128H32a32 32 0 0 0-32 32v320a32 32 0 0 0 32 32h32a32 32 0 0 0 32-32V160a32 32 0 0 0-32-32z"/></svg>
+            <span>Fax: 612-721-5848</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 512 512"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"/></svg>
+            <a href="mailto:info@friendsco.org">Email: info@friendsco.org</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h4>Free Programs</h4>
+        <ul class="footer-links">
+          <li><a href="https://friendsco.org/volunteer-cards-connect/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Cards Connect</span></a></li>
+          <li><a href="https://friendsco.org/coffee-talk/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Coffee Talk</span></a></li>
+          <li><a href="https://friendsco.org/spanish-language-programs/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Conexiones Comunitarias</span></a></li>
+          <li><a href="https://friendsco.org/lets-do-events/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Let's Do Lunch Cafe &amp; Let's Do Coffee</span></a></li>
+          <li><a href="https://friendsco.org/phone-companions/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Phone Companions</span></a></li>
+          <li><a href="https://friendsco.org/visiting-companions/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Visiting Companions</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get Involved</h4>
+        <ul class="footer-links">
+          <li><a href="https://friendsco.org/get-involved/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Become a Volunteer</span></a></li>
+          <li><a href="https://friendsco.org/refer/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Refer an Older Adult</span></a></li>
+          <li><a href="https://friendsco.org/volunteer-portal/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Current Volunteers Portal</span></a></li>
+          <li><a href="https://friendsco.org/staff-and-board/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Board &amp; Staff</span></a></li>
+          <li><a href="https://friendsco.org/contact/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Contact Us</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support Our Mission</h4>
+        <div class="footer-give">
+          <a class="btn-give" href="https://friendsco.org/donate/">
+            <svg viewBox="0 0 576 512"><path d="M275.3 250.5c7 7.4 18.4 7.4 25.5 0l108.9-114.2c31.6-33.2 29.8-88.2-5.6-118.8-30.8-26.7-76.7-21.9-104.9 7.7L288 36.9l-11.1-11.6C248.7-4.4 202.8-9.2 172 17.5c-35.3 30.6-37.2 85.6-5.6 118.8l108.9 114.2zm290 77.6c-11.8-10.7-30.2-10-42.6 0L430.3 402c-11.3 9.1-25.4 14-40 14H272c-8.8 0-16-7.2-16-16s7.2-16 16-16h78.3c15.9 0 30.7-10.9 33.3-26.6 3.3-20-12.1-37.4-31.6-37.4H192c-27 0-53.1 9.3-74.1 26.3L71.4 384H16c-8.8 0-16 7.2-16 16v96c0 8.8 7.2 16 16 16h356.8c14.5 0 28.6-4.9 40-14L564 377c15.2-12.1 16.4-35.3 1.3-48.9z"/></svg>
+            <span>Give</span>
+          </a>
+        </div>
+        <div class="footer-badges">
+          <a href="https://www.charitynavigator.org/ein/410986200" target="_blank" rel="noopener"><img src="assets/img/charity-navigator-logo.png" alt="Charity Navigator Four-Star Charity"></a>
+          <a href="https://smartgivers.org/organizations/friends-co/" target="_blank" rel="noopener"><img src="assets/img/charities-review-council-logo.png" alt="Charities Review Council — Meets Standards"></a>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/FriendsCoMN/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg></a>
+          <a href="https://www.youtube.com/channel/UCR9Hg7v8qScNMrSpesiZx0Q" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg></a>
+          <a href="https://www.linkedin.com/company/friendscomn/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+          <a href="https://www.instagram.com/friendscomn" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>Friends &amp; Co formerly Little Brothers &ndash; Friends of the Elderly Twin Cities, EIN 41-0986200, previous address 1845 E. Lake St, Minneapolis, MN</p>
+    <p>&copy; 2026 Friends &amp; Co. All Rights Reserved. | Privacy Policy</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var vid = document.querySelector('.hero-video');
+  var btn = document.getElementById('videoCtrl');
+  var iconPause = document.getElementById('iconPause');
+  var iconPlay = document.getElementById('iconPlay');
+  if(!vid || !btn) return;
+  btn.addEventListener('click', function(){
+    if(vid.paused){
+      vid.play();
+      iconPause.style.display = '';
+      iconPlay.style.display = 'none';
+      btn.setAttribute('aria-label','Pause background video');
+    } else {
+      vid.pause();
+      iconPause.style.display = 'none';
+      iconPlay.style.display = '';
+      btn.setAttribute('aria-label','Play background video');
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

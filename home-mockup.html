@@ -17,15 +17,15 @@
   --teal:#00bbd3; --orange:#f9a41e;
   --slate:#7d91a0;
   --navy:#1A2A42; --footer-bottom:#4B5D91;
-  --ink:#333; --cream:#fbf6ef; --bg:#fbf6ef; --line:#e9e3d8;
+  --ink:#333; --cream:#F7FDDF; --bg:#F7FDDF; --line:#dff0a8;
   --font:'Open Sans', sans-serif;
   --font-display:'Roboto Condensed', sans-serif;
   --container:1180px;
   --radius-lg:16px; --radius-md:10px; --radius-sm:6px;
 }
 *{box-sizing:border-box; margin:0; padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:var(--font); color:var(--ink); line-height:1.7; background:var(--cream); font-size:20px;}
+html{scroll-behavior:smooth; font-size:20px;}
+body{font-family:var(--font); color:var(--ink); line-height:1.7; background:var(--cream);}
 h1,h2,h3,h4,h5{font-family:var(--font-display); font-weight:700; text-transform:none; line-height:1.1;}
 img{max-width:100%; display:block;}
 a{color:inherit;}
@@ -181,7 +181,7 @@ a{color:inherit;}
 .hero-btn{
   display:inline-flex; align-items:center; gap:10px;
   padding:15px 30px; border-radius:8px;
-  font-family:var(--font); font-size:16px; font-weight:700;
+  font-family:var(--font); font-size:18px; font-weight:700;
   text-decoration:none;
   transition:transform .2s, box-shadow .2s, background .2s;
   min-height:52px;
@@ -206,21 +206,21 @@ a{color:inherit;}
 
 /* ===== TRUST STRIP ===== */
 .trust-strip{
-  background:var(--cream);
-  border-bottom:1px solid var(--line);
+  background:#eef2fb;
+  border-bottom:1px solid #cdd8f0;
   padding:14px 32px;
   display:flex; align-items:center; justify-content:center;
   gap:32px; flex-wrap:wrap;
 }
 .trust-strip img{height:52px; width:auto; opacity:.85;}
-.trust-strip-label{font-size:17px; font-weight:600; color:#7a6f63;}
+.trust-strip-label{font-size:17px; font-weight:600; color:#5a6640;}
 
 /* ===== SHARED SECTION HEADING ===== */
 .section-head{text-align:center; margin-bottom:50px;}
 .section-eyebrow{
   display:inline-block;
-  font-family:var(--font-display);
-  font-size:0.95rem;
+  font-family:var(--font);
+  font-size:1rem;
   font-weight:700;
   color:var(--magenta);
   margin-bottom:14px;
@@ -231,6 +231,11 @@ a{color:inherit;}
   margin-bottom:16px;
   letter-spacing:.5px;
 }
+
+/* ===== MISSION BAND ===== */
+.mission-band{padding:70px 0; background:var(--bg); text-align:center;}
+.mission-band h2{font-size:2rem; color:var(--navy); max-width:760px; margin:0 auto 20px; line-height:1.25;}
+.mission-band p{font-size:1.1rem; color:#555; max-width:720px; margin:0 auto; line-height:1.7;}
 .section-head p{
   font-size:1.05rem;
   color:#666;
@@ -247,7 +252,7 @@ a{color:inherit;}
 .section-footer-link a:hover{color:var(--magenta);}
 
 /* ===== UPCOMING EVENTS ===== */
-.events-section{padding:80px 0; background:var(--bg);}
+.events-section{padding:80px 0; background:#eef2fb;}
 .events-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
 .event-card{
   background:#fff; border-radius:var(--radius-lg); overflow:hidden;
@@ -259,16 +264,10 @@ a{color:inherit;}
   aspect-ratio:3/2; background-size:cover; background-position:center;
   background-color:var(--slate);
 }
-.event-image.a{background-image:linear-gradient(135deg,#ba3f97,#f9a41e),url('assets/img/FriendsCo_Pattern.jpg'); background-blend-mode:multiply;}
-.event-image.b{background-image:linear-gradient(135deg,#00bbd3,#5e74b1),url('assets/img/FriendsCo_Pattern.jpg'); background-blend-mode:multiply;}
-.event-image.c{background-image:linear-gradient(135deg,#f9a41e,#ba3f97),url('assets/img/FriendsCo_Pattern.jpg'); background-blend-mode:multiply;}
-.event-image-label{
-  width:100%; height:100%;
-  display:flex; align-items:center; justify-content:center;
-  color:#fff; font-family:var(--font-display);
-  font-size:1.4rem;
-  text-shadow:0 2px 10px rgba(0,0,0,.25); text-align:center; padding:20px;
-}
+.event-image.a{background-image:url('https://friendsco.org/wp-content/uploads/2025/05/Lets-Do-Coffee.png');}
+.event-image.b{background-image:url('https://friendsco.org/wp-content/uploads/2025/05/Lets-Do-Coffee.png');}
+.event-image.c{background-image:url('https://friendsco.org/wp-content/uploads/2025/05/Lets-Do-Lunch.png');}
+.event-image-label{display:none;}
 .event-body{padding:24px 26px 28px; display:flex; flex-direction:column; flex:1;}
 .event-meta{
   font-size:1rem; color:var(--magenta); font-weight:700;
@@ -284,7 +283,7 @@ a{color:inherit;}
 .event-link:hover{gap:14px; color:var(--magenta);}
 
 /* ===== LATEST NEWS ===== */
-.news-section{padding:90px 0; background:var(--cream);}
+.news-section{padding:90px 0; background:var(--bg);}
 .news-editorial{display:grid; grid-template-columns:1.2fr 1fr; gap:40px;}
 .news-featured{
   background:#fff; border-radius:var(--radius-lg); overflow:hidden;
@@ -325,7 +324,7 @@ a{color:inherit;}
 .news-item-body p{font-size:.95rem; color:#777; line-height:1.5;}
 
 /* ===== WHY FRIENDSHIP — accessible tab panel ===== */
-.why-section{padding:90px 0; background:var(--bg);}
+.why-section{padding:90px 0; background:#eef2fb;}
 .tabs-bar{
   display:flex; justify-content:center; gap:0;
   margin-bottom:40px; flex-wrap:wrap;
@@ -410,33 +409,32 @@ a{color:inherit;}
 .services-footer{text-align:center; margin-top:50px;}
 
 /* ===== TESTIMONIAL ===== */
-.testimonial-section{padding:90px 0; background:#fff8f2;}
+.testimonial-section{padding:90px 0; background:var(--navy); color:#fff;}
+.testimonial-section .section-head{color:#fff;}
+.testimonial-section .section-head p{color:rgba(255,255,255,.8);}
+.testimonial-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
 .testimonial-card{
-  background:var(--green); color:var(--navy);
-  border-radius:var(--radius-lg); padding:60px 80px;
-  display:grid; grid-template-columns:auto 1fr; gap:36px;
-  align-items:center; max-width:960px; margin:0 auto;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:var(--radius-lg);
+  padding:36px 32px;
+  display:flex; flex-direction:column;
 }
-.testimonial-quote-mark{
-  font-family:Georgia, serif;
-  font-size:9rem; line-height:.6; color:#fff; opacity:.7;
-  flex-shrink:0; user-select:none;
+.testimonial-card[hidden]{display:none;}
+.testimonial-quote-icon{
+  font-family:Georgia,serif; font-size:4rem; line-height:1;
+  color:var(--magenta); margin-bottom:8px; user-select:none;
 }
 .testimonial-card blockquote{
-  font-size:1.35rem; line-height:1.55; font-weight:500;
-  font-style:italic; margin-bottom:14px; color:var(--navy);
+  font-size:1.1rem; line-height:1.7; font-weight:400;
+  font-style:italic; color:rgba(255,255,255,.92);
+  margin-bottom:20px; flex:1;
 }
 .testimonial-card cite{
   display:block; font-style:normal; font-weight:700;
-  font-size:1rem;
-  font-family:var(--font); color:var(--navy);
+  font-size:1rem; font-family:var(--font); color:var(--lime);
 }
-.testimonial-controls{display:flex; justify-content:center; gap:10px; margin-top:24px;}
-.testimonial-dot{
-  width:10px; height:10px; border-radius:50%; background:#d0d5dd;
-  border:none; cursor:pointer; transition:background .2s;
-}
-.testimonial-dot.is-active{background:var(--magenta);}
+.testimonial-controls{display:none;}
 
 /* ===== BE A FRIEND — CTA cards ===== */
 .cta-section{padding:90px 0; background:var(--bg);}
@@ -523,8 +521,7 @@ a{color:inherit;}
 @media(max-width:900px){
   .events-grid,.services-grid,.cta-grid,.news-editorial{grid-template-columns:1fr 1fr;}
   .why-grid{grid-template-columns:1fr; gap:32px;}
-  .testimonial-card{padding:48px 40px; grid-template-columns:auto 1fr; gap:24px;}
-  .testimonial-quote-mark{font-size:6rem;}
+  .testimonial-grid{grid-template-columns:1fr;}
 }
 @media(max-width:640px){
   .hero-content{padding:72px 24px;}
@@ -532,8 +529,7 @@ a{color:inherit;}
   .news-editorial{grid-template-columns:1fr;}
   .nl-grid{grid-template-columns:1fr;}
   .nl-form{grid-template-columns:1fr;}
-  .testimonial-card{padding:40px 28px; grid-template-columns:1fr;}
-  .testimonial-quote-mark{display:none;}
+  .testimonial-grid{grid-template-columns:1fr;}
   .footer-main .inner{grid-template-columns:1fr;}
   .footer-newsletter .inner{flex-direction:column; align-items:flex-start;}
   .trust-strip{gap:20px; padding:14px 20px;}
@@ -678,6 +674,14 @@ a{color:inherit;}
     <img src="assets/img/charities-review-council-logo.png" alt="Charities Review Council — Meets Standards">
   </div>
 
+  <!-- MISSION BAND -->
+  <section class="mission-band">
+    <div class="container">
+      <h2>We bring people together to reduce loneliness and build meaningful friendships</h2>
+      <p>Through trusted, vetted matches between older adults (62+) and volunteers (including peers) we foster safe, purposeful relationships that benefit everyone.</p>
+    </div>
+  </section>
+
   <!-- UPCOMING EVENTS -->
   <section class="events-section" aria-labelledby="events-heading">
     <div class="container">
@@ -693,34 +697,34 @@ a{color:inherit;}
             <div class="event-image-label">Let's Do<br>Coffee</div>
           </div>
           <div class="event-body">
-            <div class="event-meta">Friday, May 8 &middot; 8 to 11 a.m.</div>
-            <h3>Let's do coffee: Special bonus edition</h3>
-            <p>Dual Citizen Brewing, St. Paul. A monthly gathering for LGBTQ+ older adults and friends.</p>
-            <a href="https://friendsco.org/events/" class="event-link">Event Details <i class="fas fa-arrow-right"></i></a>
+            <div class="event-meta">Thursday, Jul 2 &middot; 9:30 to 11 a.m.</div>
+            <h3>Let's Do Coffee: Queermunity</h3>
+            <p>Minneapolis. A gathering for LGBTQ+ older adults and friends at Queermunity.</p>
+            <a href="https://friendsco.org/events/" class="event-link">Event details <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
 
         <article class="event-card">
-          <div class="event-image b" role="img" aria-label="Volunteer card making event">
-            <div class="event-image-label">Volunteer<br>Card Making</div>
+          <div class="event-image b" role="img" aria-label="Let's Do Coffee event">
+            <div class="event-image-label">Let's Do<br>Coffee</div>
           </div>
           <div class="event-body">
-            <div class="event-meta">Thursday, May 16 &middot; 4 to 7 p.m.</div>
-            <h3>Card making event: Special bonus edition</h3>
-            <p>Dual Citizen Brewing, St. Paul. Help us send handwritten cards to older adults in our programs.</p>
-            <a href="https://friendsco.org/events/" class="event-link">Event Details <i class="fas fa-arrow-right"></i></a>
+            <div class="event-meta">Tuesday, Jul 8 &middot; 9:30 to 11 a.m.</div>
+            <h3>Let's Do Coffee: FamilyMeans</h3>
+            <p>Stillwater. Coffee and connection for LGBTQ+ older adults and friends at FamilyMeans.</p>
+            <a href="https://friendsco.org/events/" class="event-link">Event details <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
 
         <article class="event-card">
-          <div class="event-image c" role="img" aria-label="Friends by Your Side annual fundraiser">
-            <div class="event-image-label">Friends By<br>Your Side</div>
+          <div class="event-image c" role="img" aria-label="Let's Do Lunch Café event">
+            <div class="event-image-label">Let's Do<br>Lunch</div>
           </div>
           <div class="event-body">
-            <div class="event-meta">Thursday, May 30 &middot; 5:30 to 7 p.m.</div>
-            <h3>Friends by Your Side fundraiser</h3>
-            <p>Dual Citizen Brewing, St. Paul. Celebrate our community at our annual spring gathering.</p>
-            <a href="https://friendsco.org/events/" class="event-link">Event Details <i class="fas fa-arrow-right"></i></a>
+            <div class="event-meta">Monday, Jul 14 &middot; 11:30 a.m. to 1:30 p.m.</div>
+            <h3>Let's Do Lunch Café: Hennepin Ave UMC</h3>
+            <p>Minneapolis. Monthly lunch gathering for LGBTQ+ older adults and friends.</p>
+            <a href="https://friendsco.org/events/" class="event-link">Event details <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
       </div>
@@ -743,42 +747,33 @@ a{color:inherit;}
       <div class="news-editorial">
         <article class="news-featured">
           <div class="news-featured-image"
-               style="background-image:url('assets/img/1.png');"
+               style="background-image:url('https://friendsco.org/wp-content/uploads/2026/06/Ric-Landers-Volunteer-of-the-Month.jpg');"
                role="img"
-               aria-label="Group of volunteers holding handmade cards"></div>
+               aria-label="Ric Landers, volunteer of the month for June 2026"></div>
           <div class="news-featured-body">
-            <div class="news-meta">Community &middot; April 2026</div>
-            <h3>Local volunteers make 350 cards for older adults as Dual Citizen Brewing matches donations</h3>
-            <p>Volunteers gathered this month to craft hundreds of handwritten cards destined for Friends &amp; Co participants. Thanks to a matching donation from Dual Citizen Brewing, every card sent meant a double gift for our mission.</p>
-            <a href="https://friendsco.org/news/" class="read-more">Read the Story <i class="fas fa-arrow-right"></i></a>
+            <div class="news-meta">Volunteers &middot; June 2026</div>
+            <h3>Volunteer of the Month — June 2026</h3>
+            <p>Ric Landers initially discovered Friends &amp; Co through a "Let's Do Coffee" event designed for LGBTQ+ older adults seeking community. He subsequently became deeply engaged, assuming multiple volunteer positions including event support and handmade card preparation.</p>
+            <a href="https://friendsco.org/volunteer-of-the-month-june-2026/" class="read-more">Read the story <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
 
         <div class="news-list">
-          <a href="https://friendsco.org/news/" class="news-item">
-            <div class="news-item-image" style="background-image:url('assets/img/2.png');" role="img" aria-label=""></div>
+          <a href="https://friendsco.org/older-lgbtq-adults-going-back-into-closet/" class="news-item">
+            <div class="news-item-image" style="background-image:url('https://friendsco.org/wp-content/uploads/2026/05/Lets-Do-Lunch-Cafe-Polaroids.jpg');" role="img" aria-label="Let's Do Lunch Café polaroid photos"></div>
             <div class="news-item-body">
-              <div class="news-meta">News &middot; March 2026</div>
-              <h4>Our volunteers and older adults are building a vibrant community</h4>
-              <p>What we heard from participants at this year's spring gathering.</p>
+              <div class="news-meta">Community &middot; May 2026</div>
+              <h4>For some LGBTQ+ older adults, aging means going back into the closet</h4>
+              <p>Many LGBTQ+ older adults experienced decades of loneliness shaped by the need to hide their identities during less accepting times.</p>
             </div>
           </a>
 
-          <a href="https://friendsco.org/news/" class="news-item">
-            <div class="news-item-image" style="background-image:url('assets/img/support-hero-connection.png');" role="img" aria-label=""></div>
+          <a href="https://friendsco.org/pride-connection-community-at-lavenders-summer-kickoff/" class="news-item">
+            <div class="news-item-image" style="background-image:url('https://friendsco.org/wp-content/uploads/2026/05/Lavender-Magazine-Polaroids.jpg');" role="img" aria-label="Lavender Magazine Summer Kickoff polaroid photos"></div>
             <div class="news-item-body">
-              <div class="news-meta">Impact &middot; February 2026</div>
-              <h4>12 Women. One Meaningful Gift.</h4>
-              <p>How a dozen donors came together to fund a year of phone companion matches.</p>
-            </div>
-          </a>
-
-          <a href="https://friendsco.org/news/" class="news-item">
-            <div class="news-item-image" style="background-image:url('assets/img/general_square.jpg');" role="img" aria-label=""></div>
-            <div class="news-item-body">
-              <div class="news-meta">Resource &middot; January 2026</div>
-              <h4>A family's guide to signing up a loved one</h4>
-              <p>Thinking about connecting a parent with a program? Here's how it works.</p>
+              <div class="news-meta">Events &middot; May 2026</div>
+              <h4>Pride, Connection &amp; Community at Lavender's Summer Kickoff</h4>
+              <p>Friends &amp; Co participated as a community partner at Lavender Magazine's 2026 Summer of Pride Kickoff Party at Orchestra Hall in Minneapolis.</p>
             </div>
           </a>
         </div>
@@ -808,7 +803,7 @@ a{color:inherit;}
       <div class="tab-panel is-active" role="tabpanel" id="tab-older" aria-labelledby="tab-older-btn">
         <div class="why-grid">
           <div class="why-image">
-            <img src="assets/img/support-hero-connection.png" alt="An older adult on the phone, smiling during a weekly call" loading="lazy">
+            <img src="https://friendsco.org/wp-content/uploads/2025/09/AdobeStock_180704796-1-scaled-1.jpeg" alt="An older adult smiling and enjoying connection" loading="lazy">
           </div>
           <div class="why-content">
             <h3>Connection supports health and longevity</h3>
@@ -825,7 +820,7 @@ a{color:inherit;}
       <div class="tab-panel" role="tabpanel" id="tab-loved" aria-labelledby="tab-loved-btn" hidden>
         <div class="why-grid">
           <div class="why-image">
-            <img src="assets/img/general_square.jpg" alt="A family member looking at photos with their older loved one" loading="lazy">
+            <img src="https://friendsco.org/wp-content/uploads/2025/09/AdobeStock_749035226-scaled-1.jpeg" alt="A family member sharing a moment with their older loved one" loading="lazy">
           </div>
           <div class="why-content">
             <h3>Peace of mind for families and care partners</h3>
@@ -842,7 +837,7 @@ a{color:inherit;}
       <div class="tab-panel" role="tabpanel" id="tab-comm" aria-labelledby="tab-comm-btn" hidden>
         <div class="why-grid">
           <div class="why-image">
-            <img src="assets/img/1.png" alt="Volunteers and older adults gathered at a Friends &amp; Co community event" loading="lazy">
+            <img src="https://friendsco.org/wp-content/uploads/2025/09/AdobeStock_557321510-scaled-1.jpeg" alt="A connected, vibrant community of older adults and volunteers" loading="lazy">
           </div>
           <div class="why-content">
             <h3>Stronger, more connected neighborhoods</h3>
@@ -911,21 +906,27 @@ a{color:inherit;}
   </section>
 
   <!-- TESTIMONIAL -->
-  <section class="testimonial-section" aria-label="Participant testimonial">
+  <section class="testimonial-section" aria-labelledby="testimonial-heading">
     <div class="container">
-      <div class="testimonial-card">
-        <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
-        <div>
-          <blockquote>
-            Friends &amp; Co helped me dedicate my time to fellow veterans through the Visiting Companions program. I'm so thankful they matched me with a vet nearby.
-          </blockquote>
-          <cite>Adam, Volunteer</cite>
-        </div>
+      <div class="section-head">
+        <h2 id="testimonial-heading">Voices from our community</h2>
       </div>
-      <div class="testimonial-controls" aria-hidden="true">
-        <button class="testimonial-dot is-active" aria-label="Testimonial 1"></button>
-        <button class="testimonial-dot" aria-label="Testimonial 2"></button>
-        <button class="testimonial-dot" aria-label="Testimonial 3"></button>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-quote-icon" aria-hidden="true">&ldquo;</div>
+          <blockquote>Friends &amp; Co helped me dedicate my time to fellow veterans through the Visiting Companions program. I'm so thankful they matched me with a vet nearby.</blockquote>
+          <cite>Adam, volunteer</cite>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote-icon" aria-hidden="true">&ldquo;</div>
+          <blockquote>You put the sweetener in my coffee this morning because you're such a good listener.</blockquote>
+          <cite>Suzanne, participant</cite>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote-icon" aria-hidden="true">&ldquo;</div>
+          <blockquote>I'm so grateful for all of you on staff &amp; volunteers at Friends &amp; Co! You're doing stellar work!</blockquote>
+          <cite>Tiergan, participant</cite>
+        </div>
       </div>
     </div>
   </section>

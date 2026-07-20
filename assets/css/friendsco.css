@@ -1060,11 +1060,12 @@ h6 { font-size: var(--fs-h6); font-weight: var(--fw-secondary); line-height: 1.4
 .split-hero.accent-magenta { --accent: var(--magenta); }
 .split-hero-mark {
   position: absolute;
-  right: -40px; top: 50%;
+  right: -60px; top: 50%;
   transform: translateY(-50%);
-  width: 380px;
-  opacity: .16;
+  width: 480px;
+  opacity: .18;
   pointer-events: none;
+  filter: brightness(0) invert(1);  /* force white so it reads on any accent color */
 }
 .split-hero-body { position: relative; z-index: 1; max-width: 34rem; }
 .split-hero-eyebrow {
@@ -1109,8 +1110,10 @@ h6 { font-size: var(--fs-h6); font-weight: var(--fw-secondary); line-height: 1.4
   font-size: 1.9rem;
   margin-bottom: 18px;
 }
-.icon-steps.accent-blue .icon-step-disc { background: rgba(94,116,177,.3); color: var(--blue); }
-.icon-steps.accent-teal .icon-step-disc { background: rgba(0,187,211,.3); color: var(--teal); }
+.icon-steps.accent-blue    .icon-step-disc { background: rgba(94,116,177,.3);   color: var(--blue); }
+.icon-steps.accent-teal    .icon-step-disc { background: rgba(0,187,211,.3);    color: var(--teal); }
+.icon-steps.accent-magenta .icon-step-disc { background: rgba(186,63,151,.25);  color: var(--magenta); }
+.icon-steps.accent-magenta .icon-step h3  { color: var(--magenta); }
 .icon-step h3 { color: var(--blue); font-size: var(--fs-h3); margin-bottom: 12px; }
 .icon-step p { color: var(--ink); }
 
@@ -1164,8 +1167,10 @@ h6 { font-size: var(--fs-h6); font-weight: var(--fw-secondary); line-height: 1.4
   box-shadow: var(--shadow-card);
 }
 .choice-card + .choice-card { margin-top: 22px; }
-.choice-card.accent-orange { --accent: var(--orange); }
-.choice-card.accent-blue   { --accent: var(--blue); }
+.choice-card.accent-orange  { --accent: var(--orange); }
+.choice-card.accent-blue    { --accent: var(--blue); }
+.choice-card.accent-magenta { --accent: var(--magenta); }
+.choice-card.accent-teal    { --accent: var(--teal); }
 .choice-card h3 { color: var(--accent); font-size: var(--fs-h3); margin-bottom: 10px; }
 .choice-card p { color: var(--ink); margin-bottom: 18px; }
 

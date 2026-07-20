@@ -89,7 +89,6 @@
      Labels are sentence case, matching the live site.
      ---------------------------------------------------------------------- */
   var NAV = [
-    { key: 'home', label: 'Home', href: P.home },
     {
       key: 'programs', label: 'Free programs', href: P.programs,
       children: [
@@ -151,7 +150,8 @@
         { label: 'Corporate sponsorship', href: P.corporate },
         { label: 'Other ways to give', href: P.other }
       ]
-    }
+    },
+    { key: 'home', label: 'Home', href: P.home }
   ];
 
   function renderSub(items) {
@@ -223,8 +223,10 @@
       '<div class="footer-newsletter"><div class="inner">' +
         '<div><h3>Stay in the loop</h3><p>Get monthly updates and news from Friends &amp; Co.</p></div>' +
         '<form class="newsletter-form" onsubmit="return false;">' +
-          '<input type="email" placeholder="Email address" aria-label="Email address">' +
-          '<button type="submit">Sign up</button>' +
+          '<label class="nf-label"><span>* Email</span><input type="email" name="email" required></label>' +
+          '<label class="nf-label"><span>* First Name</span><input type="text" name="fname" required></label>' +
+          '<label class="nf-label"><span>Last Name</span><input type="text" name="lname"></label>' +
+          '<button type="submit">YES, SIGN ME UP!</button>' +
         '</form>' +
       '</div></div>' +
 

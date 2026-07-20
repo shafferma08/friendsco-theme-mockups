@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Friends &amp; Co — [page name]</title>
+
+<!--
+  ===========================================================================
+  STARTER PAGE — copy this file to begin a new mockup.
+
+  Rules that keep the mockup set consistent:
+
+  1. Never declare :root tokens, @font-face, or a Google Fonts family other
+     than Open Sans in a page. Everything lives in assets/css/friendsco.css.
+  2. Never set html{font-size}. The root stays at 16px, matching live.
+     Large type comes from --fs-body (1.3rem), not from inflating the root.
+  3. Never use text-transform: uppercase. Sentence case throughout.
+  4. Headings are Open Sans. There is no condensed display face on the web
+     build — Akzidenz-Grotesk is print/internal only and is not licensed
+     for the site.
+  5. Page-specific CSS goes in assets/css/pages/[page].css, loaded last.
+  6. Header and footer are injected by assets/js/chrome.js. Do not paste
+     header or footer markup into a page.
+
+  data-page sets the active nav item. Valid values:
+    home | programs | volunteer | about | support   (or omit for none)
+  ===========================================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Shared design system — do not add page tokens or fonts below this line -->
+<link rel="stylesheet" href="assets/css/friendsco.css">
+<link rel="stylesheet" href="assets/css/chrome.css">
+<!-- <link rel="stylesheet" href="assets/css/pages/[page].css"> -->
+</head>
+
+<body data-page="">
+
+<div data-chrome="header"></div>
+
+<main>
+
+  <!-- Page hero ---------------------------------------------------------- -->
+  <section class="section section-blue">
+    <div class="container center">
+      <p class="section-eyebrow">Eyebrow</p>
+      <h1 class="h-white">Page heading in sentence case</h1>
+      <p class="lead measure" style="margin-inline:auto">
+        One or two sentences describing what this page is for.
+      </p>
+    </div>
+  </section>
+
+  <!-- Content section ----------------------------------------------------- -->
+  <section class="section section-cream">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">Eyebrow</p>
+        <h2>Section heading</h2>
+        <p>Supporting sentence for the section.</p>
+      </div>
+
+      <div class="grid grid-3">
+        <article class="card">
+          <div class="card-body">
+            <h3 class="card-title">Card heading</h3>
+            <p>Card body copy.</p>
+            <p><a class="btn btn-blue" href="#">Call to action</a></p>
+          </div>
+        </article>
+      </div>
+
+      <div class="section-footer-link">
+        <a href="#">See everything →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div data-chrome="footer"></div>
+
+<script src="assets/js/chrome.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Friends &amp; Co — Join a program</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Shared design system — do not add page tokens or fonts below this line -->
+<link rel="stylesheet" href="assets/css/friendsco.css">
+<link rel="stylesheet" href="assets/css/chrome.css">
+</head>
+
+<body data-page="programs">
+
+<div data-chrome="header"></div>
+
+<main>
+  <section class="page-hero section-blue">
+    <img class="page-hero-watermark" src="assets/img/flower-icon-white.png" alt="">
+    <div class="container page-hero-inner">
+      <p class="section-eyebrow">For adults 62+ in Minnesota</p>
+      <h1 class="h-white">Join a program</h1>
+      <p class="lead measure">Tell us a little about yourself and we'll help you find the right fit. Every program is free.</p>
+    </div>
+  </section>
+
+  <section class="section section-tint">
+    <div class="container">
+      <h2>Before you start</h2>
+      <div class="prose measure">
+        <p>You'll need to be 62 or older and living in Minnesota. There is no cost at any point, and you can join more than one program.</p>
+        <p>If you're filling this in on behalf of someone else, use the <a href="refer.html">referral form</a> instead.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="container">
+      <h2>Your details</h2>
+      <form class="form-panel" onsubmit="return false;">
+        <div class="field-row">
+          <label>First name<input type="text" autocomplete="given-name"></label>
+          <label>Last name<input type="text" autocomplete="family-name"></label>
+        </div>
+        <div class="field-row">
+          <label>Phone<input type="tel" autocomplete="tel"></label>
+          <label>Email<input type="email" autocomplete="email"></label>
+        </div>
+        <label>Which program interests you?
+          <select>
+            <option>I'm not sure — help me choose</option>
+            <option>Coffee Talk</option>
+            <option>Phone Companions</option>
+            <option>Visiting Companions</option>
+            <option>Cards Connect</option>
+            <option>Let's Do Coffee / Let's Do Lunch Caf&eacute;</option>
+            <option>Conexiones Comunitarias</option>
+          </select>
+        </label>
+        <label>Anything you'd like us to know?<textarea rows="4"></textarea></label>
+        <button type="submit" class="btn btn-lime btn-lg">Send my request</button>
+        <p class="form-note">We'll call you within a few days to talk it through.
+          Nothing is confirmed until you've spoken to us.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="section section-navy">
+    <div class="container center">
+      <h2>Prefer to talk to someone?</h2>
+      <p class="lead measure" style="margin:14px auto 0">Call us on 612-721-1400, Monday to Friday, 9 a.m. to 4 p.m.</p>
+      <div class="hero-actions center-actions">
+        <a class="btn btn-lime" href="contact.html">Contact us</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div data-chrome="footer"></div>
+
+<script src="assets/js/chrome.js"></script>
+</body>
+</html>

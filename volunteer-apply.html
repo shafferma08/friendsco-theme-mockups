@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Friends &amp; Co — Apply to volunteer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Shared design system — do not add page tokens or fonts below this line -->
+<link rel="stylesheet" href="assets/css/friendsco.css">
+<link rel="stylesheet" href="assets/css/chrome.css">
+</head>
+
+<body data-page="volunteer">
+
+<div data-chrome="header"></div>
+
+<main>
+  <section class="page-hero section-blue">
+    <img class="page-hero-watermark" src="assets/img/flower-icon-white.png" alt="">
+    <div class="container page-hero-inner">
+      <p class="section-eyebrow">Get involved</p>
+      <h1 class="h-white">Apply to volunteer</h1>
+      <p class="lead measure">The application takes about ten minutes. We'll be in touch within a week.</p>
+    </div>
+  </section>
+
+  <section class="section section-tint">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">The process</p>
+        <h2>What happens next</h2>
+      </div>
+      <ol class="steps grid grid-3">
+        <li class="step">
+          <span class="step-num" aria-hidden="true">1</span>
+          <h3>You apply</h3>
+          <p>Fill in the form below — it takes about ten minutes.</p>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">2</span>
+          <h3>Screening and training</h3>
+          <p>We'll run a background check and give you the training you need.</p>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">3</span>
+          <h3>Get matched</h3>
+          <p>We introduce you to an older adult whose interests line up with yours.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="container">
+      <h2>Your details</h2>
+      <form class="form-panel" onsubmit="return false;">
+        <div class="field-row">
+          <label>First name<input type="text" autocomplete="given-name"></label>
+          <label>Last name<input type="text" autocomplete="family-name"></label>
+        </div>
+        <div class="field-row">
+          <label>Phone<input type="tel" autocomplete="tel"></label>
+          <label>Email<input type="email" autocomplete="email"></label>
+        </div>
+        <label>Which role interests you?
+          <select>
+            <option>I'm not sure — help me choose</option>
+            <option>Coffee Talk volunteer</option>
+            <option>Phone Companion</option>
+            <option>Visiting Companion</option>
+            <option>Cards Connect volunteer</option>
+            <option>Admin volunteer</option>
+          </select>
+        </label>
+        <label>How much time can you give?
+          <select>
+            <option>About an hour a week</option>
+            <option>About an hour a month</option>
+            <option>A few hours a month</option>
+            <option>Flexible</option>
+          </select>
+        </label>
+        <label>Tell us a bit about yourself<textarea rows="4"></textarea></label>
+        <button type="submit" class="btn btn-lime btn-lg">Submit application</button>
+        <p class="form-note">All volunteers are screened and trained before being matched.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="section section-navy">
+    <div class="container center">
+      <h2>Questions before you apply?</h2>
+      <p class="lead measure" style="margin:14px auto 0">Email info@friendsco.org or call 612-721-1400 — we're happy to talk it through.</p>
+      <div class="hero-actions center-actions">
+        <a class="btn btn-lime" href="contact.html">Contact us</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div data-chrome="footer"></div>
+
+<script src="assets/js/chrome.js"></script>
+</body>
+</html>

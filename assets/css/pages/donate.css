@@ -1,0 +1,114 @@
+/* ==========================================================================
+   Friends & Co — donate
+   Page-specific styles only. Load AFTER friendsco.css and chrome.css.
+
+   Mirrors the live /donate/ page structure, on the lime-tint background.
+   No tokens are redefined here.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Hero — slim solid magenta band with flower watermark
+   -------------------------------------------------------------------------- */
+.donate-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--magenta);
+  color: var(--white);
+  padding: 38px var(--gutter);
+  text-align: center;
+}
+.donate-hero .watermark {
+  position: absolute;
+  right: -30px; top: 50%;
+  transform: translateY(-50%);
+  width: 230px;
+  opacity: .14;
+  pointer-events: none;
+}
+.donate-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--container);
+  margin-inline: auto;
+}
+.donate-hero h1 { color: var(--white); margin-bottom: 10px; }
+.donate-hero .sub {
+  font-size: var(--fs-lead);
+  font-weight: var(--fw-text);
+  max-width: 52ch;
+  margin-inline: auto;
+  line-height: 1.45;
+}
+
+/* --------------------------------------------------------------------------
+   Secure line + donation form
+   -------------------------------------------------------------------------- */
+.secure-line {
+  text-align: center;
+  padding: 26px var(--gutter) 0;
+  color: var(--ink-muted);
+  font-size: var(--fs-small);
+}
+
+.give-wrap {
+  max-width: 880px;
+  margin: 6px auto 0;
+  padding-inline: var(--gutter);
+}
+/* The live iATS form is embedded as-is, so what Paul sees here is the actual
+   payment form he already has — not a picture of one. */
+.form-frame {
+  width: 100%;
+  height: 1430px;
+  border: 0;
+  display: block;
+  background: transparent;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+@media (max-width: 816px) { .form-frame { height: 2280px; } }
+
+/* --------------------------------------------------------------------------
+   Trust badges — kept tight under the form's submit button
+   -------------------------------------------------------------------------- */
+.trust {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding: 0 var(--gutter) 48px;
+  text-align: center;
+}
+.trust-line { color: var(--ink-muted); font-size: var(--fs-caption); margin-bottom: 14px; }
+.trust-badges {
+  display: flex;
+  gap: 36px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.trust-badges img { height: 90px; width: auto; }
+
+/* --------------------------------------------------------------------------
+   Need help / tax information
+   -------------------------------------------------------------------------- */
+.info-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding: 0 var(--gutter) 56px;
+}
+.info-card {
+  background: var(--surface-alt);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  padding: 28px 30px;
+}
+.info-card h3 { color: var(--magenta); font-size: var(--fs-h4); margin-bottom: 8px; }
+.info-card p { color: var(--ink-muted); font-size: var(--fs-small); }
+.info-card a { color: var(--magenta); text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 1024px) {
+  .donate-hero .watermark { width: 160px; opacity: .12; }
+  .info-strip { grid-template-columns: 1fr; }
+}

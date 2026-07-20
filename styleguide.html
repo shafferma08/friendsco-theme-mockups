@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Friends &amp; Co — design system</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<link rel="stylesheet" href="assets/css/friendsco.css">
+<link rel="stylesheet" href="assets/css/chrome.css">
+
+<style>
+  /* Styleguide chrome only — not part of the design system */
+  .sg-section { padding-block: 56px; border-bottom: 1px solid var(--line-grey); }
+  .sg-label { font-size: .8rem; color: var(--slate); font-weight: 700; margin-top: 6px; }
+  .sg-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 18px; }
+  .sg-swatch .chip { height: 84px; border-radius: var(--radius-card); border: 1px solid rgba(0,0,0,.08); }
+  .sg-swatch .name { font-weight: 700; margin-top: 8px; font-size: var(--fs-small); }
+  .sg-swatch .hex { font-size: .8rem; color: var(--slate); font-family: ui-monospace, Menlo, monospace; }
+  .sg-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .sg-note {
+    background: var(--cream);
+    border-left: 5px solid var(--lime);
+    border-radius: var(--radius-sm);
+    padding: 20px 24px;
+    margin-top: 24px;
+  }
+  .sg-note strong { color: var(--navy); }
+  table.sg { width: 100%; border-collapse: collapse; font-size: var(--fs-small); }
+  table.sg th, table.sg td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line-grey); }
+  table.sg th { color: var(--slate); font-weight: 700; }
+  table.sg code { font-family: ui-monospace, Menlo, monospace; font-size: .85em; color: var(--magenta); }
+  .specimen-h1 {
+    font-size: var(--fs-h1); font-weight: var(--fw-primary);
+    line-height: 1.3; color: var(--navy);
+  }
+</style>
+</head>
+
+<body>
+
+<div data-chrome="header"></div>
+
+<main>
+
+  <section class="section section-blue">
+    <div class="container">
+      <p class="section-eyebrow" style="color:rgba(255,255,255,.75)">Reference</p>
+      <h1 class="h-white">Design system</h1>
+      <p class="lead measure" style="color:rgba(255,255,255,.9)">
+        Every colour, size and component used across the Friends &amp; Co site. Each value
+        below is measured from the live site, so anything built from this page renders
+        identically once it is in WordPress.
+      </p>
+    </div>
+  </section>
+
+  <!-- COLOUR ------------------------------------------------------------- -->
+  <section class="sg-section">
+    <div class="container">
+      <h2>Colour</h2>
+      <p class="measure">Taken from the Friends &amp; Co Identity Guidelines. Pantone references
+        are print; the HEX values below are the approved digital equivalents.</p>
+
+      <div class="sg-note">
+        <p><strong>The good news first.</strong> All six colours in the Identity Guidelines
+        palette are registered in Elementor Global Colors, and every HEX value matches the
+        guidelines exactly — not one is off by a digit. The brand and the build agree.
+        What follows is everything <em>beyond</em> those six.</p>
+      </div>
+
+      <h3 style="margin:36px 0 12px">On brand · the palette</h3>
+      <p class="measure small">Identity Guidelines p.9. All six are Elementor Global Colors.</p>
+      <div class="sg-swatches" style="margin-top:18px">
+        <div class="sg-swatch"><div class="chip" style="background:var(--blue)"></div><div class="name">Blue</div><div class="hex">#5E74B1 · PMS 7683<br>Elementor: Primary</div></div>
+        <div class="sg-swatch"><div class="chip" style="background:var(--magenta)"></div><div class="name">Magenta</div><div class="hex">#BA3F97 · PMS 7656<br>Elementor: Secondary</div></div>
+        <div class="sg-swatch"><div class="chip" style="background:var(--lime)"></div><div class="name">Lime</div><div class="hex">#B0D235 · PMS 2292<br>Elementor: Accent</div></div>
+        <div class="sg-swatch"><div class="chip" style="background:var(--teal)"></div><div class="name">Teal</div><div class="hex">#00BBD3 · PMS 3125<br>Elementor: global</div></div>
+        <div class="sg-swatch"><div class="chip" style="background:var(--orange)"></div><div class="name">Orange</div><div class="hex">#F9A41E · PMS 144<br>Elementor: global</div></div>
+        <div class="sg-swatch"><div class="chip" style="background:var(--slate)"></div><div class="name">Slate</div><div class="hex">#7D91A0 · PMS 5415<br>Elementor: global</div></div>
+      </div>
+
+      <h3 style="margin:40px 0 12px">Logo only · not in the palette</h3>
+      <p class="measure small">Green appears in the logo colour spec (p.7) but not in the p.9
+        palette, and it is not an Elementor Global Color.</p>
+      <div class="sg-swatches" style="margin-top:18px">
+        <div class="sg-swatch"><div class="chip" style="background:var(--green)"></div><div class="name">Green</div><div class="hex">#85C340 · PMS 2294<br>logo spec only</div></div>
+      </div>
+      <div class="sg-note" style="border-left-color:var(--orange)">
+        <p><strong>Decision needed.</strong> Green is a real brand colour — it is one of the three
+        in the logo — but the guidelines never authorise it as a general-purpose colour. It is
+        currently used for buttons and program tiles. Either promote it into the palette and
+        register it as a Global Color, or stop using it outside the logo. Right now it is in
+        an undefined middle state.</p>
+      </div>
+
+      <h3 style="margin:40px 0 12px">Brand tints · the yellow-green background</h3>
+      <p class="measure small">Paul's direction is to move the site off white onto this
+        yellow-green. It reads as its own colour, but it is not a new one.</p>
+      <div class="sg-swatches" style="margin-top:18px">
+        <div class="sg-swatch"><div class="chip" style="background:var(--lime)"></div><div class="name">Lime</div><div class="hex">#B0D235 · hue 73°<br>PMS 2292, on brand</div></div>
+        <div class="sg-swatch"><div class="chip" style="background:var(--lime-tint);border-color:var(--line)"></div><div class="name">Lime tint</div><div class="hex">#F7FDDF · hue 72°<br>page background</div></div>
+        <div class="sg-swatch"><div class="chip" style="background:var(--lime-tint-deep)"></div><div class="name">Lime tint deep</div><div class="hex">#DFF0A8 · hue 74°<br>hairlines on the tint</div></div>
+      </div>
+
+      <div class="sg-note">
+        <p><strong>This is your lime, not a new colour.</strong> The background sits at hue 72°
+        against lime's 73° — a single degree apart. It is PMS 2292 at roughly 7% strength.
+        That matters for the approval conversation: "a tint of the lime already in your
+        guidelines" is a much smaller ask than "a new brand colour".</p>
+        <p style="margin-top:12px">It was previously called <em>cream</em> in the mockups, which
+        caused real confusion — the earlier warm cream was <code>#FBF6EF</code> at hue 35°, an
+        orange. The two donate mockups differ in nothing but this one value; the file ending
+        <code>-greenbg</code> is the yellow-green direction.</p>
+      </div>
+
+      <div class="sg-note" style="border-left-color:var(--teal)">
+        <p><strong>Contrast checked — it holds.</strong> At 93% lightness the tint behaves almost
+        exactly like white. Body text (#333) reads 12.08:1 against it, versus 12.63:1 on white:
+        still WCAG AAA. Navy is 13.81:1, magenta 4.73:1, both pass AA.</p>
+        <p style="margin-top:12px">One caution: blue text drops to 4.35:1. That passes for body
+        copy because 20.8px counts as large text, but blue should not be used for anything
+        smaller on this background.</p>
+      </div>
+
+      <div class="sg-note" style="border-left-color:var(--lime)">
+        <p><strong>Switching the site off white is one line.</strong> The page background is a role
+        token — <code>--surface</code> in <code>friendsco.css</code>. It currently points at
+        <code>--lime-tint</code>. Point it at <code>--white</code> and the whole site flips back.
+        Nothing is hard-coded per section, so this stays a five-second decision instead of a
+        rebuild.</p>
+      </div>
+
+      <h3 style="margin:40px 0 12px">Off brand · in use, not in the guidelines</h3>
+      <p class="measure small">These three carry a large share of the site's look, appear nowhere
+        in the Identity Guidelines, and are not tints of a palette colour. They are also
+        hard-coded into individual widgets rather than registered as Global Colors.</p>
+      <div class="sg-swatches" style="margin-top:18px">
+        <div class="sg-swatch"><div class="chip" style="background:var(--navy)"></div><div class="name">Navy</div><div class="hex">#1A2A42 · hue 216°<br>dark sections, footer</div></div>
+        <div class="sg-swatch"><div class="chip" style="background:var(--footer-bottom)"></div><div class="name">Footer band</div><div class="hex">#4B5D91 · hue 226°<br>footer lower strip</div></div>
+        <div class="sg-swatch"><div class="chip" style="background:var(--pale-blue)"></div><div class="name">Pale blue</div><div class="hex">#EEF2FB · hue 222°<br>alternating sections</div></div>
+      </div>
+
+      <h3 style="margin:40px 0 12px">Neutrals &amp; derived shades</h3>
+      <p class="measure small">Greys carry no brand claim. The darker steps are hover and pressed
+        states derived from a brand colour, not new colours.</p>
+      <div class="sg-swatches" style="margin-top:18px">
+        <div class="sg-swatch"><div class="chip" style="background:var(--ink)"></div><div class="name">Ink</div><div class="hex">#333333 · Elementor: Text</div></div>
+        <div class="sg-swatch"><div class="chip" style="background:var(--white);border-color:var(--line-grey)"></div><div class="name">White</div><div class="hex">#FFFFFF · Elementor global</div></div>
+        <div class="sg-swatch"><div class="chip" style="background:var(--blue-dark)"></div><div class="name">Blue dark</div><div class="hex">#3F5591 · hover</div></div>
+        <div class="sg-swatch"><div class="chip" style="background:var(--magenta-dark)"></div><div class="name">Magenta dark</div><div class="hex">#9C2F7E · hover</div></div>
+        <div class="sg-swatch"><div class="chip" style="background:var(--lime-dark)"></div><div class="name">Lime dark</div><div class="hex">#A8CC26 · hover</div></div>
+        <div class="sg-swatch"><div class="chip" style="background:var(--green-dark)"></div><div class="name">Green dark</div><div class="hex">#6FAA2C · hover</div></div>
+      </div>
+
+      <h3 style="margin:44px 0 12px">Reconciliation summary</h3>
+      <table class="sg" style="margin-top:16px">
+        <tr><th>Colour</th><th>In brand guide?</th><th>Elementor global?</th><th>Action</th></tr>
+        <tr><td>Blue #5E74B1</td><td>Yes · p.9 + logo</td><td>Yes · Primary</td><td>None</td></tr>
+        <tr><td>Magenta #BA3F97</td><td>Yes · p.9 + logo</td><td>Yes · Secondary</td><td>None</td></tr>
+        <tr><td>Lime #B0D235</td><td>Yes · p.9</td><td>Yes · Accent</td><td>None</td></tr>
+        <tr><td>Teal #00BBD3</td><td>Yes · p.9</td><td>Yes</td><td>None</td></tr>
+        <tr><td>Orange #F9A41E</td><td>Yes · p.9</td><td>Yes</td><td>None</td></tr>
+        <tr><td>Slate #7D91A0</td><td>Yes · p.9</td><td>Yes</td><td>None</td></tr>
+        <tr><td>Green #85C340</td><td>Logo only</td><td><strong>No</strong></td><td>Promote to palette, or restrict to logo</td></tr>
+        <tr><td>Lime tint #F7FDDF</td><td>Tint of lime</td><td><strong>No</strong></td><td>Register — now the page background</td></tr>
+        <tr><td>Lime tint deep #DFF0A8</td><td>Tint of lime</td><td><strong>No</strong></td><td>Register alongside it</td></tr>
+        <tr><td>Navy #1A2A42</td><td><strong>No</strong></td><td><strong>No</strong></td><td>Approve and add, or replace</td></tr>
+        <tr><td>Footer band #4B5D91</td><td><strong>No</strong></td><td><strong>No</strong></td><td>Approve and add, or replace</td></tr>
+        <tr><td>Pale blue #EEF2FB</td><td><strong>No</strong></td><td><strong>No</strong></td><td>Approve and add, or replace</td></tr>
+        <tr><td>Ink #333333</td><td>Neutral</td><td>Yes · Text</td><td>None</td></tr>
+        <tr><td>White #FFFFFF</td><td>Neutral</td><td>Yes</td><td>None</td></tr>
+      </table>
+
+      <div class="sg-note" style="border-left-color:var(--magenta)">
+        <p><strong>What this means in practice.</strong> Five colours need a decision from Paul —
+        green, navy, the footer band, cream and pale blue. None of them are wrong; they were
+        chosen for good reasons and the site would look flat without them. But they exist
+        outside the guidelines, and they are hard-coded widget by widget, so changing any one
+        of them today means hunting through every page.</p>
+        <p style="margin-top:12px">The fix is small: approve them as brand extensions, add them
+        to the Identity Guidelines, and register them as Global Colors. After that the entire
+        palette is editable from one screen — and the brand document finally describes the
+        site that actually exists.</p>
+        <p style="margin-top:12px">Two of them are easy wins. The yellow-green background and its
+        hairline are tints of the lime already in the guidelines, so approving them is closer to
+        documenting existing practice than adding anything new — and since Paul now wants that
+        background site-wide, it is doing far too much work to stay unregistered.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TYPE --------------------------------------------------------------- -->
+  <section class="sg-section">
+    <div class="container">
+      <h2>Typography</h2>
+
+      <div class="sg-note">
+        <p><strong>One typeface: Open Sans.</strong> The Identity Guidelines list
+        Akzidenz-Grotesk Pro Medium Condensed alongside Open Sans, but note that for
+        external work "the Open Sans family of fonts is the preferred choice." Akzidenz
+        is not licensed for web use and does not appear anywhere on the live site.
+        Earlier mockups substituted Roboto Condensed for it — that substitution has been
+        removed, which is the single biggest reason the old mockups did not match the
+        finished pages.</p>
+      </div>
+
+      <div class="sg-note" style="border-left-color:var(--magenta)">
+        <p><strong>The root stays at 16px.</strong> Body copy is 1.3rem (20.8px), which is
+        what makes the site comfortable for older adults. One earlier mockup raised the
+        root to 20px instead, which silently scaled every <code>rem</code> on the page by
+        30% and is why that page could never be matched in Elementor.</p>
+      </div>
+
+      <h3 style="margin:36px 0 12px">Theme Style → Typography</h3>
+      <p class="measure">What a plain <code>h1</code>–<code>h6</code> tag inherits. Every value below
+        was read from your Elementor kit and verified against the live site — the mockups
+        compute pixel-for-pixel identical at all three breakpoints.</p>
+
+      <table class="sg" style="margin-top:20px">
+        <tr><th>Tag</th><th>Desktop</th><th>Tablet ≤1024</th><th>Mobile ≤575</th><th>Weight</th><th>Line height</th></tr>
+        <tr><td>H1</td><td>3.2rem / 51.2px</td><td>3rem</td><td>2rem</td><td>700</td><td>1.3</td></tr>
+        <tr><td>H2</td><td>2.75rem / 44px</td><td>2.4rem</td><td>1.8rem</td><td>700</td><td>1.3</td></tr>
+        <tr><td>H3</td><td>2rem / 32px</td><td>1.8rem</td><td>1.5rem</td><td>600</td><td>1.3</td></tr>
+        <tr><td>H4</td><td>1.5rem / 24px</td><td>1.4rem</td><td>1.3rem</td><td>600</td><td>1.35</td></tr>
+        <tr><td>H5</td><td>1.35rem / 21.6px</td><td>—</td><td>—</td><td>600</td><td>1.4</td></tr>
+        <tr><td>H6</td><td>1.25rem / 20px</td><td>—</td><td>—</td><td>600</td><td>1.4</td></tr>
+        <tr><td>Body</td><td>1.3rem / 20.8px</td><td>—</td><td>—</td><td>400</td><td>1.6</td></tr>
+      </table>
+
+      <div style="margin-top:36px">
+        <!-- rendered as a div so the page keeps a single real h1 -->
+        <div class="specimen-h1">Heading 1 — sentence case</div>
+        <p class="sg-label">3.2rem / 51.2px · weight 700 · line-height 1.3</p>
+
+        <h2 style="margin-top:28px">Heading 2 — sentence case</h2>
+        <p class="sg-label">2.75rem / 44px · weight 700 · line-height 1.3</p>
+
+        <h3 style="margin-top:28px">Heading 3 — sentence case</h3>
+        <p class="sg-label">2rem / 32px · weight 600 · line-height 1.3</p>
+
+        <h4 style="margin-top:28px">Heading 4 — sentence case</h4>
+        <p class="sg-label">1.5rem / 24px · weight 600 · line-height 1.35</p>
+
+        <h5 style="margin-top:28px">Heading 5 — sentence case</h5>
+        <p class="sg-label">1.35rem / 21.6px · weight 600 · line-height 1.4</p>
+
+        <h6 style="margin-top:28px">Heading 6 — sentence case</h6>
+        <p class="sg-label">1.25rem / 20px · weight 600 · line-height 1.4</p>
+
+        <p style="margin-top:24px">Body copy. Friends &amp; Co brings people together to reduce
+          loneliness and build meaningful friendships across the Twin Cities.</p>
+        <p class="sg-label">1.3rem / 20.8px · weight 400 · line-height 1.6</p>
+      </div>
+
+      <h3 style="margin:44px 0 12px">Global Fonts → the named styles</h3>
+      <p class="measure">These are the styles you link a widget to with the globe icon. They are
+        separate from Theme Style — linking a widget to one of these overrides whatever its
+        tag would have inherited.</p>
+
+      <table class="sg" style="margin-top:20px">
+        <tr><th>Named style</th><th>Size</th><th>Weight</th><th>Line height</th><th>Letter spacing</th><th>Mockup class</th></tr>
+        <tr><td>Hero Title</td><td>3.2rem</td><td>700</td><td>1.3</td><td>—</td><td>same as <code>h1</code></td></tr>
+        <tr><td>Section Heading</td><td>2.75rem</td><td>700</td><td>1.3</td><td>—</td><td>same as <code>h2</code></td></tr>
+        <tr><td>Card Title</td><td>2rem</td><td>600</td><td>1.3</td><td>—</td><td>same as <code>h3</code></td></tr>
+        <tr><td>Big Statement</td><td>1.6rem</td><td>600</td><td>1.4</td><td>—</td><td><code>.lead</code></td></tr>
+        <tr><td>Button</td><td>1.2rem</td><td>700</td><td>—</td><td>0.08em</td><td><code>.btn</code></td></tr>
+        <tr><td>Eyebrow Label</td><td>1.1rem</td><td>600</td><td>—</td><td>1px</td><td><code>.section-eyebrow</code></td></tr>
+        <tr><td>Body</td><td>1.3rem</td><td>400</td><td>1.6</td><td>—</td><td><code>body</code></td></tr>
+        <tr><td>Small bold</td><td>1.15rem</td><td>700</td><td>1.4</td><td>—</td><td><code>.small</code></td></tr>
+        <tr><td>Caption</td><td>1rem</td><td>400</td><td>1.5</td><td>—</td><td><code>--fs-caption</code></td></tr>
+      </table>
+
+      <div class="sg-note" style="border-left-color:var(--teal)">
+        <p><strong>Two things worth knowing.</strong> Your Global Fonts set weights of
+        700 / 600 / 400 / 300 for Primary / Secondary / Text / Accent. And the "Big Statement"
+        style at 1.6rem is <em>not</em> H4 — H4 is 1.5rem. They are close enough to look like a
+        mistake when you see them side by side, but both are deliberate and both are honoured here.</p>
+      </div>
+
+      <div class="sg-note" style="border-left-color:var(--orange)">
+        <p><strong>Sentence case everywhere.</strong> Nothing on the site is set in all caps —
+        not headings, not buttons, not navigation, not eyebrows. Program names keep their
+        capitals because they are proper nouns (Coffee Talk, Cards Connect).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUTTONS ------------------------------------------------------------ -->
+  <section class="sg-section">
+    <div class="container">
+      <h2>Buttons</h2>
+      <p class="measure">19.2px, weight 700, 8px corner radius, minimum 44px tall for tap targets.</p>
+      <div class="sg-row" style="margin-top:24px">
+        <a class="btn btn-blue" href="#">Blue — primary</a>
+        <a class="btn btn-magenta" href="#">Magenta</a>
+        <a class="btn btn-lime" href="#">Lime — give</a>
+        <a class="btn btn-green" href="#">Green</a>
+        <a class="btn btn-orange" href="#">Orange</a>
+        <a class="btn btn-outline" href="#">Outline</a>
+      </div>
+      <div class="sg-row" style="margin-top:18px">
+        <a class="btn btn-blue btn-lg" href="#">Large button</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARDS -------------------------------------------------------------- -->
+  <section class="sg-section">
+    <div class="container">
+      <h2>Cards</h2>
+      <p class="measure">14px corner radius, soft shadow, 28px internal padding.</p>
+      <div class="grid grid-3" style="margin-top:28px">
+        <article class="card">
+          <div class="card-body">
+            <h3 class="card-title">Standard card</h3>
+            <p>White surface on a tinted section.</p>
+          </div>
+        </article>
+        <article class="card card-cream">
+          <div class="card-body">
+            <h3 class="card-title">Cream card</h3>
+            <p>For use on white sections, where a shadow would float.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-body">
+            <h3 class="card-title">With an action</h3>
+            <p>Cards can carry a single call to action.</p>
+            <p style="margin-top:14px"><a class="btn btn-blue" href="#">Learn more</a></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAYOUT ------------------------------------------------------------- -->
+  <section class="sg-section">
+    <div class="container">
+      <h2>Layout &amp; spacing</h2>
+      <table class="sg" style="margin-top:24px">
+        <tr><th>Token</th><th>Value</th><th>Used for</th></tr>
+        <tr><td><code>--container</code></td><td>1140px</td><td>Content column width — Elementor's default, and what the live site measures</td></tr>
+        <tr><td><code>--gutter</code></td><td>32px</td><td>Left and right padding inside the container</td></tr>
+        <tr><td><code>--section-y</code></td><td>80px</td><td>Standard vertical rhythm between sections</td></tr>
+        <tr><td><code>--radius-btn</code></td><td>8px</td><td>Buttons, inputs, badges</td></tr>
+        <tr><td><code>--radius-card</code></td><td>14px</td><td>Cards, tiles, images</td></tr>
+      </table>
+
+      <h3 style="margin:36px 0 16px">Section backgrounds</h3>
+      <div class="grid grid-2">
+        <div class="section-white card" style="padding:28px"><strong>White</strong><p class="small">Default content sections</p></div>
+        <div class="section-cream card" style="padding:28px"><strong>Cream #F7FDDF</strong><p class="small">Alternating content sections</p></div>
+        <div class="section-blue card" style="padding:28px"><strong>Blue</strong><p class="small">Program and service sections</p></div>
+        <div class="section-navy card" style="padding:28px"><strong>Navy</strong><p class="small">Testimonials, newsletter band</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO USE ---------------------------------------------------------- -->
+  <section class="sg-section">
+    <div class="container">
+      <h2>How the mockup set is put together</h2>
+      <table class="sg" style="margin-top:24px">
+        <tr><th>File</th><th>What it holds</th></tr>
+        <tr><td><code>assets/css/friendsco.css</code></td><td>All design tokens, base type, layout primitives, buttons, cards. The single source of truth.</td></tr>
+        <tr><td><code>assets/css/chrome.css</code></td><td>Header, navigation, footer and trust strip styles.</td></tr>
+        <tr><td><code>assets/js/chrome.js</code></td><td>The header and footer markup, injected into every page so there is only one copy to maintain.</td></tr>
+        <tr><td><code>assets/css/pages/*.css</code></td><td>Styles unique to one page, loaded last.</td></tr>
+        <tr><td><code>_template.html</code></td><td>Starter file for a new page, with the house rules written into it.</td></tr>
+      </table>
+
+      <div class="sg-note">
+        <p><strong>To add a page:</strong> copy <code>_template.html</code>, set
+        <code>data-page</code> on the body to highlight the right nav item, and write the
+        content. The header, footer, type scale and colours come along automatically —
+        which is what makes every page in the set match, and match the finished build.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div data-chrome="footer"></div>
+
+<script src="assets/js/chrome.js"></script>
+</body>
+</html>

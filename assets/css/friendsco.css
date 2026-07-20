@@ -1,0 +1,1244 @@
+/* ==========================================================================
+   Friends & Co — mockup design system
+   Single source of truth for every page in friendsco-theme-mockups.
+
+   Every token below is measured from the live Elementor site
+   (friendsco.org/donate, /planned-giving, /corporate-sponsorship,
+   /other-ways-to-give) so a mockup built on this file renders identically
+   to the finished WordPress build.
+
+   Do not redefine these tokens in a page. If a page needs something new,
+   add it here so every page gets it.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Type
+   Brand guide (Identity Guidelines, 5-21-22) specifies Open Sans for all
+   external/digital work. Akzidenz-Grotesk Pro Medium Condensed is print and
+   internal only — it is NOT licensed for web, and the live site does not use
+   it. Roboto Condensed was previously used as an Akzidenz stand-in in these
+   mockups; it does not appear on the live site and has been removed.
+   Albiol is display/word-art only, never body or UI text.
+   -------------------------------------------------------------------------- */
+@font-face {
+  font-family: 'Albiol';
+  src: url('../fonts/Albiol.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ======================================================================
+     COLOUR — every value is labelled with its brand status.
+     Do not add a colour here without deciding which tier it belongs to.
+
+     Tier 1  ON BRAND      — in the Identity Guidelines colour palette (p.9)
+     Tier 2  LOGO ONLY     — in the logo spec (p.7) but not the palette
+     Tier 3  NEUTRAL       — black/white/grey, no brand claim
+     Tier 4  OFF BRAND     — in use on the site, not in the guidelines
+     ====================================================================== */
+
+  /* --- Tier 1 · ON BRAND -------------------------------------------------
+     The six palette colours. All six are registered in Elementor
+     Global Colors, and the HEX values match the guidelines exactly. */
+  --blue:    #5E74B1;  /* PMS 7683 · CMYK 72-53-2-0  · Elementor "Primary"   */
+  --magenta: #BA3F97;  /* PMS 7656 · CMYK 27-90-0-0  · Elementor "Secondary" */
+  --lime:    #B0D235;  /* PMS 2292 · CMYK 39-0-100-0 · Elementor "Accent"    */
+  --teal:    #00BBD3;  /* PMS 3125 · CMYK 75-0-18-0  · Elementor global      */
+  --orange:  #F9A41E;  /* PMS 144  · CMYK 0-49-100-0 · Elementor global      */
+  --slate:   #7D91A0;  /* PMS 5415 · CMYK 56-37-30-0 · Elementor global      */
+
+  /* --- Tier 2 · LOGO ONLY ------------------------------------------------
+     Appears in the logo colour spec, NOT in the p.9 palette, and is NOT an
+     Elementor global. Currently used for buttons and programme tiles, which
+     is arguably a use the guidelines do not cover. Flagged for Paul. */
+  --green:   #85C340;  /* PMS 2294 · CMYK 50-0-96-0 */
+
+  /* --- Tier 3 · NEUTRAL --------------------------------------------------- */
+  --white: #FFFFFF;    /* Elementor global */
+  --ink:   #333333;    /* Elementor global "Text" — high contrast for older adults */
+
+  /* Muted greys for secondary copy. Kept deliberately dark: #777 on white is
+     the lightest that still clears WCAG AA at body size, and this audience
+     needs the contrast. Do not go lighter. */
+  --ink-muted:  #555555;
+  --ink-soft:   #666666;
+  --ink-softer: #777777;
+  --placeholder: #CCCCCC;
+
+  /* --- Tier 3b · BRAND TINTS ---------------------------------------------
+     Not separate colours — very light tints of a tier-1 palette colour.
+     The yellow-green background reads as its own colour but sits at hue 72°
+     against lime's 73°: it is PMS 2292 at roughly 7% strength. Same for its
+     hairline at 74°. Worth stating plainly to Paul, because "a tint of your
+     existing lime" is a far easier approval than "a new colour".
+
+     Historically called "cream", which was misleading — the old warm cream
+     was #FBF6EF at hue 35°, a genuinely different (orange) colour. The two
+     donate mockups differ only in this one value; the "-greenbg" file is the
+     yellow-green direction. */
+  --lime-tint:      #F7FDDF;  /* hue 72° · lime at ~7% — page/section background */
+  --lime-tint-deep: #DFF0A8;  /* hue 74° · hairline and borders on the above  */
+  --cream: var(--lime-tint);  /* deprecated alias — prefer --lime-tint */
+
+  /* --- Tier 4 · OFF BRAND ------------------------------------------------
+     Used across the live site but absent from the Identity Guidelines, and
+     not derivable from a palette colour. These are real decisions someone
+     made, not accidents — but they need approving or replacing. */
+  --navy:          #1A2A42;  /* dark sections, footer top, text on lime */
+  --footer-bottom: #4B5D91;  /* footer lower band */
+  --pale-blue:     #EEF2FB;  /* alternating section background */
+
+  /* --- Surfaces ----------------------------------------------------------
+     Role tokens for page background. Paul's direction is to move off white
+     onto the yellow-green tint — changing --surface below switches the whole
+     site in one place, which is exactly why this is a token and not a
+     hard-coded value on every section. */
+  --surface:     var(--lime-tint);  /* default page background */
+  --surface-alt: var(--white);      /* cards and panels that sit on it */
+
+  /* --- Derived shades ----------------------------------------------------
+     Darker/lighter steps of a tier-1 or tier-2 colour, used for hover and
+     pressed states. Not separate brand colours. */
+  --blue-dark:    #3F5591;
+  --blue-darker:  #4C6096;
+  --magenta-dark: #9C2F7E;
+  --lime-dark:    #A8CC26;
+  --green-dark:   #6FAA2C;
+
+  /* --- Hairlines & borders ------------------------------------------------ */
+  --line:      var(--lime-tint-deep);  /* on the yellow-green tint */
+  --line-grey: #E6E9F0;                /* on white */
+  --line-blue: #CDD8F0;                /* on pale blue */
+
+  /* --- Type --- */
+  --font: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-script: 'Albiol', 'Brush Script MT', cursive;
+
+  /* Type scale — mirrors Elementor Site Settings > Global Fonts exactly.
+     Read from the kit stylesheet (post-1392.css); the id in each comment is
+     the Elementor global set, so a change there maps straight to here.
+
+     Root is 16px (browser default) and body is 1.3rem = 20.8px. Older-adult
+     accessibility comes from the large base size, not from inflating the
+     root — never set html{font-size} above 100%. */
+  /* Theme Style → Typography (what a plain h1–h6 tag inherits) */
+  --fs-h1:      3.2rem;    /* 51.20px · w700 · lh 1.30 */
+  --fs-h2:      2.75rem;   /* 44.00px · w700 · lh 1.30 */
+  --fs-h3:      2rem;      /* 32.00px · w600 · lh 1.30 */
+  --fs-h4:      1.5rem;    /* 24.00px · w600 · lh 1.35 */
+  --fs-h5:      1.35rem;   /* 21.60px · w600 · lh 1.40 */
+  --fs-h6:      1.25rem;   /* 20.00px · w600 · lh 1.40 */
+
+  /* Global Fonts → the named styles you link widgets to */
+  --fs-body:    1.3rem;    /* 20.80px · w400 · lh 1.6   — Body */
+  --fs-lead:    1.6rem;    /* 25.60px · w600 · lh 1.4   — Big Statement */
+  --fs-btn:     1.2rem;    /* 19.20px · w700 · ls .08em — Button */
+  --fs-eyebrow: 1.1rem;    /* 17.60px · w600 · ls 1px   — Eyebrow Label */
+  --fs-strong:  1.15rem;   /* 18.40px · w700 · lh 1.4 */
+  --fs-caption: 1rem;      /* 16.00px · w400 · lh 1.5 */
+
+  /* Not in Elementor — mockup-only, see the note in styleguide.html */
+  --fs-small:   1.15rem;
+  --fs-display: 5.6rem;    /* oversized hero heading, weight 500 */
+
+  /* Global font weights (Elementor primary / secondary / text / accent) */
+  --fw-primary:   700;
+  --fw-secondary: 600;
+  --fw-text:      400;
+  --fw-accent:    300;
+
+  --lh-body: 1.6;
+  --lh-head: 1.3;
+  --ls-btn: .08em;
+  --ls-eyebrow: 1px;
+
+  /* --- Layout --- */
+  --container: 1140px;     /* Elementor content column on the live site */
+  --gutter: 32px;
+  --section-y: 80px;       /* standard vertical section rhythm */
+  --section-y-sm: 56px;
+
+  /* --- Shape --- */
+  --radius-btn:  8px;      /* live buttons */
+  --radius-card: 14px;     /* live cards */
+  --radius-sm:   6px;
+
+  /* --- Elevation --- */
+  --shadow-card: 0 2px 10px rgba(26, 42, 66, .08);
+  --shadow-pop:  0 8px 24px rgba(26, 42, 66, .18);
+  --shadow-btn:  0 6px 14px rgba(0, 0, 0, .14);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & base
+   -------------------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+
+html {
+  font-size: 100%;         /* 16px — matches live. Do not override. */
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--ink);
+  background: var(--surface);
+  -webkit-font-smoothing: antialiased;
+}
+
+img, video { max-width: 100%; display: block; height: auto; }
+/* SVG stays inline so icons sit on the text baseline rather than dropping
+   onto their own line (nav carets, footer chevrons, button icons). */
+svg { max-width: 100%; vertical-align: middle; }
+a { color: inherit; }
+ul, ol { list-style: none; }
+
+/* --------------------------------------------------------------------------
+   3. Headings
+   Sentence case throughout — nothing is set in all caps. This is a standing
+   client rule (Paul); do not add text-transform: uppercase anywhere.
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font);
+  line-height: var(--lh-head);
+  text-transform: none;
+  color: var(--navy);
+}
+h1 { font-size: var(--fs-h1); font-weight: var(--fw-primary);   line-height: 1.3; }
+h2 { font-size: var(--fs-h2); font-weight: var(--fw-primary);   line-height: 1.3; }
+h3 { font-size: var(--fs-h3); font-weight: var(--fw-secondary); line-height: 1.3; }
+h4 { font-size: var(--fs-h4); font-weight: var(--fw-secondary); line-height: 1.35; }
+h5 { font-size: var(--fs-h5); font-weight: var(--fw-secondary); line-height: 1.4; }
+h6 { font-size: var(--fs-h6); font-weight: var(--fw-secondary); line-height: 1.4; }
+
+/* Hero display heading — the oversized light-weight treatment used on
+   /other-ways-to-give. Opt in with class, never as a base heading style. */
+.display {
+  font-size: var(--fs-display);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.lead { font-size: var(--fs-lead); }
+.small { font-size: var(--fs-small); }
+
+/* Heading colour helpers — live site alternates magenta and blue */
+.h-magenta { color: var(--magenta); }
+.h-blue    { color: var(--blue); }
+.h-white   { color: var(--white); }
+.h-teal    { color: var(--teal); }
+.h-orange  { color: var(--orange); }
+.h-lime    { color: var(--lime); }
+.h-navy    { color: var(--navy); }
+
+/* --------------------------------------------------------------------------
+   4. Layout primitives
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section { padding-block: var(--section-y); }
+.section-sm { padding-block: var(--section-y-sm); }
+
+.section-white  { background: var(--white); }
+.section-tint   { background: var(--lime-tint); }
+.section-cream  { background: var(--lime-tint); }  /* deprecated — use .section-tint */
+.section-navy   { background: var(--navy);    color: var(--white); }
+.section-blue   { background: var(--blue);    color: var(--white); }
+.section-magenta{ background: var(--magenta); color: var(--white); }
+.section-navy h1, .section-navy h2, .section-navy h3, .section-navy h4,
+.section-blue h1, .section-blue h2, .section-blue h3, .section-blue h4,
+.section-magenta h1, .section-magenta h2, .section-magenta h3, .section-magenta h4 {
+  color: var(--white);
+}
+
+.grid { display: grid; gap: 32px; }
+.grid-1 { grid-template-columns: 1fr; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+.stack > * + * { margin-top: 1rem; }
+.center { text-align: center; }
+.measure { max-width: 68ch; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   4b. Section headings
+   The eyebrow / heading / deck pattern used at the top of most sections.
+   -------------------------------------------------------------------------- */
+.section-head { text-align: center; margin-bottom: 50px; }
+.section-head h2 { margin-bottom: 16px; }
+.section-head p {
+  font-size: var(--fs-body);
+  color: var(--ink-soft);
+  max-width: 640px;
+  margin-inline: auto;
+}
+/* Matches Elementor global 5c9084c */
+.section-eyebrow {
+  display: inline-block;
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-secondary);
+  letter-spacing: var(--ls-eyebrow);
+  color: var(--magenta);
+  margin-bottom: 14px;
+}
+.section-footer-link { text-align: center; margin-top: 40px; }
+.section-footer-link a {
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 700;
+}
+.section-footer-link a:hover { color: var(--magenta); }
+/* a .btn inside the footer link slot keeps its own button colours */
+.section-footer-link .btn-blue,
+.section-footer-link .btn-magenta,
+.section-footer-link .btn-orange { color: var(--white); }
+.section-footer-link .btn-lime,
+.section-footer-link .btn-green { color: var(--navy); }
+
+/* On dark sections the eyebrow and deck need to lift off the background */
+.section-navy .section-head p,
+.section-blue .section-head p,
+.section-magenta .section-head p { color: rgba(255,255,255,.85); }
+.section-navy .section-eyebrow,
+.section-blue .section-eyebrow,
+.section-magenta .section-eyebrow { color: rgba(255,255,255,.75); }
+
+/* --------------------------------------------------------------------------
+   5. Buttons
+   Matches live: 19.2px / 700 / 8px radius / 10px 22px padding.
+   Minimum 44px tap target for accessibility.
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 10px 22px;
+  border: none;
+  border-radius: var(--radius-btn);
+  font-family: var(--font);
+  font-size: var(--fs-btn);
+  font-weight: var(--fw-primary);
+  letter-spacing: var(--ls-btn);   /* Elementor global 13fbc88 */
+  line-height: 1.3;
+  text-decoration: none;
+  text-transform: none;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-btn); }
+.btn:focus-visible { outline: 3px solid var(--navy); outline-offset: 2px; }
+
+.btn-blue    { background: var(--blue);    color: var(--white); }
+.btn-blue:hover    { background: var(--blue-dark); }
+.btn-magenta { background: var(--magenta); color: var(--white); }
+.btn-magenta:hover { background: var(--magenta-dark); }
+.btn-lime    { background: var(--lime);    color: var(--navy); }
+.btn-lime:hover    { background: var(--lime-dark); }
+.btn-green   { background: var(--green);   color: var(--navy); }
+.btn-green:hover   { background: var(--green-dark); }
+.btn-orange  { background: var(--orange);  color: var(--white); }
+.btn-outline {
+  background: transparent;
+  color: var(--blue);
+  box-shadow: inset 0 0 0 2px var(--blue);
+}
+.btn-outline:hover { background: var(--blue); color: var(--white); }
+.btn-lg { padding: 14px 28px; font-size: 1.3rem; }
+
+/* --------------------------------------------------------------------------
+   5b. Page hero
+   The standard hero used by every interior page (home has its own video hero).
+   -------------------------------------------------------------------------- */
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: 64px;
+}
+.page-hero-watermark {
+  position: absolute;
+  right: -40px; top: 50%;
+  transform: translateY(-50%);
+  width: 300px;
+  opacity: .12;
+  pointer-events: none;
+}
+.page-hero-inner { position: relative; z-index: 1; }
+.page-hero .lead { margin-top: 14px; }
+.page-hero .section-eyebrow { color: rgba(255,255,255,.8); }
+
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+.center-actions { justify-content: center; }
+
+/* Outline button sitting on a dark section */
+.btn-outline.btn-on-dark {
+  color: var(--white);
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.75);
+}
+.btn-outline.btn-on-dark:hover { background: rgba(255,255,255,.12); color: var(--white); }
+
+/* --------------------------------------------------------------------------
+   5c. Tick list — "what you can access" style checklists
+   -------------------------------------------------------------------------- */
+.tick-list { list-style: none; }
+.tick-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: var(--fs-body);
+}
+.tick-list i {
+  color: var(--green);
+  font-size: 1.1rem;
+  position: relative;
+  top: 6px;
+  flex: 0 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   5d. Factbox — label/value pairs, e.g. advisor details
+   -------------------------------------------------------------------------- */
+.factbox {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 28px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  padding: 32px;
+}
+.factbox dt {
+  font-weight: var(--fw-primary);
+  color: var(--blue);
+  margin-bottom: 6px;
+}
+.factbox dd { line-height: 1.5; }
+
+@media (max-width: 768px) {
+  .factbox { grid-template-columns: 1fr; }
+}
+
+/* --------------------------------------------------------------------------
+   5e. Steps — "here's what to expect" sequences
+   -------------------------------------------------------------------------- */
+.steps { list-style: none; counter-reset: step; }
+.step {
+  background: var(--surface-alt);
+  border: 1px solid var(--line-grey);
+  border-radius: var(--radius-card);
+  padding: 32px 28px 28px;
+  position: relative;
+}
+.step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--white);
+  font-size: var(--fs-h5);
+  font-weight: var(--fw-primary);
+  margin-bottom: 16px;
+}
+.step:nth-child(2) .step-num { background: var(--magenta); }
+.step:nth-child(3) .step-num { background: var(--teal); }
+.step h3 { font-size: var(--fs-h4); margin-bottom: 8px; }
+.step p { color: var(--ink-muted); font-size: var(--fs-small); }
+
+/* --------------------------------------------------------------------------
+   5f. FAQ — native disclosure, no JavaScript required
+   -------------------------------------------------------------------------- */
+.faq details {
+  background: var(--surface-alt);
+  border: 1px solid var(--line-grey);
+  border-radius: var(--radius-card);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.faq summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 20px 56px 20px 24px;
+  font-weight: var(--fw-secondary);
+  font-size: var(--fs-h5);
+  color: var(--blue);
+  position: relative;
+  min-height: 44px;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: '+';
+  position: absolute;
+  right: 24px; top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--magenta);
+}
+.faq details[open] summary::after { content: '−'; }
+.faq summary:hover { background: var(--lime-tint); }
+.faq summary:focus-visible { outline: 3px solid var(--blue); outline-offset: -3px; }
+.faq-body { padding: 0 24px 22px; color: var(--ink-muted); }
+
+/* --------------------------------------------------------------------------
+   5g. Notice — prominent inline message
+   -------------------------------------------------------------------------- */
+.notice {
+  border-left: 6px solid var(--orange);
+  background: var(--lime-tint);
+  border-radius: var(--radius-card);
+  padding: 28px 32px;
+}
+.notice h2 { font-size: var(--fs-h3); margin-bottom: 10px; }
+.notice p + p { margin-top: .8rem; }
+.notice a { color: var(--magenta); text-decoration: underline; text-underline-offset: 3px; }
+.notice-magenta { border-left-color: var(--magenta); }
+.notice-blue { border-left-color: var(--blue); }
+
+/* --------------------------------------------------------------------------
+   5h. Forms
+   Generous targets and large labels — the audience is older adults.
+   -------------------------------------------------------------------------- */
+.form-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  padding: 32px;
+  margin-top: 20px;
+  max-width: 760px;
+}
+.form-panel label {
+  display: block;
+  font-weight: var(--fw-secondary);
+  color: var(--navy);
+  margin-bottom: 20px;
+}
+.form-panel input,
+.form-panel select,
+.form-panel textarea {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px 16px;
+  min-height: 52px;
+  font-family: var(--font);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-text);
+  color: var(--ink);
+  background: var(--white);
+  border: 2px solid var(--line-grey);
+  border-radius: var(--radius-btn);
+}
+.form-panel input:focus,
+.form-panel select:focus,
+.form-panel textarea:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(94, 116, 177, .25);
+}
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.form-note { margin-top: 14px; font-size: var(--fs-small); color: var(--ink-muted); }
+
+@media (max-width: 768px) {
+  .field-row { grid-template-columns: 1fr; gap: 0; }
+  .form-panel { padding: 24px; }
+}
+
+/* --------------------------------------------------------------------------
+   5i. Photo hero
+   The treatment used by the pages already rebuilt in Elementor: a photograph
+   behind a navy scrim, with the copy sitting left.
+   -------------------------------------------------------------------------- */
+.photo-hero {
+  background-size: cover;
+  background-position: center;
+  padding-block: 96px;
+  color: var(--white);
+}
+.photo-hero-inner { max-width: var(--container); }
+.photo-hero-inner.center { text-align: center; margin-inline: auto; }
+.photo-hero h1 { max-width: 18ch; }
+.photo-hero-inner.center h1 { max-width: none; }
+.photo-hero .lead { margin-top: 16px; color: rgba(255,255,255,.94); }
+.photo-hero .section-eyebrow { color: var(--lime); }
+
+/* --------------------------------------------------------------------------
+   5j. Section tones used by the rebuilt pages
+   -------------------------------------------------------------------------- */
+/* Live is rgba(94,116,177,.25) sitting on white. Composited here so it reads
+   the same lavender on the tinted page background. */
+.section-tint-blue { background: #D7DCEC; }
+.section-lime { background: var(--lime); color: var(--navy); }
+.section-lime h2, .section-lime h3 { color: var(--navy); }
+
+/* Short rule under a centred heading */
+.rule {
+  display: block;
+  width: 72px; height: 4px;
+  background: var(--lime);
+  border-radius: 2px;
+  margin: 18px auto 22px;
+}
+.section-lime .rule { background: var(--navy); }
+.closing-line { font-weight: var(--fw-secondary); margin-bottom: 6px; }
+
+/* --------------------------------------------------------------------------
+   5k. Icon cards
+   -------------------------------------------------------------------------- */
+.icon-card {
+  background: var(--white);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 34px 26px 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.icon-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px; height: 76px;
+  border-radius: 50%;
+  background: var(--lime-tint);
+  color: var(--blue);
+  font-size: 1.9rem;
+  margin-bottom: 18px;
+}
+.icon-card:nth-child(2) .icon-card-icon { color: var(--magenta); }
+.icon-card:nth-child(3) .icon-card-icon { color: var(--teal); }
+.icon-card:nth-child(4) .icon-card-icon { color: var(--orange); }
+.icon-card h3 { font-size: var(--fs-h4); margin-bottom: 10px; }
+.icon-card p { color: var(--ink-muted); font-size: var(--fs-small); flex: 1; }
+.icon-card .btn { margin-top: 20px; }
+
+/* --------------------------------------------------------------------------
+   5l. Impact statistics
+   -------------------------------------------------------------------------- */
+.stats { text-align: center; }
+.stat { display: flex; flex-direction: column; align-items: center; }
+.stat-icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: var(--lime-tint);
+  color: var(--blue);
+  font-size: 1.5rem;
+  margin-bottom: 14px;
+}
+.stat:nth-child(2) .stat-icon { color: var(--magenta); }
+.stat:nth-child(3) .stat-icon { color: var(--teal); }
+.stat-num {
+  font-size: 3.4rem;
+  font-weight: var(--fw-primary);
+  line-height: 1;
+  color: var(--navy);
+}
+.stat-suffix { color: var(--lime-dark); }
+.stat-label { margin-top: 10px; color: var(--ink-muted); font-size: var(--fs-small); }
+
+/* --------------------------------------------------------------------------
+   5m. Pull quote
+   -------------------------------------------------------------------------- */
+/* Matched to the live testimonial widget: white 34% quote mark, #333 quote at
+   27px, blue attribution at 17.6px / 600. */
+.quote-mark { font-size: 2.4rem; color: rgba(255, 255, 255, .34); }
+.pull-quote {
+  font-size: 1.69rem;            /* 27.04px on live */
+  font-weight: var(--fw-text);
+  line-height: 1.45;
+  color: var(--ink);
+  max-width: 60ch;
+  margin: 14px auto 0;
+}
+.pull-cite {
+  display: block;
+  margin-top: 18px;
+  font-style: normal;
+  font-size: var(--fs-eyebrow);  /* 17.6px */
+  font-weight: var(--fw-secondary);
+  color: var(--blue);
+}
+.section-navy .pull-quote, .section-navy .pull-cite { color: var(--white); }
+
+@media (max-width: 1024px) {
+  .stat-num { font-size: 2.6rem; }
+  .photo-hero { padding-block: 72px; }
+}
+
+/* --------------------------------------------------------------------------
+   5n. Jump navigation + giving options (Other ways to give)
+   -------------------------------------------------------------------------- */
+.jumpnav-wrap { border-bottom: 1px solid var(--line-grey); }
+.jumpnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 12px;
+}
+.jumpnav .btn { font-size: var(--fs-small); padding: 16px 40px; }
+.section-tint-blue .section-eyebrow { color: var(--blue); }
+
+/* Option cards — the giving options on Other ways to give.
+   White card, 12px radius, thick accent rule along the top, slate heading at
+   44px with a faded accent icon top-right, accent sub-headings. */
+.option-grid { gap: 30px; margin-top: 36px; }
+.option-card {
+  background: var(--white);
+  border-radius: 12px;
+  border-top: 6px solid var(--accent, var(--blue));
+  padding: 34px 34px 30px;
+  scroll-margin-top: 24px;
+}
+.option-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+.option-card h2 {
+  color: var(--slate);
+  font-size: var(--fs-h2);
+  margin-bottom: 18px;
+}
+.option-card-icon {
+  font-size: 1.9rem;
+  color: var(--accent, var(--blue));
+  opacity: .52;
+  flex: 0 0 auto;
+  line-height: 1;
+}
+.option-lede {
+  color: var(--accent, var(--blue));
+  font-size: var(--fs-strong);
+  font-weight: var(--fw-primary);
+  margin-bottom: 10px;
+}
+.option-lede + .option-text { margin-bottom: 22px; }
+.option-text { color: var(--ink); margin-bottom: 22px; }
+.option-contact { font-size: var(--fs-caption); line-height: 1.6; }
+.option-contact a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+.option-contact a:hover { color: var(--magenta); }
+
+.option-card.accent-blue    { --accent: var(--blue); }
+.option-card.accent-magenta { --accent: var(--magenta); }
+.option-card.accent-green   { --accent: var(--green); }
+.option-card.accent-orange  { --accent: var(--orange); }
+.option-card.accent-teal    { --accent: var(--teal); }
+.option-card.accent-slate   { --accent: var(--slate); }
+
+@media (max-width: 768px) {
+  .option-card h2 { font-size: var(--fs-h3); }
+}
+
+.option { display: grid; grid-template-columns: 96px 1fr; gap: 28px; align-items: start; }
+.option-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px; height: 96px;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--blue);
+  font-size: 2.2rem;
+  box-shadow: var(--shadow-card);
+}
+.section-white .option-icon { background: var(--lime-tint); }
+.option-body h2 { margin-bottom: 6px; }
+.option-body .lead { color: var(--magenta); font-weight: var(--fw-secondary); margin-bottom: 14px; }
+.option-action {
+  margin-top: 22px;
+  padding: 22px 26px;
+  background: var(--white);
+  border-left: 5px solid var(--lime);
+  border-radius: var(--radius-card);
+}
+.section-white .option-action { background: var(--lime-tint); }
+.option-action h3 { font-size: var(--fs-h4); margin-bottom: 8px; }
+.option-contact { margin-top: 12px; font-weight: var(--fw-secondary); }
+.option-contact a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+.option-contact a:hover { color: var(--magenta); }
+
+/* anchor targets clear the sticky-ish header nicely */
+[id] { scroll-margin-top: 24px; }
+
+@media (max-width: 768px) {
+  .option { grid-template-columns: 1fr; gap: 18px; }
+  .option-icon { width: 72px; height: 72px; font-size: 1.7rem; }
+}
+
+/* --------------------------------------------------------------------------
+   5o. Split — body copy beside a panel (planned giving)
+   -------------------------------------------------------------------------- */
+.split { display: grid; gap: 40px; align-items: start; }
+.split-wide { grid-template-columns: 1.6fr 1fr; }   /* live measures 690 / 430 */
+.split-even { grid-template-columns: 1fr 1fr; }
+.split-aside {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  padding: 30px 28px;
+}
+/* Accented variant used on planned giving: tinted panel with a thick coloured
+   rule down the left edge, and the icon inline beside the heading. */
+.split-aside.accent-lime {
+  background: rgba(176, 210, 53, .18);
+  border: none;
+  border-left: 8px solid var(--lime);
+  border-radius: 12px;
+  padding: 40px;
+}
+.split-aside.accent-lime .split-icon {
+  width: auto; height: auto;
+  background: none;
+  color: var(--lime);
+  font-size: 1.9rem;
+  margin: 0 14px 0 0;
+  float: left;
+}
+.split-aside.accent-lime h3 { color: var(--lime); font-size: var(--fs-h3); }
+
+.split-icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 62px; height: 62px;
+  border-radius: 50%;
+  background: var(--lime-tint);
+  color: var(--blue);
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+.split-aside h3 { font-size: var(--fs-h4); margin-bottom: 10px; }
+
+/* Panel with a thick coloured rule along the top edge — corporate sponsorship */
+.panel-topline {
+  background: rgba(94, 116, 177, .25);
+  border: none;
+  border-top: 8px solid var(--magenta);
+  border-radius: 12px;
+  padding: 40px;
+}
+.panel-topline.center { text-align: center; }
+.panel-topline .panel-icon {
+  display: block;
+  font-size: 2.6rem;
+  color: var(--teal);
+  margin-bottom: 14px;
+  line-height: 1;
+}
+.panel-magenta h3 { color: var(--magenta); font-size: var(--fs-h3); margin-bottom: 14px; }
+.panel-note { color: var(--ink-muted); margin-bottom: 18px; }
+.panel-contact { color: var(--ink-muted); line-height: 1.7; }
+.panel-contact strong { color: var(--ink); }
+.panel-contact a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+.panel-contact a:hover { color: var(--magenta); }
+
+/* Tick list with blue label text (corporate sponsorship) */
+.tick-list-blue li { color: var(--blue); }
+.split-note { color: var(--ink-muted); font-size: var(--fs-small); margin-bottom: 18px; }
+.split-rows > div + div { margin-top: 16px; }
+.split-rows dt {
+  font-weight: var(--fw-primary);
+  color: var(--blue);
+  font-size: var(--fs-small);
+  margin-bottom: 4px;
+}
+/* On the accented panel the labels are bold dark, not blue */
+.split-aside.accent-lime .split-rows dt { color: var(--ink); }
+.split-aside.accent-lime .split-rows dd { color: var(--ink-muted); }
+.split-rows dd { line-height: 1.5; }
+
+/* --------------------------------------------------------------------------
+   5p. Media band — image beside text
+   -------------------------------------------------------------------------- */
+.media { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; }
+.media-reverse .media-img { order: 2; }
+.media-img img {
+  width: 100%;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+.media-body h2 { margin-bottom: 14px; }
+
+@media (max-width: 1024px) {
+  .split-wide, .split-even, .media { grid-template-columns: 1fr; gap: 28px; }
+  .media-reverse .media-img { order: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   5q. Pattern hero — the graphic pattern behind a white card
+   This is what the giving pages actually use. Not a photo with a scrim.
+   -------------------------------------------------------------------------- */
+/* The pattern is washed with teal at 69% on the live site — that softening is
+   what makes white type legible over it. Background is sized 2704px and
+   centred, not `cover`, so the motifs stay at their intended scale. */
+.pattern-hero,
+.pattern-cta {
+  position: relative;
+  background-image: url('../img/FriendsCo_Pattern.jpg');
+  background-size: 2704px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-color: var(--teal);
+  padding-block: 80px;
+  overflow: hidden;
+}
+.pattern-hero::before,
+.pattern-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--wash, var(--teal));
+  opacity: .69;
+  pointer-events: none;
+}
+/* The wash colour varies per page — teal on planned giving, blue on
+   corporate sponsorship. It changes the whole character of the band. */
+.wash-teal    { --wash: var(--teal); }
+.wash-blue    { --wash: var(--blue); }
+.wash-magenta { --wash: var(--magenta); }
+.wash-lime    { --wash: var(--lime); }
+.pattern-hero > *,
+.pattern-cta > * { position: relative; z-index: 1; }
+
+.pattern-hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.pattern-hero-photo { margin: 0; }
+.pattern-hero-photo img {
+  width: 100%;
+  border-radius: var(--radius-card);
+  border: 5px solid var(--white);
+  box-shadow: 0 12px 30px rgba(26, 42, 66, .22);
+}
+.pattern-hero-card {
+  background: var(--white);
+  border-radius: var(--radius-card);
+  padding: 44px 42px;
+  box-shadow: 0 12px 30px rgba(26, 42, 66, .18);
+}
+.pattern-hero-card h1 { margin-bottom: 16px; }
+.pattern-hero-card p { color: var(--ink-muted); }
+.pattern-hero-card .hero-actions { margin-top: 26px; }
+
+
+.pattern-cta .closing-line { color: var(--white); margin-top: 4px; }
+
+/* Two-tone rule used under headings on the giving pages */
+.rule-orange { background: var(--orange); width: 260px; height: 3px; }
+.rule-two {
+  width: 300px; height: 3px;
+  background: linear-gradient(90deg, var(--magenta) 0%, var(--blue) 100%);
+}
+
+/* --------------------------------------------------------------------------
+   5r. Colour cards — icon, heading and button share one accent
+   -------------------------------------------------------------------------- */
+.colour-card {
+  background: var(--white);
+  border-radius: var(--radius-btn);
+  box-shadow: 0 2px 12px rgba(26, 42, 66, .10);
+  padding: 40px 34px 36px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.colour-card-icon { font-size: 2rem; margin-bottom: 14px; line-height: 1; }
+.colour-card h3 { font-size: var(--fs-h3); margin-bottom: 12px; }
+.colour-card p { color: var(--ink-muted); flex: 1; margin-bottom: 22px; }
+
+.accent-magenta .colour-card-icon, .accent-magenta h3 { color: var(--magenta); }
+.accent-lime    .colour-card-icon, .accent-lime h3    { color: var(--lime); }
+.accent-orange  .colour-card-icon, .accent-orange h3  { color: var(--orange); }
+.accent-teal    .colour-card-icon, .accent-teal h3    { color: var(--teal); }
+.accent-blue    .colour-card-icon, .accent-blue h3    { color: var(--blue); }
+
+.btn-teal  { background: var(--teal);  color: var(--white); }
+.btn-teal:hover { background: #00A6BB; }
+.btn-white { background: var(--white); color: var(--blue); }
+.btn-white:hover { background: #F2F4FA; }
+
+/* Trailing arrow on the giving-page buttons */
+.btn-arrow::after {
+  content: '\f061';                 /* fa-arrow-right */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: .85em;
+  margin-left: 4px;
+}
+/* Leading arrow — the "Back to Support" buttons point left */
+.btn-arrow-left::before {
+  content: '\f060';                 /* fa-arrow-left */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: .85em;
+  margin-right: 4px;
+}
+
+/* Pattern band type */
+/* Eyebrow, heading and lead are all white on the pattern bands — 17.6px/600,
+   51.2px/700 and 25.6px/600 respectively, matching the live pages. */
+.pattern-page-hero .pattern-eyebrow {
+  color: var(--white);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-secondary);
+  margin-bottom: 10px;
+}
+.pattern-lead, .pattern-body {
+  color: var(--white);
+  font-size: var(--fs-lead);
+  font-weight: var(--fw-secondary);
+  margin-top: 12px;
+}
+.pattern-body { font-size: var(--fs-body); }
+
+/* --------------------------------------------------------------------------
+   5s. Stats with solid filled discs
+   -------------------------------------------------------------------------- */
+.stat-disc {
+  display: flex; align-items: center; justify-content: center;
+  width: 62px; height: 62px;
+  border-radius: 50%;
+  color: var(--white);
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+.accent-orange  .stat-disc { background: var(--orange); }
+.accent-magenta .stat-disc { background: var(--magenta); }
+.accent-lime    .stat-disc { background: var(--lime); }
+.accent-teal    .stat-disc { background: var(--teal); }
+.accent-orange  .stat-num, .accent-orange .stat-suffix  { color: var(--orange); }
+.accent-magenta .stat-num, .accent-magenta .stat-suffix { color: var(--magenta); }
+.accent-lime    .stat-num, .accent-lime .stat-suffix    { color: var(--lime); }
+
+@media (max-width: 1024px) {
+  .pattern-hero-inner { grid-template-columns: 1fr; }
+  .pattern-hero-photo { max-width: 480px; }
+}
+
+/* --------------------------------------------------------------------------
+   5t. Split hero — photo one side, solid accent panel the other
+   The Phone Companions hero. Live measures 817 / 998.
+   -------------------------------------------------------------------------- */
+.split-hero { display: grid; grid-template-columns: 817fr 998fr; min-height: 440px; }
+.split-hero-photo { background-size: cover; background-position: center; }
+.split-hero-panel {
+  position: relative;
+  overflow: hidden;
+  background: var(--accent, var(--orange));
+  display: flex;
+  align-items: center;
+  padding: 64px 56px;
+}
+.split-hero.accent-orange  { --accent: var(--orange); }
+.split-hero.accent-blue    { --accent: var(--blue); }
+.split-hero.accent-magenta { --accent: var(--magenta); }
+.split-hero-mark {
+  position: absolute;
+  right: -40px; top: 50%;
+  transform: translateY(-50%);
+  width: 380px;
+  opacity: .16;
+  pointer-events: none;
+}
+.split-hero-body { position: relative; z-index: 1; max-width: 34rem; }
+.split-hero-eyebrow {
+  color: rgba(255, 255, 255, .85);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-secondary);
+  margin-bottom: 8px;
+}
+.split-hero-lead {
+  color: var(--white);
+  font-size: var(--fs-lead);
+  font-weight: var(--fw-text);
+  margin-top: 14px;
+}
+/* Hero buttons: solid tint with accent text, and a ghost outline in tint */
+.btn-tint-on-orange { background: var(--lime-tint); color: var(--orange); }
+.btn-tint-on-orange:hover { background: var(--white); }
+.btn-ghost-tint {
+  background: transparent;
+  color: var(--white);
+  box-shadow: inset 0 0 0 2px var(--lime-tint);
+}
+.btn-ghost-tint:hover { background: rgba(255, 255, 255, .14); }
+
+@media (max-width: 1024px) {
+  .split-hero { grid-template-columns: 1fr; }
+  .split-hero-photo { min-height: 300px; }
+  .split-hero-panel { padding: 48px 32px; }
+}
+
+/* --------------------------------------------------------------------------
+   5u. Icon steps — centred disc, blue heading
+   -------------------------------------------------------------------------- */
+.icon-steps { text-align: center; }
+.icon-step { display: flex; flex-direction: column; align-items: center; }
+.icon-step-disc {
+  display: flex; align-items: center; justify-content: center;
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: rgba(249, 164, 30, .3);
+  color: var(--orange);
+  font-size: 1.9rem;
+  margin-bottom: 18px;
+}
+.icon-steps.accent-blue .icon-step-disc { background: rgba(94,116,177,.3); color: var(--blue); }
+.icon-steps.accent-teal .icon-step-disc { background: rgba(0,187,211,.3); color: var(--teal); }
+.icon-step h3 { color: var(--blue); font-size: var(--fs-h3); margin-bottom: 12px; }
+.icon-step p { color: var(--ink); }
+
+/* --------------------------------------------------------------------------
+   5v. FAQ band — blue section, flower watermark, tinted cards
+   -------------------------------------------------------------------------- */
+.faq-band {
+  position: relative;
+  overflow: hidden;
+  background: var(--blue);
+  color: var(--white);
+}
+.faq-band-mark {
+  position: absolute;
+  left: -90px; top: 50%;
+  transform: translateY(-50%);
+  width: 420px;
+  opacity: .14;
+  pointer-events: none;
+}
+.faq-band .container { position: relative; z-index: 1; }
+.faq-band-sub { color: rgba(255, 255, 255, .88); margin: 8px 0 34px; }
+.faq-cards { gap: 30px; }
+.faq-card {
+  background: var(--lime-tint);
+  border-radius: 12px;
+  padding: 32px;
+}
+.faq-card h3 {
+  color: var(--blue);
+  font-size: var(--fs-h3);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.faq-card h3 i { color: var(--lime); font-size: 1.1rem; flex: 0 0 auto; }
+.faq-card p { color: var(--ink); }
+
+/* --------------------------------------------------------------------------
+   5w. Choice band — tilted photo, stacked choice cards
+   -------------------------------------------------------------------------- */
+.media-img.tilted img { transform: rotate(-2deg); border: 6px solid var(--white); }
+.choice-band .media-body > .section-eyebrow { margin-bottom: 6px; }
+.choice-band h2 { margin-bottom: 26px; }
+.choice-card {
+  background: rgba(255, 255, 255, .55);
+  border-left: 6px solid var(--accent, var(--orange));
+  border-radius: 12px;
+  padding: 26px 28px;
+  box-shadow: var(--shadow-card);
+}
+.choice-card + .choice-card { margin-top: 22px; }
+.choice-card.accent-orange { --accent: var(--orange); }
+.choice-card.accent-blue   { --accent: var(--blue); }
+.choice-card h3 { color: var(--accent); font-size: var(--fs-h3); margin-bottom: 10px; }
+.choice-card p { color: var(--ink); margin-bottom: 18px; }
+
+/* --------------------------------------------------------------------------
+   6. Cards
+   -------------------------------------------------------------------------- */
+.card {
+  background: var(--white);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+.card-body { padding: 28px; }
+.card-title { font-size: var(--fs-h4); margin-bottom: .5rem; }
+.card img { width: 100%; object-fit: cover; }
+.card-cream { background: var(--lime-tint); box-shadow: none; border: 1px solid var(--line); }
+.card-body > p + p { margin-top: 1rem; }
+.card-action { margin-top: 18px; }
+
+/* --------------------------------------------------------------------------
+   7. Links & prose
+   -------------------------------------------------------------------------- */
+h2 + .prose, h2 + .factbox, h3 + .prose, h2 + .tick-list { margin-top: 18px; }
+.prose a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+.prose a:hover { color: var(--magenta); }
+.prose p + p { margin-top: 1rem; }
+.prose ul { list-style: disc; padding-left: 1.4em; }
+.prose li + li { margin-top: .4rem; }
+
+/* --------------------------------------------------------------------------
+   8. Responsive
+   Scale headings down on smaller screens; body size holds at 1.3rem because
+   the audience is older adults and legibility outranks density.
+   -------------------------------------------------------------------------- */
+/* Breakpoints and step-downs mirror Elementor Site Settings exactly.
+   Elementor's kit uses 1024px and 575px — not the 768px most themes assume.
+   Body copy never shrinks: the audience is older adults and legibility
+   outranks density. */
+@media (max-width: 1024px) {
+  :root {
+    --fs-h1: 3rem;
+    --fs-h2: 2.4rem;
+    --fs-h3: 1.8rem;
+    --fs-h4: 1.4rem;
+    --fs-display: 3.6rem;
+    --section-y: 64px;
+  }
+  .grid-4, .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 575px) {
+  :root {
+    --fs-h1: 2rem;
+    --fs-h2: 1.8rem;
+    --fs-h3: 1.5rem;
+    --fs-h4: 1.3rem;
+    --fs-display: 2.6rem;
+    --gutter: 20px;
+    --section-y: 48px;
+  }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  html { scroll-behavior: auto; }
+}
+
+/* Split-hero button variants for the other accents */
+.btn-tint-on-magenta { background: var(--lime-tint); color: var(--magenta); }
+.btn-tint-on-magenta:hover { background: var(--white); }
+.btn-tint-on-teal { background: var(--lime-tint); color: #0090A3; }
+.btn-tint-on-teal:hover { background: var(--white); }
+.btn-tint-on-blue { background: var(--lime-tint); color: var(--blue); }
+.btn-tint-on-blue:hover { background: var(--white); }
+.split-hero.accent-teal { --accent: var(--teal); }

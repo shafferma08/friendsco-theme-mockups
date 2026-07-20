@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Friends &amp; Co — Donate</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Shared design system — do not add page tokens or fonts below this line -->
+<link rel="stylesheet" href="assets/css/friendsco.css">
+<link rel="stylesheet" href="assets/css/chrome.css">
+<link rel="stylesheet" href="assets/css/pages/donate.css">
+</head>
+
+<body data-page="support">
+
+<div data-chrome="header"></div>
+
+<main>
+
+  <!-- Hero — slim magenta band, matching the live page -->
+  <section class="donate-hero" aria-label="Donate">
+    <img class="watermark" src="assets/img/flower-icon-white.png" alt="">
+    <div class="donate-hero-inner">
+      <h1>Support older adults in our community</h1>
+      <p class="sub">Choose your gift below to support our mission.</p>
+    </div>
+  </section>
+
+  <p class="secure-line">🔒 Safe and secure donation. Tax-deductible.</p>
+
+  <!-- The live iATS donation form, embedded as-is -->
+  <div id="give" class="give-wrap">
+    <iframe class="form-frame"
+            src="https://www.iatspayments.com/saaura/PA86631AB3E569CA48"
+            title="Friends &amp; Co donation form"
+            scrolling="no" loading="lazy"></iframe>
+  </div>
+
+  <!-- Accreditation, directly below the form's submit button -->
+  <section class="trust">
+    <p class="trust-line">Friends &amp; Co is a top-rated, accredited nonprofit. Your gift is in good hands.</p>
+    <div class="trust-badges">
+      <img src="assets/img/charity-navigator-logo.png" alt="Charity Navigator four-star charity">
+      <img src="assets/img/charities-review-council-logo.png" alt="Charities Review Council — meets standards">
+    </div>
+  </section>
+
+  <!-- Need help / tax information -->
+  <section class="info-strip">
+    <div class="info-card">
+      <h3>Need help?</h3>
+      <p>Have questions about donating, recurring gifts, or sponsorship opportunities?
+         Email us at <a href="mailto:info@friendsco.org">info@friendsco.org</a> and we're happy to help.</p>
+    </div>
+    <div class="info-card">
+      <h3>Tax information</h3>
+      <p>Friends &amp; Co is a 501(c)(3) nonprofit organization. Your donation is
+         tax-deductible to the extent permitted by law.</p>
+    </div>
+  </section>
+
+</main>
+
+<div data-chrome="footer"></div>
+
+<script src="assets/js/chrome.js"></script>
+</body>
+</html>

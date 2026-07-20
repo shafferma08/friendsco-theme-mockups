@@ -3,626 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Friends &amp; Co | Home — video hero mockup (full page)</title>
+<title>Friends &amp; Co — Home</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-:root{
-  --blue:#5E74B1; --blue-dark:#3F5591;
-  --magenta:#BA3F97; --magenta-dark:#9c2f7e;
-  --lime:#B0D235; --lime-dark:#A8CC26;
-  --green:#85c340; --green-dark:#6faa2c;
-  --teal:#00bbd3; --orange:#f9a41e;
-  --slate:#7d91a0;
-  --navy:#1A2A42; --footer-bottom:#4B5D91;
-  --ink:#333; --cream:#F7FDDF; --bg:#F7FDDF; --line:#dff0a8;
-  --font:'Open Sans', sans-serif;
-  --font-display:'Roboto Condensed', sans-serif;
-  --container:1180px;
-  --radius-lg:16px; --radius-md:10px; --radius-sm:6px;
-}
-*{box-sizing:border-box; margin:0; padding:0;}
-html{scroll-behavior:smooth; font-size:20px;}
-body{font-family:var(--font); color:var(--ink); line-height:1.7; background:var(--cream);}
-h1,h2,h3,h4,h5{font-family:var(--font-display); font-weight:700; text-transform:none; line-height:1.1;}
-img{max-width:100%; display:block;}
-a{color:inherit;}
 
-.container{max-width:var(--container); margin:0 auto; padding:0 32px;}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
-
-/* ===== btn helpers ===== */
-.btn{
-  display:inline-flex; align-items:center; gap:10px;
-  padding:14px 28px; border-radius:var(--radius-md);
-  font-family:var(--font); font-size:1rem; font-weight:700;
-  letter-spacing:0; text-decoration:none;
-  transition:transform .2s, box-shadow .2s; border:none; cursor:pointer;
-  min-height:44px;
-}
-.btn:hover{transform:translateY(-2px); box-shadow:0 6px 14px rgba(0,0,0,.14);}
-.btn-blue{background:var(--blue); color:#fff;}
-.btn-magenta{background:var(--magenta); color:#fff;}
-.btn-green{background:var(--green); color:var(--navy);}
-.btn-orange{background:var(--orange); color:#fff;}
-.btn-lime{background:var(--lime); color:var(--navy);}
-
-
-/* ===== SITE HEADER — matches live friendsco.org ===== */
-.site-header{background:#fff; min-height:90px; padding:18px 32px; display:flex; align-items:center; justify-content:space-between; gap:16px; position:relative; z-index:50;}
-.site-header .logo img{width:150px; height:auto;}
-.main-nav{display:flex; align-items:center; justify-content:center; flex:1;}
-.main-nav > ul{list-style:none; display:flex; align-items:center;}
-.main-nav > ul > li{position:relative;}
-.main-nav a{text-decoration:none;}
-.main-nav > ul > li > a{display:block; padding:10px 14px; font-size:18px; font-weight:700; color:var(--blue); position:relative; white-space:nowrap;}
-.main-nav > ul > li > a::after{content:''; position:absolute; left:14px; right:14px; bottom:2px; height:4px; background:var(--lime); transform:scaleX(0); transform-origin:left; transition:transform .2s;}
-.main-nav > ul > li:hover > a,.main-nav > ul > li.active > a{color:var(--blue-dark);}
-.main-nav > ul > li:hover > a::after,.main-nav > ul > li.active > a::after{transform:scaleX(1);}
-.main-nav .sub{list-style:none; position:absolute; top:100%; left:0; min-width:250px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.2); opacity:0; visibility:hidden; transition:opacity .2s; z-index:60;}
-.main-nav li:hover > .sub,.main-nav li:focus-within > .sub{opacity:1; visibility:visible;}
-.main-nav .sub li{position:relative;}
-.main-nav .sub a{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:16px 24px; font-size:16px; font-weight:600; color:var(--blue);}
-.main-nav .sub a:hover,.main-nav .sub a:focus{background:var(--blue); color:#fff;}
-.main-nav .sub .sub{top:0; left:100%;}
-.main-nav .caret{width:.6em; height:.6em; fill:currentColor; flex:0 0 auto;}
-.header-actions{display:flex; align-items:center; gap:8px;}
-.btn-give{display:inline-flex; flex-direction:row-reverse; align-items:center; gap:12px; background:var(--lime); color:var(--navy); font-size:18px; font-weight:700; text-decoration:none; border-radius:8px; padding:12px 22px; transition:background .2s,transform .2s;}
-.btn-give:hover{background:var(--lime-dark); transform:scale(1.05);}
-.btn-give svg{width:20px; height:20px; fill:var(--navy);}
-.btn-search{display:inline-flex; align-items:center; justify-content:center; background:var(--blue); border:none; border-radius:8px; padding:12px 22px; cursor:pointer; transition:background .2s;}
-.btn-search:hover{background:#4C6096;}
-.btn-search svg{width:18px; height:18px; fill:#fff;}
-.btn-hamburger{display:none; background:none; border:none; cursor:pointer; padding:8px;}
-.btn-hamburger svg{width:28px; height:28px; fill:var(--blue);}
-.mobile-menu{display:none; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.2);}
-.mobile-menu.open{display:block;}
-.mobile-menu ul{list-style:none;}
-.mobile-menu a{display:block; padding:16px 24px; font-size:17px; font-weight:700; color:var(--blue); text-decoration:none; border-top:1px solid #eef0f5;}
-.mobile-menu a:hover{background:var(--blue); color:#fff;}
-.mobile-menu .menu-give{background:var(--lime); color:var(--navy);}
-@media(max-width:1024px){
-  .main-nav,.header-actions .btn-give,.header-actions .btn-search{display:none;}
-  .btn-hamburger{display:inline-flex;}
-}
-
-/* ===== HERO — full-bleed YouTube video background ===== */
-.hero{
-  position:relative;
-  min-height:720px;
-  display:flex;
-  align-items:center;
-  overflow:hidden;
-  background:var(--navy);
-}
-
-/* YouTube iframe fills the full hero */
-.hero-yt-wrap{
-  position:absolute;
-  inset:0;
-  overflow:hidden;
-  pointer-events:none;
-}
-.hero-yt-wrap iframe{
-  position:absolute;
-  top:50%;
-  left:50%;
-  /* 16:9 ratio scaling to always fill the container */
-  width:177.78vh;
-  height:56.25vw;
-  min-width:100%;
-  min-height:100%;
-  transform:translate(-50%,-50%);
-  border:0;
-}
-
-/* gradient overlay: dark navy left, fading right */
-.hero-overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    95deg,
-    rgba(26,42,66,0.92) 0%,
-    rgba(26,42,66,0.72) 45%,
-    rgba(26,42,66,0.30) 75%,
-    rgba(26,42,66,0.12) 100%
-  );
-  pointer-events:none;
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
-  max-width:var(--container);
-  margin:0 auto;
-  padding:100px 32px;
-  width:100%;
-}
-.hero-inner{ max-width:580px; }
-
-.hero-eyebrow{
-  display:inline-block;
-  color:var(--lime);
-  font-size:18px;
-  font-weight:700;
-  margin-bottom:18px;
-}
-.hero-content h1{
-  font-family:var(--font-display);
-  font-size:clamp(2.4rem, 5vw, 3.8rem);
-  font-weight:700;
-  text-transform:none;
-  letter-spacing:.5px;
-  color:#fff;
-  line-height:1.05;
-  margin-bottom:22px;
-}
-.hero-content h1 em{
-  font-style:normal;
-  color:var(--lime);
-}
-.hero-sub{
-  font-size:1.15rem;
-  font-weight:400;
-  color:rgba(255,255,255,0.88);
-  line-height:1.65;
-  max-width:46ch;
-  margin-bottom:36px;
-}
-.hero-ctas{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-  align-items:center;
-  margin-bottom:20px;
-}
-.hero-btn{
-  display:inline-flex; align-items:center; gap:10px;
-  padding:15px 30px; border-radius:8px;
-  font-family:var(--font); font-size:18px; font-weight:700;
-  text-decoration:none;
-  transition:transform .2s, box-shadow .2s, background .2s;
-  min-height:52px;
-}
-.hero-btn:hover{transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,.25);}
-.hero-btn.filled{background:var(--lime); color:var(--navy);}
-.hero-btn.filled:hover{background:var(--lime-dark);}
-.hero-btn.outline{background:transparent; color:#fff; border:2px solid rgba(255,255,255,.75);}
-.hero-btn.outline:hover{background:rgba(255,255,255,.1); border-color:#fff;}
-.hero-foot{font-size:.9rem; color:rgba(255,255,255,.65); font-style:italic;}
-
-/* mute/unmute control */
-.hero-audio-ctrl{
-  position:absolute; bottom:24px; right:28px; z-index:3;
-  background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.35);
-  color:#fff; border-radius:50%; width:46px; height:46px;
-  display:flex; align-items:center; justify-content:center;
-  cursor:pointer; transition:background .2s; backdrop-filter:blur(4px);
-  font-size:16px;
-}
-.hero-audio-ctrl:hover{background:rgba(255,255,255,.28);}
-
-/* ===== TRUST STRIP ===== */
-.trust-strip{
-  background:#eef2fb;
-  border-bottom:1px solid #cdd8f0;
-  padding:14px 32px;
-  display:flex; align-items:center; justify-content:center;
-  gap:32px; flex-wrap:wrap;
-}
-.trust-strip img{height:52px; width:auto; opacity:.85;}
-.trust-strip-label{font-size:17px; font-weight:600; color:#5a6640;}
-
-/* ===== SHARED SECTION HEADING ===== */
-.section-head{text-align:center; margin-bottom:50px;}
-.section-eyebrow{
-  display:inline-block;
-  font-family:var(--font);
-  font-size:1rem;
-  font-weight:700;
-  color:var(--magenta);
-  margin-bottom:14px;
-}
-.section-head h2{
-  font-size:2.4rem;
-  color:var(--navy);
-  margin-bottom:16px;
-  letter-spacing:.5px;
-}
-
-/* ===== MISSION BAND ===== */
-.mission-band{padding:70px 0; background:var(--bg); text-align:center;}
-.mission-band h2{font-size:2rem; color:var(--navy); max-width:760px; margin:0 auto 20px; line-height:1.25;}
-.mission-band p{font-size:1.1rem; color:#555; max-width:720px; margin:0 auto; line-height:1.7;}
-.section-head p{
-  font-size:1.05rem;
-  color:#666;
-  max-width:640px;
-  margin:0 auto;
-  line-height:1.65;
-}
-.section-footer-link{text-align:center; margin-top:40px;}
-.section-footer-link a{
-  color:var(--blue); text-decoration:none;
-  font-weight:700;
-  font-size:.9rem;
-}
-.section-footer-link a:hover{color:var(--magenta);}
-
-/* ===== UPCOMING EVENTS ===== */
-.events-section{padding:80px 0; background:#eef2fb;}
-.events-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
-.event-card{
-  background:#fff; border-radius:var(--radius-lg); overflow:hidden;
-  box-shadow:0 4px 14px rgba(0,0,0,.06); display:flex; flex-direction:column;
-  transition:transform .3s, box-shadow .3s;
-}
-.event-card:hover{transform:translateY(-4px); box-shadow:0 12px 30px rgba(0,0,0,.1);}
-.event-image{
-  aspect-ratio:3/2; background-size:cover; background-position:center;
-  background-color:var(--slate);
-}
-.event-image.a{background-image:url('https://friendsco.org/wp-content/uploads/2025/05/Lets-Do-Coffee.png');}
-.event-image.b{background-image:url('https://friendsco.org/wp-content/uploads/2025/05/Lets-Do-Coffee.png');}
-.event-image.c{background-image:url('https://friendsco.org/wp-content/uploads/2025/05/Lets-Do-Lunch.png');}
-.event-image-label{display:none;}
-.event-body{padding:24px 26px 28px; display:flex; flex-direction:column; flex:1;}
-.event-meta{
-  font-size:1rem; color:var(--magenta); font-weight:700;
-  margin-bottom:10px;
-}
-.event-card h3{font-size:1.15rem; line-height:1.25; color:var(--navy); margin-bottom:10px;}
-.event-card p{color:#666; font-size:.95rem; line-height:1.6; flex:1; margin-bottom:18px;}
-.event-link{
-  color:var(--blue); text-decoration:none; font-weight:700;
-  font-size:1rem;
-  display:inline-flex; align-items:center; gap:8px; transition:gap .2s;
-}
-.event-link:hover{gap:14px; color:var(--magenta);}
-
-/* ===== LATEST NEWS ===== */
-.news-section{padding:90px 0; background:var(--bg);}
-.news-editorial{display:grid; grid-template-columns:1.2fr 1fr; gap:40px;}
-.news-featured{
-  background:#fff; border-radius:var(--radius-lg); overflow:hidden;
-  box-shadow:0 6px 20px rgba(0,0,0,.06); display:flex; flex-direction:column;
-}
-.news-featured-image{aspect-ratio:16/10; background-size:cover; background-position:center;}
-.news-featured-body{padding:36px 36px 40px;}
-.news-meta{
-  font-size:1rem; color:var(--magenta); font-weight:700;
-  margin-bottom:10px;
-}
-.news-featured h3{font-size:1.7rem; color:var(--navy); line-height:1.2; margin-bottom:16px; text-transform:none; font-family:var(--font); font-weight:700;}
-.news-featured p{color:#555; font-size:1rem; line-height:1.7; margin-bottom:20px;}
-.read-more{
-  color:var(--blue); text-decoration:none; font-weight:700;
-  font-size:1rem;
-  display:inline-flex; align-items:center; gap:8px;
-}
-.read-more:hover{color:var(--magenta);}
-.news-list{display:flex; flex-direction:column; gap:20px;}
-.news-item{
-  display:grid; grid-template-columns:130px 1fr; gap:20px;
-  padding:20px; background:#fff; border-radius:var(--radius-md);
-  box-shadow:0 2px 10px rgba(0,0,0,.04); border:1px solid #eef0f5;
-  transition:box-shadow .2s, transform .2s; text-decoration:none; color:inherit;
-}
-.news-item:hover{transform:translateY(-2px); box-shadow:0 6px 18px rgba(0,0,0,.08);}
-.news-item-image{
-  width:130px; height:100px; border-radius:var(--radius-sm);
-  background-size:cover; background-position:center; background-color:#ccc;
-}
-.news-item-body .news-meta{font-size:.9rem; margin-bottom:6px;}
-.news-item-body h4{
-  font-family:var(--font); text-transform:none;
-  font-size:1rem; line-height:1.35; color:var(--navy);
-  margin-bottom:4px; font-weight:700;
-}
-.news-item-body p{font-size:.95rem; color:#777; line-height:1.5;}
-
-/* ===== WHY FRIENDSHIP — accessible tab panel ===== */
-.why-section{padding:90px 0; background:#eef2fb;}
-.tabs-bar{
-  display:flex; justify-content:center; gap:0;
-  margin-bottom:40px; flex-wrap:wrap;
-  border-bottom:2px solid #e3e6ed;
-}
-.tab-btn{
-  background:transparent; border:none; color:#666;
-  padding:18px 28px; font-size:1rem; font-weight:700;
-  cursor:pointer; font-family:var(--font);
-  border-bottom:4px solid transparent; margin-bottom:-2px;
-  min-height:44px; transition:color .2s, border-color .2s;
-}
-.tab-btn:hover{color:var(--magenta);}
-.tab-btn[aria-selected="true"]{color:var(--navy); border-bottom-color:var(--magenta);}
-.tab-panel{display:none; animation:fadeIn .3s ease;}
-.tab-panel.is-active{display:block;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
-.why-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;}
-.why-image{border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:4/3; box-shadow:0 12px 30px rgba(0,0,0,.1);}
-.why-image img{width:100%; height:100%; object-fit:cover;}
-.why-content h3{font-size:1.8rem; color:var(--navy); margin-bottom:18px; text-transform:none; font-family:var(--font); font-weight:700;}
-.why-content p{font-size:1.05rem; line-height:1.75; margin-bottom:16px; color:#444;}
-.why-stat{
-  background:var(--orange); color:#fff;
-  padding:24px 28px; border-radius:var(--radius-lg);
-  margin-top:24px; display:flex; align-items:center; gap:20px;
-}
-.stat-number{font-family:var(--font-display); font-size:2.8rem; font-weight:700; line-height:1; flex-shrink:0;}
-.stat-text{font-size:.95rem; line-height:1.45;}
-.why-cta{text-align:center; margin-top:60px;}
-
-/* ===== FRIENDSHIP SERVICES — colorful tiles ===== */
-.services-section{
-  padding:100px 0; background:var(--blue); color:#fff;
-  position:relative; overflow:hidden;
-}
-/* flower watermark — same treatment as live donate page hero */
-.services-section::before{
-  content:''; position:absolute;
-  right:-60px; bottom:-40px;
-  width:420px; height:420px;
-  background-image:url('assets/img/flower-icon-white.png');
-  background-size:contain; background-repeat:no-repeat; background-position:center;
-  opacity:.1; pointer-events:none;
-}
-/* ampersand watermark left side */
-.services-section::after{
-  content:''; position:absolute;
-  left:-40px; top:50%; transform:translateY(-50%);
-  width:260px; height:260px;
-  background-image:url('assets/img/ampersand-icon.png');
-  background-size:contain; background-repeat:no-repeat; background-position:center;
-  opacity:.07; pointer-events:none;
-}
-.services-section .container{position:relative;}
-.services-head{text-align:center; margin-bottom:50px; color:#fff;}
-.services-head .section-eyebrow{color:rgba(255,255,255,.75);}
-.services-head h2{color:#fff; font-size:2.4rem; margin-bottom:8px;}
-.services-head p{font-size:1.1rem; opacity:.9; max-width:600px; margin:0 auto; font-family:var(--font); font-weight:400; text-transform:none;}
-.services-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
-.service-tile{
-  border-radius:var(--radius-lg); padding:36px 28px 32px;
-  text-align:center; text-decoration:none; color:#fff;
-  display:flex; flex-direction:column; align-items:center;
-  transition:transform .3s, box-shadow .3s;
-  min-height:240px; position:relative; overflow:hidden;
-}
-.service-tile:hover{transform:translateY(-6px); box-shadow:0 16px 40px rgba(0,0,0,.25);}
-.tile-icon{
-  width:80px; height:80px; border-radius:50%; background:#fff;
-  display:flex; align-items:center; justify-content:center;
-  margin-bottom:20px; font-size:2.2rem;
-}
-.service-tile h3{color:#fff; font-size:1.3rem; margin-bottom:10px; line-height:1.2; letter-spacing:0;}
-.service-tile p{font-size:.95rem; line-height:1.5; opacity:.95;}
-.service-tile.t-teal{background:var(--teal);}        .service-tile.t-teal .tile-icon{color:var(--teal);}
-.service-tile.t-magenta{background:var(--magenta);}  .service-tile.t-magenta .tile-icon{color:var(--magenta);}
-.service-tile.t-orange{background:var(--orange);}    .service-tile.t-orange .tile-icon{color:var(--orange);}
-.service-tile.t-green{background:var(--green);}      .service-tile.t-green .tile-icon{color:var(--green);}
-.service-tile.t-blue-dark{background:var(--blue-dark);}  .service-tile.t-blue-dark .tile-icon{color:var(--blue-dark);}
-.service-tile.t-slate{background:var(--slate);}      .service-tile.t-slate .tile-icon{color:var(--slate);}
-.services-footer{text-align:center; margin-top:50px;}
-
-/* ===== TESTIMONIAL ===== */
-.testimonial-section{padding:90px 0; background:var(--navy); color:#fff;}
-.testimonial-section .section-head{color:#fff;}
-.testimonial-section .section-head p{color:rgba(255,255,255,.8);}
-.testimonial-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
-.testimonial-card{
-  background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:var(--radius-lg);
-  padding:36px 32px;
-  display:flex; flex-direction:column;
-}
-.testimonial-card[hidden]{display:none;}
-.testimonial-quote-icon{
-  font-family:Georgia,serif; font-size:4rem; line-height:1;
-  color:var(--magenta); margin-bottom:8px; user-select:none;
-}
-.testimonial-card blockquote{
-  font-size:1.1rem; line-height:1.7; font-weight:400;
-  font-style:italic; color:rgba(255,255,255,.92);
-  margin-bottom:20px; flex:1;
-}
-.testimonial-card cite{
-  display:block; font-style:normal; font-weight:700;
-  font-size:1rem; font-family:var(--font); color:var(--lime);
-}
-.testimonial-controls{display:none;}
-
-/* ===== BE A FRIEND — CTA cards ===== */
-.cta-section{padding:90px 0; background:var(--bg);}
-.cta-intro{text-align:center; max-width:820px; margin:0 auto 48px; color:#555; font-size:1.1rem;}
-.cta-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:30px;}
-.cta-card{
-  background:#fff; padding:40px 30px 36px; text-align:center;
-  border-radius:var(--radius-lg); box-shadow:0 4px 14px rgba(0,0,0,.05);
-  transition:transform .3s, box-shadow .3s;
-  border-top:5px solid var(--teal);
-}
-.cta-card:nth-child(2){border-top-color:var(--magenta);}
-.cta-card:nth-child(3){border-top-color:var(--orange);}
-.cta-card:hover{transform:translateY(-4px); box-shadow:0 14px 34px rgba(0,0,0,.08);}
-.cta-icon{
-  width:84px; height:84px; border-radius:50%;
-  background:rgba(0,187,211,.12); color:var(--teal);
-  display:flex; align-items:center; justify-content:center;
-  font-size:2rem; margin:0 auto 22px;
-}
-.cta-card:nth-child(2) .cta-icon{background:rgba(186,63,151,.12); color:var(--magenta);}
-.cta-card:nth-child(3) .cta-icon{background:rgba(249,164,30,.15); color:var(--orange);}
-.cta-card h3{font-size:1.4rem; margin-bottom:12px;}
-.cta-card p{color:#666; margin-bottom:22px; line-height:1.6; font-size:.98rem;}
-
-/* ===== NEWSLETTER BAR ===== */
-.nl-section{background:var(--navy); color:#fff; padding:50px 0;}
-.nl-grid{display:grid; grid-template-columns:1fr 1.5fr; gap:40px; align-items:center;}
-.nl-grid h3{font-size:1.5rem; letter-spacing:1px; margin-bottom:6px; color:#fff;}
-.nl-grid p{font-size:.95rem; opacity:.85; color:rgba(255,255,255,.9);}
-.nl-form{display:grid; grid-template-columns:1fr 1fr 1fr auto; gap:10px;}
-.nl-form input{
-  padding:14px; border:none; border-radius:var(--radius-sm);
-  font-size:1rem; font-family:var(--font); min-height:48px;
-}
-.nl-form button{
-  background:var(--green); color:var(--navy); border:none;
-  padding:0 28px; font-weight:700;
-  border-radius:var(--radius-sm); font-family:var(--font);
-  cursor:pointer; min-height:48px; font-size:1rem;
-}
-.nl-form button:hover{background:var(--green-dark);}
-
-/* ===== SITE FOOTER — matches live friendsco.org ===== */
-.footer-newsletter{background:var(--navy); color:#fff; padding:44px 32px;}
-.footer-newsletter .inner{max-width:var(--container); margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap;}
-.footer-newsletter h3{font-family:'Roboto Condensed',sans-serif; font-size:1.8em; margin-bottom:6px;}
-.footer-newsletter p{color:rgba(255,255,255,.9); font-size:16px;}
-.newsletter-form{display:flex; gap:10px; flex-wrap:wrap;}
-.newsletter-form input{height:48px; min-width:260px; border:none; border-radius:8px; padding:0 14px; font-size:1rem; font-family:var(--font);}
-.newsletter-form button{height:48px; border:none; border-radius:8px; padding:0 26px; background:var(--lime); color:var(--navy); font-family:var(--font); font-size:18px; font-weight:700; cursor:pointer;}
-.newsletter-form button:hover{background:var(--lime-dark);}
-.footer-main{background:var(--blue); color:#fff; padding:54px 32px 44px;}
-.footer-main .inner{max-width:var(--container); margin:0 auto; display:grid; grid-template-columns:1.25fr 1fr 1fr 1.05fr; gap:36px;}
-.footer-main h4{font-family:'Roboto Condensed',sans-serif; font-size:22px; color:#fff; padding-bottom:10px; border-bottom:2px solid rgba(255,255,255,.2); margin-bottom:14px;}
-.footer-logo{max-width:190px; margin-bottom:14px;}
-.contact-list,.footer-links{list-style:none;}
-.contact-list li{display:flex; gap:8px; margin-bottom:10px; font-size:17px; color:rgba(255,255,255,.92);}
-.contact-list svg{width:14px; height:14px; fill:rgba(255,255,255,.8); flex:0 0 auto; margin-top:6px;}
-.contact-list a{text-decoration:none;}
-.contact-list a:hover{text-decoration:underline;}
-.footer-links li{margin-bottom:9px;}
-.footer-links a{display:flex; align-items:baseline; gap:7px; font-size:16px; font-weight:600; color:#fff; text-decoration:none;}
-.footer-links a:hover{text-decoration:underline;}
-.footer-links svg{width:11px; height:11px; fill:var(--lime); flex:0 0 auto; position:relative; top:1px;}
-.footer-give .btn-give{width:100%; justify-content:center; padding:12px 28px; margin-bottom:20px;}
-.footer-give .btn-give:hover{transform:none; box-shadow:0 6px 12px rgba(0,0,0,.15);}
-.footer-badges{display:flex; gap:14px; margin-bottom:22px;}
-.footer-badges a{background:#fff; border-radius:8px; padding:5px; display:block;}
-.footer-badges img{width:100px; height:auto;}
-.footer-social{display:flex; gap:21px;}
-.footer-social a{display:flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,.1); transition:background .3s;}
-.footer-social a:hover{background:var(--magenta);}
-.footer-social svg{width:18px; height:18px; fill:#fff;}
-.footer-bottom{background:var(--footer-bottom); color:rgba(255,255,255,.92); padding:18px 32px; text-align:center; font-size:14px;}
-.footer-bottom p{max-width:980px; margin:0 auto;}
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:1024px){
-  .footer-main .inner{grid-template-columns:1fr 1fr;}
-  .nl-form{grid-template-columns:1fr 1fr; grid-template-rows:auto auto;}
-  .nl-form button{grid-column:1/-1;}
-}
-@media(max-width:900px){
-  .events-grid,.services-grid,.cta-grid,.news-editorial{grid-template-columns:1fr 1fr;}
-  .why-grid{grid-template-columns:1fr; gap:32px;}
-  .testimonial-grid{grid-template-columns:1fr;}
-}
-@media(max-width:640px){
-  .hero-content{padding:72px 24px;}
-  .events-grid,.services-grid,.cta-grid{grid-template-columns:1fr;}
-  .news-editorial{grid-template-columns:1fr;}
-  .nl-grid{grid-template-columns:1fr;}
-  .nl-form{grid-template-columns:1fr;}
-  .testimonial-grid{grid-template-columns:1fr;}
-  .footer-main .inner{grid-template-columns:1fr;}
-  .footer-newsletter .inner{flex-direction:column; align-items:flex-start;}
-  .trust-strip{gap:20px; padding:14px 20px;}
-}
-</style>
+<!-- Shared design system — do not add page tokens or fonts below this line -->
+<link rel="stylesheet" href="assets/css/friendsco.css">
+<link rel="stylesheet" href="assets/css/chrome.css">
+<link rel="stylesheet" href="assets/css/pages/home.css">
 </head>
-<body>
 
+<body data-page="home">
 
-<!-- HEADER — exact match to live friendsco.org -->
-<header class="site-header">
-  <a class="logo" href="https://friendsco.org/">
-    <img src="https://friendsco.org/wp-content/uploads/2025/09/cropped-site-logo-350x100-1.png" alt="Friends &amp; Co">
-  </a>
-  <nav class="main-nav" aria-label="Menu">
-    <ul>
-      <li class="active"><a href="https://friendsco.org/">Home</a></li>
-      <li>
-        <a href="https://friendsco.org/friendship-services/">Free Programs <svg class="caret" viewBox="0 0 320 512"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/></svg></a>
-        <ul class="sub">
-          <li><a href="https://friendsco.org/friendship-services/">Start Here</a></li>
-          <li>
-            <a href="https://friendsco.org/friendship-services/">Meet in Person <svg class="caret" viewBox="0 0 320 512"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/></svg></a>
-            <ul class="sub">
-              <li><a href="https://friendsco.org/visiting-companions/">One-on-One Visiting Companions</a></li>
-              <li><a href="https://friendsco.org/lets-do-events/">Let&rsquo;s Do Coffee / Let&rsquo;s Do Lunch Caf&eacute; 🏳️‍🌈</a></li>
-              <li><a href="https://friendsco.org/spanish-language-programs/">Conexiones Comunitarias (Espa&ntilde;ol)</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="https://friendsco.org/coffee-talk/">Talk on the Phone <svg class="caret" viewBox="0 0 320 512"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/></svg></a>
-            <ul class="sub">
-              <li><a href="https://friendsco.org/coffee-talk/">Tue &amp; Thurs Coffee Talk Calls</a></li>
-              <li><a href="https://friendsco.org/phone-companions/">Weekly One-on-One Phone Friends</a></li>
-            </ul>
-          </li>
-          <li><a href="https://friendsco.org/cards-connect/">Receive Friendly Mail</a></li>
-          <li><a href="https://friendsco.org/events/">Events &amp; Gatherings</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="https://friendsco.org/get-involved/">Volunteer <svg class="caret" viewBox="0 0 320 512"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/></svg></a>
-        <ul class="sub">
-          <li><a href="https://friendsco.org/get-involved/">Start Volunteering</a></li>
-          <li><a href="https://friendsco.org/volunteer/">Apply to Volunteer</a></li>
-          <li><a href="https://friendsco.org/visiting-companions-match/">Matching Hub: Choose Who You&rsquo;ll Connect With</a></li>
-          <li><a href="https://friendsco.org/volunteer-portal/">Current Volunteers</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="https://friendsco.org/about/">About <svg class="caret" viewBox="0 0 320 512"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/></svg></a>
-        <ul class="sub">
-          <li><a href="https://friendsco.org/about/">About Us</a></li>
-          <li><a href="https://friendsco.org/annual-reports/">Annual Reports</a></li>
-          <li><a href="https://friendsco.org/staff-and-board/">Our Team</a></li>
-          <li><a href="https://friendsco.org/news/">Latest News</a></li>
-          <li><a href="https://friendsco.org/contact/">Contact</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="https://friendsco.org/support-friends-co/">Support <svg class="caret" viewBox="0 0 320 512"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/></svg></a>
-        <ul class="sub">
-          <li><a href="https://friendsco.org/donate/">Give Today</a></li>
-          <li><a href="https://friendsco.org/planned-giving/">Planned Giving</a></li>
-          <li><a href="https://friendsco.org/corporate-sponsorship/">Corporate Sponsorship</a></li>
-          <li><a href="https://friendsco.org/other-ways-to-give/">Other Ways to Give</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
-  <div class="header-actions">
-    <a class="btn-give" href="https://friendsco.org/donate/">
-      <svg viewBox="0 0 576 512"><path d="M275.3 250.5c7 7.4 18.4 7.4 25.5 0l108.9-114.2c31.6-33.2 29.8-88.2-5.6-118.8-30.8-26.7-76.7-21.9-104.9 7.7L288 36.9l-11.1-11.6C248.7-4.4 202.8-9.2 172 17.5c-35.3 30.6-37.2 85.6-5.6 118.8l108.9 114.2zm290 77.6c-11.8-10.7-30.2-10-42.6 0L430.3 402c-11.3 9.1-25.4 14-40 14H272c-8.8 0-16-7.2-16-16s7.2-16 16-16h78.3c15.9 0 30.7-10.9 33.3-26.6 3.3-20-12.1-37.4-31.6-37.4H192c-27 0-53.1 9.3-74.1 26.3L71.4 384H16c-8.8 0-16 7.2-16 16v96c0 8.8 7.2 16 16 16h356.8c14.5 0 28.6-4.9 40-14L564 377c15.2-12.1 16.4-35.3 1.3-48.9z"/></svg>
-      <span>Give</span>
-    </a>
-    <button class="btn-search" type="button" aria-label="Search">
-      <svg viewBox="0 0 512 512"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
-    </button>
-    <button class="btn-hamburger" type="button" aria-label="Menu" aria-expanded="false" onclick="var m=document.getElementById('mobileMenu');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'));">
-      <svg viewBox="0 0 448 512"><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg>
-    </button>
-  </div>
-</header>
-<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile menu">
-  <ul>
-    <li><a href="https://friendsco.org/">Home</a></li>
-    <li><a href="https://friendsco.org/friendship-services/">Free Programs</a></li>
-    <li><a href="https://friendsco.org/get-involved/">Volunteer</a></li>
-    <li><a href="https://friendsco.org/about/">About</a></li>
-    <li><a href="https://friendsco.org/support-friends-co/">Support</a></li>
-    <li><a class="menu-give" href="https://friendsco.org/donate/">Give</a></li>
-  </ul>
-</nav>
+<div data-chrome="header"></div>
 
 <main>
 
@@ -652,8 +48,8 @@ a{color:inherit;}
         <h1>You don't have to do this <em>season of life</em> alone</h1>
         <p class="hero-sub">Meaningful connections, real friendships, and a friendly voice for your week — at no cost to you or your family.</p>
         <div class="hero-ctas">
-          <a href="https://friendsco.org/friendship-services/" class="hero-btn filled">Sign up for a program</a>
-          <a href="https://friendsco.org/refer/" class="hero-btn outline">Refer an older adult</a>
+          <a href="friendship-services.html" class="hero-btn filled">Sign up for a program</a>
+          <a href="refer.html" class="hero-btn outline">Refer an older adult</a>
         </div>
         <p class="hero-foot">Family or caregiver? We'll help you find the right fit.</p>
       </div>
@@ -700,7 +96,7 @@ a{color:inherit;}
             <div class="event-meta">Thursday, Jul 2 &middot; 9:30 to 11 a.m.</div>
             <h3>Let's Do Coffee: Queermunity</h3>
             <p>Minneapolis. A gathering for LGBTQ+ older adults and friends at Queermunity.</p>
-            <a href="https://friendsco.org/events/" class="event-link">Event details <i class="fas fa-arrow-right"></i></a>
+            <a href="events.html" class="event-link">Event details <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
 
@@ -712,7 +108,7 @@ a{color:inherit;}
             <div class="event-meta">Tuesday, Jul 8 &middot; 9:30 to 11 a.m.</div>
             <h3>Let's Do Coffee: FamilyMeans</h3>
             <p>Stillwater. Coffee and connection for LGBTQ+ older adults and friends at FamilyMeans.</p>
-            <a href="https://friendsco.org/events/" class="event-link">Event details <i class="fas fa-arrow-right"></i></a>
+            <a href="events.html" class="event-link">Event details <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
 
@@ -724,13 +120,13 @@ a{color:inherit;}
             <div class="event-meta">Monday, Jul 14 &middot; 11:30 a.m. to 1:30 p.m.</div>
             <h3>Let's Do Lunch Café: Hennepin Ave UMC</h3>
             <p>Minneapolis. Monthly lunch gathering for LGBTQ+ older adults and friends.</p>
-            <a href="https://friendsco.org/events/" class="event-link">Event details <i class="fas fa-arrow-right"></i></a>
+            <a href="events.html" class="event-link">Event details <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
       </div>
 
       <div class="section-footer-link">
-        <a href="https://friendsco.org/events/">See the full events calendar <i class="fas fa-arrow-right"></i></a>
+        <a href="events.html">See the full events calendar <i class="fas fa-arrow-right"></i></a>
       </div>
     </div>
   </section>
@@ -747,20 +143,20 @@ a{color:inherit;}
       <div class="news-editorial">
         <article class="news-featured">
           <div class="news-featured-image"
-               style="background-image:url('https://friendsco.org/wp-content/uploads/2026/06/Ric-Landers-Volunteer-of-the-Month.jpg');"
+               style="background-image:url('assets/img/photo-community.jpeg');"
                role="img"
                aria-label="Ric Landers, volunteer of the month for June 2026"></div>
           <div class="news-featured-body">
             <div class="news-meta">Volunteers &middot; June 2026</div>
-            <h3>Volunteer of the Month — June 2026</h3>
+            <h3>Volunteer of the month — June 2026</h3>
             <p>Ric Landers initially discovered Friends &amp; Co through a "Let's Do Coffee" event designed for LGBTQ+ older adults seeking community. He subsequently became deeply engaged, assuming multiple volunteer positions including event support and handmade card preparation.</p>
-            <a href="https://friendsco.org/volunteer-of-the-month-june-2026/" class="read-more">Read the story <i class="fas fa-arrow-right"></i></a>
+            <a href="news-article.html" class="read-more">Read the story <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
 
         <div class="news-list">
-          <a href="https://friendsco.org/older-lgbtq-adults-going-back-into-closet/" class="news-item">
-            <div class="news-item-image" style="background-image:url('https://friendsco.org/wp-content/uploads/2026/05/Lets-Do-Lunch-Cafe-Polaroids.jpg');" role="img" aria-label="Let's Do Lunch Café polaroid photos"></div>
+          <a href="news-article.html" class="news-item">
+            <div class="news-item-image" style="background-image:url('assets/img/lets-do-lunch.jpg');" role="img" aria-label="Let's Do Lunch Café polaroid photos"></div>
             <div class="news-item-body">
               <div class="news-meta">Community &middot; May 2026</div>
               <h4>For some LGBTQ+ older adults, aging means going back into the closet</h4>
@@ -768,11 +164,11 @@ a{color:inherit;}
             </div>
           </a>
 
-          <a href="https://friendsco.org/pride-connection-community-at-lavenders-summer-kickoff/" class="news-item">
-            <div class="news-item-image" style="background-image:url('https://friendsco.org/wp-content/uploads/2026/05/Lavender-Magazine-Polaroids.jpg');" role="img" aria-label="Lavender Magazine Summer Kickoff polaroid photos"></div>
+          <a href="news-article.html" class="news-item">
+            <div class="news-item-image" style="background-image:url('assets/img/photo-community.jpeg');" role="img" aria-label="Lavender Magazine Summer Kickoff polaroid photos"></div>
             <div class="news-item-body">
               <div class="news-meta">Events &middot; May 2026</div>
-              <h4>Pride, Connection &amp; Community at Lavender's Summer Kickoff</h4>
+              <h4>Pride, connection and community at Lavender’s summer kickoff</h4>
               <p>Friends &amp; Co participated as a community partner at Lavender Magazine's 2026 Summer of Pride Kickoff Party at Orchestra Hall in Minneapolis.</p>
             </div>
           </a>
@@ -780,7 +176,7 @@ a{color:inherit;}
       </div>
 
       <div class="section-footer-link">
-        <a href="https://friendsco.org/news/">Browse the news archive <i class="fas fa-arrow-right"></i></a>
+        <a href="news.html">Browse the news archive <i class="fas fa-arrow-right"></i></a>
       </div>
     </div>
   </section>
@@ -795,15 +191,15 @@ a{color:inherit;}
       </div>
 
       <div class="tabs-bar" role="tablist" aria-label="Who benefits">
-        <button type="button" class="tab-btn" role="tab" aria-selected="true" aria-controls="tab-older" id="tab-older-btn">Older Adults</button>
-        <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-loved" id="tab-loved-btn" tabindex="-1">Loved Ones</button>
+        <button type="button" class="tab-btn" role="tab" aria-selected="true" aria-controls="tab-older" id="tab-older-btn">Older adults</button>
+        <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-loved" id="tab-loved-btn" tabindex="-1">Loved ones</button>
         <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-comm" id="tab-comm-btn" tabindex="-1">Communities</button>
       </div>
 
       <div class="tab-panel is-active" role="tabpanel" id="tab-older" aria-labelledby="tab-older-btn">
         <div class="why-grid">
           <div class="why-image">
-            <img src="https://friendsco.org/wp-content/uploads/2025/09/AdobeStock_180704796-1-scaled-1.jpeg" alt="An older adult smiling and enjoying connection" loading="lazy">
+            <img src="assets/img/photo-connection.jpeg" alt="An older adult smiling and enjoying connection" loading="lazy">
           </div>
           <div class="why-content">
             <h3>Connection supports health and longevity</h3>
@@ -820,7 +216,7 @@ a{color:inherit;}
       <div class="tab-panel" role="tabpanel" id="tab-loved" aria-labelledby="tab-loved-btn" hidden>
         <div class="why-grid">
           <div class="why-image">
-            <img src="https://friendsco.org/wp-content/uploads/2025/09/AdobeStock_749035226-scaled-1.jpeg" alt="A family member sharing a moment with their older loved one" loading="lazy">
+            <img src="assets/img/photo-connection.jpeg" alt="A family member sharing a moment with their older loved one" loading="lazy">
           </div>
           <div class="why-content">
             <h3>Peace of mind for families and care partners</h3>
@@ -837,7 +233,7 @@ a{color:inherit;}
       <div class="tab-panel" role="tabpanel" id="tab-comm" aria-labelledby="tab-comm-btn" hidden>
         <div class="why-grid">
           <div class="why-image">
-            <img src="https://friendsco.org/wp-content/uploads/2025/09/AdobeStock_557321510-scaled-1.jpeg" alt="A connected, vibrant community of older adults and volunteers" loading="lazy">
+            <img src="assets/img/photo-visiting.jpeg" alt="A connected, vibrant community of older adults and volunteers" loading="lazy">
           </div>
           <div class="why-content">
             <h3>Stronger, more connected neighborhoods</h3>
@@ -852,7 +248,7 @@ a{color:inherit;}
       </div>
 
       <div class="why-cta">
-        <a href="https://friendsco.org/about/" class="btn btn-green">Learn about our mission to end social isolation <i class="fas fa-arrow-right"></i></a>
+        <a href="about.html" class="btn btn-green">Learn about our mission to end social isolation <i class="fas fa-arrow-right"></i></a>
       </div>
     </div>
   </section>
@@ -867,32 +263,32 @@ a{color:inherit;}
       </div>
 
       <div class="services-grid">
-        <a href="https://friendsco.org/visiting-companions/" class="service-tile t-teal">
+        <a href="visiting-companions.html" class="service-tile t-teal">
           <div class="tile-icon"><i class="fas fa-user-friends"></i></div>
           <h3>Visiting Companions</h3>
           <p>Weekly in-person visits with a trained volunteer.</p>
         </a>
-        <a href="https://friendsco.org/phone-companions/" class="service-tile t-magenta">
+        <a href="phone-companions.html" class="service-tile t-magenta">
           <div class="tile-icon"><i class="fas fa-phone-alt"></i></div>
           <h3>Phone Companions</h3>
           <p>Meaningful weekly calls from home.</p>
         </a>
-        <a href="https://friendsco.org/coffee-talk/" class="service-tile t-orange">
+        <a href="coffee-talk.html" class="service-tile t-orange">
           <div class="tile-icon"><i class="fas fa-coffee"></i></div>
-          <h3>Coffee Talk Calls</h3>
+          <h3>Coffee Talk calls</h3>
           <p>Group phone gatherings every Tuesday and Thursday.</p>
         </a>
-        <a href="https://friendsco.org/lets-do-events/" class="service-tile t-green">
+        <a href="lets-do-events.html" class="service-tile t-green">
           <div class="tile-icon"><i class="fas fa-mug-hot"></i></div>
           <h3>Let's Do Coffee &amp; Lunch</h3>
           <p>Cafe meetups for LGBTQ+ older adults.</p>
         </a>
-        <a href="https://friendsco.org/cards-connect/" class="service-tile t-blue-dark">
+        <a href="cards-connect.html" class="service-tile t-blue-dark">
           <div class="tile-icon"><i class="fas fa-envelope-open-text"></i></div>
           <h3>Cards Connect</h3>
           <p>Handwritten cards delivered throughout the year.</p>
         </a>
-        <a href="https://friendsco.org/spanish-language-programs/" class="service-tile t-slate">
+        <a href="spanish-language-programs.html" class="service-tile t-slate">
           <div class="tile-icon"><i class="fas fa-comments"></i></div>
           <h3>Conexiones Comunitarias</h3>
           <p>Emparejamientos y conversaciones en espa&ntilde;ol.</p>
@@ -900,7 +296,7 @@ a{color:inherit;}
       </div>
 
       <div class="services-footer">
-        <a href="https://friendsco.org/friendship-services/" class="btn btn-lime">View all programs <i class="fas fa-arrow-right"></i></a>
+        <a href="friendship-services.html" class="btn btn-lime">View all programs <i class="fas fa-arrow-right"></i></a>
       </div>
     </div>
   </section>
@@ -945,19 +341,19 @@ a{color:inherit;}
           <div class="cta-icon"><i class="fas fa-hands-helping"></i></div>
           <h3>Volunteer</h3>
           <p>Bring joy, conversation, and friendship directly to those who need it most.</p>
-          <a href="https://friendsco.org/get-involved/" class="btn btn-blue">Volunteer <i class="fas fa-arrow-right"></i></a>
+          <a href="get-involved.html" class="btn btn-blue">Volunteer <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="cta-card">
           <div class="cta-icon"><i class="fas fa-gift"></i></div>
           <h3>Donate</h3>
           <p>Your gift helps sustain life-enhancing programs for older adults across Minnesota.</p>
-          <a href="https://friendsco.org/donate/" class="btn btn-magenta">Donate <i class="fas fa-arrow-right"></i></a>
+          <a href="donate.html" class="btn btn-magenta">Donate <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="cta-card">
           <div class="cta-icon"><i class="fas fa-user-plus"></i></div>
-          <h3>Refer an Older Adult</h3>
+          <h3>Refer an older adult</h3>
           <p>Spread the word about our programs and help end loneliness and social isolation.</p>
-          <a href="https://friendsco.org/refer/" class="btn btn-orange">Refer <i class="fas fa-arrow-right"></i></a>
+          <a href="refer.html" class="btn btn-orange">Refer <i class="fas fa-arrow-right"></i></a>
         </div>
       </div>
     </div>
@@ -965,169 +361,11 @@ a{color:inherit;}
 
 </main>
 
-<!-- FOOTER — exact match to live friendsco.org -->
-<footer>
-  <div class="footer-newsletter">
-    <div class="inner">
-      <div>
-        <h3>Stay in the loop</h3>
-        <p>Get monthly updates and news from Friends &amp; Co.</p>
-      </div>
-      <form class="newsletter-form" onsubmit="return false;">
-        <input type="email" placeholder="Email address" aria-label="Email address">
-        <button type="submit">Sign Up</button>
-      </form>
-    </div>
-  </div>
+<div data-chrome="footer"></div>
 
-  <div class="footer-main">
-    <div class="inner">
-      <div>
-        <img class="footer-logo" src="https://friendsco.org/wp-content/uploads/2026/04/friends-co-logo-white.png" alt="Friends &amp; Co">
-        <ul class="contact-list">
-          <li>
-            <svg viewBox="0 0 384 512"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"/></svg>
-            <span>2550 University Avenue W.<br>Suite 260-S<br>St. Paul, MN 55114<br>*Please note that Hwy 280 is closed for construction.</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 512 512"><path d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"/></svg>
-            <a href="tel:+16127211400">Phone: 612-721-1400</a>
-          </li>
-          <li>
-            <svg viewBox="0 0 512 512"><path d="M480 160V77.25a32 32 0 0 0-9.38-22.63L425.37 9.37A32 32 0 0 0 402.75 0H160a32 32 0 0 0-32 32v448a32 32 0 0 0 32 32h320a32 32 0 0 0 32-32V192a32 32 0 0 0-32-32zM288 432a16 16 0 0 1-16 16h-32a16 16 0 0 1-16-16v-32a16 16 0 0 1 16-16h32a16 16 0 0 1 16 16zm0-128a16 16 0 0 1-16 16h-32a16 16 0 0 1-16-16v-32a16 16 0 0 1 16-16h32a16 16 0 0 1 16 16zm128 128a16 16 0 0 1-16 16h-32a16 16 0 0 1-16-16v-32a16 16 0 0 1 16-16h32a16 16 0 0 1 16 16zm0-128a16 16 0 0 1-16 16h-32a16 16 0 0 1-16-16v-32a16 16 0 0 1 16-16h32a16 16 0 0 1 16 16zm0-112H192V64h160v48a16 16 0 0 0 16 16h48zM64 128H32a32 32 0 0 0-32 32v320a32 32 0 0 0 32 32h32a32 32 0 0 0 32-32V160a32 32 0 0 0-32-32z"/></svg>
-            <span>Fax: 612-721-5848</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 512 512"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"/></svg>
-            <a href="mailto:info@friendsco.org">Email: info@friendsco.org</a>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h4>Free Programs</h4>
-        <ul class="footer-links">
-          <li><a href="https://friendsco.org/volunteer-cards-connect/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Cards Connect</span></a></li>
-          <li><a href="https://friendsco.org/coffee-talk/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Coffee Talk</span></a></li>
-          <li><a href="https://friendsco.org/spanish-language-programs/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Conexiones Comunitarias</span></a></li>
-          <li><a href="https://friendsco.org/lets-do-events/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Let's Do Lunch Cafe &amp; Let's Do Coffee</span></a></li>
-          <li><a href="https://friendsco.org/phone-companions/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Phone Companions</span></a></li>
-          <li><a href="https://friendsco.org/visiting-companions/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Visiting Companions</span></a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Get Involved</h4>
-        <ul class="footer-links">
-          <li><a href="https://friendsco.org/get-involved/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Become a Volunteer</span></a></li>
-          <li><a href="https://friendsco.org/refer/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Refer an Older Adult</span></a></li>
-          <li><a href="https://friendsco.org/volunteer-portal/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Current Volunteers Portal</span></a></li>
-          <li><a href="https://friendsco.org/staff-and-board/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Board &amp; Staff</span></a></li>
-          <li><a href="https://friendsco.org/contact/"><svg viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg><span>Contact Us</span></a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Support Our Mission</h4>
-        <div class="footer-give">
-          <a class="btn-give" href="https://friendsco.org/donate/">
-            <svg viewBox="0 0 576 512"><path d="M275.3 250.5c7 7.4 18.4 7.4 25.5 0l108.9-114.2c31.6-33.2 29.8-88.2-5.6-118.8-30.8-26.7-76.7-21.9-104.9 7.7L288 36.9l-11.1-11.6C248.7-4.4 202.8-9.2 172 17.5c-35.3 30.6-37.2 85.6-5.6 118.8l108.9 114.2zm290 77.6c-11.8-10.7-30.2-10-42.6 0L430.3 402c-11.3 9.1-25.4 14-40 14H272c-8.8 0-16-7.2-16-16s7.2-16 16-16h78.3c15.9 0 30.7-10.9 33.3-26.6 3.3-20-12.1-37.4-31.6-37.4H192c-27 0-53.1 9.3-74.1 26.3L71.4 384H16c-8.8 0-16 7.2-16 16v96c0 8.8 7.2 16 16 16h356.8c14.5 0 28.6-4.9 40-14L564 377c15.2-12.1 16.4-35.3 1.3-48.9z"/></svg>
-            <span>Give</span>
-          </a>
-        </div>
-        <div class="footer-badges">
-          <a href="https://www.charitynavigator.org/ein/410986200" target="_blank" rel="noopener"><img src="assets/img/charity-navigator-logo.png" alt="Charity Navigator Four-Star Charity"></a>
-          <a href="https://smartgivers.org/organizations/friends-co/" target="_blank" rel="noopener"><img src="assets/img/charities-review-council-logo.png" alt="Charities Review Council — Meets Standards"></a>
-        </div>
-        <div class="footer-social">
-          <a href="https://www.facebook.com/FriendsCoMN/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg></a>
-          <a href="https://www.youtube.com/channel/UCR9Hg7v8qScNMrSpesiZx0Q" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg></a>
-          <a href="https://www.linkedin.com/company/friendscomn/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
-          <a href="https://www.instagram.com/friendscomn" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>Friends &amp; Co formerly Little Brothers &ndash; Friends of the Elderly Twin Cities, EIN 41-0986200, previous address 1845 E. Lake St, Minneapolis, MN</p>
-    <p>&copy; 2026 Friends &amp; Co. All Rights Reserved. | Privacy Policy</p>
-  </div>
-</footer>
-
-<script>
-(function(){
-  // Mute/unmute button using YouTube IFrame API
-  var player;
-  var muted = true;
-  var iconMute = document.getElementById('iconMute');
-  var iconUnmute = document.getElementById('iconUnmute');
-  var btn = document.getElementById('audioCtrl');
-
-  window.onYouTubeIframeAPIReady = function(){
-    player = new YT.Player('heroYT', {
-      events:{
-        onReady: function(e){
-          e.target.mute();
-          e.target.playVideo();
-        }
-      }
-    });
-  };
-
-  if(btn){
-    btn.addEventListener('click', function(){
-      if(!player) return;
-      if(muted){
-        player.unMute();
-        player.setVolume(60);
-        muted = false;
-        iconMute.style.display = 'none';
-        iconUnmute.style.display = '';
-        btn.setAttribute('aria-label','Mute background video');
-      } else {
-        player.mute();
-        muted = true;
-        iconMute.style.display = '';
-        iconUnmute.style.display = 'none';
-        btn.setAttribute('aria-label','Unmute background video');
-      }
-    });
-  }
-
-  // Tab panel — Why Friendship
-  var tabs = Array.from(document.querySelectorAll('.tab-btn'));
-  var panels = Array.from(document.querySelectorAll('.tab-panel'));
-
-  function activateTab(idx){
-    tabs.forEach(function(t,i){
-      var selected = i === idx;
-      t.setAttribute('aria-selected', selected);
-      t.tabIndex = selected ? 0 : -1;
-      panels[i].classList.toggle('is-active', selected);
-      if(selected) panels[i].removeAttribute('hidden');
-      else panels[i].setAttribute('hidden','');
-    });
-  }
-
-  tabs.forEach(function(tab, i){
-    tab.addEventListener('click', function(){ activateTab(i); });
-    tab.addEventListener('keydown', function(e){
-      if(e.key === 'ArrowRight'){
-        e.preventDefault();
-        var next = (i+1) % tabs.length;
-        tabs[next].focus(); activateTab(next);
-      } else if(e.key === 'ArrowLeft'){
-        e.preventDefault();
-        var prev = (i-1+tabs.length) % tabs.length;
-        tabs[prev].focus(); activateTab(prev);
-      } else if(e.key === 'Home'){
-        e.preventDefault(); tabs[0].focus(); activateTab(0);
-      } else if(e.key === 'End'){
-        e.preventDefault(); tabs[tabs.length-1].focus(); activateTab(tabs.length-1);
-      }
-    });
-  });
-})();
-</script>
-<!-- YouTube IFrame API (must load after the script block above) -->
+<script src="assets/js/chrome.js"></script>
+<script src="assets/js/home.js"></script>
+<!-- YouTube IFrame API (must load after home.js) -->
 <script src="https://www.youtube.com/iframe_api"></script>
 
 </body>

@@ -1,0 +1,283 @@
+/* ==========================================================================
+   Friends & Co — site chrome (header, nav, footer)
+   Pairs with assets/js/chrome.js, which injects the markup.
+   Loaded on every page AFTER friendsco.css.
+
+   Matched to the live Elementor header/footer on friendsco.org.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+.site-header {
+  background: var(--white);
+  min-height: 90px;
+  padding: 18px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: relative;
+  z-index: 50;
+}
+.site-header .logo img { width: 150px; }
+
+.main-nav { display: flex; align-items: center; justify-content: center; flex: 1; }
+.main-nav > ul { display: flex; align-items: center; }
+.main-nav > ul > li { position: relative; }
+.main-nav a { text-decoration: none; }
+
+.main-nav > ul > li > a {
+  display: block;
+  padding: 10px 14px;
+  font-size: 1.125rem;      /* 18px */
+  font-weight: 700;
+  color: var(--blue);
+  position: relative;
+  white-space: nowrap;
+}
+.main-nav > ul > li > a::after {
+  content: '';
+  position: absolute;
+  left: 14px; right: 14px; bottom: 2px;
+  height: 4px;
+  background: var(--lime);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .2s;
+}
+.main-nav > ul > li:hover > a,
+.main-nav > ul > li.active > a { color: var(--blue-dark); }
+.main-nav > ul > li:hover > a::after,
+.main-nav > ul > li.active > a::after { transform: scaleX(1); }
+
+.main-nav .sub {
+  position: absolute;
+  top: 100%; left: 0;
+  min-width: 250px;
+  background: var(--white);
+  box-shadow: var(--shadow-pop);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .2s;
+  z-index: 60;
+}
+.main-nav li:hover > .sub,
+.main-nav li:focus-within > .sub { opacity: 1; visibility: visible; }
+.main-nav .sub li { position: relative; }
+.main-nav .sub a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 16px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--blue);
+}
+.main-nav .sub a:hover,
+.main-nav .sub a:focus { background: var(--blue); color: var(--white); }
+.main-nav .sub .sub { top: 0; left: 100%; }
+.main-nav .caret { width: .6em; height: .6em; fill: currentColor; flex: 0 0 auto; }
+
+.header-actions { display: flex; align-items: center; gap: 8px; }
+
+.btn-give {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 12px;
+  background: var(--lime);
+  color: var(--navy);
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: var(--radius-btn);
+  padding: 12px 22px;
+  transition: background .2s, transform .2s;
+}
+.btn-give:hover { background: var(--lime-dark); transform: scale(1.05); }
+.btn-give svg { width: 20px; height: 20px; fill: var(--navy); }
+
+.btn-search {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--blue);
+  border: none;
+  border-radius: var(--radius-btn);
+  padding: 12px 22px;
+  cursor: pointer;
+  transition: background .2s;
+}
+.btn-search:hover { background: var(--blue-darker); }
+.btn-search svg { width: 18px; height: 18px; fill: var(--white); }
+
+.btn-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.btn-hamburger svg { width: 28px; height: 28px; fill: var(--blue); }
+
+.mobile-menu { display: none; background: var(--white); box-shadow: var(--shadow-pop); }
+.mobile-menu.open { display: block; }
+.mobile-menu a {
+  display: block;
+  padding: 16px 24px;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--blue);
+  text-decoration: none;
+  border-top: 1px solid var(--line-grey);
+}
+.mobile-menu a:hover { background: var(--blue); color: var(--white); }
+.mobile-menu .menu-give { background: var(--lime); color: var(--navy); }
+
+@media (max-width: 1024px) {
+  .main-nav,
+  .header-actions .btn-give,
+  .header-actions .btn-search { display: none; }
+  .btn-hamburger { display: inline-flex; }
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+.site-footer .footer-newsletter {
+  background: var(--navy);
+  color: var(--white);
+  padding: 44px 32px;
+}
+.site-footer .footer-newsletter .inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.site-footer .footer-newsletter h3 { font-size: var(--fs-h3); color: var(--white); margin-bottom: 6px; }
+.site-footer .footer-newsletter p { color: rgba(255,255,255,.9); font-size: var(--fs-small); }
+
+.newsletter-form { display: flex; gap: 10px; flex-wrap: wrap; }
+.newsletter-form input {
+  min-width: 280px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: var(--radius-btn);
+  font-family: var(--font);
+  font-size: var(--fs-small);
+}
+.newsletter-form button {
+  background: var(--lime);
+  color: var(--navy);
+  border: none;
+  border-radius: var(--radius-btn);
+  padding: 12px 26px;
+  font-family: var(--font);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s;
+}
+.newsletter-form button:hover { background: var(--lime-dark); }
+
+.site-footer .footer-main {
+  background: var(--blue);
+  color: var(--white);
+  padding: 54px 32px 44px;
+}
+.site-footer .footer-main .inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1.25fr 1fr 1fr 1.05fr;
+  gap: 36px;
+}
+.site-footer .footer-main h4 {
+  font-size: var(--fs-h4);
+  color: var(--white);
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(255,255,255,.2);
+  margin-bottom: 14px;
+}
+.footer-logo { max-width: 190px; margin-bottom: 14px; }
+
+.contact-list li { display: flex; gap: 10px; margin-bottom: 12px; font-size: var(--fs-small); }
+.contact-list svg { width: 15px; height: 15px; fill: var(--lime); flex: 0 0 auto; position: relative; top: 5px; }
+.contact-list a { color: var(--white); text-decoration: none; }
+.contact-list a:hover { text-decoration: underline; }
+
+.footer-links li { margin-bottom: 9px; }
+.footer-links a {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--white);
+  text-decoration: none;
+}
+.footer-links a:hover { text-decoration: underline; }
+.footer-links svg { width: 11px; height: 11px; fill: var(--lime); flex: 0 0 auto; position: relative; top: 1px; }
+
+.footer-give .btn-give { width: 100%; justify-content: center; padding: 12px 28px; margin-bottom: 20px; }
+.footer-give .btn-give:hover { transform: none; box-shadow: 0 6px 12px rgba(0,0,0,.15); }
+
+.footer-badges { display: flex; gap: 14px; margin-bottom: 22px; }
+.footer-badges a { background: var(--white); border-radius: var(--radius-btn); padding: 5px; display: block; }
+.footer-badges img { width: 100px; }
+
+.footer-social { display: flex; gap: 21px; }
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.1);
+  transition: background .3s;
+}
+.footer-social a:hover { background: var(--magenta); }
+.footer-social svg { width: 18px; height: 18px; fill: var(--white); }
+
+.site-footer .footer-bottom {
+  background: var(--footer-bottom);
+  color: rgba(255,255,255,.92);
+  padding: 18px 32px;
+  text-align: center;
+  font-size: .875rem;
+}
+.site-footer .footer-bottom p { max-width: 980px; margin-inline: auto; }
+
+@media (max-width: 1024px) {
+  .site-footer .footer-main .inner { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .site-footer .footer-main .inner { grid-template-columns: 1fr; }
+  .site-footer .footer-newsletter .inner { flex-direction: column; align-items: flex-start; }
+  .newsletter-form input { min-width: 0; width: 100%; }
+  .newsletter-form { width: 100%; }
+}
+
+/* --------------------------------------------------------------------------
+   Trust / accreditation strip — sits directly under the hero on most pages
+   -------------------------------------------------------------------------- */
+.trust-strip {
+  background: var(--pale-blue);
+  border-bottom: 1px solid var(--line-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  padding: 14px 32px;
+}
+.trust-strip-label {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--slate);
+}
+.trust-strip img { height: 52px; width: auto; opacity: .85; }
+
+@media (max-width: 640px) {
+  .trust-strip { gap: 20px; padding: 14px 20px; }
+}

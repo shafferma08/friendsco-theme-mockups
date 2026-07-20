@@ -21,7 +21,7 @@
 
 <main>
   <section class="split-hero accent-magenta">
-    <div class="split-hero-photo" style="background-image:url('https://friendsco.org/wp-content/uploads/2026/06/Coffee-Talk-Twin-Cities.jpg');" role="img" aria-label="A Coffee Talk volunteer on the phone at Friends &amp; Co"></div>
+    <div class="split-hero-photo" style="background-image:url('https://friendsco.org/wp-content/uploads/2025/09/senior-woman-talking-over-the-phone-at-her-home-2024-10-18-05-19-09-utc-scaled-1.jpg');" role="img" aria-label="An older adult woman talking on the phone at home"></div>
     <div class="split-hero-panel">
       <img class="split-hero-mark" src="assets/img/ampersand-icon.png" alt="">
       <div class="split-hero-body">
@@ -41,6 +41,15 @@
       <h2 class="h-magenta">Brighten your day with a call — no signup needed</h2>
       <div class="prose measure" style="margin-inline:auto">
         <p>Coffee Talk is a free, drop-in phone line where older adults can connect with caring volunteers for friendly, one-on-one conversations. No forms. No pressure. Just warm conversation and connection when you need it.</p>
+      </div>
+      <div style="margin-top:36px;max-width:640px;margin-inline:auto;position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius-card)">
+        <iframe
+          style="position:absolute;top:0;left:0;width:100%;height:100%"
+          src="https://www.youtube.com/embed/uDvNP_fZjJU?rel=0"
+          title="Coffee Talk | Friends &amp; Co"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
       </div>
     </div>
   </section>
@@ -71,12 +80,10 @@
     </div>
   </section>
 
-  <section class="section section-tint-blue">
-    <div class="container center">
-      <h2 class="h-blue">Coffee Talk is completely free and always open to older adults looking for conversation.</h2>
-      <div class="prose measure" style="margin-inline:auto">
-        <p>No sign-up, no commitment, no cost — ever. Just dial in and talk when you need a friendly voice. Coffee Talk is available across Minnesota and into Western Wisconsin.</p>
-      </div>
+  <section class="section-sm section-tint-blue">
+    <div class="container" style="text-align:center">
+      <a class="btn btn-orange btn-lg" href="tel:+16127460728" style="font-size:var(--fs-h4);padding:18px 44px">Call 612-746-0728</a>
+      <p style="margin-top:14px;font-size:var(--fs-body);color:var(--ink)">Tuesday &amp; Thursday, 9 a.m.–Noon (CST)</p>
     </div>
   </section>
 
@@ -100,7 +107,14 @@
         </article>
         <article class="faq-card">
           <h3><i class="fas fa-phone-volume" aria-hidden="true"></i>What number should I call?</h3>
-          <p>Local numbers — Twin Cities: 612-746-0728 or 651-204-0129. Western Wisconsin: 715-406-4871. Duluth: 218-293-4412. Rochester: 507-936-0317. St. Cloud / Central MN: 320-300-2683. Toll free: 877-238-2282.</p>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;color:var(--ink)">
+            <li><strong>Twin Cities:</strong> 612-746-0728 or 651-204-0129</li>
+            <li><strong>Western Wisconsin:</strong> 715-406-4871</li>
+            <li><strong>Duluth:</strong> 218-293-4412</li>
+            <li><strong>Rochester:</strong> 507-936-0317</li>
+            <li><strong>St. Cloud / Central MN:</strong> 320-300-2683</li>
+            <li><strong>Toll free:</strong> 877-238-2282</li>
+          </ul>
         </article>
         <article class="faq-card">
           <h3><i class="fas fa-envelope" aria-hidden="true"></i>Still have questions?</h3>
@@ -111,21 +125,30 @@
   </section>
 
   <section class="section section-tint-blue">
-    <div class="container">
-      <div style="display:grid;grid-template-columns:1fr 1.8fr;gap:56px;align-items:flex-start">
-        <div>
-          <p class="section-eyebrow">Can’t call right now?</p>
-          <h2 class="h-magenta">Request a callback</h2>
-          <p class="prose">Fill out this short form and we’ll give you a call during an upcoming Coffee Talk session.</p>
-        </div>
-        <form class="form-panel" onsubmit="return false;" style="max-width:100%;margin-top:0;background:var(--white)">
-          <div class="field-row">
-            <label>* First name<input type="text" name="fname" required></label>
-            <label>* Phone<input type="tel" name="phone" required></label>
+    <div class="container center">
+      <h2 class="h-magenta">Want us to give you a call?</h2>
+      <div style="max-width:660px;margin:32px auto 0;background:var(--white);border:2px solid var(--magenta);border-radius:var(--radius-card);padding:40px 44px">
+        <p style="color:var(--ink);font-size:var(--fs-body);margin-bottom:24px">Request a callback and we’ll reach out during an upcoming Coffee Talk session.</p>
+        <form onsubmit="return false;" style="display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <label style="font-size:var(--fs-small);font-weight:600;color:var(--ink)">First Name *</label>
+            <input type="text" name="fname" required style="padding:10px 14px;border:1px solid #ccc;border-radius:4px;font-family:var(--font);font-size:var(--fs-small);color:var(--ink)">
           </div>
-          <label>Email (optional)<input type="email" name="email"></label>
-          <label>Comments<textarea name="comments" rows="4"></textarea></label>
-          <button type="submit" class="btn btn-magenta" style="margin-top:8px">Request a callback</button>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <label style="font-size:var(--fs-small);font-weight:600;color:var(--ink)">Phone *</label>
+            <input type="tel" name="phone" required placeholder="###-###-####" style="padding:10px 14px;border:1px solid #ccc;border-radius:4px;font-family:var(--font);font-size:var(--fs-small);color:var(--ink)">
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <label style="font-size:var(--fs-small);font-weight:600;color:var(--ink)">Email (Optional, we send out a monthly newsletter!)</label>
+            <input type="email" name="email" style="padding:10px 14px;border:1px solid #ccc;border-radius:4px;font-family:var(--font);font-size:var(--fs-small);color:var(--ink)">
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <label style="font-size:var(--fs-small);font-weight:600;color:var(--ink)">Anything else you’d like us to know? (We always appreciate feedback, and love compliments too.)</label>
+            <input type="text" name="comments" style="padding:10px 14px;border:1px solid #ccc;border-radius:4px;font-family:var(--font);font-size:var(--fs-small);color:var(--ink)">
+          </div>
+          <div>
+            <button type="submit" class="btn btn-teal">Submit</button>
+          </div>
         </form>
       </div>
     </div>

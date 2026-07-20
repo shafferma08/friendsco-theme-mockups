@@ -137,9 +137,9 @@
 }
 .event-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,.1); }
 .event-image { aspect-ratio: 3/2; background-size: cover; background-position: center; background-color: var(--slate); }
-.event-image.a { background-image: url('assets/img/lets-do-coffee.png'); }
-.event-image.b { background-image: url('assets/img/lets-do-coffee.png'); }
-.event-image.c { background-image: url('assets/img/lets-do-lunch.jpg'); }
+.event-image.a { background-image: url('../../img/lets-do-coffee.png'); }
+.event-image.b { background-image: url('../../img/lets-do-coffee.png'); }
+.event-image.c { background-image: url('../../img/lets-do-lunch.jpg'); }
 .event-image-label { display: none; }
 .event-body { padding: 24px 26px 28px; display: flex; flex-direction: column; flex: 1; }
 .event-meta { font-size: var(--fs-small); color: var(--magenta); font-weight: 700; margin-bottom: 10px; }

@@ -51,7 +51,7 @@
      listed in TODO below so it stays obvious which ones are stubs.
      -------------------------------------------------------------------------- */
   var P = {
-    home:        'home-mockup.html',
+    home:        'index.html',
     programs:    'friendship-services.html',
     visiting:    'visiting-companions.html',
     lets:        'lets-do-events.html',

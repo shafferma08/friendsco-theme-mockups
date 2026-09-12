@@ -235,39 +235,27 @@
 .news-item-body p { font-size: .95rem; color: var(--ink-softer); line-height: 1.5; }
 
 /* --------------------------------------------------------------------------
-   Why friendship — all three audiences shown at once, no click required.
-   (Was a click-to-reveal tab panel; Paul didn't realize the tabs were
-   interactive, and hiding two-thirds of this content behind a guessed click
-   is a real usability risk for this audience regardless — so it's gone.)
+   Why friendship
+   Third attempt: not a click-to-reveal tab panel (Paul didn't realize it was
+   interactive), and not a third 3-up card grid on a page that already has
+   three (events, services, CTA). One photo, one message that speaks to
+   everyone it reaches, and a plain stat band underneath — a different shape
+   than the rest of the page, still nothing hidden.
    -------------------------------------------------------------------------- */
 .why-section { padding-block: var(--section-y); background: var(--cream); border-top: 1px solid var(--line); }
 
-.why-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; align-items: start; }
-.why-card-image { border-radius: var(--radius-card); overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 12px 30px rgba(0,0,0,.1); margin-bottom: 20px; }
-.why-card-image img { width: 100%; height: 100%; object-fit: cover; }
-.why-card-label {
-  display: inline-block;
-  font-size: var(--fs-eyebrow);
-  font-weight: 700;
-  letter-spacing: var(--ls-eyebrow);
-  color: var(--magenta);
-  margin-bottom: 10px;
-}
-.why-card h3 { font-size: var(--fs-h4); margin-bottom: 12px; }
-.why-card p { margin-bottom: 18px; color: var(--ink-muted); }
-
-.why-stat {
-  background: var(--orange);
-  color: var(--white);
-  padding: 20px 22px;
+.why-media .media-img img {
   border-radius: var(--radius-card);
-  display: flex;
-  align-items: center;
-  gap: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .1);
 }
-.stat-number { font-size: 2.2rem; font-weight: 800; line-height: 1; flex-shrink: 0; }
-.stat-text { font-size: var(--fs-small); line-height: 1.4; }
-.why-cta { text-align: center; margin-top: 50px; }
+.why-media .media-body p { color: var(--ink-muted); margin-bottom: 22px; }
+
+.why-stats { margin-top: 56px; gap: 36px; }
+/* .stat / .stat-icon / .stat-num / .stat-label come from friendsco.css.
+   Icon circles there default to a lime-tint fill, which disappears on this
+   section's lime-tint background — swap to white so they still read. */
+.why-stats .stat-icon { background: var(--white); box-shadow: 0 2px 8px rgba(26, 42, 66, .08); }
+.why-stats .stat-num { font-size: 2.6rem; }
 
 /* --------------------------------------------------------------------------
    Friendship services — colour tiles
@@ -449,8 +437,7 @@
   .events-grid,
   .services-grid,
   .cta-grid,
-  .news-editorial,
-  .why-grid-3 { grid-template-columns: 1fr 1fr; }
+  .news-editorial { grid-template-columns: 1fr 1fr; }
   .testimonial-grid { grid-template-columns: 1fr; }
 }
 
@@ -460,10 +447,10 @@
   .services-grid,
   .cta-grid,
   .news-editorial,
-  .why-grid-3,
   .testimonial-grid { grid-template-columns: 1fr; }
   .news-item { grid-template-columns: 1fr; }
   .news-item-image { width: 100%; }
   .trust-strip-float { margin-top: -20px; border-radius: var(--radius-btn); }
   .testimonial-mark { width: 220px; opacity: .1; }
+  .why-stats { margin-top: 40px; }
 }

@@ -216,10 +216,30 @@
     }).join('') + '</ul>';
   }
 
+  /* "As seen in" press mentions — real coverage, repeats in the footer on
+     every page. Logos are pulled from the live site (friendsco.org) and
+     cached locally in assets/img/press/. Links go straight to the source
+     (tear sheet, video, or episode page), same as the charity badges do. */
+  var FOOTER_PRESS = [
+    ['Star Tribune',  'press/star-tribune-logo.png',   'https://friendsco.org/wp-content/uploads/2026/07/StarTribune_07-30-2026.pdf'],
+    ['Pioneer Press', 'press/pioneer-press-logo.png',  'https://friendsco.org/wp-content/uploads/2026/06/Pioneer-Press-Tear-Sheet-06-26-26.pdf'],
+    ['KARE 11 News',  'press/kare11-logo.jpg',         'https://www.youtube.com/watch?v=sYnDnnwMKJs'],
+    ['MPR News',      'press/mpr-news-logo.png',       'https://www.mprnews.org/episode/2026/08/19/how-to-help-older-adults-build-meaningful-connections']
+  ];
+
   function footerHTML(assetPath) {
     var img = assetPath || 'assets/img/';
     return '' +
     '<footer class="site-footer">' +
+      '<div class="footer-press"><div class="inner">' +
+        '<span class="footer-press-label">As seen in</span>' +
+        '<ul class="footer-press-list">' +
+          FOOTER_PRESS.map(function (r) {
+            return '<li><a href="' + r[2] + '" target="_blank" rel="noopener"><img src="' + img + r[1] + '" alt="' + r[0] + ' logo"></a></li>';
+          }).join('') +
+        '</ul>' +
+      '</div></div>' +
+
       '<div class="footer-newsletter"><div class="inner">' +
         '<div><h3>Stay in the loop</h3><p>Get monthly updates and news from Friends &amp; Co.</p></div>' +
         '<form class="newsletter-form" onsubmit="return false;">' +

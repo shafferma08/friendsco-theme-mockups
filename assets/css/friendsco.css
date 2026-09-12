@@ -253,7 +253,10 @@ h6 { font-size: var(--fs-h6); font-weight: var(--fw-secondary); line-height: 1.4
 .section-white  { background: var(--white); }
 .section-tint   { background: var(--lime-tint); }
 .section-cream  { background: var(--lime-tint); }  /* deprecated — use .section-tint */
-.section-navy   { background: var(--navy);    color: var(--white); }
+/* Was flat navy — Paul's 8/6 review asked to move every page off it. Single
+   token swap here reaches every page that uses .section-navy (about, events,
+   friendship-services, get-involved, and others) without touching each one. */
+.section-navy  { background: var(--blue-dark); color: var(--white); }
 .section-blue   { background: var(--blue);    color: var(--white); }
 .section-magenta{ background: var(--magenta); color: var(--white); }
 .section-navy h1, .section-navy h2, .section-navy h3, .section-navy h4,
@@ -1247,3 +1250,35 @@ h2 + .prose, h2 + .factbox, h3 + .prose, h2 + .tick-list { margin-top: 18px; }
 .btn-tint-on-blue { background: var(--lime-tint); color: var(--blue); }
 .btn-tint-on-blue:hover { background: var(--white); }
 .split-hero.accent-teal { --accent: var(--teal); }
+
+/* --------------------------------------------------------------------------
+   5x. Video placeholder
+   Stands in for a 16:9 embed where we don't have real footage yet. Reads
+   deliberately as unfinished (dashed border, muted, "Video needed") rather
+   than quietly reusing unrelated footage — the point is to flag the gap to
+   Paul, not paper over it. Drop a real iframe in over the top when footage
+   exists; the surrounding layout doesn't need to change.
+   -------------------------------------------------------------------------- */
+.video-placeholder {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border: 2px dashed var(--slate);
+  border-radius: var(--radius-card);
+  background: rgba(125, 145, 160, .08);
+}
+.video-placeholder-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+  padding: 24px;
+}
+.video-placeholder-inner i { font-size: 2rem; color: var(--slate); }
+.video-placeholder-title { font-weight: 700; color: var(--ink-soft); }
+.video-placeholder-note { font-size: var(--fs-small); color: var(--ink-softer); max-width: 42ch; }

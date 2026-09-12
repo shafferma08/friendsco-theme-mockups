@@ -138,10 +138,53 @@
 }
 
 /* --------------------------------------------------------------------------
+   Footer — "As seen in" press strip
+   Sits on the page's own lime tint, ahead of the blue newsletter band, so it
+   reads as part of the page rather than a deviation from the approved
+   header/footer. Real outlet logos (pulled from the live site), each in its
+   own small glass tile since every logo carries its own baked-in color.
+   -------------------------------------------------------------------------- */
+.footer-press { background: var(--lime-tint); border-bottom: 1px solid var(--line); }
+.footer-press .inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding: 18px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.footer-press-label {
+  font-size: var(--fs-small);
+  font-weight: 700;
+  color: var(--slate);
+}
+.footer-press-list { display: flex; gap: 14px; flex-wrap: wrap; }
+.footer-press-list a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px; height: 90px;    /* matches the size already used on lets-do-events.html */
+  background: rgba(255,255,255,.8);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px;
+  transition: transform .2s, box-shadow .2s;
+}
+.footer-press-list a:hover { transform: translateY(-2px); box-shadow: var(--shadow-card); }
+.footer-press-list img { width: 100%; height: 100%; object-fit: contain; display: block; border-radius: 6px; }
+
+@media (max-width: 640px) {
+  .footer-press .inner { padding: 14px 20px; gap: 10px; }
+  .footer-press-list a { width: 68px; height: 68px; }
+}
+
+/* --------------------------------------------------------------------------
    Footer
    -------------------------------------------------------------------------- */
 .site-footer .footer-newsletter {
-  background: var(--navy);
+  background: var(--blue-dark);   /* was navy */
   color: var(--white);
   padding: 44px 32px;
 }
@@ -154,7 +197,7 @@
   gap: 32px;
   flex-wrap: wrap;
 }
-.site-footer .footer-newsletter h3 { font-size: var(--fs-h2); color: var(--blue); margin-bottom: 6px; }
+.site-footer .footer-newsletter h3 { font-size: var(--fs-h2); color: var(--white); margin-bottom: 6px; }
 .site-footer .footer-newsletter p { color: rgba(255,255,255,.9); font-size: var(--fs-body); }
 
 .newsletter-form { display: flex; flex-direction: column; gap: 8px; flex: 1; min-width: 380px; }

@@ -144,7 +144,7 @@
 /* --------------------------------------------------------------------------
    Upcoming events
    -------------------------------------------------------------------------- */
-.events-section { padding-block: var(--section-y); background: var(--pale-blue); }
+.events-section { padding-block: var(--section-y); background: var(--cream); border-top: 1px solid var(--line); }
 .events-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
 
 .event-card {
@@ -181,7 +181,7 @@
 /* --------------------------------------------------------------------------
    Latest news
    -------------------------------------------------------------------------- */
-.news-section { padding-block: var(--section-y); background: var(--cream); }
+.news-section { padding-block: var(--section-y); background: var(--cream); border-top: 1px solid var(--line); }
 .news-editorial { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; }
 
 .news-featured {
@@ -235,57 +235,39 @@
 .news-item-body p { font-size: .95rem; color: var(--ink-softer); line-height: 1.5; }
 
 /* --------------------------------------------------------------------------
-   Why friendship — tab panel
+   Why friendship — all three audiences shown at once, no click required.
+   (Was a click-to-reveal tab panel; Paul didn't realize the tabs were
+   interactive, and hiding two-thirds of this content behind a guessed click
+   is a real usability risk for this audience regardless — so it's gone.)
    -------------------------------------------------------------------------- */
-.why-section { padding-block: var(--section-y); background: var(--pale-blue); }
+.why-section { padding-block: var(--section-y); background: var(--cream); border-top: 1px solid var(--line); }
 
-.tabs-bar {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
-  border-bottom: 2px solid var(--line-grey);
-}
-.tab-btn {
-  background: transparent;
-  border: none;
-  color: var(--ink-soft);
-  padding: 18px 28px;
-  font-family: var(--font);
-  font-size: var(--fs-small);
+.why-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; align-items: start; }
+.why-card-image { border-radius: var(--radius-card); overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 12px 30px rgba(0,0,0,.1); margin-bottom: 20px; }
+.why-card-image img { width: 100%; height: 100%; object-fit: cover; }
+.why-card-label {
+  display: inline-block;
+  font-size: var(--fs-eyebrow);
   font-weight: 700;
-  cursor: pointer;
-  border-bottom: 4px solid transparent;
-  margin-bottom: -2px;
-  min-height: 44px;
-  transition: color .2s, border-color .2s;
+  letter-spacing: var(--ls-eyebrow);
+  color: var(--magenta);
+  margin-bottom: 10px;
 }
-.tab-btn:hover { color: var(--magenta); }
-.tab-btn[aria-selected="true"] { color: var(--navy); border-bottom-color: var(--magenta); }
-
-.tab-panel { display: none; animation: fadeIn .3s ease; }
-.tab-panel.is-active { display: block; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-
-.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-.why-image { border-radius: var(--radius-card); overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 12px 30px rgba(0,0,0,.1); }
-.why-image img { width: 100%; height: 100%; object-fit: cover; }
-.why-content h3 { font-size: var(--fs-h3); margin-bottom: 18px; }
-.why-content p { margin-bottom: 16px; color: var(--ink-muted); }
+.why-card h3 { font-size: var(--fs-h4); margin-bottom: 12px; }
+.why-card p { margin-bottom: 18px; color: var(--ink-muted); }
 
 .why-stat {
   background: var(--orange);
   color: var(--white);
-  padding: 24px 28px;
+  padding: 20px 22px;
   border-radius: var(--radius-card);
-  margin-top: 24px;
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
 }
-.stat-number { font-size: 2.8rem; font-weight: 800; line-height: 1; flex-shrink: 0; }
-.stat-text { font-size: var(--fs-small); line-height: 1.45; }
-.why-cta { text-align: center; margin-top: 60px; }
+.stat-number { font-size: 2.2rem; font-weight: 800; line-height: 1; flex-shrink: 0; }
+.stat-text { font-size: var(--fs-small); line-height: 1.4; }
+.why-cta { text-align: center; margin-top: 50px; }
 
 /* --------------------------------------------------------------------------
    Friendship services — colour tiles
@@ -293,6 +275,7 @@
 .services-section {
   padding-block: 100px;
   background: var(--cream);   /* was solid blue — the tiles carry the colour now */
+  border-top: 1px solid var(--line);
   position: relative;
   overflow: hidden;
 }
@@ -466,8 +449,8 @@
   .events-grid,
   .services-grid,
   .cta-grid,
-  .news-editorial { grid-template-columns: 1fr 1fr; }
-  .why-grid { grid-template-columns: 1fr; gap: 32px; }
+  .news-editorial,
+  .why-grid-3 { grid-template-columns: 1fr 1fr; }
   .testimonial-grid { grid-template-columns: 1fr; }
 }
 
@@ -477,6 +460,7 @@
   .services-grid,
   .cta-grid,
   .news-editorial,
+  .why-grid-3,
   .testimonial-grid { grid-template-columns: 1fr; }
   .news-item { grid-template-columns: 1fr; }
   .news-item-image { width: 100%; }

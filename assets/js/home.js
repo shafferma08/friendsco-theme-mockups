@@ -1,6 +1,7 @@
 /* ==========================================================================
    Friends & Co — home page behaviour
-   Hero video mute toggle + "Why friendship" accessible tab panel.
+   Hero video mute toggle. ("Why friendship" no longer needs script — it's a
+   plain 3-up grid now instead of a click-to-reveal tab panel.)
    ========================================================================== */
 (function(){
   // Mute/unmute button using YouTube IFrame API
@@ -40,38 +41,4 @@
       }
     });
   }
-
-  // Tab panel — Why Friendship
-  var tabs = Array.from(document.querySelectorAll('.tab-btn'));
-  var panels = Array.from(document.querySelectorAll('.tab-panel'));
-
-  function activateTab(idx){
-    tabs.forEach(function(t,i){
-      var selected = i === idx;
-      t.setAttribute('aria-selected', selected);
-      t.tabIndex = selected ? 0 : -1;
-      panels[i].classList.toggle('is-active', selected);
-      if(selected) panels[i].removeAttribute('hidden');
-      else panels[i].setAttribute('hidden','');
-    });
-  }
-
-  tabs.forEach(function(tab, i){
-    tab.addEventListener('click', function(){ activateTab(i); });
-    tab.addEventListener('keydown', function(e){
-      if(e.key === 'ArrowRight'){
-        e.preventDefault();
-        var next = (i+1) % tabs.length;
-        tabs[next].focus(); activateTab(next);
-      } else if(e.key === 'ArrowLeft'){
-        e.preventDefault();
-        var prev = (i-1+tabs.length) % tabs.length;
-        tabs[prev].focus(); activateTab(prev);
-      } else if(e.key === 'Home'){
-        e.preventDefault(); tabs[0].focus(); activateTab(0);
-      } else if(e.key === 'End'){
-        e.preventDefault(); tabs[tabs.length-1].focus(); activateTab(tabs.length-1);
-      }
-    });
-  });
 })();

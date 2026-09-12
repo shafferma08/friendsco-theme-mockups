@@ -181,6 +181,22 @@
     </div>
   </section>
 
+  <!-- AS SEEN IN — the live homepage features this prominently mid-page,
+       not just in the footer; same real logos, on the lime tint like
+       everything around it, no colour block of its own. -->
+  <section class="section section-tint" aria-labelledby="press-heading" style="border-top:1px solid var(--line)">
+    <div class="container center">
+      <p class="section-eyebrow">In the news</p>
+      <h2 id="press-heading">As seen in</h2>
+      <div class="grid grid-4" style="margin-top:32px;align-items:center;gap:28px;justify-items:center;max-width:720px;margin-inline:auto">
+        <a href="https://friendsco.org/wp-content/uploads/2026/07/StarTribune_07-30-2026.pdf" target="_blank" rel="noopener"><img src="assets/img/press/star-tribune-logo.png" alt="Star Tribune logo" style="height:64px;width:auto;max-width:100%;object-fit:contain"></a>
+        <a href="https://friendsco.org/wp-content/uploads/2026/06/Pioneer-Press-Tear-Sheet-06-26-26.pdf" target="_blank" rel="noopener"><img src="assets/img/press/pioneer-press-logo.png" alt="Pioneer Press logo" style="height:64px;width:auto;max-width:100%;object-fit:contain;border-radius:8px"></a>
+        <a href="https://www.youtube.com/watch?v=sYnDnnwMKJs" target="_blank" rel="noopener"><img src="assets/img/press/kare11-logo.jpg" alt="KARE 11 News logo" style="height:64px;width:auto;max-width:100%;object-fit:contain;border-radius:8px"></a>
+        <a href="https://www.mprnews.org/episode/2026/08/19/how-to-help-older-adults-build-meaningful-connections" target="_blank" rel="noopener"><img src="assets/img/press/mpr-news-logo.png" alt="MPR News logo" style="height:64px;width:auto;max-width:100%;object-fit:contain;border-radius:8px"></a>
+      </div>
+    </div>
+  </section>
+
   <!-- WHY FRIENDSHIP — accessible tab panel -->
   <section class="why-section" aria-labelledby="why-heading">
     <div class="container">
@@ -190,61 +206,47 @@
         <p>Friends &amp; Co celebrates aging through community-led service that fosters meaningful connections for everyone. Social connection creates long-lasting benefits for:</p>
       </div>
 
-      <div class="tabs-bar" role="tablist" aria-label="Who benefits">
-        <button type="button" class="tab-btn" role="tab" aria-selected="true" aria-controls="tab-older" id="tab-older-btn">Older adults</button>
-        <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-loved" id="tab-loved-btn" tabindex="-1">Loved ones</button>
-        <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-comm" id="tab-comm-btn" tabindex="-1">Communities</button>
-      </div>
-
-      <div class="tab-panel is-active" role="tabpanel" id="tab-older" aria-labelledby="tab-older-btn">
-        <div class="why-grid">
-          <div class="why-image">
+      <!-- All three audiences shown at once — no tab click required to see
+           the other two-thirds of this content. -->
+      <div class="why-grid-3">
+        <article class="why-card">
+          <div class="why-card-image">
             <img src="assets/img/photo-connection.jpeg" alt="An older adult smiling and enjoying connection" loading="lazy">
           </div>
-          <div class="why-content">
-            <h3>Connection supports health and longevity</h3>
-            <p>Regular social connection can boost longevity and protect against chronic illness, reducing the risk of heart disease, stroke, cognitive decline, and premature death.</p>
-            <p>For older adults navigating life transitions, a trusted companion can be the difference between a lonely week and one filled with laughter.</p>
-            <div class="why-stat">
-              <div class="stat-number">23%</div>
-              <div class="stat-text">of older adults in Minnesota report feeling socially isolated. Our programs are designed to change that.</div>
-            </div>
+          <p class="why-card-label">Older adults</p>
+          <h3>Connection supports health and longevity</h3>
+          <p>Regular social connection can boost longevity and protect against chronic illness, reducing the risk of heart disease, stroke, and cognitive decline.</p>
+          <div class="why-stat">
+            <div class="stat-number">23%</div>
+            <div class="stat-text">of older adults in Minnesota report feeling socially isolated. Our programs are designed to change that.</div>
           </div>
-        </div>
-      </div>
+        </article>
 
-      <div class="tab-panel" role="tabpanel" id="tab-loved" aria-labelledby="tab-loved-btn" hidden>
-        <div class="why-grid">
-          <div class="why-image">
+        <article class="why-card">
+          <div class="why-card-image">
             <img src="https://friendsco.org/wp-content/uploads/2025/09/AdobeStock_749035226-scaled-1.jpeg" alt="A family member sharing a moment with their older loved one" loading="lazy">
           </div>
-          <div class="why-content">
-            <h3>Peace of mind for families and care partners</h3>
-            <p>When a parent, sibling, or neighbor is matched with a Friends &amp; Co companion, the whole family feels the relief. A trusted check-in each week means someone's paying attention.</p>
-            <p>Our staff and volunteers are trained to recognize signs that something has changed, so you hear about it early.</p>
-            <div class="why-stat">
-              <div class="stat-number">85%</div>
-              <div class="stat-text">of family members report lower caregiver stress after their loved one joins a Friends &amp; Co program.</div>
-            </div>
+          <p class="why-card-label">Loved ones</p>
+          <h3>Peace of mind for families and care partners</h3>
+          <p>When a parent, sibling, or neighbor is matched with a Friends &amp; Co companion, the whole family feels the relief of a trusted weekly check-in.</p>
+          <div class="why-stat">
+            <div class="stat-number">85%</div>
+            <div class="stat-text">of family members report lower caregiver stress after their loved one joins a Friends &amp; Co program.</div>
           </div>
-        </div>
-      </div>
+        </article>
 
-      <div class="tab-panel" role="tabpanel" id="tab-comm" aria-labelledby="tab-comm-btn" hidden>
-        <div class="why-grid">
-          <div class="why-image">
+        <article class="why-card">
+          <div class="why-card-image">
             <img src="assets/img/photo-visiting.jpeg" alt="A connected, vibrant community of older adults and volunteers" loading="lazy">
           </div>
-          <div class="why-content">
-            <h3>Stronger, more connected neighborhoods</h3>
-            <p>Each matched friendship is a thread in a wider community fabric. Our programs bring generations together, reduce isolation at scale, and strengthen the neighborhoods we all live in.</p>
-            <p>Free, community-supported programs mean nobody's priced out of connection.</p>
-            <div class="why-stat">
-              <div class="stat-number">5,200+</div>
-              <div class="stat-text">older adults served across the Twin Cities in the past year, thanks to 600 active volunteers.</div>
-            </div>
+          <p class="why-card-label">Communities</p>
+          <h3>Stronger, more connected neighborhoods</h3>
+          <p>Each matched friendship is a thread in a wider community fabric — reducing isolation at scale and strengthening the neighborhoods we all live in.</p>
+          <div class="why-stat">
+            <div class="stat-number">5,200+</div>
+            <div class="stat-text">older adults served across the Twin Cities in the past year, thanks to 600 active volunteers.</div>
           </div>
-        </div>
+        </article>
       </div>
 
       <div class="why-cta">

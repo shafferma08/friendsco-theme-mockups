@@ -373,6 +373,40 @@
 .testimonial-section .section-head p { color: rgba(255,255,255,.8); }
 .testimonial-section .section-eyebrow { color: rgba(255,255,255,.8); }
 
+/* Featured video testimonial — poster + play affordance, sits above the
+   written quotes. Real footage drops into the same 16:9 frame later. */
+.testimonial-video {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto 46px;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: 0 18px 44px rgba(0,0,0,.28);
+}
+.testimonial-video img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.testimonial-video::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(51,51,51,.12) 0%, rgba(51,51,51,.58) 100%);
+}
+.tv-play {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  z-index: 2; width: 84px; height: 84px; border-radius: 50%;
+  background: rgba(255,255,255,.94); color: var(--magenta);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.9rem; padding-left: 6px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.3);
+}
+.testimonial-video figcaption {
+  position: absolute; left: 28px; bottom: 22px; z-index: 2;
+  color: var(--white); font-size: var(--fs-lead); font-weight: 700;
+  max-width: 72%; text-shadow: 0 1px 6px rgba(0,0,0,.45);
+}
+@media (max-width: 640px) {
+  .tv-play { width: 62px; height: 62px; font-size: 1.4rem; }
+  .testimonial-video figcaption { font-size: 1rem; left: 18px; bottom: 15px; }
+}
+
 .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 
 .testimonial-card {

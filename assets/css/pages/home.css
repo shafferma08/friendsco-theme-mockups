@@ -235,27 +235,39 @@
 .news-item-body p { font-size: .95rem; color: var(--ink-softer); line-height: 1.5; }
 
 /* --------------------------------------------------------------------------
-   Why friendship
-   Third attempt: not a click-to-reveal tab panel (Paul didn't realize it was
-   interactive), and not a third 3-up card grid on a page that already has
-   three (events, services, CTA). One photo, one message that speaks to
-   everyone it reaches, and a plain stat band underneath — a different shape
-   than the rest of the page, still nothing hidden.
+   Why friendship — centered editorial statement (no photo, no colour block)
+   Fourth pass. Not the tab panel (Paul didn't know it was clickable), not a
+   generic photo-left media block, not a photo background. Stays on the same
+   calm tint as its neighbours; its weight comes from scale and whitespace,
+   not a background. Three stats as one clean band beneath. Non-interactive.
    -------------------------------------------------------------------------- */
-.why-section { padding-block: var(--section-y); background: var(--cream); border-top: 1px solid var(--line); }
+.why-section { padding-block: 104px; background: var(--cream); border-top: 1px solid var(--line); }
 
-.why-media .media-img img {
-  border-radius: var(--radius-card);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, .1);
+.why-lede { max-width: 760px; margin-inline: auto; text-align: center; }
+.why-lede h2 { margin-bottom: 20px; }
+.why-statement {
+  font-size: clamp(1.35rem, 2.4vw, 1.7rem);
+  line-height: 1.5;
+  color: var(--ink);
+  margin-bottom: 30px;
 }
-.why-media .media-body p { color: var(--ink-muted); margin-bottom: 22px; }
 
-.why-stats { margin-top: 56px; gap: 36px; }
-/* .stat / .stat-icon / .stat-num / .stat-label come from friendsco.css.
-   Icon circles there default to a lime-tint fill, which disappears on this
-   section's lime-tint background — swap to white so they still read. */
-.why-stats .stat-icon { background: var(--white); box-shadow: 0 2px 8px rgba(26, 42, 66, .08); }
-.why-stats .stat-num { font-size: 2.6rem; }
+.why-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 900px;
+  margin: 64px auto 0;
+  text-align: center;
+}
+.why-stat { padding: 0 8px; }
+.why-stat-num { font-size: 3rem; font-weight: 800; line-height: 1; color: var(--magenta); margin-bottom: 10px; }
+.why-stat-label { font-size: var(--fs-small); color: var(--ink-muted); line-height: 1.5; }
+
+@media (max-width: 640px) {
+  .why-section { padding-block: 72px; }
+  .why-stats { grid-template-columns: 1fr; gap: 28px; margin-top: 44px; }
+}
 
 /* --------------------------------------------------------------------------
    Friendship services — colour tiles

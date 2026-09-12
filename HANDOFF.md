@@ -416,3 +416,14 @@ a fixed `2704px` rather than `cover`.
   progress, even when it's the thing making later work fast. Ship a page early.
 - Be straight about gaps. She'd rather hear "this section is placeholder" than find out
   when Paul does.
+
+---
+
+## ⚠️ build.py has drifted from the live pages — do NOT rebuild blindly
+
+As of 2026-09-12, the HTML pages have been hand-edited since `build.py` last ran.
+Running `python build.py` OVERWRITES that work — it regenerated ~10 pages from
+older specs and dropped ~400 lines of hand edits. **Edit the HTML files
+directly.** If you need `build.py` again, first reconcile its PAGES specs with
+the current HTML, or you will lose hand work. (`index.html` / the home page is
+not in `build.py` at all — it is authored by hand.)

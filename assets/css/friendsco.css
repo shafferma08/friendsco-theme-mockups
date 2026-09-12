@@ -259,6 +259,14 @@ h6 { font-size: var(--fs-h6); font-weight: var(--fw-secondary); line-height: 1.4
 .section-navy  { background: var(--blue-dark); color: var(--white); }
 .section-blue   { background: var(--blue);    color: var(--white); }
 .section-magenta{ background: var(--magenta); color: var(--white); }
+
+/* Adjacent light sections get a hairline so stacked sections stay distinct
+   WITHOUT switching background colour — replaces the old tint / blue-tint
+   zebra that read as too much section-to-section colour change. */
+.section-tint + .section-tint { border-top: 1px solid var(--line); }
+.section-white + .section-white,
+.section-tint + .section-white,
+.section-white + .section-tint { border-top: 1px solid var(--line-grey); }
 .section-navy h1, .section-navy h2, .section-navy h3, .section-navy h4,
 .section-blue h1, .section-blue h2, .section-blue h3, .section-blue h4,
 .section-magenta h1, .section-magenta h2, .section-magenta h3, .section-magenta h4 {

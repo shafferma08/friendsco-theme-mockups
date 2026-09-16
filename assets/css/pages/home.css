@@ -116,25 +116,6 @@
 .hero-audio-ctrl:hover { background: rgba(255,255,255,.28); }
 
 /* --------------------------------------------------------------------------
-   Trust strip — floats as a frosted-glass bar over the hero's lower edge
-   instead of sitting below it as a solid block. Base look (layout, logos)
-   comes from chrome.css; this just lifts it and makes it transparent.
-   -------------------------------------------------------------------------- */
-.trust-strip-float {
-  position: relative;
-  z-index: 3;
-  max-width: 900px;
-  margin: -32px auto 0;
-  background: rgba(255,255,255,.78);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,.6);
-  border-bottom: 1px solid rgba(255,255,255,.6);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-pop);
-}
-
-/* --------------------------------------------------------------------------
    Mission band
    -------------------------------------------------------------------------- */
 .mission-band { padding-block: 70px; background: var(--cream); text-align: center; }
@@ -496,7 +477,6 @@
   .testimonial-grid { grid-template-columns: 1fr; }
   .news-item { grid-template-columns: 1fr; }
   .news-item-image { width: 100%; }
-  .trust-strip-float { margin-top: -20px; border-radius: var(--radius-btn); }
   .testimonial-mark { width: 220px; opacity: .1; }
   .why-stats { margin-top: 40px; }
 }
